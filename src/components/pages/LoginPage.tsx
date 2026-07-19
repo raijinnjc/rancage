@@ -86,10 +86,10 @@ export function LoginPage() {
             <KujangLogo size={28} className="text-[#C5962A]" />
           </div>
           <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 uppercase">
-            Sistem Kredensial Tatar Sunda
+            Jalur Pemerintah (Credential Access)
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
-            Masukkan kredensial resmi Pemerintah Daerah Provinsi Jawa Barat Anda.
+            Akses eksklusif By-Name-By-Address (BNBA) yang diproteksi oleh log audit dan enkripsi tingkat tinggi untuk eksekutif daerah.
           </p>
         </div>
 

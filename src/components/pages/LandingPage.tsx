@@ -25,8 +25,8 @@ export function LandingPage() {
           Kecerdasan Keputusan untuk <span className="text-blue-600">Penanggulangan Kemiskinan</span>
         </h1>
         
-        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-          RANCAGE (Regional Analytics for Collaborative Governance and Equity) mengoordinasikan analisis spasial, model prediksi Machine Learning, dan indeks deprivasi multi-dimensi guna membantu para pengambil kebijakan di Jawa Barat.
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed text-justify sm:text-center">
+          RANCAGE (<span className="font-semibold text-slate-700 dark:text-slate-300">Ruang Analisis Navigasi Celah Agregat dan Gini Empiris</span>) bukanlah sistem rival yang berupaya menggantikan P3KE atau DTKS, melainkan platform intelijen kebijakan lapisan pelengkap (<em>complementary intelligence layer</em>) yang bertugas menambal "ruang gelap" fragmentasi data antar-lembaga serta mengkalibrasi ulang intervensi bansos agar responsif terhadap anomali meningkatnya kedalaman kemiskinan (P1) di tengah tingginya Gini Ratio Jawa Barat.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
@@ -76,8 +76,8 @@ export function LandingPage() {
           />
           <KpiCard
             title="Ketimpangan (Gini)"
-            value="0,412"
-            change="+0,003"
+            value="0,416"
+            change="+0,004"
             trend="up"
             trendDirection="negative"
             description="Rasio ketimpangan distribusi konsumsi provinsi."
@@ -102,9 +102,9 @@ export function LandingPage() {
           <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             1
           </div>
-          <h3 className="text-sm font-semibold tracking-tight relative z-10">Diagnosis Berbasis Bukti</h3>
+          <h3 className="text-sm font-semibold tracking-tight relative z-10">Jalur Publik Terbuka (Open Access)</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
-            Mendekomposisi ketimpangan wilayah menggunakan dataset resmi BPS dan model indeks Theil untuk memetakan penyumbang disparitas geografis.
+            Fokus pada <strong>mitigasi stigmatisasi wilayah</strong>. Menyajikan data agregat anonim (Dekomposisi Theil, Tipologi Kuadran, Tren P0) bagi peneliti dan publik tanpa mengekspos identitas KPM tingkat mikro.
           </p>
         </div>
 
@@ -115,9 +115,9 @@ export function LandingPage() {
           <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             2
           </div>
-          <h3 className="text-sm font-semibold tracking-tight relative z-10">Penargetan Mikro Prediktif</h3>
+          <h3 className="text-sm font-semibold tracking-tight relative z-10">Jalur Pemerintah (Credential Access)</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
-            Menerapkan klasifikasi Gradient Boosting Machine (GBM) yang diaudit untuk mengestimasi skor kesejahteraan rumah tangga Proxy Means Test (PMT).
+            Akses <strong>By-Name-By-Address (BNBA) Lengkap</strong> untuk eksekutif daerah. Dilengkapi fitur Pemilihan Sampel Rumah Tangga dan Simulasi Dampak Statis untuk menguji efektivitas biaya (cost-effectiveness) sebelum penyaluran bansos.
           </p>
         </div>
 
@@ -128,9 +128,9 @@ export function LandingPage() {
           <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             3
           </div>
-          <h3 className="text-sm font-semibold tracking-tight">Kesesuaian Kebijakan Algoritmik</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Mensimulasikan dan mencocokkan program fiskal wilayah dengan sasaran penduduk miskin untuk memaksimalkan efisiensi perlindungan sosial.
+          <h3 className="text-sm font-semibold tracking-tight relative z-10">Mesin Penggerak: Modul PMT-ML</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
+            Algoritma <em>Gradient Boosting</em> mengekstraksi bobot variabel proxy antara Susenas dan Regsosek tanpa integrasi NIK. Model ini menghancurkan bias geografis dengan fokus membedah varians kesejahteraan rumah tangga (<em>T_Within 89,44%</em>).
           </p>
         </div>
       </section>
