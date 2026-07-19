@@ -53,61 +53,61 @@ const CONTEXT_DATA: Record<string, Record<string, { stats: string; districts: st
 const FALLBACK_DATA: Record<string, Record<string, { narrative: string; focus: string; actionableStep: string }>> = {
   '2026': {
     disparity: {
-      narrative: 'Within-district inequality stands at 89.4% of total provincial disparity. This indicates that inequality is increasingly driven by disparities within districts rather than between districts. Broader administrative zoning is no longer sufficient.',
-      focus: 'Household-level targeting & basic micro-assets (sanitation, water grids).',
-      actionableStep: 'Reallocate 14.5% of region-wide general municipal support funds directly into household-level clean water injections for deciles D1-D2 in Priangan Timur.',
+      narrative: 'Ketimpangan dalam kelompok (Within-district) menyumbang 89,4% dari total disparitas provinsi. Hal ini menunjukkan bahwa ketimpangan semakin didorong oleh disparitas di dalam kabupaten/kota alih-alih antar wilayah. Zonasi administratif yang luas tidak lagi memadai.',
+      focus: 'Penargetan tingkat rumah tangga & aset mikro dasar (sanitasi, jaringan air).',
+      actionableStep: 'Realokasi 14,5% dari dana dukungan umum kabupaten seluruh wilayah langsung ke injeksi air bersih tingkat rumah tangga untuk desil D1-D2 di Priangan Timur.',
     },
     spatial: {
-      narrative: 'GIS coordinate clusters show severe poverty rates concentrated heavily in the southern agricultural belt. Kabupaten Kuningan and Indramayu show persistent pockets with headcount rates exceeding 12.5%.',
-      focus: 'Priority infrastructure & agricultural logistics hubs.',
-      actionableStep: 'Launch rural sanitation pipeline projects in extreme southern Sukabumi and Tasikmalaya with designated budget line items in the Q3 fiscal revision.',
+      narrative: 'Klaster koordinat GIS menunjukkan tingkat kemiskinan parah terkonsentrasi sangat padat di sabuk pertanian selatan. Kabupaten Kuningan dan Indramayu menunjukkan kantong-kantong persisten dengan rasio headcount melebihi 12,5%.',
+      focus: 'Infrastruktur prioritas & hub logistik pertanian.',
+      actionableStep: 'Luncurkan proyek jalur pipa sanitasi pedesaan di daerah ekstrem selatan Sukabumi dan Tasikmalaya dengan alokasi anggaran khusus pada revisi fiskal Q3.',
     },
     targeting: {
-      narrative: 'Inclusion accuracy has advanced to 91.3% utilizing Gradient Boosting calibrations. However, the exclusion rate remains at 8.7% for isolated rural settlements due to stale civil registry indexes.',
-      focus: 'Active civil registry synchronization & mobile PMT squads.',
-      actionableStep: 'Deploy Bappeda civil registry vehicles to physically update DTKS lists in Category IV districts, targeting 24,000 households.',
+      narrative: 'Akurasi inklusi (Inclusion accuracy) telah mencapai 91,3% menggunakan kalibrasi Gradient Boosting. Namun, tingkat eksklusi (exclusion rate) tetap berada di 8,7% untuk pemukiman pedesaan terisolasi akibat indeks catatan sipil yang usang.',
+      focus: 'Sinkronisasi catatan sipil aktif & regu PMT bergerak.',
+      actionableStep: 'Kerahkan armada catatan sipil Bappeda untuk memutakhirkan daftar DTKS secara fisik di kabupaten Kategori IV, menargetkan 24.000 rumah tangga.',
     },
   },
   '2025': {
     disparity: {
-      narrative: 'Within-district inequality stood at 88.2% in 2025. Disparity is concentrated heavily in industrial-agricultural border zones. Growth benefits are pooling locally, creating wide gaps within single administrative zones.',
-      focus: 'Asset transfers and municipal skill training alignments.',
-      actionableStep: 'Expand local Padat Karya vocational training subsidies across high Gini districts to absorb local agricultural laborers.',
+      narrative: 'Ketimpangan dalam kelompok (Within-district) berada pada 88,2% di tahun 2025. Disparitas terkonsentrasi sangat padat di zona perbatasan industri-pertanian. Manfaat pertumbuhan terpusat secara lokal, menciptakan kesenjangan lebar dalam satu zona administratif.',
+      focus: 'Transfer aset dan penyelarasan pelatihan keterampilan kabupaten.',
+      actionableStep: 'Perluas subsidi pelatihan vokasi Padat Karya lokal di seluruh kabupaten dengan rasio Gini tinggi untuk menyerap buruh tani lokal.',
     },
     spatial: {
-      narrative: '2025 GIS historical benchmarks verify a heavy cluster in Cirebon Raya, driven by coastal fishing asset depreciation and seasonal agricultural job deficits.',
-      focus: 'Coastal micro-credit & cold chain infrastructure.',
-      actionableStep: 'Approve special emergency fishery equipment grants to fishermen cooperatives in Indramayu and Cirebon.',
+      narrative: 'Tolok ukur historis GIS 2025 memverifikasi klaster padat di Cirebon Raya, didorong oleh depresiasi aset perikanan pesisir dan defisit pekerjaan pertanian musiman.',
+      focus: 'Kredit mikro pesisir & infrastruktur rantai dingin (cold chain).',
+      actionableStep: 'Setujui hibah darurat peralatan perikanan khusus untuk koperasi nelayan di Indramayu dan Cirebon.',
     },
     targeting: {
-      narrative: 'Targeting accuracies averaged 90.8% in 2025. Machine Learning PMT cutoffs successfully blocked access to households in welfare decile D4 and above.',
-      focus: 'Strict enforcement of PMT cut-off boundaries.',
-      actionableStep: 'Publish audited targeting metrics to the provincial oversight board to secure continuing funding pipelines.',
+      narrative: 'Akurasi penargetan rata-rata mencapai 90,8% di 2025. Batas PMT Machine Learning berhasil memblokir akses ke rumah tangga di desil kesejahteraan D4 ke atas.',
+      focus: 'Penerapan ketat dari batas penargetan PMT.',
+      actionableStep: 'Publikasikan metrik penargetan yang diaudit ke dewan pengawas provinsi untuk mengamankan aliran pendanaan lanjutan.',
     },
   },
   '2024': {
     disparity: {
-      narrative: 'Within-district inequality contribution measured at 87.1% during the 2024 survey. Post-macroeconomic transition cycles have amplified micro-economic disparities inside industrial cities like Bekasi and Depok.',
-      focus: 'Urban safety net integration & cost of living adjustments.',
-      actionableStep: 'Implement basic commodity price subsidies in high-density urban wards showing high internal Gini coefficients.',
+      narrative: 'Kontribusi ketimpangan dalam kelompok (Within-district) terukur pada 87,1% selama survei 2024. Siklus transisi pasca-makroekonomi telah memperkuat disparitas mikroekonomi di dalam kota-kota industri seperti Bekasi dan Depok.',
+      focus: 'Integrasi jaring pengaman perkotaan & penyesuaian biaya hidup.',
+      actionableStep: 'Terapkan subsidi harga komoditas pokok di kelurahan perkotaan berpenduduk padat yang menunjukkan rasio Gini internal tinggi.',
     },
     spatial: {
-      narrative: '2024 survey coordinates indicate the highest severity clusters were in Kabupaten Tasikmalaya and Garut due to prolonged dry seasons disrupting harvest incomes.',
-      focus: 'Climate-resilient irrigation and social insurance.',
-      actionableStep: 'Establish a dry-season water transport contingency fund to prevent sudden household consumption declines in Priangan Timur.',
+      narrative: 'Koordinat survei 2024 mengindikasikan klaster dengan tingkat keparahan tertinggi berada di Kabupaten Tasikmalaya dan Garut akibat musim kemarau berkepanjangan yang mengganggu pendapatan panen.',
+      focus: 'Irigasi tahan iklim dan asuransi sosial.',
+      actionableStep: 'Bangun dana cadangan transportasi air musim kemarau untuk mencegah penurunan mendadak konsumsi rumah tangga di Priangan Timur.',
     },
     targeting: {
-      narrative: 'Targeting accuracy was recorded at 89.4%. Inclusion errors were predominantly driven by manual paper registries before the transition to fully automated digital pipelines.',
-      focus: 'Legacy data digitization and cleansing.',
-      actionableStep: 'Execute complete digital migration of BPS rural rosters to the new secure centralized SQL database.',
+      narrative: 'Akurasi penargetan tercatat pada 89,4%. Inclusion error (kesalahan penyertaan) utamanya didorong oleh pendaftaran kertas manual sebelum transisi ke sistem digital yang terotomatisasi penuh.',
+      focus: 'Digitalisasi data lama (legacy) dan pembersihan data.',
+      actionableStep: 'Laksanakan migrasi digital lengkap dari daftar pedesaan BPS ke database SQL terpusat yang aman.',
     },
   },
 };
 
 const AXIS_LABELS: Record<string, string> = {
-  disparity: 'Theil Disparity Decomposition',
-  spatial: 'Spatial Hotspot Mapping',
-  targeting: 'Welfare Targeting Performance',
+  disparity: 'Dekomposisi Disparitas Theil',
+  spatial: 'Pemetaan Hotspot Spasial',
+  targeting: 'Kinerja Penargetan Kesejahteraan',
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -141,22 +141,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const contextData = CONTEXT_DATA[validYear]?.[axis] || CONTEXT_DATA['2026'][axis];
     const axisLabel = AXIS_LABELS[axis];
 
-    const prompt = `You are RANCAGE AI, a government Decision Support System policy analyst for West Java Province (Jawa Barat), Indonesia. You specialize in poverty alleviation and evidence-based policy analysis.
+    const prompt = `Anda adalah AI RANCAGE, seorang analis kebijakan Sistem Pendukung Keputusan pemerintah untuk Provinsi Jawa Barat, Indonesia. Anda ahli dalam penanggulangan kemiskinan dan analisis kebijakan berbasis bukti.
 
-ANALYSIS CONTEXT:
-- Analysis Type: ${axisLabel}
-- Evaluation Year: ${validYear}
-- Key Statistics: ${contextData.stats}
-- District Data: ${contextData.districts}
+KONTEKS ANALISIS:
+- Jenis Analisis: ${axisLabel}
+- Tahun Evaluasi: ${validYear}
+- Statistik Utama: ${contextData.stats}
+- Data Kabupaten/Kota: ${contextData.districts}
 
-TASK:
-Generate a policy analysis response in English with exactly 3 fields. Be specific, data-driven, and actionable. Reference actual district names and statistics.
+TUGAS:
+Hasilkan respons analisis kebijakan dalam Bahasa Indonesia dengan tepat 3 bidang (fields). Buatlah spesifik, berbasis data, dan dapat ditindaklanjuti. Rujuk nama kabupaten dan statistik yang relevan.
 
-Respond ONLY with a valid JSON object (no markdown, no code fences) with these exact keys:
+Tanggapi HANYA dengan objek JSON yang valid (tanpa markdown, tanpa blok kode) dengan kunci-kunci persis berikut:
 {
-  "narrative": "A 2-3 sentence analytical narrative summarizing the key findings. Include specific percentages and district names. Be concise but insightful.",
-  "focus": "A single sentence identifying the strategic focus area for policy intervention.",
-  "actionableStep": "A single specific, concrete policy directive that a provincial governor could immediately authorize. Include target numbers, district names, and fiscal implications."
+  "narrative": "Sebuah narasi analitik 2-3 kalimat yang merangkum temuan utama. Sertakan persentase spesifik dan nama kabupaten/kota. Padat namun mendalam.",
+  "focus": "Kalimat tunggal yang mengidentifikasi area fokus strategis untuk intervensi kebijakan.",
+  "actionableStep": "Sebuah arahan kebijakan spesifik dan konkret yang dapat segera disahkan oleh gubernur provinsi. Sertakan angka target, nama kabupaten, dan implikasi fiskal."
 }`;
 
     const response = await ai.models.generateContent({

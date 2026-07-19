@@ -22,7 +22,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       
       {/* Top Banner indicating public disclosure mode */}
       <div className="bg-blue-600 text-white text-[10px] font-mono uppercase tracking-wider py-1 text-center font-semibold">
-        RANCAGE PUBLIC DISCLOSURE PORTAL | DATA SENSITIVITY LEVEL: UNCLASSIFIED (MACRO-ONLY)
+        PORTAL KETERBUKAAN PUBLIK RANCAGE | TINGKAT SENSITIVITAS DATA: TERBUKA (HANYA MAKRO)
       </div>
 
       {/* Main header navigation */}
@@ -35,7 +35,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
           </div>
           <div className="flex flex-col text-left">
             <span className="text-xs font-bold tracking-wider leading-none">RANCAGE DSS</span>
-            <span className="text-[8px] font-mono text-kujang-gold uppercase mt-0.5">Jawa Barat Poverty Alleviation</span>
+            <span className="text-[8px] font-mono text-kujang-gold uppercase mt-0.5">Penanggulangan Kemiskinan Jawa Barat</span>
           </div>
         </button>
 
@@ -45,13 +45,13 @@ export function PublicLayout({ children }: PublicLayoutProps) {
             onClick={() => navigateTo('dashboard')}
             className="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors"
           >
-            Public Indicators
+            Indikator Publik
           </button>
           <button
             onClick={() => navigateTo('recommendation')}
             className="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors"
           >
-            Policy Forecasts
+            Prakiraan Kebijakan
           </button>
         </div>
 
@@ -83,14 +83,14 @@ export function PublicLayout({ children }: PublicLayoutProps) {
               onClick={() => navigateTo('dashboard')}
               className="text-xs font-semibold px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200 rounded-sm transition-colors"
             >
-              Back to Workspace
+              Kembali ke Ruang Kerja
             </button>
           ) : (
             <button
               onClick={() => navigateTo('login')}
               className="text-xs font-semibold px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors"
             >
-              Secure Access Sign-In
+              Masuk Akses Aman
             </button>
           )}
         </div>
@@ -110,7 +110,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
           <div className="flex items-center gap-1.5 text-left">
             <ShieldAlert className="h-4 w-4 text-blue-500" />
             <span>
-              Disclaimer: All microdata searches are restricted to authenticated personnel under statutory state compliance UU No. 27/2022 on Personal Data Protection.
+              Penafian: Semua pencarian mikrodata dibatasi untuk personel yang diautentikasi di bawah kepatuhan undang-undang negara UU No. 27/2022 tentang Pelindungan Data Pribadi.
             </span>
           </div>
           <div>
