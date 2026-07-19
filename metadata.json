@@ -1,0 +1,6 @@
+{
+  "name": "RANCAGE",
+  "description": "Decision Support System (DSS) for evidence-based poverty alleviation and policy targeting in West Java, Indonesia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
