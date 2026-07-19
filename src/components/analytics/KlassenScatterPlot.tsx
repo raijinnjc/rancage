@@ -168,10 +168,9 @@ export function KlassenScatterPlot() {
                       <Cell
                         key={`cell-${index}`}
                         fill={fill}
-                        stroke={isSelected ? '#000' : 'none'}
-                        strokeWidth={2}
+                        stroke={isSelected ? '#ffffff' : 'none'}
+                        strokeWidth={isSelected ? 2 : 0}
                         className="cursor-pointer transition-all duration-150"
-                        r={isSelected ? 10 : 6}
                       />
                     );
                   })}

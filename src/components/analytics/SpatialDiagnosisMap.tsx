@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   MapPin, 
   Eye
 } from 'lucide-react';
-import { MapContainer, TileLayer, CircleMarker, Tooltip, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Tooltip, Polyline, GeoJSON } from 'react-leaflet';
 import { useNavigationStore } from '../../store/navigationStore.ts';
 import { useThemeStore } from '../../store/themeStore.ts';
 import { DistrictDiagnosisDetail } from './diagnosisData.ts';
@@ -53,6 +53,14 @@ export function SpatialDiagnosisMap({
   const { navigateTo, setSelectedDistrictId } = useNavigationStore();
   const { mode } = useThemeStore();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [geoData, setGeoData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/jawa_barat.geojson')
+      .then(res => res.json())
+      .then(data => setGeoData(data))
+      .catch(err => console.error('Failed to load GeoJSON:', err));
+  }, []);
 
   const FALLBACK_DISTRICT: DistrictDiagnosisDetail = {
     id: '3206',
@@ -141,6 +149,17 @@ export function SpatialDiagnosisMap({
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               url={tileLayerUrl}
             />
+            {geoData && (
+              <GeoJSON 
+                data={geoData} 
+                style={{
+                  color: mode === 'dark' ? '#475569' : '#cbd5e1',
+                  weight: 1.5,
+                  fillOpacity: mode === 'dark' ? 0.05 : 0.1,
+                  fillColor: mode === 'dark' ? '#0f172a' : '#f8fafc',
+                }} 
+              />
+            )}
             
             {/* Draw topological neighbor links first */}
             {districtsData.map((d) => {

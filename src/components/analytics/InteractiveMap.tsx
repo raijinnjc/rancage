@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AlertTriangle, 
   ExternalLink,
   Layers,
   Map as MapIcon
 } from 'lucide-react';
-import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Tooltip, GeoJSON } from 'react-leaflet';
 import { WEST_JAVA_DISTRICTS } from '../../constants/index.ts';
 import { formatPercentage } from '../../utils/format.ts';
 import { useNavigationStore } from '../../store/navigationStore.ts';
@@ -46,8 +46,16 @@ export function InteractiveMap() {
   const { mode } = useThemeStore();
   const [selectedId, setSelectedId] = useState<string>(() => localStorage.getItem('selectedDistrictId') || '3202');
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [geoData, setGeoData] = useState<any>(null);
 
-  const selectedDistrict = WEST_JAVA_DISTRICTS.find((d) => d.id === selectedId) || WEST_JAVA_DISTRICTS[1];
+  useEffect(() => {
+    fetch('/jawa_barat.geojson')
+      .then(res => res.json())
+      .then(data => setGeoData(data))
+      .catch(err => console.error('Failed to load GeoJSON:', err));
+  }, []);
+
+  const selectedDistrict = WEST_JAVA_DISTRICTS.find((d) => d.id === selectedId) || WEST_JAVA_DISTRICTS[0];
 
   const getPovertyColorHex = (p0: number) => {
     if (p0 < 5.0) return '#10b981'; // emerald-500
@@ -141,6 +149,17 @@ export function InteractiveMap() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               url={tileLayerUrl}
             />
+            {geoData && (
+              <GeoJSON 
+                data={geoData} 
+                style={{
+                  color: mode === 'dark' ? '#475569' : '#cbd5e1',
+                  weight: 1,
+                  fillOpacity: mode === 'dark' ? 0.1 : 0.2,
+                  fillColor: mode === 'dark' ? '#1e293b' : '#f8fafc',
+                }} 
+              />
+            )}
             {WEST_JAVA_DISTRICTS.map((d) => {
               const coord = REAL_MAP_COORDS[d.id];
               if (!coord) return null;
