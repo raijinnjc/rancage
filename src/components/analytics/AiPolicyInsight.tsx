@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Brain, Clipboard, HelpCircle, CheckCircle2, RotateCw, RefreshCw } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, Brain, CheckCircle2, RotateCw, RefreshCw, AlertTriangle } from 'lucide-react';
 import { cn } from '../../utils/cn.ts';
 
 interface AiPolicyInsightProps {
@@ -14,11 +14,21 @@ interface InsightAxis {
   actionableStep: string;
 }
 
+interface AiResponse {
+  narrative: string;
+  focus: string;
+  actionableStep: string;
+  source: 'gemini' | 'fallback';
+  message?: string;
+}
+
 export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProps) {
   const [activeAxis, setActiveAxis] = useState<'disparity' | 'spatial' | 'targeting'>('disparity');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
-  const [currentNarrative, setCurrentNarrative] = useState<string>('');
+  const [aiResponse, setAiResponse] = useState<AiResponse | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
+  // Hardcoded fallback data (original static content)
   const axesData: Record<string, Record<'disparity' | 'spatial' | 'targeting', InsightAxis>> = {
     '2026': {
       disparity: {
@@ -91,13 +101,49 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
     }
   };
 
-  const activeData = (axesData[evaluationYear] || axesData['2026'])[activeAxis];
+  // Determine what data to display: AI response (if available for current axis) or fallback
+  const fallbackData = (axesData[evaluationYear] || axesData['2026'])[activeAxis];
+  const displayData = (aiResponse && aiResponse.source)
+    ? { narrative: aiResponse.narrative, focus: aiResponse.focus, actionableStep: aiResponse.actionableStep }
+    : fallbackData;
+  const isAiGenerated = aiResponse?.source === 'gemini';
 
-  const handleRecalculate = () => {
+  // Call Gemini API via serverless function
+  const handleRegenerate = async () => {
     setIsGenerating(true);
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/ai/policy-insight', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ axis: activeAxis, year: evaluationYear }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API returned ${response.status}`);
+      }
+
+      const data: AiResponse = await response.json();
+      setAiResponse(data);
+
+      if (data.source === 'fallback' && data.message) {
+        setErrorMessage(data.message);
+      }
+    } catch (error: any) {
+      console.error('[AiPolicyInsight] Failed to generate:', error);
+      setErrorMessage('Gagal terhubung ke AI. Menampilkan data tersimpan.');
+      setAiResponse(null);
+    } finally {
       setIsGenerating(false);
-    }, 900);
+    }
+  };
+
+  // Handle axis tab change - reset AI response so user sees default first
+  const handleAxisChange = (axisKey: 'disparity' | 'spatial' | 'targeting') => {
+    setActiveAxis(axisKey);
+    setAiResponse(null);
+    setErrorMessage('');
   };
 
   return (
@@ -122,12 +168,12 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
         </div>
 
         <button
-          onClick={handleRecalculate}
+          onClick={handleRegenerate}
           disabled={isGenerating}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500/70 text-white text-xs font-semibold transition-colors"
         >
           <RefreshCw className={cn('h-3.5 w-3.5', isGenerating && 'animate-spin')} />
-          <span>{isGenerating ? 'Synthesizing...' : 'Regenerate Narrative'}</span>
+          <span>{isGenerating ? 'Generating with Gemini AI...' : '✨ Regenerate with AI'}</span>
         </button>
       </div>
 
@@ -140,11 +186,7 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
             return (
               <button
                 key={axisKey}
-                onClick={() => {
-                  setActiveAxis(axisKey);
-                  setIsGenerating(true);
-                  setTimeout(() => setIsGenerating(false), 300);
-                }}
+                onClick={() => handleAxisChange(axisKey)}
                 className={cn(
                   'px-3.5 py-2.5 text-left text-xs font-bold uppercase tracking-wider rounded-sm border transition-all whitespace-nowrap lg:whitespace-normal w-full',
                   isActive
@@ -163,17 +205,34 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
           {isGenerating ? (
             <div className="flex flex-col items-center justify-center py-8 space-y-2">
               <RotateCw className="h-6 w-6 text-blue-500 animate-spin" />
-              <span className="text-xs font-mono text-slate-400 font-bold uppercase tracking-widest">Generating Policy Memo...</span>
+              <span className="text-xs font-mono text-slate-400 font-bold uppercase tracking-widest">Querying Gemini AI Model...</span>
+              <span className="text-[10px] text-slate-300 dark:text-slate-600">Synthesizing policy narrative from regional indicators</span>
             </div>
           ) : (
             <div className="space-y-4 animate-in fade-in duration-200">
+              {/* AI Source Badge */}
+              {isAiGenerated && (
+                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 w-fit">
+                  <Sparkles className="h-3 w-3 text-emerald-500" />
+                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">AI Generated by Gemini</span>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {errorMessage && (
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 w-fit">
+                  <AlertTriangle className="h-3 w-3 text-amber-500" />
+                  <span className="text-[10px] font-medium text-amber-600 dark:text-amber-400">{errorMessage}</span>
+                </div>
+              )}
+
               {/* Main Narrative paragraph */}
               <div className="space-y-1">
                 <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
                   Analytical Narrative Memo ({evaluationYear} Survey)
                 </span>
                 <p className="text-xs text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-                  {activeData.narrative}
+                  {displayData.narrative}
                 </p>
               </div>
 
@@ -184,7 +243,7 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
                     Strategic Focus Area:
                   </span>
                   <p className="font-bold text-slate-900 dark:text-slate-50">
-                    {activeData.focus}
+                    {displayData.focus}
                   </p>
                 </div>
 
@@ -194,7 +253,7 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
                     Actionable Policy Directives:
                   </span>
                   <p className="font-semibold text-slate-900 dark:text-slate-100 leading-relaxed">
-                    {activeData.actionableStep}
+                    {displayData.actionableStep}
                   </p>
                 </div>
               </div>
