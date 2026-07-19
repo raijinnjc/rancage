@@ -2,6 +2,8 @@ import { Lock, HelpCircle, Eye, ShieldAlert, ArrowRight } from 'lucide-react';
 import { useNavigationStore } from '../../store/navigationStore.ts';
 import { useAuth } from '../../hooks/useAuth.ts';
 import { KpiCard } from '../ui/KpiCard.tsx';
+import { MegaMendungPattern } from '../ui/MegaMendungPattern.tsx';
+import { KujangLogo } from '../ui/KujangLogo.tsx';
 
 export function LandingPage() {
   const { navigateTo } = useNavigationStore();
@@ -10,11 +12,14 @@ export function LandingPage() {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="text-center py-12 space-y-6 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono border border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-900/50 dark:bg-blue-950/20 dark:text-blue-400">
-          <ShieldAlert className="h-3 w-3 animate-pulse" />
-          <span>SISTEM PENDUKUNG KEPUTUSAN KECERDASAN SOSIAL JAWA BARAT</span>
-        </div>
+      <section className="relative text-center py-16 space-y-6 mx-auto w-full overflow-hidden rounded-md border border-slate-100 dark:border-slate-800 bg-gradient-to-b from-blue-50/50 to-white dark:from-slate-900/50 dark:to-slate-950">
+        <MegaMendungPattern className="text-blue-500 opacity-[0.04] dark:opacity-[0.02]" />
+        
+        <div className="relative z-10 max-w-3xl mx-auto px-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono border border-kujang-gold/30 bg-kujang-gold/10 text-[#C5962A] dark:text-[#E2B750]">
+            <KujangLogo size={12} className="animate-pulse" />
+            <span>SISTEM PENDUKUNG KEPUTUSAN TATAR SUNDA</span>
+          </div>
         
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-sans">
           Kecerdasan Keputusan untuk <span className="text-blue-600">Penanggulangan Kemiskinan</span>
@@ -40,6 +45,7 @@ export function LandingPage() {
             <Lock className="h-4 w-4 text-blue-500" />
             Akses Aman Gov-ID
           </button>
+        </div>
         </div>
       </section>
 
@@ -89,28 +95,37 @@ export function LandingPage() {
 
       {/* Program Pillars / Information Architecture Explanation Cards */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3">
-          <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400 flex items-center justify-center font-bold">
+        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3 relative overflow-hidden group">
+          <div className="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <KujangLogo size={100} />
+          </div>
+          <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             1
           </div>
-          <h3 className="text-sm font-semibold tracking-tight">Diagnosis Berbasis Bukti</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <h3 className="text-sm font-semibold tracking-tight relative z-10">Diagnosis Berbasis Bukti</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
             Mendekomposisi ketimpangan wilayah menggunakan dataset resmi BPS dan model indeks Theil untuk memetakan penyumbang disparitas geografis.
           </p>
         </div>
 
-        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3">
-          <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400 flex items-center justify-center font-bold">
+        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3 relative overflow-hidden group">
+          <div className="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <KujangLogo size={100} />
+          </div>
+          <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             2
           </div>
-          <h3 className="text-sm font-semibold tracking-tight">Penargetan Mikro Prediktif</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <h3 className="text-sm font-semibold tracking-tight relative z-10">Penargetan Mikro Prediktif</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed relative z-10">
             Menerapkan klasifikasi Gradient Boosting Machine (GBM) yang diaudit untuk mengestimasi skor kesejahteraan rumah tangga Proxy Means Test (PMT).
           </p>
         </div>
 
-        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3">
-          <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400 flex items-center justify-center font-bold">
+        <div className="p-6 border border-slate-100 dark:border-slate-900 rounded-sm bg-white dark:bg-slate-950 space-y-3 relative overflow-hidden group">
+          <div className="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <KujangLogo size={100} />
+          </div>
+          <div className="h-8 w-8 rounded-full bg-blue-100/50 text-[#C5962A] border border-kujang-gold/20 flex items-center justify-center font-bold relative z-10">
             3
           </div>
           <h3 className="text-sm font-semibold tracking-tight">Kesesuaian Kebijakan Algoritmik</h3>

@@ -20,6 +20,7 @@ import { useAuth } from '../../hooks/useAuth.ts';
 import { NAVIGATION_ITEMS, SYSTEM_META } from '../../constants/index.ts';
 import { ScreenId } from '../../types/navigation.ts';
 import { cn } from '../../utils/cn.ts';
+import { KujangLogo } from './KujangLogo.tsx';
 
 /**
  * Maps static icon names to dynamic Lucide component nodes.
@@ -69,16 +70,16 @@ export function Sidebar() {
       {/* Brand Header */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-slate-900/60 shrink-0 bg-slate-950">
         <div className="flex items-center gap-2 overflow-hidden">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-blue-600 text-white font-bold text-sm">
-            R
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-blue-600/20 text-kujang-gold border border-kujang-gold/30 shadow-[0_0_10px_rgba(197,150,42,0.2)]">
+            <KujangLogo size={20} className="text-[#C5962A]" />
           </div>
           {isSidebarExpanded && (
             <div className="flex flex-col">
               <span className="text-xs font-bold text-white tracking-wide leading-none uppercase">
                 RANCAGE
               </span>
-              <span className="text-[9px] font-mono tracking-tighter text-blue-400 mt-0.5 uppercase">
-                Decision Support
+              <span className="text-[9px] font-mono tracking-tighter text-[#C5962A] mt-0.5 uppercase">
+                Tatar Sunda DSS
               </span>
             </div>
           )}

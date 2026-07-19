@@ -3,6 +3,8 @@ import { Lock, Mail, Shield, AlertTriangle, Key } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth.ts';
 import { useNavigationStore } from '../../store/navigationStore.ts';
 import { Modal } from '../ui/Modal.tsx';
+import { MegaMendungPattern } from '../ui/MegaMendungPattern.tsx';
+import { KujangLogo } from '../ui/KujangLogo.tsx';
 
 export function LoginPage() {
   const { login, error: authError, clearError } = useAuth();
@@ -76,15 +78,20 @@ export function LoginPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 uppercase">
-          Masuk Sistem Diaudit Pemerintah
-        </h2>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
-          Masukkan kredensial resmi Anda untuk mengakses ruang kerja perencanaan keluarga yang dibatasi.
-        </p>
-      </div>
+    <div className="space-y-6 relative rounded-md p-6 sm:p-8 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+      <MegaMendungPattern className="text-blue-500 opacity-[0.03] dark:opacity-[0.02]" />
+      <div className="relative z-10 space-y-6">
+        <div className="space-y-2 flex flex-col items-center text-center pb-4 border-b border-slate-100 dark:border-slate-900">
+          <div className="h-12 w-12 rounded-sm bg-blue-600/10 border border-kujang-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(197,150,42,0.15)]">
+            <KujangLogo size={28} className="text-[#C5962A]" />
+          </div>
+          <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 uppercase">
+            Sistem Kredensial Tatar Sunda
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+            Masukkan kredensial resmi Pemerintah Daerah Provinsi Jawa Barat Anda.
+          </p>
+        </div>
 
       {(localError || authError) && (
         <div className="p-3 bg-rose-50 border border-rose-200 dark:bg-rose-950/20 dark:border-rose-900/50 text-rose-700 dark:text-rose-400 rounded-sm text-xs space-y-1">
@@ -166,12 +173,13 @@ export function LoginPage() {
 
         <button
           type="submit"
-          className="w-full h-10 flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-800 dark:bg-slate-50 dark:text-slate-950 dark:hover:bg-slate-200 text-white text-xs font-bold rounded-sm transition-colors mt-6 shadow-sm uppercase tracking-wide"
+          className="w-full h-10 flex items-center justify-center gap-2 bg-[#C5962A] hover:bg-[#8B6508] text-white text-xs font-bold rounded-sm transition-colors mt-6 shadow-sm uppercase tracking-wide"
         >
           <Shield className="h-4 w-4" />
           Ajukan Masuk Gov-ID Aman
         </button>
       </form>
+      </div>
 
       {/* OTP Verification Modal Layer */}
       <Modal
