@@ -149,19 +149,50 @@ export function SpatialDiagnosisMap({
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               url={tileLayerUrl}
             />
-            {geoData && (
-              <GeoJSON 
-                data={geoData} 
-                style={{
-                  color: mode === 'dark' ? '#475569' : '#cbd5e1',
-                  weight: 1.5,
-                  fillOpacity: mode === 'dark' ? 0.05 : 0.1,
-                  fillColor: mode === 'dark' ? '#0f172a' : '#f8fafc',
-                }} 
-              />
-            )}
-            
-            {/* Draw topological neighbor links first */}
+            {geoData && geoData.features.map((feature: any, idx: number) => {
+              const d = districtsData.find(dist => dist.name === feature.properties.name);
+              if (!d) return null;
+
+              const isSelected = selectedDistrictId === d.id;
+              const isHovered = hoveredId === d.id;
+              
+              return (
+                <GeoJSON
+                  key={d.id}
+                  data={feature}
+                  style={{
+                    color: isSelected ? '#3b82f6' : (mode === 'dark' ? '#334155' : '#cbd5e1'),
+                    weight: isSelected ? 2.5 : (isHovered ? 2 : 1.5),
+                    fillOpacity: isSelected ? 0.8 : (isHovered ? 0.6 : (mode === 'dark' ? 0.2 : 0.4)),
+                    fillColor: getPriorityColorHex(d.priorityScore),
+                    className: 'transition-all duration-300'
+                  }}
+                  eventHandlers={{
+                    click: () => onSelectDistrict(d.id),
+                    mouseover: () => setHoveredId(d.id),
+                    mouseout: () => setHoveredId(null),
+                  }}
+                >
+                  <Tooltip direction="top" offset={[0, -10]} opacity={1} className="custom-leaflet-tooltip" sticky>
+                    <div className="bg-slate-950 text-white p-1 -m-1 rounded shadow-lg text-[11px] font-mono min-w-[150px]">
+                      <p className="font-bold border-b border-slate-800 pb-1 mb-1 text-xs text-blue-400">{d.name}</p>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-400">Skor Prioritas:</span>
+                        <span className="font-bold text-white">{d.priorityScore} / 100</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-400">Kemiskinan P0:</span>
+                        <span className="font-bold text-slate-200">{d.p0.toFixed(2)}%</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-400">Tipologi:</span>
+                        <span className="font-bold text-slate-300">Kuadran {d.typology}</span>
+                      </div>
+                    </div>
+                  </Tooltip>
+                </GeoJSON>
+              );
+            })}
             {districtsData.map((d) => {
               const coord = REAL_MAP_COORDS[d.id];
               if (!coord) return null;
@@ -195,53 +226,6 @@ export function SpatialDiagnosisMap({
               });
             })}
 
-            {/* Render District Nodes */}
-            {districtsData.map((d) => {
-              const coord = REAL_MAP_COORDS[d.id];
-              if (!coord) return null;
-
-              const isSelected = selectedDistrictId === d.id;
-              const isHovered = hoveredId === d.id;
-              const isCapital = d.name.includes('Kota');
-              
-              const baseRadius = isCapital ? 10 : 15;
-              const radius = isSelected ? baseRadius + 4 : isHovered ? baseRadius + 2 : baseRadius;
-
-              return (
-                <CircleMarker
-                  key={d.id}
-                  center={[coord.lat, coord.lng]}
-                  radius={radius}
-                  fillOpacity={isSelected ? 0.9 : 0.7}
-                  fillColor={getPriorityColorHex(d.priorityScore)}
-                  color={isSelected ? '#3b82f6' : '#ffffff'}
-                  weight={isSelected ? 3 : 1}
-                  eventHandlers={{
-                    click: () => onSelectDistrict(d.id),
-                    mouseover: () => setHoveredId(d.id),
-                    mouseout: () => setHoveredId(null),
-                  }}
-                >
-                  <Tooltip direction="top" offset={[0, -10]} opacity={1}>
-                    <div className="bg-slate-950 text-white p-1 -m-1 rounded shadow-lg text-[11px] font-mono">
-                      <p className="font-bold border-b border-slate-800 pb-1 mb-1 text-xs text-blue-400">{d.name}</p>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-slate-400">Skor Prioritas:</span>
-                        <span className="font-bold text-white">{d.priorityScore} / 100</span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-slate-400">Kemiskinan P0:</span>
-                        <span className="font-bold text-slate-200">{d.p0.toFixed(2)}%</span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span className="text-slate-400">Tipologi:</span>
-                        <span className="font-bold text-slate-300">Kuadran {d.typology}</span>
-                      </div>
-                    </div>
-                  </Tooltip>
-                </CircleMarker>
-              );
-            })}
           </MapContainer>
         </div>
       </div>

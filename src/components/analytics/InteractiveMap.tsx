@@ -149,44 +149,32 @@ export function InteractiveMap() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
               url={tileLayerUrl}
             />
-            {geoData && (
-              <GeoJSON 
-                data={geoData} 
-                style={{
-                  color: mode === 'dark' ? '#475569' : '#cbd5e1',
-                  weight: 1,
-                  fillOpacity: mode === 'dark' ? 0.1 : 0.2,
-                  fillColor: mode === 'dark' ? '#1e293b' : '#f8fafc',
-                }} 
-              />
-            )}
-            {WEST_JAVA_DISTRICTS.map((d) => {
-              const coord = REAL_MAP_COORDS[d.id];
-              if (!coord) return null;
+            {geoData && geoData.features.map((feature: any, idx: number) => {
+              const d = WEST_JAVA_DISTRICTS.find(dist => dist.name === feature.properties.name);
+              if (!d) return null;
 
               const isSelected = selectedId === d.id;
               const isHovered = hoveredId === d.id;
               
-              // Scale bubble size by population
-              const baseRadius = d.name.startsWith('Kota') ? 12 : 18;
-              const radius = isSelected ? baseRadius + 4 : isHovered ? baseRadius + 2 : baseRadius;
-
+              // Instead of CircleMarker, we make the entire Polygon interactive
               return (
-                <CircleMarker
+                <GeoJSON
                   key={d.id}
-                  center={[coord.lat, coord.lng]}
-                  radius={radius}
-                  fillOpacity={isSelected ? 0.9 : 0.7}
-                  fillColor={getPovertyColorHex(d.p0)}
-                  color={isSelected ? '#3b82f6' : '#ffffff'}
-                  weight={isSelected ? 3 : 1}
+                  data={feature}
+                  style={{
+                    color: isSelected ? '#3b82f6' : (mode === 'dark' ? '#334155' : '#cbd5e1'),
+                    weight: isSelected ? 2.5 : (isHovered ? 2 : 1),
+                    fillOpacity: isSelected ? 0.8 : (isHovered ? 0.6 : 0.4),
+                    fillColor: getPovertyColorHex(d.p0),
+                    className: 'transition-all duration-300'
+                  }}
                   eventHandlers={{
                     click: () => handleDistrictClick(d.id),
                     mouseover: () => setHoveredId(d.id),
                     mouseout: () => setHoveredId(null),
                   }}
                 >
-                  <Tooltip direction="top" offset={[0, -10]} opacity={1} className="custom-leaflet-tooltip">
+                  <Tooltip direction="top" offset={[0, -10]} opacity={1} className="custom-leaflet-tooltip" sticky>
                     <div className="bg-slate-950 text-white p-1 -m-1 rounded shadow-lg text-[11px]">
                       <p className="font-bold border-b border-slate-800 pb-1 mb-1 text-xs text-blue-400">{d.name}</p>
                       <div className="font-mono space-y-0.5">
@@ -199,7 +187,7 @@ export function InteractiveMap() {
                       </div>
                     </div>
                   </Tooltip>
-                </CircleMarker>
+                </GeoJSON>
               );
             })}
           </MapContainer>
