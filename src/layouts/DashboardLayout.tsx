@@ -9,7 +9,7 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+    <div className="flex h-screen overflow-hidden bg-slate-50 text-slate-900 dark:bg-batik-pattern dark:text-slate-50">
       {/* Sidebar - responsive on desktop, collapses to 64px, handles role checks internally */}
       <Sidebar />
 

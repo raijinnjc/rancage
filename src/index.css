@@ -7,6 +7,44 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-kujang-gold: #C5962A;
   --color-mega-blue: #1E3A5F;
+
+  /* Overriding Slate with Mega Mendung Navy Scale */
+  --color-slate-50: #f0f4f8;
+  --color-slate-100: #d9e2ec;
+  --color-slate-200: #bcccdc;
+  --color-slate-300: #9fb3c8;
+  --color-slate-400: #829ab1;
+  --color-slate-500: #627d98;
+  --color-slate-600: #486581;
+  --color-slate-700: #334e68;
+  --color-slate-800: #1b3046;
+  --color-slate-900: #122132;
+  --color-slate-950: #0a131e;
+
+  /* Overriding Blue with Mega Mendung Red Scale */
+  --color-blue-50: #ffebee;
+  --color-blue-100: #ffcdd2;
+  --color-blue-200: #ef9a9a;
+  --color-blue-300: #e57373;
+  --color-blue-400: #ef5350;
+  --color-blue-500: #f44336;
+  --color-blue-600: #e53935;
+  --color-blue-700: #d32f2f;
+  --color-blue-800: #c62828;
+  --color-blue-900: #b71c1c;
+  --color-blue-950: #7f0000;
+}
+
+@utility bg-batik-pattern {
+  background-color: var(--color-slate-950);
+  background-image: 
+    radial-gradient(circle at 100% 150%, var(--color-slate-900) 24%, transparent 25%),
+    radial-gradient(circle at 0% 150%, var(--color-slate-900) 24%, transparent 25%),
+    radial-gradient(circle at 50% 100%, var(--color-slate-800) 10%, transparent 11%),
+    radial-gradient(circle at 100% 50%, var(--color-slate-900) 24%, transparent 25%),
+    radial-gradient(circle at 0% 50%, var(--color-slate-900) 24%, transparent 25%),
+    radial-gradient(circle at 50% 0%, var(--color-slate-800) 10%, transparent 11%);
+  background-size: 80px 80px;
 }
 
 /* Custom Accessibility Rules (WCAG High Contrast overrides) */
