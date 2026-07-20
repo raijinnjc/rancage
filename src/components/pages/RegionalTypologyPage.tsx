@@ -42,6 +42,8 @@ import {
 } from 'lucide-react';
 
 import { PageHeader } from '../ui/PageHeader.tsx';
+import { MapContainer, TileLayer, GeoJSON, Tooltip as LeafletTooltip } from 'react-leaflet';
+import { useThemeStore } from '../../store/themeStore.ts';
 import { KpiCard } from '../ui/KpiCard.tsx';
 import { ChartContainer } from '../ui/ChartContainer.tsx';
 import { DataTable } from '../ui/DataTable.tsx';
@@ -83,10 +85,23 @@ const DISTRICT_MAP_COORDS: Record<string, { x: number; y: number; name: string; 
 
 export default function RegionalTypologyPage() {
   const { navigateTo, selectedDistrictId, setSelectedDistrictId, selectedYear: globalYear, selectedTypology: globalTypology } = useNavigationStore();
-
-  // State
+  const [hoveredDistrictId, setHoveredDistrictId] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string>('2025');
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
+  const [selectedPriorityLevel, setSelectedPriorityLevel] = useState<string>('All');
+  const [selectedUrbanRural, setSelectedUrbanRural] = useState<string>('All');
+  const [selectedTypology, setSelectedTypology] = useState<string>('All');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const [geoData, setGeoData] = useState<any>(null);
+  const { mode } = useThemeStore();
+
+  useEffect(() => {
+    fetch('/jawa_barat.geojson')
+      .then(res => res.json())
+      .then(data => setGeoData(data))
+      .catch(err => console.error('Failed to load GeoJSON:', err));
+  }, []);
 
   useEffect(() => {
     if (globalYear) {
@@ -99,11 +114,6 @@ export default function RegionalTypologyPage() {
       setSelectedRegion(globalTypology === 'ALL' ? 'All' : globalTypology);
     }
   }, [globalTypology]);
-  const [selectedUrbanRural, setSelectedUrbanRural] = useState<string>('All');
-  const [selectedPriorityLevel, setSelectedPriorityLevel] = useState<string>('All');
-  const [selectedTypology, setSelectedTypology] = useState<string>('All');
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [hoveredDistrictId, setHoveredDistrictId] = useState<string | null>(null);
 
   // Map Pan & Zoom State
   const [zoom, setZoom] = useState<number>(1.0);
@@ -124,7 +134,7 @@ export default function RegionalTypologyPage() {
 
   // Raw list for active year
   const rawDistricts = useMemo(() => {
-    return DISTRICT_DIAGNOSIS_DATA[selectedYear] || [];
+    return DISTRICT_DIAGNOSIS_DATA[selectedYear] || DISTRICT_DIAGNOSIS_DATA['2025'] || [];
   }, [selectedYear]);
 
   // Compute Active Year averages for relative thresholds
@@ -624,7 +634,6 @@ export default function RegionalTypologyPage() {
                           stroke={isSelected ? '#000000' : 'none'}
                           strokeWidth={isSelected ? 3 : 0}
                           className="cursor-pointer transition-all duration-150 hover:scale-125"
-                          r={isSelected ? 11 : 7}
                         />
                       );
                     })}
@@ -678,137 +687,62 @@ export default function RegionalTypologyPage() {
               </div>
             </div>
 
-            {/* SVG Map Container */}
-            <div className="h-72 w-full relative bg-slate-50/50 dark:bg-slate-900/10 border border-slate-50 dark:border-slate-900 rounded-xs flex items-center justify-center overflow-hidden">
-              <svg
-                viewBox={viewBoxString}
-                className="w-full h-full select-none transition-all duration-300 ease-out"
-                id="typology-svg-map"
+            {/* Map Container */}
+            <div className="h-72 w-full relative bg-slate-50/50 dark:bg-slate-900/10 border border-slate-50 dark:border-slate-900 rounded-xs flex items-center justify-center overflow-hidden z-0">
+              <MapContainer 
+                center={[-6.9204, 107.6046]} 
+                zoom={7} 
+                scrollWheelZoom={true} 
+                style={{ height: '100%', width: '100%', zIndex: 0 }}
               >
-                {/* Connection lines representing borders or corridors */}
-                {Object.entries(DISTRICT_MAP_COORDS).map(([id, coord]) => {
-                  return coord.neighbors.map((nId) => {
-                    const neighborCoord = DISTRICT_MAP_COORDS[nId];
-                    if (!neighborCoord) return null;
-                    return (
-                      <line
-                        key={`line-${id}-${nId}`}
-                        x1={coord.x}
-                        y1={coord.y}
-                        x2={neighborCoord.x}
-                        y2={neighborCoord.y}
-                        className="stroke-slate-200 dark:stroke-slate-800/60 transition-all"
-                        strokeWidth="1.2"
-                        strokeDasharray="2 3"
-                      />
-                    );
-                  });
-                })}
-
-                {/* Nodes */}
-                {computedDistricts.map((d) => {
-                  const coord = DISTRICT_MAP_COORDS[d.id];
-                  if (!coord) return null;
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                  url={mode === 'dark'
+                    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+                    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+                  }
+                />
+                {geoData && geoData.features.map((feature: any) => {
+                  const d = computedDistricts.find(dist => dist.name === feature.properties.name);
+                  if (!d) return null;
 
                   const isSelected = selectedDistrictId === d.id;
                   const isHovered = hoveredDistrictId === d.id;
-                  const isCapital = d.name.startsWith('Kota');
-                  const radius = isCapital ? 13 : 17;
-
-                  // Find color
-                  const fill = priorityColors[d.priorityLevel].fill;
-
+                  
                   return (
-                    <g
-                      key={`node-${d.id}`}
-                      onClick={() => setSelectedDistrictId(d.id)}
-                      onMouseEnter={() => setHoveredDistrictId(d.id)}
-                      onMouseLeave={() => setHoveredDistrictId(null)}
-                      className="cursor-pointer group"
+                    <GeoJSON
+                      key={d.id}
+                      data={feature}
+                      style={{
+                        color: isSelected ? '#3b82f6' : (mode === 'dark' ? '#334155' : '#cbd5e1'),
+                        weight: isSelected ? 2.5 : (isHovered ? 2 : 1),
+                        fillOpacity: isSelected ? 0.8 : (isHovered ? 0.6 : (mode === 'dark' ? 0.2 : 0.4)),
+                        fillColor: priorityColors[d.priorityLevel].fill,
+                        className: 'transition-all duration-300'
+                      }}
+                      eventHandlers={{
+                        click: () => setSelectedDistrictId(d.id),
+                        mouseover: () => setHoveredDistrictId(d.id),
+                        mouseout: () => setHoveredDistrictId(null),
+                      }}
                     >
-                      {/* Selection spinner */}
-                      {isSelected && (
-                        <circle
-                          cx={coord.x}
-                          cy={coord.y}
-                          r={radius + 5}
-                          className="fill-none stroke-blue-500 dark:stroke-blue-400 animate-spin"
-                          strokeWidth="1.5"
-                          strokeDasharray="3 3"
-                          style={{ transformOrigin: `${coord.x}px ${coord.y}px`, animationDuration: '10s' }}
-                        />
-                      )}
-
-                      {/* Node Shape */}
-                      {isCapital ? (
-                        <rect
-                          x={coord.x - radius}
-                          y={coord.y - radius}
-                          width={radius * 2}
-                          height={radius * 2}
-                          rx="3"
-                          fill={fill}
-                          className="transition-all duration-150 stroke-1 stroke-white dark:stroke-slate-900"
-                          style={{
-                            fillOpacity: isSelected ? 1.0 : isHovered ? 0.9 : 0.75,
-                            strokeWidth: isSelected ? 2 : 1,
-                          }}
-                        />
-                      ) : (
-                        <circle
-                          cx={coord.x}
-                          cy={coord.y}
-                          r={radius}
-                          fill={fill}
-                          className="transition-all duration-150 stroke-1 stroke-white dark:stroke-slate-900"
-                          style={{
-                            fillOpacity: isSelected ? 1.0 : isHovered ? 0.9 : 0.75,
-                            strokeWidth: isSelected ? 2 : 1,
-                          }}
-                        />
-                      )}
-
-                      {/* District ID or Short Name Label */}
-                      <text
-                        x={coord.x}
-                        y={coord.y + 3}
-                        className={`text-[8px] font-bold font-mono transition-all text-center pointer-events-none fill-white`}
-                        textAnchor="middle"
-                      >
-                        {coord.name.substring(0, 3).toUpperCase()}
-                      </text>
-                    </g>
+                      <LeafletTooltip direction="top" offset={[0, -10]} opacity={1} className="custom-leaflet-tooltip" sticky>
+                        <div className="bg-slate-950 text-white p-1.5 -m-1 rounded shadow-lg text-[11px] min-w-[140px]">
+                          <p className="font-bold border-b border-slate-800 pb-1 mb-1 text-xs text-blue-400">{d.name}</p>
+                          <div className="font-mono space-y-0.5 mt-1">
+                            <p className="flex justify-between gap-4 text-slate-300">
+                              P0: <span className="text-white font-bold">{d.p0.toFixed(2)}%</span>
+                            </p>
+                            <p className="flex justify-between gap-4 text-slate-300">
+                              Tipologi: <span className="text-white">Kuadran {d.typology}</span>
+                            </p>
+                          </div>
+                        </div>
+                      </LeafletTooltip>
+                    </GeoJSON>
                   );
                 })}
-              </svg>
-
-              {/* Map Floating HUD Controls */}
-              <div className="absolute bottom-3 left-3 p-1.5 bg-slate-950/95 text-white rounded-sm border border-slate-800 flex gap-1 shadow-lg">
-                <button onClick={handleZoomIn} className="p-1 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors" title="Perbesar"><ZoomIn className="h-3 w-3" /></button>
-                <button onClick={handleZoomOut} className="p-1 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors" title="Perkecil"><ZoomOut className="h-3 w-3" /></button>
-                <button onClick={handleResetZoom} className="p-1 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors" title="Atur Ulang Tampilan"><RotateCcw className="h-3 w-3" /></button>
-              </div>
-
-              {/* Map Hover Indicator Tooltip */}
-              {hoveredDistrictId && (
-                <div className="absolute bottom-3 right-3 bg-slate-950 text-white p-2.5 rounded-sm border border-slate-800 text-[10px] space-y-0.5 pointer-events-none shadow-md">
-                  {(() => {
-                    const d = computedDistricts.find((x) => x.id === hoveredDistrictId);
-                    if (!d) return null;
-                    return (
-                      <>
-                        <p className="font-bold text-blue-400">{d.name}</p>
-                        <p className="text-slate-400 uppercase text-[8px] font-mono">
-                          {d.priorityLevel === 'Priority I' ? 'Prioritas I' :
-                           d.priorityLevel === 'Priority II' ? 'Prioritas II' :
-                           d.priorityLevel === 'Priority III' ? 'Prioritas III' : 'Prioritas IV'}
-                        </p>
-                        <p className="text-slate-300 font-mono">Kemiskinan (P0): {d.p0}%</p>
-                      </>
-                    );
-                  })()}
-                </div>
-              )}
+              </MapContainer>
             </div>
           </div>
 

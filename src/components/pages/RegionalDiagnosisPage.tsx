@@ -686,7 +686,7 @@ export default function RegionalDiagnosisPage() {
           </h4>
         </div>
         <SpatialDiagnosisMap 
-          districtsData={DISTRICT_DIAGNOSIS_DATA[selectedYear] || []}
+          districtsData={DISTRICT_DIAGNOSIS_DATA[selectedYear] || DISTRICT_DIAGNOSIS_DATA['2025'] || []}
           selectedDistrictId={selectedDistrictId === 'All' ? '3202' : selectedDistrictId}
           onSelectDistrict={(id) => setSelectedDistrictId(id)}
         />

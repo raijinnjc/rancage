@@ -23,3 +23,6 @@
 input[type="checkbox"] {
   accent-color: var(--color-blue-600);
 }
+
+/* Remove outline on Leaflet interactive paths */
+path.leaflet-interactive:focus { outline: none; }
