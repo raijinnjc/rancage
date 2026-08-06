@@ -295,7 +295,7 @@ export function SpatialDiagnosisMap({
             </div>
 
             <div className="flex justify-between items-center py-1 border-b border-slate-100/50 dark:border-slate-900/50">
-              <span className="text-slate-500">Tipologi Pertumbuhan Klassen</span>
+              <span className="text-slate-500">Tipologi Kemiskinan-Ketimpangan</span>
               <span className="font-mono text-blue-500 font-bold uppercase">Kuadran {selectedDistrict.typology}</span>
             </div>
           </div>

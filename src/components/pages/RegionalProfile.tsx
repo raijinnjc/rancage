@@ -71,7 +71,7 @@ const getDistrictSocioeconomicMetrics = (districtId: string) => {
   const wallDeficit = Math.min(40, Math.max(2, ((hash * 17) % 25) + 5));
   const assetDeficit = Math.min(50, Math.max(5, ((hash * 19) % 35) + 8));
 
-  // Determine Klassen Typology Quadrant
+  // Determine Kuadran Tipologi
   let typology: 'I' | 'II' | 'III' | 'IV' = 'IV';
   if (schoolingYears > 9.5 && unemploymentRate < 7) {
     typology = 'I'; // Maju Cepat
@@ -305,7 +305,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
    - District ID: ${districtMeta.id}
    - Regional BPS Block: ${districtMeta.region}
    - Development Priority Score: ${activeYearStats.priorityScore}/100
-   - Klassen Typology Quadrant: Quadrant ${socMetrics.typology === 'I' ? 'I (Maju Cepat)' : socMetrics.typology === 'II' ? 'II (Potensial)' : socMetrics.typology === 'III' ? 'III (Tertekan)' : 'IV (Tertinggal)'}
+   - Kuadran Tipologi: Quadrant ${socMetrics.typology === 'I' ? 'I (Sejahtera-Merata)' : socMetrics.typology === 'II' ? 'II (Sejahtera-Timpang)' : socMetrics.typology === 'III' ? 'III (Miskin-Merata)' : 'IV (Miskin-Timpang)'}
 
 2. CORE STATISTICAL INDICATORS
    - Poverty Headcount (P0): ${activeYearStats.p0}%
@@ -403,7 +403,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                     ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400'
                     : 'bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400'
                 }`}>
-                  Klassen: Q_{socMetrics.typology === 'I' ? 'I (Maju Cepat)' : socMetrics.typology === 'II' ? 'II (Potensial)' : socMetrics.typology === 'III' ? 'III (Tertekan)' : 'IV (Tertinggal)'}
+                  Tipologi: Q_{socMetrics.typology === 'I' ? 'I (Sejahtera-Merata)' : socMetrics.typology === 'II' ? 'II (Sejahtera-Timpang)' : socMetrics.typology === 'III' ? 'III (Miskin-Merata)' : 'IV (Miskin-Timpang)'}
                 </span>
                 <span className="text-[10px] font-mono bg-slate-100 text-slate-600 dark:bg-slate-900 dark:text-slate-400 px-2 py-0.5 rounded-sm uppercase font-bold">
                   BPS Code: {districtMeta.id}
@@ -431,7 +431,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               <strong className="text-slate-900 dark:text-white font-semibold">
                 Quadrant {socMetrics.typology === 'IV' ? 'IV (Lagging / Tertinggal)' : socMetrics.typology === 'III' ? 'III (Stressed / Tertekan)' : socMetrics.typology === 'II' ? 'II (Potential / Potensial)' : 'I (Established / Maju Cepat)'}
               </strong>{' '}
-              of the Klassen Regional Matrix. This classification indicates that the district demonstrates{' '}
+              of the Matriks Tipologi Kemiskinan-Ketimpangan. This classification indicates that the district demonstrates{' '}
               {socMetrics.typology === 'IV' 
                 ? 'lower per capita income accompanied by subpar economic growth velocities relative to the provincial averages of West Java.' 
                 : socMetrics.typology === 'III'
@@ -982,7 +982,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
           <div className="space-y-3 font-sans">
             <p>
-              Based on the {activeYear} statistical baseline diagnostics, <strong className="text-slate-50 font-semibold">{districtMeta.name}</strong> continues to require focused matching fund deployments. Classified under <span className="text-blue-400 font-semibold uppercase tracking-wider font-mono">Klassen Quadrant {socMetrics.typology}</span> with a priority index score of <span className="text-amber-400 font-semibold font-mono">{activeYearStats.priorityScore}/100</span>, poverty alleviation cannot be achieved through horizontal budget increments.
+              Based on the {activeYear} statistical baseline diagnostics, <strong className="text-slate-50 font-semibold">{districtMeta.name}</strong> continues to require focused matching fund deployments. Classified under <span className="text-blue-400 font-semibold uppercase tracking-wider font-mono">Kuadran Tipologi {socMetrics.typology}</span> with a priority index score of <span className="text-amber-400 font-semibold font-mono">{activeYearStats.priorityScore}/100</span>, poverty alleviation cannot be achieved through horizontal budget increments.
             </p>
             
             <div className="bg-slate-900 border border-slate-800 p-4 rounded-xs space-y-2 text-[11px] font-mono leading-relaxed">

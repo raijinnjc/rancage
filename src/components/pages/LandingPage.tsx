@@ -53,42 +53,42 @@ export function LandingPage() {
       <section className="space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-900 pb-4">
           <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-            Keranjang Makro Sosial Ekonomi Jawa Barat (Kondisi Terkini 2026)
+            Keranjang Makro Sosial Ekonomi Jawa Barat (BPS, Maret 2025)
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
             title="Rasio Headcount Kemiskinan (P0)"
-            value="7,62%"
-            change="-0,34% vs Triwulan Sebelumnya"
+            value="7,02%"
+            change="-0,39% vs September 2024"
             trend="down"
             trendDirection="positive"
             description="Persentase penduduk di bawah garis kemiskinan resmi."
           />
           <KpiCard
             title="Indeks Kedalaman Kemiskinan (P1)"
-            value="1,24"
-            change="-0,08"
-            trend="down"
-            trendDirection="positive"
+            value="1,21"
+            change="+0,05 vs 2023"
+            trend="up"
+            trendDirection="negative"
             description="Indeks rata-rata kesenjangan kedalaman pengeluaran konsumsi."
           />
           <KpiCard
             title="Ketimpangan (Gini)"
             value="0,416"
-            change="+0,004"
+            change="Peringkat ke-3 nasional"
             trend="up"
             trendDirection="negative"
             description="Rasio ketimpangan distribusi konsumsi provinsi."
           />
           <KpiCard
-            title="Anggaran Alokasi Aktif"
-            value="Rp 4,20 Triliun"
-            change="+12,4% yoy"
+            title="Indeks Theil Total"
+            value="0,279"
+            change="+0,010 vs 2022"
             trend="up"
-            trendDirection="positive"
-            description="Total volume fiskal yang disalurkan ke desil sasaran D1-D2."
+            trendDirection="negative"
+            description="Ukuran ketimpangan total yang dapat didekomposisi (within 89,44% + between 10,56%)."
           />
         </div>
       </section>

@@ -71,20 +71,20 @@ export function KlassenScatterPlot() {
 
   const getQuadrantLabel = (q: string) => {
     switch (q) {
-      case 'Q1': return 'Quadrant I (High Growth, High Income)';
-      case 'Q2': return 'Quadrant II (Low Growth, High Income)';
-      case 'Q3': return 'Quadrant III (High Growth, Low Income)';
-      case 'Q4': return 'Quadrant IV (Low Growth, Low Income)';
+      case 'Q1': return 'Kuadran I (Kemiskinan Rendah, Ketimpangan Rendah)';
+      case 'Q2': return 'Kuadran II (Kemiskinan Rendah, Ketimpangan Tinggi)';
+      case 'Q3': return 'Kuadran III (Kemiskinan Tinggi, Ketimpangan Rendah)';
+      case 'Q4': return 'Kuadran IV (Kemiskinan Tinggi, Ketimpangan Tinggi)';
       default: return '';
     }
   };
 
   const getQuadrantDesc = (q: string) => {
     switch (q) {
-      case 'Q1': return 'Fast-growing developed regions. Primary focus is on sustaining investment, smart cities, and services while maintaining low inequality margins.';
-      case 'Q2': return 'Stagnating developed regions. High-wealth bases, but growth has slowed. Focus is on industrial modernization and high-value sector transitions.';
-      case 'Q3': return 'Fast-growing developing regions. Elevated economic activity, but low wealth base. Focus is on redistributing economic gains and human asset construction.';
-      case 'Q4': return 'Lagging/deprived regions. Stagnant growth paired with low-income bases. Extreme priority zone. Absolute requirement for infrastructure and targeted social safety nets.';
+      case 'Q1': return 'Wilayah Sejahtera-Merata. Fokus utama adalah mempertahankan investasi, kota pintar, dan layanan sambil menjaga batas ketimpangan yang rendah.';
+      case 'Q2': return 'Wilayah Sejahtera-Timpang. Basis kekayaan tinggi, tetapi ketimpangan tinggi. Fokus adalah modernisasi industri dan transisi sektor bernilai tinggi.';
+      case 'Q3': return 'Wilayah Miskin-Merata. Aktivitas ekonomi tinggi, tetapi kemiskinan tinggi. Fokus adalah mendistribusikan keuntungan ekonomi dan pembangunan aset manusia.';
+      case 'Q4': return 'Wilayah Miskin-Timpang. Kemiskinan dan ketimpangan tinggi. Zona prioritas ekstrim. Kebutuhan mutlak untuk infrastruktur dan jaring pengaman sosial yang ditargetkan.';
       default: return '';
     }
   };
@@ -97,23 +97,23 @@ export function KlassenScatterPlot() {
           <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <div>
               <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                Klassen Quadrant Distribution Map
+                Peta Distribusi Kuadran Tipologi
               </h4>
               <p className="text-[11px] text-slate-400 mt-0.5">
-                Interactive spatial scatter plot mapping GDP Growth Rate (%) against Per Capita Income (Million IDR).
+                Plot sebaran spasial interaktif yang memetakan Rasio Kemiskinan terhadap Kontribusi Theil.
               </p>
             </div>
             <div className="text-[10px] bg-slate-100 dark:bg-slate-900 text-slate-500 font-mono px-2 py-0.5 rounded-sm">
-              Avg Growth: 4.5% • Avg Income: Rp 45M
+              Rata-rata Kemiskinan: 4.5% • Rata-rata Theil: 45.0
             </div>
           </div>
 
           <div className="h-72 w-full relative">
             {/* Background quadrant overlay labels for visual help */}
-            <div className="absolute top-4 right-4 text-[10px] font-bold text-emerald-600/30 dark:text-emerald-400/20 pointer-events-none uppercase">Q1: Sustained Development</div>
-            <div className="absolute top-4 left-4 text-[10px] font-bold text-blue-600/30 dark:text-blue-400/20 pointer-events-none uppercase">Q2: Modernization Priority</div>
-            <div className="absolute bottom-4 right-4 text-[10px] font-bold text-amber-600/30 dark:text-amber-400/20 pointer-events-none uppercase">Q3: Redistributive Priority</div>
-            <div className="absolute bottom-4 left-4 text-[10px] font-bold text-rose-600/40 dark:text-rose-400/25 pointer-events-none uppercase">Q4: Severe Interventions</div>
+            <div className="absolute top-4 right-4 text-[10px] font-bold text-emerald-600/30 dark:text-emerald-400/20 pointer-events-none uppercase">Q1: Sejahtera-Merata</div>
+            <div className="absolute top-4 left-4 text-[10px] font-bold text-blue-600/30 dark:text-blue-400/20 pointer-events-none uppercase">Q2: Sejahtera-Timpang</div>
+            <div className="absolute bottom-4 right-4 text-[10px] font-bold text-amber-600/30 dark:text-amber-400/20 pointer-events-none uppercase">Q3: Miskin-Merata</div>
+            <div className="absolute bottom-4 left-4 text-[10px] font-bold text-rose-600/40 dark:text-rose-400/25 pointer-events-none uppercase">Q4: Miskin-Timpang</div>
 
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -121,7 +121,7 @@ export function KlassenScatterPlot() {
                 <XAxis
                   type="number"
                   dataKey="growth"
-                  name="GDP Growth"
+                  name="Rasio Kemiskinan P0"
                   unit="%"
                   domain={[2.0, 7.0]}
                   tick={{ fill: '#94a3b8', fontSize: 10 }}
@@ -131,8 +131,8 @@ export function KlassenScatterPlot() {
                 <YAxis
                   type="number"
                   dataKey="income"
-                  name="Per Capita Income"
-                  unit="M"
+                  name="Kontribusi Theil"
+                  unit=""
                   domain={[10, 120]}
                   tick={{ fill: '#94a3b8', fontSize: 10 }}
                   axisLine={false}
@@ -182,7 +182,7 @@ export function KlassenScatterPlot() {
 
         <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/40 p-2 rounded-xs">
           <HelpCircle className="h-3.5 w-3.5 text-blue-500" />
-          <span>Interactive: Click any point in the scatter plot to load its detailed structural diagnostic profile.</span>
+          <span>Interaktif: Klik sembarang titik pada plot untuk memuat profil diagnostik struktural terperinci.</span>
         </div>
       </div>
 
@@ -191,7 +191,7 @@ export function KlassenScatterPlot() {
         <div className="space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-              active point diagnostic
+              titik diagnostik aktif
             </span>
             <h4 className="text-sm font-bold text-slate-900 dark:text-slate-50 mt-0.5">
               {selectedItem.name}
@@ -209,19 +209,19 @@ export function KlassenScatterPlot() {
 
           <div className="space-y-2 text-xs">
             <div className="flex justify-between items-center border-b border-slate-50 dark:border-slate-900 pb-2">
-              <span className="text-slate-400">GDP Growth Rate:</span>
+              <span className="text-slate-400">Rasio Kemiskinan:</span>
               <span className="font-bold font-mono text-slate-800 dark:text-slate-100">
                 {selectedItem.growth}%
               </span>
             </div>
             <div className="flex justify-between items-center border-b border-slate-50 dark:border-slate-900 pb-2">
-              <span className="text-slate-400">Per Capita Income:</span>
+              <span className="text-slate-400">Kontribusi Theil:</span>
               <span className="font-bold font-mono text-slate-800 dark:text-slate-100">
-                Rp {selectedItem.income.toFixed(1)} Million
+                {selectedItem.income.toFixed(1)}
               </span>
             </div>
             <div className="flex justify-between items-center pb-1">
-              <span className="text-slate-400">P0 Poverty Rate:</span>
+              <span className="text-slate-400">Tingkat Kemiskinan P0:</span>
               <span className={`font-bold font-mono ${selectedItem.p0 >= 10.0 ? 'text-rose-500' : 'text-slate-800 dark:text-slate-100'}`}>
                 {selectedItem.p0}%
               </span>
@@ -231,15 +231,15 @@ export function KlassenScatterPlot() {
 
         <div className="pt-3 border-t border-slate-50 dark:border-slate-900 mt-4">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">
-            Intervention Recommendation
+            Rekomendasi Intervensi
           </p>
           <div className="p-2.5 bg-slate-50 dark:bg-slate-900/50 rounded text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
             {selectedItem.quadrant === 'Q4' ? (
-              <span>Flagged for maximum fiscal cash injection and immediate social security distribution optimization.</span>
+              <span>Ditandai untuk injeksi fiskal maksimum dan optimasi distribusi jaminan sosial secara langsung.</span>
             ) : selectedItem.quadrant === 'Q3' ? (
-              <span>Target human capital infrastructure, public sanitation access grids, and formal schooling support.</span>
+              <span>Targetkan infrastruktur modal manusia, jaringan akses sanitasi publik, dan dukungan sekolah formal.</span>
             ) : (
-              <span>Ensure tax efficiency routing and private enterprise growth-enablers to maintain fiscal self-sufficiency.</span>
+              <span>Pastikan efisiensi pajak dan pemberdaya pertumbuhan perusahaan swasta untuk menjaga kemandirian fiskal.</span>
             )}
           </div>
         </div>

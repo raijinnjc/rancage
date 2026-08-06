@@ -18,41 +18,41 @@ export function GovernmentDashboardHero() {
   const coreQuestions = [
     {
       num: '1',
-      question: 'What is happening?',
-      concept: 'Poverty & Disparity Tracking',
-      description: 'Provincial headcount averages, poverty depth indices, and consumption inequalities.',
+      question: 'Apa yang terjadi?',
+      concept: 'Pelacakan Kemiskinan & Ketimpangan',
+      description: 'Rata-rata persentase kemiskinan provinsi, indeks kedalaman kemiskinan, dan ketimpangan konsumsi.',
       anchorId: 'executive-kpi-summary-grid',
       color: 'border-blue-500/25 bg-blue-500/5 hover:bg-blue-500/10'
     },
     {
       num: '2',
-      concept: 'Intra-District Drivers',
-      question: 'Why is it happening?',
-      description: 'Theil disparity decomposition showing within-district disparities versus between-district gaps.',
+      concept: 'Pendorong Internal Kabupaten',
+      question: 'Mengapa ini terjadi?',
+      description: 'Dekomposisi ketimpangan Theil yang menunjukkan ketimpangan di dalam kabupaten dibandingkan kesenjangan antar kabupaten.',
       anchorId: 'theil-decomposition-standalone-card',
       color: 'border-purple-500/25 bg-purple-500/5 hover:bg-purple-500/10'
     },
     {
       num: '3',
-      concept: 'Spatial Hotspots',
-      question: 'Where is it happening?',
-      description: 'GIS interactive choropleth map highlighting agricultural belts and industrial corridor outliers.',
+      concept: 'Hotspot Spasial',
+      question: 'Di mana ini terjadi?',
+      description: 'Peta koroplet interaktif GIS menyoroti sabuk pertanian dan koridor industri.',
       anchorId: 'interactive-map-root',
       color: 'border-teal-500/25 bg-teal-500/5 hover:bg-teal-500/10'
     },
     {
       num: '4',
-      concept: 'District Prioritization Index',
-      question: 'Who should be prioritized?',
-      description: 'Top 10 priority ranking sorted by poverty incidence, regional typology, and inequality factors.',
+      concept: 'Indeks Prioritas Kabupaten',
+      question: 'Siapa yang harus diprioritaskan?',
+      description: 'Peringkat 10 besar prioritas yang diurutkan berdasarkan tingkat kemiskinan, tipologi wilayah, dan faktor ketimpangan.',
       anchorId: 'regional-priority-ranking-card',
       color: 'border-amber-500/25 bg-amber-500/5 hover:bg-amber-500/10'
     },
     {
       num: '5',
-      concept: 'Intervention Engine',
-      question: 'What should policymakers do next?',
-      description: 'Targeted policy matching, budget simulations, and early warning status logs.',
+      concept: 'Mesin Intervensi',
+      question: 'Apa yang harus dilakukan pembuat kebijakan selanjutnya?',
+      description: 'Pencocokan kebijakan yang ditargetkan, simulasi anggaran, dan log status peringatan dini.',
       anchorId: 'policy-recommendations-section',
       color: 'border-rose-500/25 bg-rose-500/5 hover:bg-rose-500/10'
     }
@@ -90,10 +90,10 @@ export function GovernmentDashboardHero() {
 
           <div className="flex items-center gap-2">
             <span className="text-[9px] font-mono bg-blue-950 text-blue-400 border border-blue-900 px-2.5 py-1 rounded font-bold uppercase tracking-widest">
-              SYSTEM LEVEL: AUTHORITATIVE CO-PILOT
+              TINGKAT SISTEM: CO-PILOT OTORITATIF
             </span>
             <span className="text-[9px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-2.5 py-1 rounded font-bold uppercase tracking-widest">
-              DATA SYNC: STABLE (Q4 2026)
+              SINKRONISASI DATA: STABIL (Q4 2026)
             </span>
           </div>
         </div>
@@ -101,17 +101,17 @@ export function GovernmentDashboardHero() {
         {/* Core Description block */}
         <div className="max-w-4xl space-y-2">
           <h1 className="text-xl md:text-2xl font-black text-white tracking-tight uppercase leading-tight">
-            Government Decision Intelligence Dashboard
+            Dasbor Kecerdasan Keputusan Pemerintah
           </h1>
           <p className="text-xs text-slate-400 leading-relaxed max-w-3xl font-medium">
-            RANCAGE integrates multi-dimensional survey microdata, Klassen growth typologies, and machine-learning targeting algorithms into a single-pane executive console. This cockpit answers five structural policy questions immediately to direct target interventions.
+            RANCAGE mengintegrasikan data mikro survei multi-dimensi, tipologi kemiskinan-ketimpangan, dan algoritma penargetan machine-learning ke dalam konsol eksekutif panel tunggal. Kokpit ini menjawab lima pertanyaan kebijakan struktural secara langsung untuk mengarahkan intervensi target.
           </p>
         </div>
 
         {/* 5 Questions HUD Grid */}
         <div className="space-y-3 pt-2">
           <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
-            Executive Decision Index (Click concept to jump directly to section)
+            Indeks Keputusan Eksekutif (Klik konsep untuk melompat langsung ke bagian)
           </span>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -124,7 +124,7 @@ export function GovernmentDashboardHero() {
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between gap-1">
                     <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
-                      Question 0{q.num}
+                      Pertanyaan 0{q.num}
                     </span>
                     <HelpCircle className="h-3.5 w-3.5 text-slate-400" />
                   </div>

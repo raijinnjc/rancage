@@ -16,7 +16,7 @@ export function GlobalFilterBar() {
 
   const activeDistrict = WEST_JAVA_DISTRICTS.find((d) => d.id === selectedDistrictId);
 
-  // Region options correspond to Klassen typology geographical scopes
+  // Region options correspond to poverty-inequality typology geographical scopes
   const regionOptions = [
     { label: 'Seluruh Wilayah', value: 'ALL' },
     { label: 'Priangan Timur & Barat', value: 'PRIANGAN' },
@@ -92,7 +92,7 @@ export function GlobalFilterBar() {
           <div className="space-y-1">
             <label className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1">
               <Layers className="h-3 w-3 text-slate-400" />
-              Cakupan Geografis Klassen
+              Cakupan Geografis Tipologi
             </label>
             <select
               value={selectedTypology}

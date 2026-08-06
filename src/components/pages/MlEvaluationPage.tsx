@@ -242,7 +242,7 @@ export default function MlEvaluationPage() {
   // SECTION 12: Model Governance
   const governanceLogs = [
     { version: 'v2.1.2-STABLE', date: '2026-07-15', author: 'Bappeda Jabar Data Core', description: 'Updated hyperparameters with L1/L2 regularization to lower urban-rural inclusion discrepancy.' },
-    { version: 'v2.1.0-RC3', date: '2026-05-14', author: 'Dinsos Jabar Analyst', description: 'Incorporated village-level spatial fixed effects derived from Klassen typology indices.' },
+    { version: 'v2.1.0-RC3', date: '2026-05-14', author: 'Dinsos Jabar Analyst', description: 'Incorporated village-level spatial fixed effects derived from indeks tipologi kemiskinan-ketimpangan.' },
     { version: 'v1.4.0', date: '2025-11-02', author: 'Sensus Data Unit', description: 'Initial deployment based on national Susenas sample training models.' }
   ];
 

@@ -450,7 +450,7 @@ export function DemoControlCenter() {
                   </span>
                   <ul className="space-y-1.5 text-slate-300 list-disc list-inside">
                     <li>Plot sebar korelasi bivariat antar indikator kemiskinan.</li>
-                    <li>Kisi pemetaan spasial Tipologi Klassen yang responsif.</li>
+                    <li>Kisi pemetaan spasial Tipologi Kemiskinan-Ketimpangan yang responsif.</li>
                     <li>Diagram ketimpangan dalam wilayah (Indeks Theil).</li>
                     <li>Komponen simulasi pemetaan GIS Choropleth interaktif.</li>
                   </ul>

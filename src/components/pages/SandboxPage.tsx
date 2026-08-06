@@ -786,7 +786,7 @@ function getScreenDescription(id: string): string {
     case 'diagnosis':
       return 'Mendekomposisi ketimpangan provinsi menggunakan model indeks Theil, memvisualisasikan tren historis indikator kemiskinan.';
     case 'typology':
-      return 'Mengkategorikan 27 kabupaten/kota BPS ke dalam kuadran pertumbuhan Klassen, menganalisis peringkat prioritas pembangunan.';
+      return 'Mengkategorikan 27 kabupaten/kota BPS ke dalam kuadran tipologi kemiskinan-ketimpangan, menganalisis peringkat prioritas pembangunan.';
     case 'regional-profile':
       return 'Mendiagnosis kabupaten/kota tertentu dengan membandingkan radar deprivasi multi-dimensi lokal langsung terhadap tolok ukur provinsi.';
     case 'household':

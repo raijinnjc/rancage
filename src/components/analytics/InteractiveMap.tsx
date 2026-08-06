@@ -240,7 +240,7 @@ export function InteractiveMap() {
               <div className="flex justify-between text-slate-600 dark:text-slate-300">
                 <span className="text-slate-400">Kuadran Pembangunan:</span>
                 <span className="font-mono text-slate-800 dark:text-slate-100">
-                  {selectedDistrict.p0 >= 11.0 ? 'Kuadran IV (Tertinggal)' : selectedDistrict.p0 >= 8.0 ? 'Kuadran III' : 'Kuadran I/II'}
+                  {selectedDistrict.p0 >= 11.0 ? 'Kuadran IV (Miskin-Timpang)' : selectedDistrict.p0 >= 8.0 ? 'Kuadran III' : 'Kuadran I/II'}
                 </span>
               </div>
               <div className="flex justify-between text-slate-600 dark:text-slate-300">

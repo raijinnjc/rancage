@@ -311,10 +311,10 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
   };
 
   const originalTypologyNames = {
-    'I': 'Maju dan Tumbuh Cepat (Klassen I)',
-    'II': 'Maju tapi Tertekan (Klassen II)',
-    'III': 'Berkembang Cepat (Klassen III)',
-    'IV': 'Relatif Tertinggal (Klassen IV)',
+    'I': 'Sejahtera-Merata (Kuadran I)',
+    'II': 'Sejahtera-Timpang (Kuadran II)',
+    'III': 'Miskin-Merata (Kuadran III)',
+    'IV': 'Miskin-Timpang (Kuadran IV)',
   };
 
   // Recharts Bar charts helper dataset
@@ -336,7 +336,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
       
       {!hideHeader && (
         <PageHeader 
-          title="Tipologi Wilayah (Klassen)"
+          title="Tipologi Wilayah (Kemiskinan-Ketimpangan)"
           description="Kuadran Pertumbuhan Ekonomi vs Pengentasan Kemiskinan di 27 Kabupaten/Kota Jawa Barat."
           icon={<Compass className="h-5 w-5 text-blue-500" />}
         />
@@ -431,21 +431,21 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             </select>
           </div>
 
-          {/* Original Klassen Typology filter */}
+          {/* Typology filter */}
           <div className="space-y-1.5">
             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-              Kelas Tipologi Klassen
+              Kelas Tipologi
             </label>
             <select
               value={selectedTypology}
               onChange={(e) => setSelectedTypology(e.target.value)}
               className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
             >
-              <option value="All">Semua Kelas Klassen</option>
-              <option value="I">Klassen I (Pendapatan Tinggi, Pertumbuhan Tinggi)</option>
-              <option value="II">Klassen II (Pendapatan Tinggi, Pertumbuhan Rendah)</option>
-              <option value="III">Klassen III (Pendapatan Rendah, Pertumbuhan Tinggi)</option>
-              <option value="IV">Klassen IV (Pendapatan Rendah, Pertumbuhan Rendah)</option>
+              <option value="All">Semua Kelas</option>
+              <option value="I">Kuadran I (Kemiskinan Rendah, Ketimpangan Rendah)</option>
+              <option value="II">Kuadran II (Kemiskinan Rendah, Ketimpangan Tinggi)</option>
+              <option value="III">Kuadran III (Kemiskinan Tinggi, Ketimpangan Rendah)</option>
+              <option value="IV">Kuadran IV (Kemiskinan Tinggi, Ketimpangan Tinggi)</option>
             </select>
           </div>
         </div>

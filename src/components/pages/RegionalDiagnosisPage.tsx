@@ -125,13 +125,13 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
     },
     {
       key: 'typology',
-      label: 'Tipologi Pertumbuhan Klassen',
+      label: 'Tipologi Kemiskinan-Ketimpangan',
       options: [
         { label: 'Semua Kuadran Tipologi', value: 'All' },
-        { label: 'Kuadran I: Pertumbuhan Tinggi, Pendapatan Tinggi', value: 'I' },
-        { label: 'Kuadran II: Pertumbuhan Tinggi, Pendapatan Rendah', value: 'II' },
-        { label: 'Kuadran III: Pertumbuhan Rendah, Pendapatan Tinggi', value: 'III' },
-        { label: 'Kuadran IV: Pertumbuhan Rendah, Pendapatan Rendah', value: 'IV' }
+        { label: 'Kuadran I: Kemiskinan Rendah, Ketimpangan Rendah', value: 'I' },
+        { label: 'Kuadran II: Kemiskinan Rendah, Ketimpangan Tinggi', value: 'II' },
+        { label: 'Kuadran III: Kemiskinan Tinggi, Ketimpangan Rendah', value: 'III' },
+        { label: 'Kuadran IV: Kemiskinan Tinggi, Ketimpangan Tinggi', value: 'IV' }
       ]
     }
   ], []);
@@ -243,7 +243,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
       currentSituation: `Pada tahun ${yearStr}, komponen dalam-wilayah mencakup ${within.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}% dari total ketimpangan di dalam ${scopeStr}. Hal ini mengonfirmasi bahwa kesenjangan internal adalah pemicu utama polarisasi konsumsi di Jawa Barat.`,
       keyFinding: `Dekomposisi ketimpangan menunjukkan kompresi jangka panjang dari kesenjangan struktural antar-wilayah sementara ketimpangan intra-wilayah tetap tinggi. Ketimpangan lokal sangat terkonsentrasi di dalam batas-batas wilayah daripada perbedaan antar-daerah.`,
       policyImplication: `Hibah pemerataan wilayah tradisional (Dana Alokasi Umum - DAU) tidaklah cukup. Intervensi harus beralih ke insentif fiskal mikro-target yang disalurkan langsung ke kecamatan dan desa yang tertinggal.`,
-      priorityAction: `Kerahkan akademi pendidikan terarah dan jaringan air bersih pedesaan ke kantong-kantong Kuadran IV Klassen (pertumbuhan rendah, pendapatan rendah), khususnya di Kabupaten Garut, Tasikmalaya, dan Kuningan.`
+      priorityAction: `Kerahkan akademi pendidikan terarah dan jaringan air bersih pedesaan ke kantong-kantong Kuadran IV (kemiskinan tinggi, ketimpangan tinggi), khususnya di Kabupaten Garut, Tasikmalaya, dan Kuningan.`
     };
   }, [currentDecomposition, selectedYear, selectedUrbanRural]);
 
@@ -793,12 +793,9 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
           <div className="flex items-center gap-2">
             <BookOpen className="h-4.5 w-4.5 text-blue-500" />
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">
-              Taklimat Tertulis Otoritatif: Faktor Pendorong Ketimpangan Jawa Barat
+              Ringkasan Temuan Analisis
             </h4>
           </div>
-          <span className="text-[9px] font-mono text-slate-400">
-            DISIAPKAN UNTUK BAPPEDA • SIFAT RAHASIA
-          </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs leading-relaxed text-slate-600 dark:text-slate-300 font-medium">
@@ -809,7 +806,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
                 <span>1. Situasi Terkini</span>
               </h5>
               <p>
-                Hingga periode survei tahun {selectedYear}, Jawa Barat mengalami transisi yang kompleks. Sementara rata-rata rasio headcount kemiskinan (P0) tingkat provinsi terus menurun secara stabil menuju {trendChartData[trendChartData.length-1].p0.toFixed(2)}%, kesenjangan struktural di dalam subdivisi geografis tertentu semakin mengeras. Konsentrasi konsumsi Gini tetap tinggi pada {trendChartData[trendChartData.length-1].gini.toFixed(3)}, menunjukkan bahwa keuntungan dari pertumbuhan koridor industri yang tinggi (Kuadran I Klassen) tidak diterjemahkan secara seragam ke rumah tangga desil bawah di wilayah pertanian terpencil.
+                Hingga periode survei tahun {selectedYear}, Jawa Barat mengalami transisi yang kompleks. Sementara rata-rata rasio headcount kemiskinan (P0) tingkat provinsi terus menurun secara stabil menuju {trendChartData[trendChartData.length-1].p0.toFixed(2)}%, kesenjangan struktural di dalam subdivisi geografis tertentu semakin mengeras. Konsentrasi konsumsi Gini tetap tinggi pada {trendChartData[trendChartData.length-1].gini.toFixed(3)}, menunjukkan bahwa keuntungan dari pertumbuhan koridor industri yang tinggi (Kuadran I) tidak diterjemahkan secara seragam ke rumah tangga desil bawah di wilayah pertanian terpencil.
               </p>
             </section>
 
@@ -838,7 +835,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
                 4. Pola Spasial
               </h5>
               <p>
-                Koroplet koordinat spasial mengidentifikasi dua kluster kritis. Pertama adalah **sabuk pesisir Pantai Utara (Indramayu-Cirebon)**, yang menderita tipologi Kuadran IV Klassen dengan pertumbuhan rendah ditambah dengan tingkat putus sekolah pemuda yang tinggi. Kedua adalah **kantong Pegunungan Priangan Selatan (Garut, Tasikmalaya, Cianjur, Sukabumi)**, di mana topografi berbukit yang sulit sangat membatasi akses air bersih yang aman dan konektivitas layanan kesehatan pedesaan. Ini menciptakan perangkap deprivasi spasial yang gagal diatasi oleh daftar kesejahteraan sosial manual.
+                Koroplet koordinat spasial mengidentifikasi dua kluster kritis. Pertama adalah **sabuk pesisir Pantai Utara (Indramayu-Cirebon)**, yang menderita tipologi Kuadran IV dengan kemiskinan tinggi dan ketimpangan tinggi ditambah dengan tingkat putus sekolah pemuda yang tinggi. Kedua adalah **kantong Pegunungan Priangan Selatan (Garut, Tasikmalaya, Cianjur, Sukabumi)**, di mana topografi berbukit yang sulit sangat membatasi akses air bersih yang aman dan konektivitas layanan kesehatan pedesaan. Ini menciptakan perangkap deprivasi spasial yang gagal diatasi oleh daftar kesejahteraan sosial manual.
               </p>
             </section>
 
@@ -870,7 +867,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
               Susun Laporan Diagnosis Komprehensif
             </h4>
             <p className="text-[11px] text-slate-400">
-              Buat taklimat pemerintah yang diaudit, basis data CSV yang terperinci, atau visualisasi peta dengan akurasi tinggi.
+              Unduh ringkasan data agregat dalam format CSV atau visualisasi peta.
             </p>
           </div>
 

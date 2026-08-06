@@ -213,56 +213,56 @@ export interface PriorityDriver {
 export const PRIORITY_DRIVERS_DATA: PriorityDriver[] = [
   {
     id: 'high-poverty',
-    title: 'High Poverty Headcount (P0)',
+    title: 'Angka Kemiskinan Tinggi (P0)',
     metric: 'P0 > 11.0%',
     districtCount: 6,
     criticalCases: ['Kab. Kuningan', 'Kab. Indramayu', 'Kab. Garut', 'Kab. Tasikmalaya'],
-    evaluation: 'Poverty headcount rates remain entrenched above double digits in northern agricultural basins and southern mountain belts.',
-    recom: 'Intensify conditional cash assistance and rural infrastructure grants targeting local smallholders.'
+    evaluation: 'Tingkat kemiskinan tetap bertahan di atas dua digit di cekungan pertanian utara dan sabuk pegunungan selatan.',
+    recom: 'Intensifkan bantuan tunai bersyarat dan hibah infrastruktur pedesaan yang menyasar petani kecil setempat.'
   },
   {
     id: 'high-within',
-    title: 'Severe Within-District Disparity',
-    metric: 'Within Contrib > 88%',
+    title: 'Ketimpangan Dalam-Daerah yang Parah',
+    metric: 'Kontribusi Dalam > 88%',
     districtCount: 8,
     criticalCases: ['Kab. Bogor', 'Kab. Sukabumi', 'Kab. Cianjur', 'Kota Tasikmalaya'],
-    evaluation: 'Local inequality is concentrated heavily within the boundaries of large, heterogeneous districts rather than between them.',
-    recom: 'Reallocate public service centers and healthcare access points closer to marginalized rural sub-districts.'
+    evaluation: 'Ketimpangan lokal sangat terpusat di dalam batas wilayah kabupaten yang besar dan heterogen, bukan antar-kabupaten.',
+    recom: 'Realokasi pusat layanan publik dan titik akses kesehatan lebih dekat ke kecamatan pedesaan yang terpinggirkan.'
   },
   {
     id: 'increasing-p1',
-    title: 'Elevated Poverty Gap (P1)',
+    title: 'Kesenjangan Kemiskinan Meningkat (P1)',
     metric: 'P1 > 1.80',
     districtCount: 5,
     criticalCases: ['Kab. Tasikmalaya', 'Kab. Kuningan', 'Kab. Indramayu'],
-    evaluation: 'The depth of poverty is expanding, indicating that the poorest households are falling further below the standard poverty line.',
-    recom: 'Deploy supplementary nutrition vouchers and primary healthcare outreach squads to remote rural outposts.'
+    evaluation: 'Kedalaman kemiskinan meluas, menunjukkan bahwa rumah tangga termiskin jatuh lebih jauh di bawah garis kemiskinan standar.',
+    recom: 'Sebarkan kupon nutrisi tambahan dan regu penjangkauan kesehatan primer ke pos-pos pedesaan terpencil.'
   },
   {
     id: 'increasing-gini',
-    title: 'Elevated Consumption Gini Ratio',
+    title: 'Rasio Gini Konsumsi Meningkat',
     metric: 'Gini > 0.380',
     districtCount: 7,
     criticalCases: ['Kota Bandung', 'Kota Tasikmalaya', 'Kab. Sukabumi'],
-    evaluation: 'High urban-fringe areas show severe income disparities, driven by rapid industrialization alongside stagnant informal wages.',
-    recom: 'Enforce local progressive living-wage brackets and expand technical vocational training access.'
+    evaluation: 'Daerah pinggiran perkotaan yang tinggi menunjukkan ketimpangan pendapatan yang parah, didorong oleh industrialisasi yang cepat di samping upah informal yang stagnan.',
+    recom: 'Tegakkan kurung upah layak progresif lokal dan perluas akses pelatihan kejuruan teknis.'
   },
   {
     id: 'low-education',
-    title: 'Educational Attainment Gap',
-    metric: 'Avg School < 7.4 yrs',
+    title: 'Kesenjangan Capaian Pendidikan',
+    metric: 'Rata-rata Sekolah < 7.4 thn',
     districtCount: 9,
     criticalCases: ['Kab. Cianjur', 'Kab. Garut', 'Kab. Indramayu'],
-    evaluation: 'Generational poverty cycles are reinforced by early dropout patterns in primary agriculture regions.',
-    recom: 'Build technical vocational academies linked to local food processing and supply chain industries.'
+    evaluation: 'Siklus kemiskinan antargenerasi diperkuat oleh pola putus sekolah dini di daerah pertanian primer.',
+    recom: 'Bangun akademi kejuruan teknis yang terhubung dengan industri pengolahan makanan lokal dan rantai pasokan.'
   },
   {
     id: 'poor-infrastructure',
-    title: 'Basic Infrastructure Deprivation',
-    metric: 'Water Deficit > 35%',
+    title: 'Kekurangan Infrastruktur Dasar',
+    metric: 'Defisit Air Bersih > 35%',
     districtCount: 8,
     criticalCases: ['Kab. Tasikmalaya', 'Kab. Sukabumi', 'Kab. Majalengka'],
-    evaluation: 'High deprivation coordinates in clean water and sanitation access compound multidimensional poverty levels.',
-    recom: 'Allocate provincial fiscal matching funds for public deepwell grids and community-managed sanitation facilities.'
+    evaluation: 'Koordinat kekurangan yang tinggi dalam akses air bersih dan sanitasi memperparah tingkat kemiskinan multidimensi.',
+    recom: 'Alokasikan dana pendamping fiskal provinsi untuk jaringan sumur dalam publik dan fasilitas sanitasi yang dikelola masyarakat.'
   }
 ];
