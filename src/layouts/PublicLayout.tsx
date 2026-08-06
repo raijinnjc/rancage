@@ -26,47 +26,61 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       </div>
 
       {/* Main header navigation */}
-      <header className="h-16 border-b border-slate-100 dark:border-slate-900 flex items-center justify-between px-6 sticky top-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md z-30">
+      <header className="h-20 border-b border-rancage-border flex items-center justify-between px-8 sticky top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-50 transition-all duration-300">
         
         {/* Brand Logo and Title */}
-        <button onClick={() => navigateTo('landing')} className="flex items-center gap-2.5 hover:opacity-85">
-          <div className="h-8 w-8 rounded-sm bg-blue-600/20 text-kujang-gold border border-kujang-gold/30 shadow-[0_0_10px_rgba(197,150,42,0.2)] flex items-center justify-center">
-            <KujangLogo size={20} className="text-[#C5962A]" />
-          </div>
+        <button onClick={() => navigateTo('landing')} className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+          <img src="/logo-transparent.png" alt="RANCAGE Logo" className="h-10 object-contain" />
           <div className="flex flex-col text-left">
-            <span className="text-xs font-bold tracking-wider leading-none">RANCAGE DSS</span>
-            <span className="text-[8px] font-mono text-kujang-gold uppercase mt-0.5">Penanggulangan Kemiskinan Jawa Barat</span>
+            <span className="text-sm font-bold tracking-wide text-rancage-primary dark:text-white leading-tight">RANCAGE DSS</span>
+            <span className="text-[9px] font-semibold text-rancage-secondary uppercase tracking-widest mt-0.5">Penanggulangan Kemiskinan</span>
           </div>
         </button>
 
-        {/* Global Action items */}
-        <div className="flex items-center gap-4 text-xs font-medium">
+        {/* Global Action items - Centered */}
+        <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-rancage-text-muted dark:text-slate-400 absolute left-1/2 -translate-x-1/2">
           <button
             onClick={() => navigateTo('landing')}
             className={cn(
-              "transition-colors",
-              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+              "transition-colors hover:text-rancage-secondary relative group py-2"
             )}
           >
             Beranda
-          </button>
-          <button
-            onClick={() => navigateTo('exploration')}
-            className={cn(
-              "transition-colors",
-              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
-            )}
-          >
-            Eksplorasi Wilayah
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
           </button>
           <button
             onClick={() => navigateTo('methodology')}
             className={cn(
-              "transition-colors",
-              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+              "transition-colors hover:text-rancage-secondary relative group py-2"
             )}
           >
             Metodologi
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+          </button>
+          <button
+            onClick={() => navigateTo('exploration')}
+            className={cn(
+              "transition-colors hover:text-rancage-secondary relative group py-2"
+            )}
+          >
+            Wilayah
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+          </button>
+          <button
+            className={cn(
+              "transition-colors hover:text-rancage-secondary relative group py-2"
+            )}
+          >
+            Simulasi Kebijakan
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+          </button>
+          <button
+            className={cn(
+              "transition-colors hover:text-rancage-secondary relative group py-2"
+            )}
+          >
+            Tentang
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
           </button>
         </div>
 
@@ -96,14 +110,14 @@ export function PublicLayout({ children }: PublicLayoutProps) {
           {user.isAuthenticated ? (
             <button
               onClick={() => navigateTo('dashboard')}
-              className="text-xs font-semibold px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200 rounded-sm transition-colors"
+              className="text-sm font-bold px-5 py-2.5 bg-rancage-primary hover:bg-slate-800 text-white rounded-[10px] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rancage-primary/20"
             >
               Kembali ke Ruang Kerja
             </button>
           ) : (
             <button
               onClick={() => navigateTo('login')}
-              className="text-xs font-semibold px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors"
+              className="text-sm font-bold px-5 py-2.5 bg-rancage-secondary hover:bg-blue-600 text-white rounded-[10px] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rancage-secondary/25 active:scale-95"
             >
               Masuk Akses Aman
             </button>
@@ -112,10 +126,8 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       </header>
 
       {/* Main Scroll Content View */}
-      <main className="flex-1 py-8 px-4 md:px-8">
-        <div className="w-full max-w-7xl mx-auto">
-          {children}
-        </div>
+      <main className="flex-1 w-full max-w-[1320px] mx-auto px-6 md:px-12 py-12">
+        {children}
       </main>
 
       {/* Footer */}
