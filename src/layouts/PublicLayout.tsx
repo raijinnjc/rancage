@@ -30,7 +30,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
         
         {/* Brand Logo and Title */}
         <button onClick={() => navigateTo('landing')} className="flex items-center hover:opacity-90 transition-opacity">
-          <img src="/logo2.png" alt="RANCAGE Logo" className="h-10 object-contain" />
+          <img src="/logo1.png" alt="RANCAGE Logo" className="h-10 object-contain" />
         </button>
 
         {/* Global Action items - Centered */}
