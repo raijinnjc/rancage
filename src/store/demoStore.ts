@@ -23,7 +23,7 @@ export const TOUR_STEPS: TourStep[] = [
   {
     screenId: 'typology',
     title: '3. Tipologi Wilayah',
-    description: 'Visualisasi dinamis kuadran Tipologi Kemiskinan-Ketimpangan. Mengelompokkan kabupaten/kota secara instan ke dalam kategori kemiskinan-ketimpangan dan karakteristik wilayah.',
+    description: 'Visualisasi dinamis kuadran Tipologi Kemiskinan-Ketimpangan. Mengelompokkan kabupaten/kota secara instan ke dalam kategori kemiskinan-ketimpangan dan karakteristik pembangunan.',
     highlight: 'Identifikasi wilayah dengan pertumbuhan tinggi vs stagnan untuk menyesuaikan alokasi anggaran fiskal.',
   },
   {

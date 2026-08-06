@@ -431,7 +431,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               <strong className="text-slate-900 dark:text-white font-semibold">
                 Quadrant {socMetrics.typology === 'IV' ? 'IV (Lagging / Tertinggal)' : socMetrics.typology === 'III' ? 'III (Stressed / Tertekan)' : socMetrics.typology === 'II' ? 'II (Potential / Potensial)' : 'I (Established / Maju Cepat)'}
               </strong>{' '}
-              of the Matriks Tipologi Kemiskinan-Ketimpangan. This classification indicates that the district demonstrates{' '}
+              dari Matriks Tipologi Kemiskinan-Ketimpangan. Klasifikasi ini mengindikasikan bahwa kabupaten/kota menunjukkan{' '}
               {socMetrics.typology === 'IV' 
                 ? 'lower per capita income accompanied by subpar economic growth velocities relative to the provincial averages of West Java.' 
                 : socMetrics.typology === 'III'
@@ -982,20 +982,20 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
           <div className="space-y-3 font-sans">
             <p>
-              Based on the {activeYear} statistical baseline diagnostics, <strong className="text-slate-50 font-semibold">{districtMeta.name}</strong> continues to require focused matching fund deployments. Classified under <span className="text-blue-400 font-semibold uppercase tracking-wider font-mono">Kuadran Tipologi {socMetrics.typology}</span> with a priority index score of <span className="text-amber-400 font-semibold font-mono">{activeYearStats.priorityScore}/100</span>, poverty alleviation cannot be achieved through horizontal budget increments.
+              Berdasarkan diagnostik dasar statistik tahun {activeYear}, <strong className="text-slate-50 font-semibold">{districtMeta.name}</strong> terus membutuhkan penyaluran dana pendamping yang terfokus. Diklasifikasikan di bawah <span className="text-blue-400 font-semibold uppercase tracking-wider font-mono">Kuadran Tipologi {socMetrics.typology}</span> dengan skor indeks prioritas sebesar <span className="text-amber-400 font-semibold font-mono">{activeYearStats.priorityScore}/100</span>, pengentasan kemiskinan tidak dapat dicapai melalui peningkatan anggaran horizontal.
             </p>
             
             <div className="bg-slate-900 border border-slate-800 p-4 rounded-xs space-y-2 text-[11px] font-mono leading-relaxed">
-              <span className="font-bold text-slate-50 block uppercase text-[10px] tracking-wider text-blue-400">RECOMMENDED FISCAL ACTION PLAN:</span>
+              <span className="font-bold text-slate-50 block uppercase text-[10px] tracking-wider text-blue-400">RENCANA AKSI FISKAL YANG DIREKOMENDASIKAN:</span>
               <ul className="list-disc pl-5 space-y-1.5">
                 <li>
-                  Allocate <span className="font-bold text-slate-50">IDR {(welfareBudget * 0.45 / 1000000000).toFixed(2)} Billion</span> matching funds toward targeted water and sanitary piping grids in the highest deficit sub-districts (e.g. <span className="text-slate-50">{subDistricts[0]?.name}</span>).
+                  Alokasikan dana pendamping <span className="font-bold text-slate-50">Rp {(welfareBudget * 0.45 / 1000000000).toFixed(2)} Miliar</span> untuk target jaringan pipa air dan sanitasi di kecamatan dengan defisit tertinggi (misalnya <span className="text-slate-50">{subDistricts[0]?.name}</span>).
                 </li>
                 <li>
-                  Direct <span className="font-bold text-slate-50">IDR {(welfareBudget * 0.3 / 1000000000).toFixed(2)} Billion</span> matching funds toward agricultural premium subsidies to protect micro-shareholders against price and crop shocks.
+                  Arahkan dana pendamping <span className="font-bold text-slate-50">Rp {(welfareBudget * 0.3 / 1000000000).toFixed(2)} Miliar</span> untuk subsidi asuransi pertanian premium untuk melindungi petani mikro dari guncangan harga dan gagal panen.
                 </li>
                 <li>
-                  Dispatch field validation teams using RANCAGE PMT mobile APIs to audit {poorSoulsCount.toLocaleString('id-ID')} poor household profiles, correcting for targeting leakages.
+                  Kirim tim validasi lapangan menggunakan RANCAGE PMT mobile APIs untuk mengaudit {poorSoulsCount.toLocaleString('id-ID')} profil rumah tangga miskin, memperbaiki kebocoran penargetan.
                 </li>
               </ul>
             </div>

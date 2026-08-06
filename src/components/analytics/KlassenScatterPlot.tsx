@@ -97,7 +97,7 @@ export function KlassenScatterPlot() {
           <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <div>
               <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-                Peta Distribusi Kuadran Tipologi
+                Distribusi Kuadran Tipologi Kemiskinan-Ketimpangan
               </h4>
               <p className="text-[11px] text-slate-400 mt-0.5">
                 Plot sebaran spasial interaktif yang memetakan Rasio Kemiskinan terhadap Kontribusi Theil.

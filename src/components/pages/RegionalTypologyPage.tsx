@@ -336,7 +336,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
       
       {!hideHeader && (
         <PageHeader 
-          title="Tipologi Wilayah (Kemiskinan-Ketimpangan)"
+          title="Tipologi Kemiskinan-Ketimpangan"
           description="Kuadran Pertumbuhan Ekonomi vs Pengentasan Kemiskinan di 27 Kabupaten/Kota Jawa Barat."
           icon={<Compass className="h-5 w-5 text-blue-500" />}
         />
