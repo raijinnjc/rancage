@@ -102,7 +102,7 @@ export function LandingPage() {
           </div>
           
           <p className="text-[18px] text-rancage-text-muted dark:text-slate-400 leading-relaxed text-center">
-            RANCAGE (<span className="font-semibold text-rancage-text dark:text-slate-300">Ruang Analisis Navigasi Celah Agregat dan Gini Empiris</span>) bukanlah sistem rival yang berupaya menggantikan P3KE atau DTKS, melainkan platform intelijen kebijakan lapisan pelengkap (<em>complementary intelligence layer</em>) yang bertugas menambal "ruang gelap" fragmentasi data antar-lembaga serta mengkalibrasi ulang intervensi bansos agar responsif terhadap anomali meningkatnya kedalaman kemiskinan (P1) di tengah tingginya Gini Ratio Jawa Barat.
+            RANCAGE (<span className="font-semibold text-rancage-text dark:text-slate-300">Ruang Analisis Navigasi Celah Agregat dan Gini Empiris</span>) bukanlah sistem rival yang berupaya menggantikan P3KE atau DTKS, melainkan platform intelijen kebijakan lapisan pelengkap (<em>complementary intelligence layer</em>) yang bertugas mengintegrasikan data antar-lembaga secara komprehensif serta menyesuaikan strategi intervensi bantuan sosial agar lebih responsif terhadap anomali meningkatnya kedalaman kemiskinan (P1) di tengah tingginya Gini Ratio Jawa Barat.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
