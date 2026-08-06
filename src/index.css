@@ -8,31 +8,18 @@
   --color-kujang-gold: #C5962A;
   --color-mega-blue: #1E3A5F;
 
-  /* Overriding Slate with Mega Mendung Navy Scale */
-  --color-slate-50: #f0f4f8;
-  --color-slate-100: #d9e2ec;
-  --color-slate-200: #bcccdc;
-  --color-slate-300: #9fb3c8;
-  --color-slate-400: #829ab1;
-  --color-slate-500: #627d98;
-  --color-slate-600: #486581;
-  --color-slate-700: #334e68;
-  --color-slate-800: #1b3046;
-  --color-slate-900: #122132;
-  --color-slate-950: #0a131e;
-
-  /* Overriding Blue with Mega Mendung Red Scale */
-  --color-blue-50: #ffebee;
-  --color-blue-100: #ffcdd2;
-  --color-blue-200: #ef9a9a;
-  --color-blue-300: #e57373;
-  --color-blue-400: #ef5350;
-  --color-blue-500: #f44336;
-  --color-blue-600: #e53935;
-  --color-blue-700: #d32f2f;
-  --color-blue-800: #c62828;
-  --color-blue-900: #b71c1c;
-  --color-blue-950: #7f0000;
+  /* Overriding Blue with Teal (Aksen utama) */
+  --color-blue-50: #f0fdfa;
+  --color-blue-100: #ccfbf1;
+  --color-blue-200: #99f6e4;
+  --color-blue-300: #5eead4;
+  --color-blue-400: #2dd4bf;
+  --color-blue-500: #14b8a6;
+  --color-blue-600: #0d9488;
+  --color-blue-700: #0f766e;
+  --color-blue-800: #115e59;
+  --color-blue-900: #134e4a;
+  --color-blue-950: #042f2e;
 }
 
 @utility bg-batik-pattern {

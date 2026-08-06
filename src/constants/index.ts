@@ -11,71 +11,50 @@ export const SYSTEM_META = {
 };
 
 /**
- * Navigation Tree conforming to UI Routing specifications
+ * Navigation Tree conforming to UI Routing specifications (Government Workspace)
  */
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: 'dashboard',
-    label: 'Dasbor Eksekutif',
+    label: 'Dasbor Instansi',
     icon: 'LayoutDashboard',
-    minRole: 'PUBLIC',
-    description: 'Rasio P0 Kabupaten terhadap Provinsi dan ringkasan agregat kemiskinan Jawa Barat.',
-  },
-  {
-    id: 'diagnosis',
-    label: 'Diagnosa Wilayah',
-    icon: 'TrendingUp',
-    minRole: 'PUBLIC',
-    description: 'Dekomposisi Indeks Theil (T_Between vs T_Within) dan tren Indeks Gini riil.',
-  },
-  {
-    id: 'typology',
-    label: 'Tipologi Wilayah',
-    icon: 'Grid',
-    minRole: 'PUBLIC',
-    description: 'Visualisasi Peta Kuadran Tipologi Wilayah untuk mitigasi stigmatisasi daerah.',
-  },
-  {
-    id: 'regional-profile',
-    label: 'Profil Wilayah',
-    icon: 'MapPin',
-    minRole: 'PUBLIC',
-    description: 'Distribusi klasifikasi kesejahteraan (Miskin, Rentan Miskin, Mampu) dan tren pemulihan.',
+    minRole: 'GOVERNMENT',
+    description: 'Ringkasan operasional dan notifikasi ruang kerja pemerintah.',
   },
   {
     id: 'household',
-    label: 'Penargetan Rumah Tangga',
+    label: 'Skor Kesejahteraan KK',
     icon: 'Users',
     minRole: 'GOVERNMENT',
-    description: 'BNBA Lengkap: Akses NIK, alamat KPM, dan pemilihan sampel rumah tangga untuk intervensi.',
+    description: 'BNBA Lengkap: Akses NIK, alamat KPM, dan klasifikasi desil kesejahteraan keluarga.',
   },
   {
     id: 'ml-evaluation',
-    label: 'Evaluasi Model ML',
+    label: 'Estimasi Error (PMT)',
     icon: 'Brain',
     minRole: 'GOVERNMENT',
-    description: 'Transparansi akurasi: Skor PMT-ML per KK dan simulasi estimasi Inclusion & Exclusion Error.',
+    description: 'Transparansi akurasi: Confusion matrix dan estimasi Inclusion & Exclusion Error.',
   },
   {
     id: 'recommendation',
-    label: 'Rekomendasi Kebijakan',
+    label: 'Simulasi Kebijakan',
     icon: 'Briefcase',
-    minRole: 'GOVERNMENT', // Changed to Gov to match the "Simulasi Dampak Statis sebelum anggaran disalurkan"
-    description: 'Simulasi Dampak Statis: Pengujian skenario efektivitas biaya sebelum penyaluran anggaran.',
+    minRole: 'GOVERNMENT',
+    description: 'Simulasi Dampak Statis: Pengujian skenario intervensi kemiskinan dan ketimpangan.',
   },
   {
     id: 'monitoring',
-    label: 'Pusat Pemantauan',
+    label: 'Peringkat Efektivitas Biaya',
     icon: 'Activity',
-    minRole: 'PUBLIC',
-    description: 'Pelacakan target lintasan RPJMD dan peringatan dini program.',
+    minRole: 'GOVERNMENT',
+    description: 'Ranking skenario kebijakan berdasarkan rasio efektivitas anggaran (cost-effectiveness).',
   },
   {
-    id: 'administration',
-    label: 'Tata Kelola Data',
+    id: 'settings',
+    label: 'Pengaturan',
     icon: 'Shield',
     minRole: 'ADMIN',
-    description: 'Kontrol akses pengguna, sinkronisasi database, dan analisis log audit.',
+    description: 'Kontrol akses pengguna, audit log, dan sinkronisasi database.',
   },
 ];
 

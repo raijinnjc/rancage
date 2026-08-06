@@ -4,17 +4,15 @@
 
 export type ScreenId =
   | 'landing'
+  | 'exploration'
+  | 'methodology'
   | 'login'
   | 'dashboard'
-  | 'diagnosis'
-  | 'typology'
-  | 'regional-profile'
   | 'household'
+  | 'ml-evaluation'
   | 'recommendation'
   | 'monitoring'
-  | 'administration'
-  | 'settings'
-  | 'ml-evaluation';
+  | 'settings';
 
 export interface BreadcrumbItem {
   label: string;

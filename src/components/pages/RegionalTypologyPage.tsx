@@ -39,6 +39,8 @@ import {
   AlertTriangle,
   ExternalLink,
   Plus,
+  Download,
+  Compass,
 } from 'lucide-react';
 
 import { PageHeader } from '../ui/PageHeader.tsx';
@@ -83,7 +85,11 @@ const DISTRICT_MAP_COORDS: Record<string, { x: number; y: number; name: string; 
   '3279': { x: 545, y: 240, name: 'Kota Banjar', neighbors: ['3207'] },
 };
 
-export default function RegionalTypologyPage() {
+interface RegionalTypologyPageProps {
+  hideHeader?: boolean;
+}
+
+export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPageProps) {
   const { navigateTo, selectedDistrictId, setSelectedDistrictId, selectedYear: globalYear, selectedTypology: globalTypology } = useNavigationStore();
   const [hoveredDistrictId, setHoveredDistrictId] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string>('2025');
@@ -326,15 +332,17 @@ export default function RegionalTypologyPage() {
   }, [quadrantStats]);
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-200" id="regional-typology-container">
+    <div className="space-y-6 pb-20 animate-in fade-in duration-500">
       
-      {/* Page Header */}
-      <PageHeader
-        title="Tipologi Wilayah"
-        description="Prioritas Pembangunan Kabupaten dan Kota Berbasis Bukti di Jawa Barat"
-      />
+      {!hideHeader && (
+        <PageHeader 
+          title="Tipologi Wilayah (Klassen)"
+          description="Kuadran Pertumbuhan Ekonomi vs Pengentasan Kemiskinan di 27 Kabupaten/Kota Jawa Barat."
+          icon={<Compass className="h-5 w-5 text-blue-500" />}
+        />
+      )}
 
-      {/* Global Filters Panel */}
+      {/* Action Bar & Global Filters */}
       <div className="bg-white dark:bg-slate-950 rounded-sm border border-slate-100 dark:border-slate-900 p-5 shadow-xs" id="typology-filters">
         <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-900 pb-3.5 mb-4">
           <div className="flex items-center gap-2">

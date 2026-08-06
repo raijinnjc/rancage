@@ -31,7 +31,7 @@ export function LandingPage() {
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <button
-            onClick={() => navigateTo('dashboard')}
+            onClick={() => navigateTo('exploration')}
             className="inline-flex items-center gap-1.5 rounded-sm bg-slate-950 hover:bg-slate-800 text-white dark:bg-slate-50 dark:text-slate-950 dark:hover:bg-slate-200 px-5 py-2.5 text-xs font-semibold tracking-wide transition-colors shadow-xs"
           >
             <Eye className="h-4 w-4" />

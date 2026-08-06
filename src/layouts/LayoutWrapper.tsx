@@ -14,28 +14,21 @@ export function LayoutWrapper({ children }: LayoutWrapperProps) {
 
   switch (currentScreen) {
     case 'landing':
+    case 'exploration':
+    case 'methodology':
       return <PublicLayout>{children}</PublicLayout>;
 
     case 'login':
       return <AuthenticationLayout>{children}</AuthenticationLayout>;
 
-    // Public analytical dashboards (Sidebar + Navbar)
+    // Government restricted workspace directories (Private)
     case 'dashboard':
-    case 'diagnosis':
-    case 'typology':
-    case 'regional-profile':
+    case 'household':
+    case 'ml-evaluation':
     case 'recommendation':
     case 'monitoring':
     case 'settings':
-      return <DashboardLayout>{children}</DashboardLayout>;
-
-    // Government restricted workspace directories
-    case 'household':
       return <GovernmentLayout requiredRole="GOVERNMENT">{children}</GovernmentLayout>;
-
-    // Admin restricted workspace parameters
-    case 'administration':
-      return <GovernmentLayout requiredRole="ADMIN">{children}</GovernmentLayout>;
 
     default:
       return <PublicLayout>{children}</PublicLayout>;

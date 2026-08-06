@@ -48,7 +48,11 @@ import {
   Line 
 } from 'recharts';
 
-export default function RegionalDiagnosisPage() {
+interface RegionalDiagnosisPageProps {
+  hideHeader?: boolean;
+}
+
+export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisPageProps) {
   const { navigateTo, selectedYear: globalYear, selectedDistrictId: globalDistrictId, selectedTypology: globalTypology } = useNavigationStore();
 
   // 1. Filter States
@@ -323,19 +327,20 @@ export default function RegionalDiagnosisPage() {
             {isDown && <TrendingDown className="h-3 w-3" />}
             {row.trend === 'up' ? 'Naik' : row.trend === 'down' ? 'Turun' : 'Stabil'}
           </span>
-        );
+        )
       }
     }
   ], []);
 
   return (
-    <div className="space-y-8 pb-16 animate-in fade-in duration-300" id="regional-diagnosis-page-container">
-      
-      {/* 1. Page Header */}
-      <PageHeader 
-        title="Diagnosis Wilayah"
-        description="Memahami Faktor Pendorong Kemiskinan dan Ketimpangan di Seluruh Jawa Barat"
-      />
+    <div className="space-y-6 pb-20 animate-in fade-in duration-500">
+      {!hideHeader && (
+        <PageHeader 
+          title="Diagnosa Wilayah" 
+          description="Dekomposisi Ketimpangan (Indeks Theil) dan Analisis Tren Indikator Kemiskinan Provinsi Jawa Barat"
+          icon={<TrendingUp className="h-5 w-5 text-blue-500" />}
+        />
+      )}
 
       {/* Export Notifications */}
       {exportNotification && (

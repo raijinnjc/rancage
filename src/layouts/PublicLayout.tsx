@@ -42,16 +42,31 @@ export function PublicLayout({ children }: PublicLayoutProps) {
         {/* Global Action items */}
         <div className="flex items-center gap-4 text-xs font-medium">
           <button
-            onClick={() => navigateTo('dashboard')}
-            className="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors"
+            onClick={() => navigateTo('landing')}
+            className={cn(
+              "transition-colors",
+              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+            )}
           >
-            Indikator Publik
+            Beranda
           </button>
           <button
-            onClick={() => navigateTo('recommendation')}
-            className="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition-colors"
+            onClick={() => navigateTo('exploration')}
+            className={cn(
+              "transition-colors",
+              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+            )}
           >
-            Prakiraan Kebijakan
+            Eksplorasi Wilayah
+          </button>
+          <button
+            onClick={() => navigateTo('methodology')}
+            className={cn(
+              "transition-colors",
+              "text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
+            )}
+          >
+            Metodologi
           </button>
         </div>
 

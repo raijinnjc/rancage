@@ -5,7 +5,13 @@ import { LayoutWrapper } from './layouts/LayoutWrapper.tsx';
 // Page Views
 import { LandingPage } from './components/pages/LandingPage.tsx';
 import { LoginPage } from './components/pages/LoginPage.tsx';
-import { SandboxPage } from './components/pages/SandboxPage.tsx';
+import { ExplorationPage } from './components/pages/ExplorationPage.tsx';
+import { MethodologyPage } from './components/pages/MethodologyPage.tsx';
+import GovernancePage from './components/pages/GovernancePage.tsx';
+import HouseholdTargetingPage from './components/pages/HouseholdTargetingPage.tsx';
+import MlEvaluationPage from './components/pages/MlEvaluationPage.tsx';
+import PolicyRecommendationPage from './components/pages/PolicyRecommendationPage.tsx';
+import MonitoringCenterPage from './components/pages/MonitoringCenterPage.tsx';
 
 export default function App() {
   const { currentScreen } = useNavigationStore();
@@ -13,9 +19,18 @@ export default function App() {
   return (
     <GlobalProvider>
       <LayoutWrapper>
+        {/* Public Routes */}
         {currentScreen === 'landing' && <LandingPage />}
+        {currentScreen === 'exploration' && <ExplorationPage />}
+        {currentScreen === 'methodology' && <MethodologyPage />}
         {currentScreen === 'login' && <LoginPage />}
-        {currentScreen !== 'landing' && currentScreen !== 'login' && <SandboxPage />}
+        
+        {/* Private / Government Routes */}
+        {currentScreen === 'dashboard' && <GovernancePage />}
+        {currentScreen === 'household' && <HouseholdTargetingPage />}
+        {currentScreen === 'ml-evaluation' && <MlEvaluationPage />}
+        {currentScreen === 'recommendation' && <PolicyRecommendationPage />}
+        {currentScreen === 'monitoring' && <MonitoringCenterPage />}
       </LayoutWrapper>
     </GlobalProvider>
   );
