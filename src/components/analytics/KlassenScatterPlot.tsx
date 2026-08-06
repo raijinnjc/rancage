@@ -147,7 +147,10 @@ export function KlassenScatterPlot() {
                     border: 'none',
                     fontSize: '11px',
                   }}
-                  formatter={(value, name) => [value, name]}
+                  formatter={(value: any, name: any, props: any) => [
+                    `Rasio P0: ${props?.payload?.growth}% | Theil: ${props?.payload?.income}`, 
+                    props?.payload?.name || 'Wilayah'
+                  ]}
                 />
                 <ReferenceLine x={4.5} stroke="#cbd5e1" strokeDasharray="3 3" className="dark:stroke-slate-800" />
                 <ReferenceLine y={45.0} stroke="#cbd5e1" strokeDasharray="3 3" className="dark:stroke-slate-800" />

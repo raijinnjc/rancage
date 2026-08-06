@@ -29,12 +29,8 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       <header className="h-20 border-b border-rancage-border flex items-center justify-between px-8 sticky top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-50 transition-all duration-300">
         
         {/* Brand Logo and Title */}
-        <button onClick={() => navigateTo('landing')} className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-          <img src="/logo-transparent.png" alt="RANCAGE Logo" className="h-10 object-contain" />
-          <div className="flex flex-col text-left">
-            <span className="text-sm font-bold tracking-wide text-rancage-primary dark:text-white leading-tight">RANCAGE DSS</span>
-            <span className="text-[9px] font-semibold text-rancage-secondary uppercase tracking-widest mt-0.5">Penanggulangan Kemiskinan</span>
-          </div>
+        <button onClick={() => navigateTo('landing')} className="flex items-center hover:opacity-90 transition-opacity">
+          <img src="/logo2.png" alt="RANCAGE Logo" className="h-10 object-contain" />
         </button>
 
         {/* Global Action items - Centered */}

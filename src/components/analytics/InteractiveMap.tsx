@@ -49,7 +49,7 @@ export function InteractiveMap() {
   const [geoData, setGeoData] = useState<any>(null);
 
   useEffect(() => {
-    fetch('/jawa_barat.geojson')
+    fetch('/jawa_barat.geojson?v=2')
       .then(res => res.json())
       .then(data => setGeoData(data))
       .catch(err => console.error('Failed to load GeoJSON:', err));

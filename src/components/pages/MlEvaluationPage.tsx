@@ -62,19 +62,19 @@ export default function MlEvaluationPage() {
   // Breadcrumb items
   const breadcrumbs = [
     { label: 'RANCAGE DSS' },
-    { label: 'ML Evaluation Center', active: true }
+    { label: 'Pusat Evaluasi Machine Learning', active: true }
   ];
 
   // SECTION 2: Baseline Metrics at default threshold 0.50
   const baselineKpis = {
-    accuracy: { current: '89.4%', benchmark: '82.1%', interpretation: 'Overall correct classification rate across poor and non-poor rosters.', status: 'excellent' },
-    precision: { current: '87.5%', benchmark: '76.2%', interpretation: 'Out of all predicted poor, percentage who are truly below poverty line.', status: 'excellent' },
-    recall: { current: '91.2%', benchmark: '80.5%', interpretation: 'Out of all truly poor families, percentage successfully target-captured.', status: 'excellent' },
-    f1Score: { current: '89.3%', benchmark: '78.3%', interpretation: 'Harmonic mean balancing leakage and undercoverage errors.', status: 'excellent' },
-    rocAuc: { current: '0.942', benchmark: '0.860', interpretation: 'Socioeconomic ranking and sorting power across all possible thresholds.', status: 'excellent' },
-    logLoss: { current: '0.245', benchmark: '0.412', interpretation: 'Closeness of predicted probability models to direct binary welfare outcomes.', status: 'excellent' },
-    balancedAccuracy: { current: '88.9%', benchmark: '81.0%', interpretation: 'Average of recall rates across both poor and non-poor classes.', status: 'excellent' },
-    mcc: { current: '0.781', benchmark: '0.620', interpretation: 'Correlation balance checking even if welfare classes are highly unbalanced.', status: 'excellent' }
+    accuracy: { current: '89.4%', benchmark: '82.1%', interpretation: 'Tingkat klasifikasi benar keseluruhan pada daftar miskin dan tidak miskin.', status: 'sangat baik' },
+    precision: { current: '87.5%', benchmark: '76.2%', interpretation: 'Dari semua yang diprediksi miskin, persentase yang benar-benar di bawah garis kemiskinan.', status: 'sangat baik' },
+    recall: { current: '91.2%', benchmark: '80.5%', interpretation: 'Dari semua keluarga yang benar-benar miskin, persentase yang berhasil ditargetkan.', status: 'sangat baik' },
+    f1Score: { current: '89.3%', benchmark: '78.3%', interpretation: 'Rata-rata harmonik menyeimbangkan kebocoran dan kesalahan undercoverage.', status: 'sangat baik' },
+    rocAuc: { current: '0.942', benchmark: '0.860', interpretation: 'Peringkat sosial ekonomi dan kekuatan pengurutan di seluruh ambang batas yang mungkin.', status: 'sangat baik' },
+    logLoss: { current: '0.245', benchmark: '0.412', interpretation: 'Kedekatan model probabilitas yang diprediksi ke hasil kesejahteraan biner langsung.', status: 'sangat baik' },
+    balancedAccuracy: { current: '88.9%', benchmark: '81.0%', interpretation: 'Rata-rata tingkat recall di kedua kelas miskin dan tidak miskin.', status: 'sangat baik' },
+    mcc: { current: '0.781', benchmark: '0.620', interpretation: 'Pengecekan keseimbangan korelasi meskipun kelas kesejahteraan sangat tidak seimbang.', status: 'sangat baik' }
   };
 
   // SECTION 3: Dynamic Confusion Matrix calculated from selected threshold
@@ -89,9 +89,9 @@ export default function MlEvaluationPage() {
 
     // Base values at 0.50
     let tp = Math.round(3192 - (factor * 600)); // True Poor predicted Poor
-    let fn = truePoor - tp;                      // True Poor predicted Non-Poor (Exclusion)
-    let fp = Math.round(455 - (factor * 400));   // True Non-Poor predicted Poor (Inclusion)
-    let tn = trueNonPoor - fp;                   // True Non-Poor predicted Non-Poor
+    let fn = truePoor - tp;                      // True Poor predicted Tidak Miskin (Exclusion)
+    let fp = Math.round(455 - (factor * 400));   // True Tidak Miskin predicted Poor (Inclusion)
+    let tn = trueNonPoor - fp;                   // True Tidak Miskin predicted Tidak Miskin
 
     // Bound values
     if (tp < 1000) tp = 1000;
@@ -151,109 +151,109 @@ export default function MlEvaluationPage() {
 
   // SECTION 7: Feature Importance (Top 15 Variables)
   const featureImportances = [
-    { name: 'Housing Quality Index', score: 0.245, category: 'Housing' },
-    { name: 'Head of Household Schooling Years', score: 0.182, category: 'Education' },
-    { name: 'Electricity Connection Wattage', score: 0.124, category: 'Utilities' },
-    { name: 'Drinking Water Source Access', score: 0.098, category: 'Sanitation' },
-    { name: 'Sanitation System Deprivation', score: 0.088, category: 'Sanitation' },
-    { name: 'Household Productive Assets', score: 0.065, category: 'Assets' },
-    { name: 'Head Occupation / Informal Labor Status', score: 0.054, category: 'Employment' },
-    { name: 'Total Cohabiting Dependents', score: 0.045, category: 'Demographics' },
-    { name: 'Broadband / Cellular Internet Access', score: 0.038, category: 'Utilities' },
-    { name: 'Floor Material Composition', score: 0.028, category: 'Housing' },
-    { name: 'Chronic Illness Healthcare Gaps', score: 0.015, category: 'Health' },
-    { name: 'Arable Land Area Owned', score: 0.011, category: 'Assets' },
-    { name: 'Recipient of Subsidized Rice (Raskin)', score: 0.005, category: 'Welfare' },
-    { name: 'Disability Head of Household', score: 0.002, category: 'Demographics' }
+    { name: 'Indeks Kualitas Perumahan', score: 0.245, category: 'Housing' },
+    { name: 'Tahun Bersekolah Kepala Keluarga', score: 0.182, category: 'Education' },
+    { name: 'Daya Sambungan Listrik', score: 0.124, category: 'Utilities' },
+    { name: 'Akses Sumber Air Minum', score: 0.098, category: 'Sanitation' },
+    { name: 'Perampasan Sistem Sanitasi', score: 0.088, category: 'Sanitation' },
+    { name: 'Aset Produktif Rumah Tangga', score: 0.065, category: 'Assets' },
+    { name: 'Pekerjaan Kepala Keluarga / Status Tenaga Kerja Informal', score: 0.054, category: 'Employment' },
+    { name: 'Total Tanggungan yang Tinggal Bersama', score: 0.045, category: 'Demographics' },
+    { name: 'Akses Internet Broadband / Seluler', score: 0.038, category: 'Utilities' },
+    { name: 'Komposisi Material Lantai', score: 0.028, category: 'Housing' },
+    { name: 'Kesenjangan Layanan Kesehatan Penyakit Kronis', score: 0.015, category: 'Health' },
+    { name: 'Luas Tanah Subur yang Dimiliki', score: 0.011, category: 'Assets' },
+    { name: 'Penerima Beras Bersubsidi (Raskin)', score: 0.005, category: 'Welfare' },
+    { name: 'Kepala Keluarga Disabilitas', score: 0.002, category: 'Demographics' }
   ];
 
   // SECTION 8: SHAP Values Metadata & Hover Explanation
   const shapFeatures = [
     {
-      name: 'Housing Quality Index',
-      direction: 'Negative (-)',
-      magnitude: 'Very High',
-      interpretation: 'Providing substandard outer walls (bamboo, unfinished timber) heavily increases predicted poverty likelihood.',
-      policy: 'Aligns budget lines with rural home rehabilitation programs (Rutilahu).'
+      name: 'Indeks Kualitas Perumahan',
+      direction: 'Negatif (-)',
+      magnitude: 'Sangat Tinggi',
+      interpretation: 'Menyediakan dinding luar di bawah standar (bambu, kayu belum selesai) sangat meningkatkan kemungkinan kemiskinan yang diprediksi.',
+      policy: 'Menyelaraskan pos anggaran dengan program rehabilitasi rumah perdesaan (Rutilahu).'
     },
     {
-      name: 'Head of Household Schooling Years',
-      direction: 'Negative (-)',
+      name: 'Tahun Bersekolah Kepala Keluarga',
+      direction: 'Negatif (-)',
       magnitude: 'High',
-      interpretation: 'Completing primary or junior-high education dramatically lowers predicted poverty probability.',
-      policy: 'Supports continuous educational cash benefits (KIP) to break intergenerational poverty traps.'
+      interpretation: 'Menyelesaikan pendidikan dasar atau menengah pertama secara dramatis menurunkan probabilitas kemiskinan yang diprediksi.',
+      policy: 'Mendukung manfaat uang tunai pendidikan berkelanjutan (KIP) untuk memutus perangkap kemiskinan antargenerasi.'
     },
     {
-      name: 'Sanitation System Deprivation',
-      direction: 'Positive (+)',
-      magnitude: 'Medium-High',
-      interpretation: 'Having no access to private latrines or holding tanks flags extreme welfare deprivation.',
-      policy: 'Justifies localized sanitation infrastructure outlays in category IV pockets.'
+      name: 'Perampasan Sistem Sanitasi',
+      direction: 'Positif (+)',
+      magnitude: 'Sedang-Tinggi',
+      interpretation: 'Tidak memiliki akses ke jamban pribadi atau tangki penampungan menandai perampasan kesejahteraan yang ekstrem.',
+      policy: 'Membenarkan pengeluaran infrastruktur sanitasi lokal di kantong kategori IV.'
     },
     {
-      name: 'Drinking Water Source Access',
-      direction: 'Negative (-)',
+      name: 'Akses Sumber Air Minum',
+      direction: 'Negatif (-)',
       magnitude: 'Medium',
-      interpretation: 'Relying on unprotected wells or river water contributes strongly to the deprivation multiplier.',
-      policy: 'Directly informs rural clean water network expansion targets (Pamsimas).'
+      interpretation: 'Mengandalkan sumur yang tidak terlindungi atau air sungai berkontribusi kuat terhadap pengganda perampasan.',
+      policy: 'Secara langsung menginformasikan target ekspansi jaringan air bersih pedesaan (Pamsimas).'
     },
     {
-      name: 'Household Productive Assets',
-      direction: 'Negative (-)',
+      name: 'Aset Produktif Rumah Tangga',
+      direction: 'Negatif (-)',
       magnitude: 'Medium',
-      interpretation: 'Ownership of functioning vehicles or agricultural machines serves as a robust non-poor proxy.',
-      policy: 'Ensures support shifts from direct cash to productive micro-capital grants as assets accumulate.'
+      interpretation: 'Kepemilikan kendaraan atau mesin pertanian yang berfungsi berfungsi sebagai proksi tidak miskin yang kuat.',
+      policy: 'Memastikan pergeseran dukungan dari uang tunai langsung ke hibah modal mikro produktif seiring bertambahnya aset.'
     }
   ];
 
   // SECTION 9: Error Breakdown Tables
   const districtErrors = [
-    { district: 'Kabupaten Tasikmalaya', inclusion: '4.1%', exclusion: '3.2%', sample: 2450, typology: 'Category IV' },
-    { district: 'Kabupaten Garut', inclusion: '3.8%', exclusion: '2.9%', sample: 2100, typology: 'Category III' },
-    { district: 'Kabupaten Cianjur', inclusion: '3.5%', exclusion: '3.1%', sample: 1980, typology: 'Category IV' },
-    { district: 'Kabupaten Sukabumi', inclusion: '2.9%', exclusion: '2.6%', sample: 1840, typology: 'Category III' },
-    { district: 'Kota Bandung', inclusion: '1.2%', exclusion: '1.1%', sample: 1200, typology: 'Category I' },
-    { district: 'Kota Tasikmalaya', inclusion: '3.1%', exclusion: '2.4%', sample: 850, typology: 'Category II' },
+    { district: 'Kabupaten Tasikmalaya', inclusion: '4.1%', exclusion: '3.2%', sample: 2450, typology: 'Kategori IV' },
+    { district: 'Kabupaten Garut', inclusion: '3.8%', exclusion: '2.9%', sample: 2100, typology: 'Kategori III' },
+    { district: 'Kabupaten Cianjur', inclusion: '3.5%', exclusion: '3.1%', sample: 1980, typology: 'Kategori IV' },
+    { district: 'Kabupaten Sukabumi', inclusion: '2.9%', exclusion: '2.6%', sample: 1840, typology: 'Kategori III' },
+    { district: 'Kota Bandung', inclusion: '1.2%', exclusion: '1.1%', sample: 1200, typology: 'Kategori I' },
+    { district: 'Kota Tasikmalaya', inclusion: '3.1%', exclusion: '2.4%', sample: 850, typology: 'Kategori II' },
   ];
 
   const decileErrors = [
-    { decile: 'Decile 1 (Poorest 10%)', inclusion: '0.8%', exclusion: '1.1%', impact: 'Excellent coverage of core poor' },
-    { decile: 'Decile 2', inclusion: '3.1%', exclusion: '2.4%', impact: 'High precision zone' },
-    { decile: 'Decile 3', inclusion: '7.8%', exclusion: '5.9%', impact: 'Vulnerable boundary buffer' },
-    { decile: 'Decile 4 (Near Poor)', inclusion: '12.4%', exclusion: '9.2%', impact: 'High variance near eligibility threshold' },
+    { decile: 'Desil 1 (10% Termiskin)', inclusion: '0.8%', exclusion: '1.1%', impact: 'Cakupan penduduk miskin inti yang sangat baik' },
+    { decile: 'Desil 2', inclusion: '3.1%', exclusion: '2.4%', impact: 'Zona presisi tinggi' },
+    { decile: 'Desil 3', inclusion: '7.8%', exclusion: '5.9%', impact: 'Penyangga batas rentan' },
+    { decile: 'Desil 4 (Hampir Miskin)', inclusion: '12.4%', exclusion: '9.2%', impact: 'Varians tinggi di dekat batas kelayakan' },
   ];
 
   // SECTION 10: Fairness Metrics Comparison
   const fairnessMetrics = [
-    { category: 'Spatial Scope', groupA: 'Urban Areas (Kota)', valA: '91.2% Acc', groupB: 'Rural Areas (Kab.)', valB: '88.5% Acc', diff: '2.7%', status: 'Within Fairness Boundary' },
-    { category: 'Household Head Gender', groupA: 'Male Headed', valA: '89.6% Acc', groupB: 'Female Headed (PEKKA)', valB: '89.1% Acc', diff: '0.5%', status: 'Within Fairness Boundary' },
-    { category: 'Socioeconomic Age Demographics', groupA: 'Adult (Age 18-60)', valA: '89.8% Acc', groupB: 'Elderly Headed (>60)', valB: '87.4% Acc', diff: '2.4%', status: 'Within Fairness Boundary' },
-    { category: 'Disability Status', groupA: 'No Disability Profile', valA: '89.5% Acc', groupB: 'Disability Cohort', valB: '88.9% Acc', diff: '0.6%', status: 'Within Fairness Boundary' }
+    { category: 'Cakupan Spasial', groupA: 'Wilayah Perkotaan (Kota)', valA: '91.2% Acc', groupB: 'Wilayah Perdesaan (Kab.)', valB: '88.5% Acc', diff: '2.7%', status: 'Dalam Batas Keadilan' },
+    { category: 'Jenis Kelamin Kepala Keluarga', groupA: 'Kepala Keluarga Laki-laki', valA: '89.6% Acc', groupB: 'Kepala Keluarga Perempuan (PEKKA)', valB: '89.1% Acc', diff: '0.5%', status: 'Dalam Batas Keadilan' },
+    { category: 'Demografi Usia Sosial Ekonomi', groupA: 'Dewasa (Usia 18-60)', valA: '89.8% Acc', groupB: 'Kepala Keluarga Lansia (>60)', valB: '87.4% Acc', diff: '2.4%', status: 'Dalam Batas Keadilan' },
+    { category: 'Status Disabilitas', groupA: 'Tidak Ada Profil Disabilitas', valA: '89.5% Acc', groupB: 'Kohort Disabilitas', valB: '88.9% Acc', diff: '0.6%', status: 'Dalam Batas Keadilan' }
   ];
 
   // SECTION 11: Model Comparison Table
   const modelComparisons = [
-    { model: 'Baseline OLS PMT (Traditional)', accuracy: '82.1%', precision: '76.2%', recall: '80.5%', inclusion: '8.4%', exclusion: '6.9%', sla: '12ms' },
+    { model: 'Baseline OLS PMT (Tradisional)', accuracy: '82.1%', precision: '76.2%', recall: '80.5%', inclusion: '8.4%', exclusion: '6.9%', sla: '12ms' },
     { model: 'Gradient Boosting (XGBoost v2.1)', accuracy: '89.4%', precision: '87.5%', recall: '91.2%', inclusion: '3.4%', exclusion: '2.9%', sla: '35ms' },
-    { model: 'Random Forest Ensemble', accuracy: '87.9%', precision: '85.1%', recall: '88.4%', inclusion: '4.6%', exclusion: '4.1%', sla: '45ms' },
+    { model: 'Ansambel Random Forest', accuracy: '87.9%', precision: '85.1%', recall: '88.4%', inclusion: '4.6%', exclusion: '4.1%', sla: '45ms' },
     { model: 'Deep Neural Network (MLP)', accuracy: '88.6%', precision: '84.9%', recall: '90.1%', inclusion: '5.2%', exclusion: '3.4%', sla: '110ms' }
   ];
 
   // SECTION 12: Model Governance
   const governanceLogs = [
-    { version: 'v2.1.2-STABLE', date: '2026-07-15', author: 'Bappeda Jabar Data Core', description: 'Updated hyperparameters with L1/L2 regularization to lower urban-rural inclusion discrepancy.' },
-    { version: 'v2.1.0-RC3', date: '2026-05-14', author: 'Dinsos Jabar Analyst', description: 'Incorporated village-level spatial fixed effects derived from indeks tipologi kemiskinan-ketimpangan.' },
-    { version: 'v1.4.0', date: '2025-11-02', author: 'Sensus Data Unit', description: 'Initial deployment based on national Susenas sample training models.' }
+    { version: 'v2.1.2-STABLE', date: '2026-07-15', author: 'Bappeda Jabar Data Core', description: 'Memperbarui hiperparameter dengan regularisasi L1/L2 untuk menurunkan perbedaan inklusi perkotaan-pedesaan.' },
+    { version: 'v2.1.0-RC3', date: '2026-05-14', author: 'Dinsos Jabar Analyst', description: 'Menggabungkan efek tetap spasial tingkat desa yang berasal dari indeks tipologi kemiskinan-ketimpangan.' },
+    { version: 'v1.4.0', date: '2025-11-02', author: 'Sensus Data Unit', description: 'Penerapan awal berdasarkan model pelatihan sampel Susenas nasional.' }
   ];
 
   // Simulation threshold narrative text (Section 6)
   const getThresholdNarrative = () => {
     if (threshold < 0.40) {
-      return "Low threshold configuration detects almost all vulnerable households, resulting in an exceptionally low Exclusion Error (undercoverage). However, this aggressively increases the Inclusion Error (leakage). This strategy is highly suited for comprehensive, universal basic aid scenarios but demands substantial fiscal budgets and increases public leakage concerns.";
+      return "Konfigurasi ambang rendah mendeteksi hampir semua rumah tangga rentan, menghasilkan Kesalahan Eksklusi (undercoverage) yang sangat rendah. Namun, ini secara agresif meningkatkan Kesalahan Inklusi (kebocoran). Strategi ini sangat cocok untuk skenario bantuan dasar universal yang komprehensif tetapi menuntut anggaran fiskal yang substansial dan meningkatkan kekhawatiran kebocoran publik.";
     } else if (threshold > 0.60) {
-      return "High threshold configuration focuses strictly on families showing extreme, unambiguous markers of destitution. This leads to very low Inclusion Error (almost zero leakage). However, it introduces severe Exclusion Error, missing families who hover just below the line. This fits tight fiscal austerity budgets but leaves vulnerable groups exposed.";
+      return "Konfigurasi ambang tinggi berfokus secara ketat pada keluarga yang menunjukkan tanda-tanda kemelaratan yang ekstrem dan tidak ambigu. Hal ini mengarah pada Kesalahan Inklusi yang sangat rendah (hampir tidak ada kebocoran). Namun, hal ini memperkenalkan Kesalahan Eksklusi yang parah, melewatkan keluarga yang berada tepat di bawah garis. Hal ini sesuai dengan anggaran penghematan fiskal yang ketat namun membiarkan kelompok rentan terpapar.";
     } else {
-      return "Balanced threshold represents the optimal policy compromise. It maximizes the F1 metric, balancing exclusion and inclusion errors inside statutory safety bounds. Budget allocation remains predictable while minimizing public field friction during verification sweeps.";
+      return "Ambang batas yang seimbang merupakan kompromi kebijakan yang optimal. Ia memaksimalkan metrik F1, menyeimbangkan kesalahan eksklusi dan inklusi di dalam batas keamanan undang-undang. Alokasi anggaran tetap dapat diprediksi sambil meminimalkan gesekan lapangan publik selama pemeriksaan verifikasi.";
     }
   };
 
@@ -261,18 +261,18 @@ export default function MlEvaluationPage() {
     <div className="space-y-6">
       {/* PAGE HEADER */}
       <PageHeader
-        title="Machine Learning Evaluation Center"
-        description="Auditing model integrity, forecasting budget-error tradeoffs, and monitoring algorithmic fairness."
+        title="Pusat Evaluasi Machine Learning"
+        description="Mengaudit integritas model, memperkirakan tradeoff anggaran-kesalahan, dan memantau keadilan algoritmik."
         actions={
           <div className="flex flex-wrap items-center gap-2">
             <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm px-3 py-1.5 text-[11px] font-mono font-semibold text-slate-500 flex items-center gap-1.5">
               <Database className="h-3.5 w-3.5 text-blue-500" />
-              <span>Training Frame:</span>
+              <span>Kerangka Pelatihan:</span>
               <strong className="text-slate-800 dark:text-slate-200">Susenas Jabar Q3</strong>
             </div>
             <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm px-3 py-1.5 text-[11px] font-mono font-semibold text-slate-500 flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5 text-blue-500" />
-              <span>Evaluated:</span>
+              <span>Dievaluasi:</span>
               <strong className="text-slate-800 dark:text-slate-200">2026-07-15</strong>
             </div>
           </div>
@@ -285,38 +285,38 @@ export default function MlEvaluationPage() {
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-              Model Suitability & Deployment Readiness Assessment
+              Kesesuaian Model & Penilaian Kesiapan Penerapan
             </h3>
           </div>
-          <span className="text-[10px] font-mono font-bold text-slate-400">DECISION EVALUATION DESK</span>
+          <span className="text-[10px] font-mono font-bold text-slate-400">MEJA EVALUASI KEPUTUSAN</span>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-slate-600 dark:text-slate-300">
           <div className="lg:col-span-8 space-y-4 text-xs leading-relaxed">
             <div>
               <h4 className="font-bold text-slate-900 dark:text-white text-[11px] uppercase font-mono tracking-wider mb-1">
-                Overall Performance & Predictive Capacity
+                Kinerja Keseluruhan & Kapasitas Prediktif
               </h4>
               <p>
-                The RANCAGE Gradient Boosting model achieves an overall Accuracy of <strong className="text-slate-900 dark:text-white">89.4%</strong>, representing a substantial <strong className="text-emerald-600 dark:text-emerald-400">+7.3% predictive uplift</strong> compared to traditional OLS-based proxy models. The Area Under the ROC Curve (AUC-ROC) remains highly robust at <strong className="text-slate-900 dark:text-white">0.942</strong>, showcasing superior discriminative power in ranking households by true consumption capacity.
+                Model RANCAGE Gradient Boosting mencapai Akurasi keseluruhan sebesar <strong className="text-slate-900 dark:text-white">89.4%</strong>, mewakili substansial <strong className="text-emerald-600 dark:text-emerald-400">+7.3% peningkatan prediktif</strong> dibandingkan model proksi berbasis OLS tradisional. Area Under the ROC Curve (AUC-ROC) tetap sangat tangguh pada <strong className="text-slate-900 dark:text-white">0.942</strong>, menunjukkan kekuatan diskriminatif yang unggul dalam menentukan peringkat rumah tangga berdasarkan kapasitas konsumsi yang sebenarnya.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <div>
                 <h5 className="font-bold text-slate-800 dark:text-slate-200 text-[10px] uppercase font-mono mb-0.5">
-                  Algorithm Strengths
+                  Kekuatan Algoritma
                 </h5>
                 <p className="text-[11px] text-slate-500">
-                  Highly resilient to missing demographic covariates; excels at capturing complex non-linear interactions between housing quality, floor material, and localized spatial indicators without overfitting.
+                  Sangat tangguh terhadap kovariat demografis yang hilang; unggul dalam menangkap interaksi non-linear kompleks antara kualitas perumahan, material lantai, dan indikator spasial lokal tanpa overfitting.
                 </p>
               </div>
               <div>
                 <h5 className="font-bold text-slate-800 dark:text-slate-200 text-[10px] uppercase font-mono mb-0.5">
-                  Known Limitations
+                  Keterbatasan yang Diketahui
                 </h5>
                 <p className="text-[11px] text-slate-500">
-                  Exhibits minor variance near the decile boundaries (D3/D4) where households experience temporal seasonal employment shocks that traditional survey registers capture slowly.
+                  Menunjukkan varians kecil di dekat batas desil (D3/D4) di mana rumah tangga mengalami guncangan pekerjaan musiman temporal yang dicatat secara lambat oleh register survei tradisional.
                 </p>
               </div>
             </div>
@@ -325,10 +325,10 @@ export default function MlEvaluationPage() {
               <CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
               <div>
                 <h5 className="font-bold text-slate-900 dark:text-white text-[11px] uppercase font-mono">
-                  Policy Readiness & Deployment Recommendation
+                  Kesiapan Kebijakan & Rekomendasi Penerapan
                 </h5>
                 <p className="text-[11px] text-slate-500 mt-0.5">
-                  <strong>RECOMMENDED FOR FULL PRODUCTION DEPLOYMENT:</strong> Model meets and exceeds all Bappeda governance mandates. It provides sufficient precision-safety boundaries to prevent public complaints regarding exclusion errors, keeping undercoverage leakage under the 3% threshold when operating at the optimal 0.50 threshold calibration.
+                  <strong>DIREKOMENDASIKAN UNTUK PENERAPAN PRODUKSI PENUH:</strong> Model memenuhi dan melampaui semua mandat tata kelola Bappeda. Ini memberikan batas keselamatan-presisi yang cukup untuk mencegah keluhan publik mengenai kesalahan eksklusi, menjaga kebocoran undercoverage di bawah ambang batas 3% saat beroperasi pada kalibrasi ambang batas optimal 0,50.
                 </p>
               </div>
             </div>
@@ -336,31 +336,31 @@ export default function MlEvaluationPage() {
 
           <div className="lg:col-span-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-900 rounded-sm p-4 flex flex-col justify-between">
             <div className="space-y-3">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">EVALUATION BASELINES</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">DASAR EVALUASI</span>
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-[11px] border-b border-slate-100 dark:border-slate-900 pb-1.5">
-                  <span className="text-slate-400 font-mono">MODEL ARCH</span>
+                  <span className="text-slate-400 font-mono">ARSITEKTUR MODEL</span>
                   <span className="font-bold text-slate-800 dark:text-slate-200 font-mono">XGBoost v2.1.2</span>
                 </div>
                 <div className="flex justify-between items-center text-[11px] border-b border-slate-100 dark:border-slate-900 pb-1.5">
-                  <span className="text-slate-400 font-mono">TUNING CV</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-200 font-mono">5-Fold Stratified</span>
+                  <span className="text-slate-400 font-mono">PENYETELAN CV</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-200 font-mono">Stratifikasi 5-Lipatan</span>
                 </div>
                 <div className="flex justify-between items-center text-[11px] border-b border-slate-100 dark:border-slate-900 pb-1.5">
-                  <span className="text-slate-400 font-mono">TRAIN LOSS</span>
+                  <span className="text-slate-400 font-mono">KERUGIAN LATIHAN</span>
                   <span className="font-bold text-slate-800 dark:text-slate-200 font-mono">0.218</span>
                 </div>
                 <div className="flex justify-between items-center text-[11px]">
-                  <span className="text-slate-400 font-mono">MODEL STATUS</span>
+                  <span className="text-slate-400 font-mono">STATUS MODEL</span>
                   <span className="px-1.5 py-0.5 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-[9px] font-bold rounded-sm uppercase">
-                    STABLE ACTIVE
+                    AKTIF STABIL
                   </span>
                 </div>
               </div>
             </div>
             <div className="pt-2 border-t border-slate-100 dark:border-slate-900 mt-2 flex items-center gap-1.5 text-[9px] text-slate-400 font-mono">
               <Award className="h-4 w-4 text-blue-500" />
-              <span>Meets ISO/IEC 24028 AI Bias Standards</span>
+              <span>Memenuhi Standar Bias AI ISO/IEC 24028</span>
             </div>
           </div>
         </div>
@@ -371,8 +371,8 @@ export default function MlEvaluationPage() {
         {/* Card 1: Accuracy */}
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Accuracy</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.accuracy.benchmark}</span>
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Akurasi</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.accuracy.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.accuracy.current}</span>
@@ -384,8 +384,8 @@ export default function MlEvaluationPage() {
         {/* Card 2: Precision */}
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Precision</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.precision.benchmark}</span>
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Presisi</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.precision.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.precision.current}</span>
@@ -397,8 +397,8 @@ export default function MlEvaluationPage() {
         {/* Card 3: Recall */}
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Recall (Sensitivity)</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.recall.benchmark}</span>
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Recall (Sensitivitas)</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.recall.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.recall.current}</span>
@@ -410,8 +410,8 @@ export default function MlEvaluationPage() {
         {/* Card 4: F1 Score */}
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">F1-Score</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.f1Score.benchmark}</span>
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Skor F1</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.f1Score.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.f1Score.current}</span>
@@ -426,7 +426,7 @@ export default function MlEvaluationPage() {
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
             <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">ROC AUC</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.rocAuc.benchmark}</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.rocAuc.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.rocAuc.current}</span>
@@ -439,7 +439,7 @@ export default function MlEvaluationPage() {
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
             <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Log Loss</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.logLoss.benchmark}</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.logLoss.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.logLoss.current}</span>
@@ -451,8 +451,8 @@ export default function MlEvaluationPage() {
         {/* Card 7: Balanced Accuracy */}
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Balanced Acc</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.balancedAccuracy.benchmark}</span>
+            <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Akurasi Seimbang</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.balancedAccuracy.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.balancedAccuracy.current}</span>
@@ -465,7 +465,7 @@ export default function MlEvaluationPage() {
         <div className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950">
           <div className="flex justify-between items-center">
             <span className="text-xs font-medium text-slate-500 uppercase tracking-wider font-mono">Matthews Corr (MCC)</span>
-            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Bench: {baselineKpis.mcc.benchmark}</span>
+            <span className="text-[10px] text-slate-400 font-mono bg-slate-50 dark:bg-slate-900 px-1.5 py-0.5 rounded-sm">Tolok Ukur: {baselineKpis.mcc.benchmark}</span>
           </div>
           <div className="mt-2.5 flex items-baseline justify-between">
             <span className="text-2xl font-bold font-mono text-slate-900 dark:text-slate-50">{baselineKpis.mcc.current}</span>
@@ -483,7 +483,7 @@ export default function MlEvaluationPage() {
             <div className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-blue-600" />
               <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-                Interactive Confusion Matrix Audit
+                Audit Matriks Kebingungan Interaktif
               </h4>
             </div>
             <div className="flex rounded-sm bg-slate-100 dark:bg-slate-900 p-1 text-[10px] font-bold font-mono">
@@ -491,13 +491,13 @@ export default function MlEvaluationPage() {
                 onClick={() => setMatrixMode('absolute')}
                 className={`px-2 py-1 rounded-xs transition-colors ${matrixMode === 'absolute' ? 'bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 shadow-2xs' : 'text-slate-400 hover:text-slate-600'}`}
               >
-                Absolute
+                Absolut
               </button>
               <button
                 onClick={() => setMatrixMode('percentage')}
                 className={`px-2 py-1 rounded-xs transition-colors ${matrixMode === 'percentage' ? 'bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 shadow-2xs' : 'text-slate-400 hover:text-slate-600'}`}
               >
-                Percentage
+                Persentase
               </button>
             </div>
           </div>
@@ -506,85 +506,85 @@ export default function MlEvaluationPage() {
           <div className="grid grid-cols-3 gap-3 text-xs">
             {/* Top Row Labeling */}
             <div className="flex items-center justify-center font-bold text-[10px] text-slate-400 uppercase font-mono">
-              True Class ↓
+              Kelas Sebenarnya ↓
             </div>
             <div className="flex flex-col items-center justify-center p-2 bg-slate-50/50 dark:bg-slate-900/40 rounded-sm border border-slate-100 dark:border-slate-900">
-              <span className="text-[10px] text-slate-400 font-bold font-mono">PREDICTED POOR</span>
+              <span className="text-[10px] text-slate-400 font-bold font-mono">DIPREDIKSI MISKIN</span>
             </div>
             <div className="flex flex-col items-center justify-center p-2 bg-slate-50/50 dark:bg-slate-900/40 rounded-sm border border-slate-100 dark:border-slate-900">
-              <span className="text-[10px] text-slate-400 font-bold font-mono">PREDICTED NON-POOR</span>
+              <span className="text-[10px] text-slate-400 font-bold font-mono">DIPREDIKSI TIDAK MISKIN</span>
             </div>
 
             {/* Row 1: True Poor */}
             <div className="flex items-center justify-center p-3 bg-slate-50/50 dark:bg-slate-900/40 rounded-sm border border-slate-100 dark:border-slate-900 text-center font-bold text-[10px] text-slate-400 uppercase font-mono">
-              Poor (Eligible)
+              Miskin (Memenuhi Syarat)
             </div>
             
             {/* Cell 1: True Positive */}
             <div className="group relative flex flex-col items-center justify-center p-5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 rounded-sm text-center transition-colors hover:bg-emerald-100/60 dark:hover:bg-emerald-950/30 cursor-help">
-              <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 font-mono uppercase">True Positive (TP)</span>
+              <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-400 font-mono uppercase">Positif Benar (TP)</span>
               <span className="text-xl font-bold font-mono text-emerald-900 dark:text-emerald-300 mt-1.5">
                 {matrixMode === 'absolute' ? computedMatrix.tp : `${((computedMatrix.tp / computedMatrix.total) * 100).toFixed(1)}%`}
               </span>
-              <span className="text-[9px] text-emerald-600 dark:text-emerald-500 mt-1">Successfully Target-Captured</span>
+              <span className="text-[9px] text-emerald-600 dark:text-emerald-500 mt-1">Berhasil Ditargetkan</span>
               
               {/* Custom tooltip explaining TP */}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 hidden group-hover:block bg-slate-950 text-slate-100 p-2.5 rounded-sm shadow-md text-[10px] z-50 leading-relaxed text-left">
-                <strong className="block text-emerald-400">True Positive (TP)</strong>
-                Socioeconomically poor households correctly predicted by the system and allocated interventions.
+                <strong className="block text-emerald-400">Positif Benar (TP)</strong>
+                Rumah tangga miskin secara sosial ekonomi yang diprediksi dengan benar oleh sistem dan dialokasikan intervensi.
               </div>
             </div>
 
             {/* Cell 2: False Negative (Exclusion Error) */}
             <div className="group relative flex flex-col items-center justify-center p-5 bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/50 rounded-sm text-center transition-colors hover:bg-rose-100/60 dark:hover:bg-rose-950/30 cursor-help">
-              <span className="text-[10px] font-bold text-rose-800 dark:text-rose-400 font-mono uppercase">False Negative (FN)</span>
+              <span className="text-[10px] font-bold text-rose-800 dark:text-rose-400 font-mono uppercase">Negatif Salah (FN)</span>
               <span className="text-xl font-bold font-mono text-rose-900 dark:text-rose-300 mt-1.5">
                 {matrixMode === 'absolute' ? computedMatrix.fn : `${((computedMatrix.fn / computedMatrix.total) * 100).toFixed(1)}%`}
               </span>
-              <span className="text-[9px] text-rose-600 dark:text-rose-500 mt-1">Exclusion Error (Missed)</span>
+              <span className="text-[9px] text-rose-600 dark:text-rose-500 mt-1">Kesalahan Eksklusi (Terlewat)</span>
 
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 hidden group-hover:block bg-slate-950 text-slate-100 p-2.5 rounded-sm shadow-md text-[10px] z-50 leading-relaxed text-left">
-                <strong className="block text-rose-400">False Negative (FN)</strong>
-                Truly poor households missed by the model. These families are excluded from benefits, leading to target gaps.
+                <strong className="block text-rose-400">Negatif Salah (FN)</strong>
+                Rumah tangga benar-benar miskin yang terlewat oleh model. Keluarga-keluarga ini dikecualikan dari manfaat, mengarah ke kesenjangan target.
               </div>
             </div>
 
-            {/* Row 2: True Non-Poor */}
+            {/* Row 2: True Tidak Miskin */}
             <div className="flex items-center justify-center p-3 bg-slate-50/50 dark:bg-slate-900/40 rounded-sm border border-slate-100 dark:border-slate-900 text-center font-bold text-[10px] text-slate-400 uppercase font-mono">
-              Non-Poor
+              Tidak Miskin
             </div>
 
             {/* Cell 3: False Positive (Inclusion Error) */}
             <div className="group relative flex flex-col items-center justify-center p-5 bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 rounded-sm text-center transition-colors hover:bg-amber-100/60 dark:hover:bg-amber-950/30 cursor-help">
-              <span className="text-[10px] font-bold text-amber-800 dark:text-amber-400 font-mono uppercase">False Positive (FP)</span>
+              <span className="text-[10px] font-bold text-amber-800 dark:text-amber-400 font-mono uppercase">Positif Salah (FP)</span>
               <span className="text-xl font-bold font-mono text-amber-900 dark:text-amber-300 mt-1.5">
                 {matrixMode === 'absolute' ? computedMatrix.fp : `${((computedMatrix.fp / computedMatrix.total) * 100).toFixed(1)}%`}
               </span>
-              <span className="text-[9px] text-amber-600 dark:text-amber-500 mt-1">Inclusion Error (Leakage)</span>
+              <span className="text-[9px] text-amber-600 dark:text-amber-500 mt-1">Kesalahan Inklusi (Kebocoran)</span>
 
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 hidden group-hover:block bg-slate-950 text-slate-100 p-2.5 rounded-sm shadow-md text-[10px] z-50 leading-relaxed text-left">
-                <strong className="block text-amber-400">False Positive (FP)</strong>
-                Non-poor families erroneously predicted poor. Leads to leakage of government funds to unintended families.
+                <strong className="block text-amber-400">Positif Salah (FP)</strong>
+                Keluarga tidak miskin yang keliru diprediksi miskin. Mengarah ke kebocoran dana pemerintah ke keluarga yang tidak dituju.
               </div>
             </div>
 
             {/* Cell 4: True Negative */}
             <div className="group relative flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/20 border border-slate-200 dark:border-slate-800 rounded-sm text-center transition-colors hover:bg-slate-100 dark:hover:bg-slate-800/50 cursor-help">
-              <span className="text-[10px] font-bold text-slate-700 dark:text-slate-400 font-mono uppercase">True Negative (TN)</span>
+              <span className="text-[10px] font-bold text-slate-700 dark:text-slate-400 font-mono uppercase">Negatif Benar (TN)</span>
               <span className="text-xl font-bold font-mono text-slate-900 dark:text-slate-300 mt-1.5">
                 {matrixMode === 'absolute' ? computedMatrix.tn : `${((computedMatrix.tn / computedMatrix.total) * 100).toFixed(1)}%`}
               </span>
-              <span className="text-[9px] text-slate-500 mt-1">Correctly Denied Welfare</span>
+              <span className="text-[9px] text-slate-500 mt-1">Kesejahteraan Ditolak dengan Benar</span>
 
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 hidden group-hover:block bg-slate-950 text-slate-100 p-2.5 rounded-sm shadow-md text-[10px] z-50 leading-relaxed text-left">
-                <strong className="block text-slate-400">True Negative (TN)</strong>
-                Non-poor households correctly classified by the algorithm. No intervention allocated.
+                <strong className="block text-slate-400">Negatif Benar (TN)</strong>
+                Rumah tangga tidak miskin yang diklasifikasikan dengan benar oleh algoritma. Tidak ada intervensi yang dialokasikan.
               </div>
             </div>
           </div>
 
           <p className="text-[10px] text-slate-400 text-center italic leading-relaxed">
-            *Hover over any matrix cell to audit its specific policy impact and classification logic.
+            *Arahkan kursor ke sel matriks mana pun untuk mengaudit dampak kebijakan spesifiknya dan logika klasifikasi.
           </p>
         </div>
 
@@ -594,11 +594,11 @@ export default function MlEvaluationPage() {
             <div className="flex items-center gap-2">
               <Sliders className="h-4 w-4 text-blue-600" />
               <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-                Interactive Poverty-Threshold Policy Simulator
+                Simulator Kebijakan Ambang Kemiskinan Interaktif
               </h4>
             </div>
             <span className="text-[10px] font-mono font-bold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 px-1.5 py-0.5 rounded-xs">
-              Simulating n=10,000 HH
+              Mensimulasikan n=10.000 RT
             </span>
           </div>
 
@@ -606,7 +606,7 @@ export default function MlEvaluationPage() {
             {/* Slider Control */}
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="text-[11px] font-bold text-slate-500 uppercase font-mono">Decision Threshold</span>
+                <span className="text-[11px] font-bold text-slate-500 uppercase font-mono">Ambang Batas Keputusan</span>
                 <span className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono">
                   {threshold.toFixed(2)}
                 </span>
@@ -621,34 +621,34 @@ export default function MlEvaluationPage() {
                 className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-sm appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-[9px] font-mono text-slate-400">
-                <span>0.10 (Maximize Coverage)</span>
-                <span>0.50 (Optimal Balanced)</span>
-                <span>0.90 (Austerity Targeting)</span>
+                <span>0.10 (Maksimalkan Cakupan)</span>
+                <span>0.50 (Seimbang Optimal)</span>
+                <span>0.90 (Penargetan Penghematan)</span>
               </div>
             </div>
 
             {/* Updated Results Row */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 dark:bg-slate-900/30 p-3 rounded-sm border border-slate-100 dark:border-slate-900">
               <div className="space-y-0.5">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Inclusion Error</span>
+                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Kesalahan Inklusi</span>
                 <span className="text-base font-bold font-mono text-slate-800 dark:text-slate-200">
                   {computedMatrix.inclusionError}%
                 </span>
               </div>
               <div className="space-y-0.5">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Exclusion Error</span>
+                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Kesalahan Eksklusi</span>
                 <span className="text-base font-bold font-mono text-slate-800 dark:text-slate-200">
                   {computedMatrix.exclusionError}%
                 </span>
               </div>
               <div className="space-y-0.5">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Eligible (Poor)</span>
+                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Memenuhi Syarat (Miskin)</span>
                 <span className="text-base font-bold font-mono text-slate-800 dark:text-slate-200">
                   {computedMatrix.eligibleHouseholds} HH
                 </span>
               </div>
               <div className="space-y-0.5">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">Rejected HH</span>
+                <span className="text-[9px] text-slate-400 font-semibold uppercase font-mono block">RT Ditolak</span>
                 <span className="text-base font-bold font-mono text-slate-800 dark:text-slate-200">
                   {computedMatrix.rejectedHouseholds} HH
                 </span>
@@ -658,7 +658,7 @@ export default function MlEvaluationPage() {
             {/* Narrative Area */}
             <div className="p-3 bg-blue-50/40 dark:bg-slate-900/20 border-l-2 border-blue-500 rounded-xs">
               <h5 className="font-bold text-[10px] text-blue-700 dark:text-blue-400 uppercase font-mono tracking-wider mb-1">
-                Policy & Fiscal Trade-off Analysis
+                Analisis Pertukaran Kebijakan & Fiskal
               </h5>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                 {getThresholdNarrative()}
@@ -672,8 +672,8 @@ export default function MlEvaluationPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* SECTION 4: Precision-Recall Curve Analysis */}
         <ChartContainer
-          title="Precision-Recall Trade-off Curves"
-          subtitle="Plotting model precision, recall sensitivity, and balanced F1 metrics at varying cutoff parameters."
+          title="Kurva Pertukaran Presisi-Recall"
+          subtitle="Memetakan presisi model, sensitivitas recall, dan metrik F1 yang seimbang pada parameter cutoff yang bervariasi."
           height={240}
         >
           <ResponsiveContainer width="100%" height="100%">
@@ -683,17 +683,17 @@ export default function MlEvaluationPage() {
               <YAxis tick={{ fill: '#94a3b8', fontSize: 10 }} />
               <RechartsTooltip />
               <RechartsLegend wrapperStyle={{ fontSize: '10px', fontWeight: 'bold' }} />
-              <Line type="monotone" dataKey="precision" stroke="#3b82f6" strokeWidth={2.5} name="Precision (Leakage Resist)" dot={{ r: 3 }} />
-              <Line type="monotone" dataKey="recall" stroke="#fb7185" strokeWidth={2.5} name="Recall (Capture Power)" dot={{ r: 3 }} />
-              <Line type="monotone" dataKey="f1" stroke="#34d399" strokeWidth={2} strokeDasharray="4 4" name="Balanced F1 Index" dot={{ r: 2 }} />
+              <Line type="monotone" dataKey="precision" stroke="#3b82f6" strokeWidth={2.5} name="Presisi (Tahan Kebocoran)" dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="recall" stroke="#fb7185" strokeWidth={2.5} name="Recall (Daya Tangkap)" dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="f1" stroke="#34d399" strokeWidth={2} strokeDasharray="4 4" name="Indeks F1 Seimbang" dot={{ r: 2 }} />
             </LineChart>
           </ResponsiveContainer>
         </ChartContainer>
 
         {/* SECTION 5: ROC Curve */}
         <ChartContainer
-          title="Receiver Operating Characteristic (ROC) Curve"
-          subtitle="Plotting True Positive Rate against False Positive Rate. Highlight indicates the optimal classification balance."
+          title="Kurva Receiver Operating Characteristic (ROC)"
+          subtitle="Memetakan Tingkat Positif Benar terhadap Tingkat Positif Salah. Sorotan menunjukkan keseimbangan klasifikasi yang optimal."
           height={240}
         >
           <ResponsiveContainer width="100%" height="100%">
@@ -708,9 +708,9 @@ export default function MlEvaluationPage() {
               <XAxis dataKey="fpr" tick={{ fill: '#94a3b8', fontSize: 10 }} name="FPR" />
               <YAxis tick={{ fill: '#94a3b8', fontSize: 10 }} name="TPR" />
               <RechartsTooltip />
-              <Area type="monotone" dataKey="tpr" stroke="#3b82f6" fillOpacity={1} fill="url(#rocColor)" strokeWidth={2.5} name="True Positive Rate" />
+              <Area type="monotone" dataKey="tpr" stroke="#3b82f6" fillOpacity={1} fill="url(#rocColor)" strokeWidth={2.5} name="Tingkat Positif Benar" />
               {/* Dotted Reference Line */}
-              <Line type="monotone" dataKey="fpr" stroke="#cbd5e1" strokeDasharray="3 3" name="Random Guess Line" />
+              <Line type="monotone" dataKey="fpr" stroke="#cbd5e1" strokeDasharray="3 3" name="Garis Tebakan Acak" />
             </AreaChart>
           </ResponsiveContainer>
         </ChartContainer>
@@ -720,23 +720,23 @@ export default function MlEvaluationPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-900/30 p-4 border border-slate-100 dark:border-slate-800 rounded-sm text-xs">
         <div className="space-y-1">
           <h5 className="font-bold text-slate-800 dark:text-slate-200 uppercase font-mono tracking-wider">
-            Precision Policy Impact
+            Dampak Kebijakan Presisi
           </h5>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            High precision means low leakage. It ensures that taxpayers do not see social funds leaking to non-poor families. Valuable for highly visible regional cash disbursements.
+            Presisi tinggi berarti kebocoran rendah. Ini memastikan wajib pajak tidak melihat dana sosial bocor ke keluarga yang tidak miskin. Berharga untuk pencairan tunai regional yang sangat terlihat.
           </p>
         </div>
         <div className="space-y-1">
           <h5 className="font-bold text-slate-800 dark:text-slate-200 uppercase font-mono tracking-wider">
-            Recall Policy Impact
+            Dampak Kebijakan Recall
           </h5>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            High recall means complete safety-nets. It guarantees that the poorest of the poor are successfully covered by the model, minimizing political friction and social undercoverage complaints.
+            Recall tinggi berarti jaring pengaman yang lengkap. Ini menjamin bahwa yang termiskin dari yang miskin berhasil dicakup oleh model, meminimalkan gesekan politik dan keluhan undercoverage sosial.
           </p>
         </div>
         <div className="space-y-1">
           <h5 className="font-bold text-slate-800 dark:text-slate-200 uppercase font-mono tracking-wider">
-            ROC AUC Interpretation
+            Interpretasi ROC AUC
           </h5>
           <p className="text-[11px] text-slate-500 leading-relaxed">
             An AUC score of 0.942 proves the model is extremely robust at separating poverty strata. Even if the absolute poverty line changes, the ranking of households remains statistically sound.
@@ -748,12 +748,12 @@ export default function MlEvaluationPage() {
       <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">VARIABLE ESTIMATION ATTRIBUTIONS</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">ATRIBUSI ESTIMASI VARIABEL</span>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-              Gradient Boosting Feature Importance (Top Variables Model Audit)
+              Kepentingan Fitur Gradient Boosting (Audit Model Variabel Teratas)
             </h4>
           </div>
-          <span className="text-[10px] text-slate-400 font-mono">Calculated using Gain Weight metrics</span>
+          <span className="text-[10px] text-slate-400 font-mono">Dihitung menggunakan metrik Bobot Penguatan</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -766,7 +766,7 @@ export default function MlEvaluationPage() {
                       <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
                       {feat.name}
                     </span>
-                    <span className="font-mono text-slate-500">{(feat.score * 100).toFixed(1)}% weight</span>
+                    <span className="font-mono text-slate-500">{(feat.score * 100).toFixed(1)}% bobot</span>
                   </div>
                   {/* Custom progress bar */}
                   <div className="w-full bg-slate-100 dark:bg-slate-900 h-2.5 rounded-sm overflow-hidden">
@@ -783,18 +783,18 @@ export default function MlEvaluationPage() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-4 text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/30 p-5 rounded-sm border border-slate-100 dark:border-slate-900">
             <div className="space-y-2">
               <h5 className="font-bold text-slate-800 dark:text-slate-200 text-[11px] uppercase font-mono tracking-wider">
-                Feature Attribution & Policy Linkages
+                Atribusi Fitur & Hubungan Kebijakan
               </h5>
               <p className="leading-relaxed">
-                The chart displays the relative gain metrics computed across all decision trees. In our audited ensemble, <strong className="text-slate-900 dark:text-white">Housing Quality Index</strong> stands as the primary predictor (<strong className="text-slate-900 dark:text-white">24.5%</strong>), closely followed by <strong className="text-slate-900 dark:text-white">Schooling Years</strong> of the household head (<strong className="text-slate-900 dark:text-white">18.2%</strong>).
+                Bagan ini menampilkan metrik perolehan relatif yang dihitung di seluruh pohon keputusan. Dalam ensambel kami yang diaudit, <strong className="text-slate-900 dark:text-white">Indeks Kualitas Perumahan</strong> berdiri sebagai prediktor utama (<strong className="text-slate-900 dark:text-white">24.5%</strong>), diikuti dengan cermat oleh <strong className="text-slate-900 dark:text-white">Schooling Years</strong> dari kepala keluarga (<strong className="text-slate-900 dark:text-white">18.2%</strong>).
               </p>
               <p className="leading-relaxed">
-                This proves that the algorithm is targeting structural deprivations rather than fluctuating short-term indicators. Implementing housing renovations and senior-school incentives directly alleviates the model indicators, establishing a clear link between social programs and algorithmic classification.
+                Ini membuktikan bahwa algoritma menargetkan perampasan struktural daripada indikator jangka pendek yang berfluktuasi. Menerapkan renovasi perumahan dan insentif sekolah menengah secara langsung mengurangi indikator model, menetapkan hubungan yang jelas antara program sosial dan klasifikasi algoritmik.
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 dark:border-slate-900 flex items-center gap-1.5 font-mono text-[10px] text-slate-400">
               <Info className="h-4 w-4 text-blue-500 shrink-0" />
-              <span>Regularized to restrict volatile demographic bias</span>
+              <span>Diregulerisasi untuk membatasi bias demografis yang bergejolak</span>
             </div>
           </div>
         </div>
@@ -884,9 +884,9 @@ export default function MlEvaluationPage() {
       <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">TARGETING PRECISION DRILLDOWN</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">RINCIAN PRESISI PENARGETAN</span>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-              Spatiotemporal & Segmented Error Analysis
+              Analisis Kesalahan Spasiotemporal & Tersegmentasi
             </h4>
           </div>
           <div className="flex rounded-sm bg-slate-100 dark:bg-slate-900 p-1 text-[10px] font-bold font-mono">
@@ -894,13 +894,13 @@ export default function MlEvaluationPage() {
               onClick={() => setActiveErrorTab('district')}
               className={`px-3 py-1.5 rounded-xs transition-colors ${activeErrorTab === 'district' ? 'bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 shadow-2xs' : 'text-slate-400 hover:text-slate-600'}`}
             >
-              By District
+              Berdasarkan Kabupaten/Kota
             </button>
             <button
               onClick={() => setActiveErrorTab('decile')}
               className={`px-3 py-1.5 rounded-xs transition-colors ${activeErrorTab === 'decile' ? 'bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 shadow-2xs' : 'text-slate-400 hover:text-slate-600'}`}
             >
-              By Decile
+              Berdasarkan Desil
             </button>
           </div>
         </div>
@@ -910,11 +910,11 @@ export default function MlEvaluationPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 uppercase font-mono text-[9px] font-bold">
-                  <th className="py-2.5 px-3">District (Kabupaten/Kota)</th>
-                  <th className="py-2.5 px-3">Growth Typology</th>
-                  <th className="py-2.5 px-3">Inclusion Error (Leakage)</th>
-                  <th className="py-2.5 px-3">Exclusion Error (Missed Poor)</th>
-                  <th className="py-2.5 px-3 text-right">Audited Sample HH</th>
+                  <th className="py-2.5 px-3">Kabupaten/Kota</th>
+                  <th className="py-2.5 px-3">Tipologi Pertumbuhan</th>
+                  <th className="py-2.5 px-3">Kesalahan Inklusi (Kebocoran)</th>
+                  <th className="py-2.5 px-3">Kesalahan Eksklusi (Penduduk Miskin Terlewat)</th>
+                  <th className="py-2.5 px-3 text-right">Sampel RT yang Diaudit</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50 dark:divide-slate-900/40">
@@ -955,8 +955,8 @@ export default function MlEvaluationPage() {
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 uppercase font-mono text-[9px] font-bold">
                   <th className="py-2.5 px-3">Welfare Segment</th>
-                  <th className="py-2.5 px-3">Inclusion Error (Leakage)</th>
-                  <th className="py-2.5 px-3">Exclusion Error (Missed Poor)</th>
+                  <th className="py-2.5 px-3">Kesalahan Inklusi (Kebocoran)</th>
+                  <th className="py-2.5 px-3">Kesalahan Eksklusi (Penduduk Miskin Terlewat)</th>
                   <th className="py-2.5 px-3">Policy Assessment impact</th>
                 </tr>
               </thead>
@@ -1004,18 +1004,18 @@ export default function MlEvaluationPage() {
         </div>
 
         <p className="text-xs text-slate-500 leading-relaxed max-w-4xl">
-          The Bappeda policy guidelines dictate that targeting algorithms must remain neutral across gender, geography, age, and disability. The table below monitors the performance gap between protected categories to ensure compliance with human-rights-aligned AI governance.
+          Pedoman kebijakan Bappeda mendikte bahwa algoritma penargetan harus tetap netral di seluruh jenis kelamin, geografi, usia, dan disabilitas. Tabel di bawah ini memonitor kesenjangan kinerja antara kategori yang dilindungi untuk memastikan kepatuhan terhadap tata kelola AI yang selaras dengan hak asasi manusia.
         </p>
 
         <div className="overflow-x-auto text-xs">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 uppercase font-mono text-[9px] font-bold">
-                <th className="py-2.5 px-3">Comparison Category</th>
-                <th className="py-2.5 px-3">Reference Group A</th>
-                <th className="py-2.5 px-3">Performance Group B</th>
-                <th className="py-2.5 px-3 text-center">Variance Gap</th>
-                <th className="py-2.5 px-3 text-right">Regulatory Status</th>
+                <th className="py-2.5 px-3">Kategori Perbandingan</th>
+                <th className="py-2.5 px-3">Kelompok Referensi A</th>
+                <th className="py-2.5 px-3">Kelompok Kinerja B</th>
+                <th className="py-2.5 px-3 text-center">Kesenjangan Varians</th>
+                <th className="py-2.5 px-3 text-right">Status Regulasi</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50 dark:divide-slate-900/40">
@@ -1043,20 +1043,20 @@ export default function MlEvaluationPage() {
         <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-              Model Benchmarking Registry
+              Registri Tolok Ukur Model
             </span>
-            <span className="text-[10px] text-slate-400 font-mono">Benchmark: OLS PMT</span>
+            <span className="text-[10px] text-slate-400 font-mono">Tolok Ukur: OLS PMT</span>
           </div>
 
           <div className="overflow-x-auto text-xs">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 uppercase font-mono text-[9px] font-bold">
-                  <th className="py-2 px-2">Classifier Model</th>
-                  <th className="py-2 px-2">Accuracy</th>
-                  <th className="py-2 px-2">Precision</th>
+                  <th className="py-2 px-2">Model Pengklasifikasi</th>
+                  <th className="py-2 px-2">Akurasi</th>
+                  <th className="py-2 px-2">Presisi</th>
                   <th className="py-2 px-2">Recall</th>
-                  <th className="py-2 px-2">Leakage</th>
+                  <th className="py-2 px-2">Kebocoran</th>
                   <th className="py-2 px-2 text-right">SLA</th>
                 </tr>
               </thead>
@@ -1080,9 +1080,9 @@ export default function MlEvaluationPage() {
         <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-              Model Version History & Governance
+              Riwayat & Tata Kelola Versi Model
             </span>
-            <span className="text-[10px] text-slate-400 font-mono">Hyperparameters Audit</span>
+            <span className="text-[10px] text-slate-400 font-mono">Audit Hiperparameter</span>
           </div>
 
           <div className="space-y-4 text-xs">
@@ -1093,7 +1093,7 @@ export default function MlEvaluationPage() {
                   <span className="text-slate-400 font-mono">{log.date}</span>
                 </div>
                 <p className="text-slate-500 leading-snug">{log.description}</p>
-                <div className="text-[9px] text-slate-400 font-mono">Author: {log.author}</div>
+                <div className="text-[9px] text-slate-400 font-mono">Penulis: {log.author}</div>
               </div>
             ))}
           </div>
@@ -1105,33 +1105,33 @@ export default function MlEvaluationPage() {
         <div className="flex items-center gap-2 border-b border-slate-800 pb-2.5">
           <Shield className="h-4 w-4 text-amber-500" />
           <h4 className="text-xs font-bold text-amber-500 uppercase tracking-wider font-mono">
-            Policymaker Technical Metric Translator (Plain Language Guide)
+            Penerjemah Metrik Teknis Pembuat Kebijakan (Panduan Bahasa Sederhana)
           </h4>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs leading-relaxed text-slate-400">
           <div className="space-y-1">
-            <strong className="text-slate-200 font-bold block font-mono">Accuracy vs Balanced Acc</strong>
+            <strong className="text-slate-200 font-bold block font-mono">Akurasi vs Akurasi Seimbang</strong>
             <p>
-              Standard accuracy can mask bad performance if classes are unbalanced. Balanced accuracy represents the average rate of successfully classifying poor and non-poor families independently.
+              Akurasi standar dapat menutupi kinerja buruk jika kelas tidak seimbang. Akurasi seimbang mewakili tingkat rata-rata keberhasilan klasifikasi keluarga miskin dan tidak miskin secara independen.
             </p>
           </div>
           <div className="space-y-1">
-            <strong className="text-slate-200 font-bold block font-mono">Exclusion Error (Missed Poor)</strong>
+            <strong className="text-slate-200 font-bold block font-mono">Kesalahan Eksklusi (Penduduk Miskin Terlewat)</strong>
             <p>
-              When a truly poor household is classified as non-poor. In government policy, this leads to public complaints, local friction, and a failure to protect vulnerable communities.
+              Ketika rumah tangga yang benar-benar miskin diklasifikasikan sebagai tidak miskin. Dalam kebijakan pemerintah, ini menyebabkan keluhan masyarakat, gesekan lokal, dan kegagalan untuk perlindungan masyarakat rentan.
             </p>
           </div>
           <div className="space-y-1">
-            <strong className="text-slate-200 font-bold block font-mono">Inclusion Error (Leakage)</strong>
+            <strong className="text-slate-200 font-bold block font-mono">Kesalahan Inklusi (Kebocoran)</strong>
             <p>
-              When a non-poor household is incorrectly classified as poor, leaking limited social budgets to affluent families. Reducing this maximizes fiscal matching efficiency.
+              Ketika rumah tangga tidak miskin keliru diklasifikasikan sebagai miskin, membocorkan anggaran sosial yang terbatas ke keluarga kaya. Mengurangi hal ini memaksimalkan efisiensi penyesuaian fiskal.
             </p>
           </div>
           <div className="space-y-1">
-            <strong className="text-slate-200 font-bold block font-mono">What is a SHAP Force?</strong>
+            <strong className="text-slate-200 font-bold block font-mono">Apa itu Kekuatan SHAP?</strong>
             <p>
-              SHAP tells us the contribution of each household metric on its classification result. It shows the relative weights of predictors, allowing us to explain the exact structural causes of poverty classifications.
+              SHAP memberi tahu kita kontribusi setiap metrik rumah tangga pada hasil klasifikasinya. Ini menunjukkan bobot relatif prediktor, memungkinkan kita untuk menjelaskan penyebab struktural yang tepat dari klasifikasi kemiskinan.
             </p>
           </div>
         </div>

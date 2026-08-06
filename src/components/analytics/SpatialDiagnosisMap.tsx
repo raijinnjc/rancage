@@ -3,7 +3,7 @@ import {
   MapPin, 
   Eye
 } from 'lucide-react';
-import { MapContainer, TileLayer, CircleMarker, Tooltip, Polyline, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Tooltip, Polyline, GeoJSON, LayerGroup } from 'react-leaflet';
 import { useNavigationStore } from '../../store/navigationStore.ts';
 import { useThemeStore } from '../../store/themeStore.ts';
 import { DistrictDiagnosisDetail } from './diagnosisData.ts';
@@ -56,7 +56,7 @@ export function SpatialDiagnosisMap({
   const [geoData, setGeoData] = useState<any>(null);
 
   useEffect(() => {
-    fetch('/jawa_barat.geojson')
+    fetch('/jawa_barat.geojson?v=2')
       .then(res => res.json())
       .then(data => setGeoData(data))
       .catch(err => console.error('Failed to load GeoJSON:', err));
@@ -196,34 +196,64 @@ export function SpatialDiagnosisMap({
             {districtsData.map((d) => {
               const coord = REAL_MAP_COORDS[d.id];
               if (!coord) return null;
+              
+              const isSelected = selectedDistrictId === d.id;
 
-              return districtsData.map((other) => {
-                const otherCoord = REAL_MAP_COORDS[other.id];
-                if (!otherCoord || other.id <= d.id) return null;
-
-                const isSameRegion = d.region === other.region;
-                if (!isSameRegion) return null;
-
-                // Only draw links if within close geographic distance (~ 40-50 km equivalent in degrees)
-                // roughly 0.4 degrees
-                const distance = Math.hypot(coord.lat - otherCoord.lat, coord.lng - otherCoord.lng);
-                if (distance > 0.45) return null;
-
-                return (
-                  <Polyline
-                    key={`${d.id}-${other.id}`}
-                    positions={[
-                      [coord.lat, coord.lng],
-                      [otherCoord.lat, otherCoord.lng]
-                    ]}
+              return (
+                <LayerGroup key={`node-${d.id}`}>
+                  <CircleMarker
+                    center={[coord.lat, coord.lng]}
+                    radius={isSelected ? 8 : 5}
                     pathOptions={{
-                      color: mode === 'dark' ? '#334155' : '#cbd5e1',
-                      weight: 1.5,
-                      dashArray: '4, 4'
+                      color: isSelected ? '#3b82f6' : '#cbd5e1',
+                      fillColor: isSelected ? '#3b82f6' : (mode === 'dark' ? '#0f172a' : '#ffffff'),
+                      fillOpacity: 1,
+                      weight: 2
                     }}
-                  />
-                );
-              });
+                    eventHandlers={{
+                      click: () => onSelectDistrict(d.id),
+                      mouseover: () => setHoveredId(d.id),
+                      mouseout: () => setHoveredId(null),
+                    }}
+                  >
+                    <Tooltip direction="top" offset={[0, -10]} opacity={1} className="custom-leaflet-tooltip">
+                      <div className="bg-slate-950 text-white p-1 -m-1 rounded shadow-lg text-[11px] font-mono min-w-[150px]">
+                        <p className="font-bold border-b border-slate-800 pb-1 mb-1 text-xs text-blue-400">{d.name}</p>
+                        <div className="flex justify-between gap-4">
+                          <span className="text-slate-400">Skor Prioritas:</span>
+                          <span className="font-bold text-white">{d.priorityScore} / 100</span>
+                        </div>
+                      </div>
+                    </Tooltip>
+                  </CircleMarker>
+                  
+                  {districtsData.map((other) => {
+                    const otherCoord = REAL_MAP_COORDS[other.id];
+                    if (!otherCoord || other.id <= d.id) return null;
+
+                    const isSameRegion = d.region === other.region;
+                    if (!isSameRegion) return null;
+
+                    const distance = Math.hypot(coord.lat - otherCoord.lat, coord.lng - otherCoord.lng);
+                    if (distance > 0.45) return null;
+
+                    return (
+                      <Polyline
+                        key={`link-${d.id}-${other.id}`}
+                        positions={[
+                          [coord.lat, coord.lng],
+                          [otherCoord.lat, otherCoord.lng]
+                        ]}
+                        pathOptions={{
+                          color: mode === 'dark' ? '#334155' : '#cbd5e1',
+                          weight: 1.5,
+                          dashArray: '4, 4'
+                        }}
+                      />
+                    );
+                  })}
+                </LayerGroup>
+              );
             })}
 
           </MapContainer>
