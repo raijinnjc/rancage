@@ -15,56 +15,56 @@ interface AlertItem {
 const DEFAULT_ALERTS: AlertItem[] = [
   {
     id: 'alt_01',
-    title: 'Severe Headcount Spike Flagged',
-    message: 'Kabupaten Tasikmalaya headcount rate breached the 12.0% safety boundary limit.',
-    timestamp: '10:14:02 AM',
+    title: 'Lonjakan Tingkat Kemiskinan Terdeteksi',
+    message: 'Tingkat kemiskinan Kabupaten Tasikmalaya menembus batas aman 12.0%.',
+    timestamp: '10:14:02',
     severity: 'critical',
-    explanation: 'The latest Q4 sub-district survey aggregates show a sudden agricultural income contraction. The local P0 rate spiked from 11.8% to 12.11%, breaching the statutory stabilization tolerance levels.',
+    explanation: 'Agregat survei kecamatan kuartal 4 terbaru menunjukkan kontraksi pendapatan pertanian yang tiba-tiba. Tingkat P0 lokal melonjak dari 11.8% menjadi 12.11%, menembus tingkat toleransi stabilisasi.',
     affectedRegion: 'Kab. Tasikmalaya'
   },
   {
     id: 'alt_02',
-    title: 'High Exclusion Targeting Deviation',
-    message: 'Kabupaten Sukabumi PKH targeting reports a high exclusion rate (+11.8%).',
-    timestamp: '09:45:11 AM',
+    title: 'Deviasi Penargetan Eksklusi Tinggi',
+    message: 'Penargetan PKH Kabupaten Sukabumi melaporkan tingkat eksklusi tinggi (+11.8%).',
+    timestamp: '09:45:11',
     severity: 'critical',
-    explanation: 'Over 1,200 eligible D1 (Poorest) households were omitted from active social welfare programs (PKH) due to non-matching national identification database inputs.',
+    explanation: 'Lebih dari 1.200 rumah tangga D1 (Termiskin) yang memenuhi syarat dihilangkan dari program kesejahteraan sosial aktif (PKH) karena input basis data identifikasi nasional yang tidak cocok.',
     affectedRegion: 'Kab. Sukabumi'
   },
   {
     id: 'alt_03',
-    title: 'Staple Food Price Index Breach',
-    message: 'Kota Tasikmalaya food staple baskets climbed 14.2% above baseline thresholds.',
-    timestamp: '07:30:15 AM',
+    title: 'Pelanggaran Indeks Harga Bahan Pokok',
+    message: 'Keranjang harga bahan pokok Kota Tasikmalaya naik 14.2% di atas ambang batas.',
+    timestamp: '07:30:15',
     severity: 'warning',
-    explanation: 'Due to local supply line delays, basic commodity prices surged. This sudden consumption pressure threatens to push marginal households from D3/D4 deciles down into D2.',
+    explanation: 'Akibat keterlambatan jalur pasokan lokal, harga komoditas dasar melonjak. Tekanan konsumsi yang tiba-tiba ini mengancam akan mendorong rumah tangga marjinal dari desil D3/D4 turun ke D2.',
     affectedRegion: 'Kota Tasikmalaya'
   },
   {
     id: 'alt_04',
-    title: 'Welfare Roster Calibration Deviation',
-    message: 'Garut D1 welfare roster shows a +3.8% targeting deviation error.',
-    timestamp: '06:12:44 AM',
+    title: 'Deviasi Kalibrasi Daftar Kesejahteraan',
+    message: 'Daftar kesejahteraan D1 Garut menunjukkan kesalahan deviasi penargetan +3.8%.',
+    timestamp: '06:12:44',
     severity: 'warning',
-    explanation: 'Audit algorithms discovered minor targeting drift where households in higher income bands (D3-D4) were incorrectly categorized in the poorest roster.',
+    explanation: 'Algoritma audit menemukan penyimpangan penargetan minor di mana rumah tangga pada kelompok pendapatan yang lebih tinggi (D3-D4) secara keliru dikategorikan ke dalam daftar termiskin.',
     affectedRegion: 'Kab. Garut'
   },
   {
     id: 'alt_05',
-    title: 'Model Recalibration Routine Logged',
-    message: 'Proxy Means Test machine learning weights require Q4 recalibration.',
-    timestamp: 'Yesterday, 04:30 PM',
+    title: 'Rutinitas Rekalibrasi Model Tercatat',
+    message: 'Bobot pembelajaran mesin Uji Sarana Pengganti (PMT) memerlukan rekalibrasi Kuartal 4.',
+    timestamp: 'Kemarin, 16:30',
     severity: 'info',
-    explanation: 'Routine system maintenance logs state that PMT Gradient Boosting coefficients require synchronization against the newly published BPS consumption aggregates.',
-    affectedRegion: 'Provincial Level'
+    explanation: 'Log pemeliharaan sistem rutin menyatakan bahwa koefisien Gradient Boosting PMT memerlukan sinkronisasi terhadap agregat konsumsi BPS yang baru dipublikasikan.',
+    affectedRegion: 'Tingkat Provinsi'
   },
   {
     id: 'alt_06',
-    title: 'Survey Infiltration Log Verified',
-    message: 'Indramayu data collection synchronization successfully logged.',
-    timestamp: 'Yesterday, 01:15 PM',
+    title: 'Log Infiltrasi Survei Terverifikasi',
+    message: 'Sinkronisasi pengumpulan data Indramayu berhasil dicatat.',
+    timestamp: 'Kemarin, 13:15',
     severity: 'info',
-    explanation: 'Central database completed secure synchronization with 4,200 newly audited household records in northern rural Indramayu.',
+    explanation: 'Basis data pusat menyelesaikan sinkronisasi aman dengan 4.200 catatan rumah tangga yang baru diaudit di pedesaan utara Indramayu.',
     affectedRegion: 'Kab. Indramayu'
   }
 ];
@@ -90,7 +90,7 @@ export function ExecutiveAlerts() {
           text: 'text-rose-900 dark:text-rose-400',
           border: 'border-rose-200 dark:border-rose-900/30',
           icon: AlertCircle,
-          label: 'Critical Priority'
+          label: 'Prioritas Kritis'
         };
       case 'warning':
         return {
@@ -98,7 +98,7 @@ export function ExecutiveAlerts() {
           text: 'text-amber-900 dark:text-amber-400',
           border: 'border-amber-200 dark:border-amber-900/30',
           icon: AlertTriangle,
-          label: 'Warning Flag'
+          label: 'Peringatan'
         };
       case 'info':
         return {
@@ -106,7 +106,7 @@ export function ExecutiveAlerts() {
           text: 'text-blue-900 dark:text-blue-400',
           border: 'border-blue-200 dark:border-blue-900/30',
           icon: Info,
-          label: 'System Notice'
+          label: 'Pemberitahuan Sistem'
         };
     }
   };
@@ -119,10 +119,10 @@ export function ExecutiveAlerts() {
         <div>
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-2">
             <ShieldAlert className="h-4 w-4 text-rose-500 shrink-0" />
-            Early Warning System (EWS) Active Alerts Feed
+            Umpan Peringatan Aktif Sistem Peringatan Dini (EWS)
           </h4>
           <p className="text-[11px] text-slate-400 mt-0.5">
-            Operational real-time flags targeting administrative outliers, statistical anomalies, and fiscal leaks.
+            Penanda waktu nyata operasional yang menargetkan pencilan administratif, anomali statistik, dan kebocoran fiskal.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export function ExecutiveAlerts() {
                   : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
               )}
             >
-              {tab === 'all' ? 'All Alerts' : tab}
+              {tab === 'all' ? 'Semua Peringatan' : tab === 'critical' ? 'Kritis' : tab === 'warning' ? 'Peringatan' : 'Informasi'}
             </button>
           ))}
         </div>
@@ -150,8 +150,8 @@ export function ExecutiveAlerts() {
         {filteredAlerts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-10 text-center space-y-2">
             <CheckCircle2 className="h-8 w-8 text-emerald-500" />
-            <h5 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">No Active Triggers</h5>
-            <p className="text-[11px] text-slate-400">All regional indicators remain safely within RPJMD safety thresholds.</p>
+            <h5 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">Tidak Ada Pemicu Aktif</h5>
+            <p className="text-[11px] text-slate-400">Semua indikator regional tetap aman dalam batas aman RPJMD.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -198,13 +198,13 @@ export function ExecutiveAlerts() {
                   {/* Actions line */}
                   <div className="pt-2.5 border-t border-slate-200/20 dark:border-slate-800/20 flex items-center justify-between gap-2 text-xs">
                     <span className="text-[9px] font-mono font-bold text-slate-400 bg-slate-900/5 dark:bg-slate-50/5 px-2 py-0.5 rounded">
-                      SCOPE: {alt.affectedRegion}
+                      CAKUPAN: {alt.affectedRegion}
                     </span>
                     <button
                       onClick={() => handleAcknowledge(alt.id)}
                       className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-sm text-slate-600 dark:text-slate-300 transition-colors uppercase tracking-wider"
                     >
-                      Acknowledge
+                      Konfirmasi
                     </button>
                   </div>
                 </div>

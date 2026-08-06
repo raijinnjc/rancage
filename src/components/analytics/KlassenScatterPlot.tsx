@@ -238,7 +238,7 @@ export function KlassenScatterPlot() {
           </p>
           <div className="p-2.5 bg-slate-50 dark:bg-slate-900/50 rounded text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
             {selectedItem.quadrant === 'Q4' ? (
-              <span>Ditandai untuk injeksi fiskal maksimum dan optimasi distribusi jaminan sosial secara langsung.</span>
+              <span>Ditandai untuk intervensi fiskal intensif dan optimasi distribusi jaminan sosial secara langsung.</span>
             ) : selectedItem.quadrant === 'Q3' ? (
               <span>Targetkan infrastruktur modal manusia, jaringan akses sanitasi publik, dan dukungan sekolah formal.</span>
             ) : (

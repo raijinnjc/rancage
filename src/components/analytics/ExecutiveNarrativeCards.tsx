@@ -29,56 +29,56 @@ interface NarrativeCard {
 const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'situation',
-    title: 'Current Situation',
-    summary: 'The provincial poverty headcount (P0) is stabilized at 7.62% (-0.34% vs Q3). However, consumption inequality has ticked up to 0.412, indicating high-density resource concentration across northern industrial corridors.',
-    metricLabel: 'Average P0',
+    title: 'Situasi Terkini',
+    summary: 'Tingkat kemiskinan provinsi (P0) stabil di 7.62% (-0.34% vs K3). Namun, ketimpangan konsumsi sedikit naik ke 0.412, menunjukkan tingginya konsentrasi sumber daya di sepanjang koridor industri utara.',
+    metricLabel: 'Rata-rata P0',
     metricValue: '7.62%',
-    badgeText: 'Stabilized',
+    badgeText: 'Stabil',
     badgeType: 'info',
     icon: Activity,
   },
   {
     id: 'risk',
-    title: 'Main Risk',
-    summary: 'Exclusion error spikes have been recorded in Kabupaten Sukabumi, leaving 11.8% of poor households outside the PKH welfare coverage. If unaddressed in Q3-Q4, this could trigger severe secondary food security alarms.',
-    metricLabel: 'Exclusion rate',
-    metricValue: '8.7% avg',
-    badgeText: 'Severe Flag',
+    title: 'Risiko Utama',
+    summary: 'Lonjakan kesalahan eksklusi telah tercatat di Kabupaten Sukabumi, menyebabkan 11.8% rumah tangga miskin berada di luar cakupan kesejahteraan PKH. Jika tidak diatasi pada K3-K4, hal ini dapat memicu peringatan keamanan pangan sekunder yang parah.',
+    metricLabel: 'Tingkat eksklusi',
+    metricValue: '8.7% rata-rata',
+    badgeText: 'Peringatan Parah',
     badgeType: 'critical',
     icon: ShieldAlert,
-    actionText: 'Inspect Alerts',
+    actionText: 'Periksa Peringatan',
     actionScreen: 'monitoring'
   },
   {
     id: 'priority',
-    title: 'Highest Priority Region',
-    summary: 'Kabupaten Tasikmalaya ranks highest on the composite priority index (94.2/100). The region exhibits a high 12.11% poverty rate and intense within-district inequality contributions (89.4%), requiring direct house-level targets.',
-    metricLabel: 'Priority score',
+    title: 'Wilayah Prioritas Tertinggi',
+    summary: 'Kabupaten Tasikmalaya menempati peringkat tertinggi pada indeks prioritas komposit (94.2/100). Wilayah ini menunjukkan tingkat kemiskinan tinggi sebesar 12.11% dan kontribusi ketimpangan dalam kabupaten yang intens (89.4%), membutuhkan target langsung di tingkat rumah tangga.',
+    metricLabel: 'Skor prioritas',
     metricValue: '94.2 / 100',
-    badgeText: 'Immediate Action',
+    badgeText: 'Tindakan Segera',
     badgeType: 'critical',
     icon: MapPin,
   },
   {
     id: 'improvement',
-    title: 'Largest Improvement',
-    summary: 'Kota Bandung continues to exhibit the lowest poverty rate (3.96%) and highest household targeting model correctness (93.1%), showing the positive impact of digital civil registry integrations completed in 2025.',
-    metricLabel: 'Accuracy',
+    title: 'Peningkatan Terbesar',
+    summary: 'Kota Bandung terus menunjukkan tingkat kemiskinan terendah (3.96%) dan kebenaran model penargetan rumah tangga tertinggi (93.1%), menunjukkan dampak positif integrasi catatan sipil digital yang diselesaikan pada tahun 2025.',
+    metricLabel: 'Akurasi',
     metricValue: '93.1%',
-    badgeText: 'Benchmark Met',
+    badgeText: 'Tolok Ukur Tercapai',
     badgeType: 'success',
     icon: TrendingDown,
   },
   {
     id: 'indicator',
-    title: 'Most Critical Indicator',
-    summary: 'Within-District Inequality (Intra-District) has escalated to 89.4%. This confirms that local disparities inside municipal borders are the primary driver of provincial inequality, calling for localized, sub-district interventions.',
-    metricLabel: 'Theil Within',
+    title: 'Indikator Paling Kritis',
+    summary: 'Ketimpangan Dalam Kabupaten (Intra-Kabupaten) telah meningkat menjadi 89.4%. Hal ini menegaskan bahwa disparitas lokal di dalam perbatasan kotamadya adalah pendorong utama ketimpangan provinsi, menyerukan intervensi tingkat kecamatan yang terlokalisasi.',
+    metricLabel: 'Theil Dalam',
     metricValue: '89.4%',
-    badgeText: 'Recalibrating',
+    badgeText: 'Mengkalibrasi Ulang',
     badgeType: 'warning',
     icon: Compass,
-    actionText: 'Decomposition',
+    actionText: 'Dekomposisi',
     actionScreen: 'diagnosis'
   }
 ];
@@ -98,7 +98,7 @@ export function ExecutiveNarrativeCards() {
       <div className="border-b border-slate-50 dark:border-slate-900 pb-2">
         <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
           <Sparkles className="h-3.5 w-3.5 text-blue-500" />
-          Executive Intelligence Summaries (Dynamic Situation Reports)
+          Ringkasan Laporan Situasional Eksekutif
         </h4>
       </div>
 

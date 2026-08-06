@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 
 const TRAJECTORY_DATA = [
-  // Historical
+  // Historis
   { year: '2020', historical: 8.42, target: null, lowerBound: null, upperBound: null },
   { year: '2021', historical: 8.61, target: null, lowerBound: null, upperBound: null },
   { year: '2022', historical: 8.24, target: null, lowerBound: null, upperBound: null },
@@ -22,11 +22,11 @@ const TRAJECTORY_DATA = [
   { year: '2025', historical: 7.68, target: null, lowerBound: null, upperBound: null },
   { year: '2026', historical: 7.62, target: 7.62, lowerBound: 7.62, upperBound: 7.62 }, // Anchor node
 
-  // Projections
-  { year: '2027 Proj', historical: null, target: 7.20, lowerBound: 6.90, upperBound: 7.50 },
-  { year: '2028 Proj', historical: null, target: 6.80, lowerBound: 6.30, upperBound: 7.20 },
-  { year: '2029 Proj', historical: null, target: 6.40, lowerBound: 5.70, upperBound: 7.00 },
-  { year: '2030 Proj', historical: null, target: 6.00, lowerBound: 5.20, upperBound: 6.80 },
+  // Proyeksi
+  { year: '2027 Proyeksi', historical: null, target: 7.20, lowerBound: 6.90, upperBound: 7.50 },
+  { year: '2028 Proyeksi', historical: null, target: 6.80, lowerBound: 6.30, upperBound: 7.20 },
+  { year: '2029 Proyeksi', historical: null, target: 6.40, lowerBound: 5.70, upperBound: 7.00 },
+  { year: '2030 Proyeksi', historical: null, target: 6.00, lowerBound: 5.20, upperBound: 6.80 },
 ];
 
 export function FanTrajectoryChart() {
@@ -35,24 +35,24 @@ export function FanTrajectoryChart() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-50 dark:border-slate-900 pb-4 mb-6">
         <div>
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-            RPJMD Poverty Trajectory Fan Chart (2020-2030)
+            Grafik Kipas Lintasan Kemiskinan RPJMD (2020-2030)
           </h4>
           <p className="text-[11px] text-slate-400 mt-0.5">
-            Monitors real historical headcount reductions against the mid-term target corridors and confidence boundaries.
+            Memantau penurunan kemiskinan historis nyata terhadap koridor target jangka menengah dan batas kepercayaan.
           </p>
         </div>
         <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase">
           <div className="flex items-center gap-1">
             <span className="h-1.5 w-6 bg-blue-500 rounded-xs"></span>
-            <span>Historical</span>
+            <span>Historis</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="h-1.5 w-6 border-t border-dashed border-emerald-500"></span>
-            <span>RPJMD Target Path</span>
+            <span>Jalur Target RPJMD</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="h-3 w-6 bg-emerald-100 dark:bg-emerald-950/30 rounded-xs border border-emerald-300 dark:border-emerald-800"></span>
-            <span>Tolerance Corridor</span>
+            <span>Koridor Toleransi</span>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export function FanTrajectoryChart() {
 
             {/* Shaded tolerance/confidence corridor (low to high bound) */}
             <Area
-              name="Tolerance Corridor"
+              name="Koridor Toleransi"
               type="monotone"
               dataKey="upperBound"
               stroke="none"
@@ -108,7 +108,7 @@ export function FanTrajectoryChart() {
 
             {/* Historical Solid line */}
             <Line
-              name="Historical P0 Average"
+              name="Rata-rata P0 Historis"
               type="monotone"
               dataKey="historical"
               stroke="#3b82f6"
@@ -119,7 +119,7 @@ export function FanTrajectoryChart() {
 
             {/* Projected Target Dotted line */}
             <Line
-              name="RPJMD Target Path"
+              name="Jalur Target RPJMD"
               type="monotone"
               dataKey="target"
               stroke="#10b981"
@@ -145,19 +145,19 @@ export function FanTrajectoryChart() {
       {/* Trajectory Status Bar */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5 border-t border-slate-50 dark:border-slate-900 mt-5">
         <div className="p-3 bg-emerald-50/40 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-950/50 rounded flex flex-col justify-between">
-          <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">RPJMD Alignment</span>
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">ON TRACK</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Current headcount (7.62%) aligns perfectly within core target tolerance.</p>
+          <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">Penyelarasan RPJMD</span>
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">SESUAI JALUR</span>
+          <p className="text-[10px] text-slate-400 mt-0.5">Tingkat kemiskinan saat ini (7.62%) sejajar sempurna dalam toleransi target inti.</p>
         </div>
         <div className="p-3 bg-blue-50/40 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-950/50 rounded flex flex-col justify-between">
-          <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider block">Required Run-Rate</span>
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">-0.41% / Year</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Average annualized headcount reduction required to secure 6.00% by 2030.</p>
+          <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider block">Tingkat Penurunan Diperlukan</span>
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">-0.41% / Tahun</span>
+          <p className="text-[10px] text-slate-400 mt-0.5">Rata-rata pengurangan tahunan tingkat kemiskinan yang diperlukan untuk mencapai 6.00% pada tahun 2030.</p>
         </div>
         <div className="p-3 bg-amber-50/40 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-950/50 rounded flex flex-col justify-between">
-          <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider block">Disruption Risk</span>
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">LOW (12.4%)</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Calculated probability of breaching the upper tolerance limit in 2027.</p>
+          <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider block">Risiko Gangguan</span>
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">RENDAH (12.4%)</span>
+          <p className="text-[10px] text-slate-400 mt-0.5">Probabilitas kalkulasi menembus batas toleransi atas pada tahun 2027.</p>
         </div>
       </div>
     </div>

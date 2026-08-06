@@ -487,7 +487,7 @@ export function SandboxPage() {
                   />
 
                   <RecommendationCard
-                    title="Terapkan injeksi jaringan air pedesaan di kantong tertinggal Tasikmalaya"
+                    title="Lakukan pembangunan jaringan air pedesaan di kantong tertinggal Tasikmalaya"
                     description="Laksanakan intervensi deprivasi multi-dimensi terarah di kecamatan Kategori IV, membangun sumur bor publik yang aman dan sambungan air mikro."
                     impact="Intensitas Deprivasi turun (-3,2 poin)"
                     cost={3400000000}

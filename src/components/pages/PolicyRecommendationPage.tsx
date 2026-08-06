@@ -410,7 +410,7 @@ export default function PolicyRecommendationPage() {
                   <div>
                     <h5 className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wide mb-1">Interpretasi Eksekutif Otomatis</h5>
                     <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Implementasi <strong>{activeSimulation.scenarioName}</strong> di <strong>{activeSimulation.districtName}</strong> dengan komitmen anggaran sebesar <strong>Rp {activeSimulation.budget} Miliar</strong> (mencakup {coveragePercent}% dari target populasi rentan selama {durationMonths} bulan) diproyeksikan mampu menurunkan persentase kemiskinan sebesar <strong>{activeSimulation.deltaP0}% poin</strong>. Program ini juga diestimasi meredam tingkat kedalaman kemiskinan (P1) sebesar <strong>{activeSimulation.deltaP1}</strong>, membantu mengangkat rumah tangga rentan mendekati garis batas kelayakan.
+                      Implementasi <strong>{activeSimulation.scenarioName}</strong> di <strong>{activeSimulation.districtName}</strong> dengan komitmen anggaran sebesar <strong>Rp {activeSimulation.budget} Miliar</strong> (mencakup {coveragePercent}% dari target populasi rentan selama {durationMonths} bulan) diproyeksikan mampu menurunkan persentase kemiskinan sebesar <strong>{activeSimulation.deltaP0}% poin</strong>. Program ini juga diestimasi menurunkan tingkat kedalaman kemiskinan (P1) sebesar <strong>{activeSimulation.deltaP1}</strong>, membantu mengangkat rumah tangga rentan mendekati garis batas kelayakan.
                     </p>
                   </div>
                 </div>

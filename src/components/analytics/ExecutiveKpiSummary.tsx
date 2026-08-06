@@ -16,47 +16,47 @@ interface KpiData {
 
 const KPIS_LIST: KpiData[] = [
   {
-    title: 'P0 Poverty Headcount',
+    title: 'Tingkat Kemiskinan P0',
     value: '7.62%',
     change: '-0.34% vs Q3',
     trend: 'down',
     trendDirection: 'positive',
     sparkline: [8.42, 8.61, 8.24, 7.98, 7.89, 7.68, 7.62],
-    interpretation: 'Poverty headcount continues a gradual downward trajectory, showing successful macro intervention coverage across rural districts.',
-    policyImplication: 'Maintain core BLT subsidies in Category IV districts; recalibrate targeting criteria to prevent inclusion error leakage.',
+    interpretation: 'Tingkat kemiskinan melanjutkan lintasan penurunan bertahap, menunjukkan keberhasilan cakupan intervensi makro di berbagai wilayah pedesaan.',
+    policyImplication: 'Pertahankan subsidi BLT inti di kabupaten/kota Kategori IV; kalibrasi ulang kriteria penargetan untuk mencegah kebocoran inklusi.',
     icon: Percent,
   },
   {
-    title: 'P1 Poverty Gap',
+    title: 'Kedalaman Kemiskinan P1',
     value: '1.24',
     change: '-0.08',
     trend: 'down',
     trendDirection: 'positive',
     sparkline: [1.48, 1.42, 1.35, 1.31, 1.28, 1.25, 1.24],
-    interpretation: 'Poverty gap depth is shrinking, indicating that the poorest households are moving closer to the statutory poverty consumption boundary.',
-    policyImplication: 'Incentivize local padat karya (cash-for-work) integration alongside existing basic social assistance programs.',
+    interpretation: 'Kedalaman kemiskinan menyusut, menunjukkan bahwa rumah tangga termiskin bergerak mendekati batas konsumsi kemiskinan yang ditetapkan.',
+    policyImplication: 'Beri insentif pada integrasi padat karya lokal di samping program bantuan sosial dasar yang ada.',
     icon: Scale,
   },
   {
-    title: 'Inequality (Gini Index)',
+    title: 'Ketimpangan (Indeks Gini)',
     value: '0.412',
     change: '+0.003',
     trend: 'up',
     trendDirection: 'negative',
     sparkline: [0.395, 0.401, 0.403, 0.408, 0.410, 0.411, 0.412],
-    interpretation: 'Inequality has marginally increased, signaling that while extreme poverty is dropping, growth benefits remain concentrated in industrial corridors.',
-    policyImplication: 'Shift fiscal focus from purely universal assistance to hyper-targeted household asset-building and basic sanitation grids.',
+    interpretation: 'Ketimpangan sedikit meningkat, menandakan bahwa meskipun kemiskinan ekstrem menurun, manfaat pertumbuhan tetap terkonsentrasi di koridor industri.',
+    policyImplication: 'Pindahkan fokus fiskal dari sekadar bantuan universal ke pembentukan aset rumah tangga yang sangat tepat sasaran dan jaringan sanitasi dasar.',
     icon: TrendingUp,
   },
   {
-    title: 'Targeting Accuracy (GBM)',
+    title: 'Akurasi Penargetan (GBM)',
     value: '91.3%',
     change: '+0.5%',
     trend: 'up',
     trendDirection: 'positive',
     sparkline: [85.2, 86.8, 88.1, 89.4, 90.2, 91.0, 91.3],
-    interpretation: 'The Proxy Means Testing classifier achieves premium classification performance, drastically reducing leakages to wealthy deciles.',
-    policyImplication: 'Formally codify Gradient Boosting model weights for the 2026-2027 provincial DTKS roster synchronization cycles.',
+    interpretation: 'Pengklasifikasi Uji Sarana Pengganti mencapai kinerja klasifikasi premium, secara drastis mengurangi kebocoran ke desil kaya.',
+    policyImplication: 'Kodifikasikan secara formal bobot model Gradient Boosting untuk siklus sinkronisasi daftar DTKS provinsi tahun 2026-2027.',
     icon: Cpu,
   },
 ];
@@ -142,7 +142,7 @@ export function ExecutiveKpiSummary() {
               <div className="flex flex-col items-end gap-1">
                 {renderSparkline(kpi.sparkline, kpi.trendDirection)}
                 <span className="text-[8px] font-mono font-bold text-slate-400 uppercase tracking-wider">
-                  7-Period Trend
+                  Tren 7 Periode
                 </span>
               </div>
             </div>
@@ -151,7 +151,7 @@ export function ExecutiveKpiSummary() {
             <div className="pt-3 border-t border-slate-50 dark:border-slate-900 space-y-2">
               <div className="space-y-0.5">
                 <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
-                  Interpretation:
+                  Interpretasi:
                 </span>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                   {kpi.interpretation}
@@ -160,7 +160,7 @@ export function ExecutiveKpiSummary() {
 
               <div className="bg-blue-50/30 dark:bg-blue-950/5 p-2.5 rounded-xs border border-blue-50/50 dark:border-blue-950/20 space-y-0.5">
                 <span className="text-[9px] font-mono font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider block">
-                  Policy Implication:
+                  Implikasi Kebijakan:
                 </span>
                 <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
                   {kpi.policyImplication}

@@ -203,7 +203,7 @@ export default function GovernancePage() {
     <div className="space-y-6">
       {/* HEADER */}
       <PageHeader
-        title="Intelligence, Risk & Governance Center"
+        title="Pusat Tata Kelola, Risiko & Intelijen"
         description="Dual administration panel overseeing automated risk alerts, machine learning model health, security access logs, and dataset synchronicity."
         actions={
           <div className="flex flex-wrap items-center gap-2">
@@ -236,7 +236,7 @@ export default function GovernancePage() {
       {/* KPI METRICS OVERVIEW */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <KpiCard
-          title="Active Risk Trigger Feed"
+          title="Umpan Pemicu Risiko Aktif"
           value={`${EWS_ALERTS_DATABASE.filter(a => a.severity === 'CRITICAL').length} CRITICAL`}
           change={`${EWS_ALERTS_DATABASE.length} Alerts Active`}
           trend="up"
@@ -244,7 +244,7 @@ export default function GovernancePage() {
           description="Total computed early alerts requiring immediate agency intervention."
         />
         <KpiCard
-          title="Data Quality Index"
+          title="Indeks Kualitas Data"
           value="98.1%"
           change="SLA Target 95.0%"
           trend="up"
@@ -252,7 +252,7 @@ export default function GovernancePage() {
           description="Combined score for database completeness, timeliness, and consistency."
         />
         <KpiCard
-          title="Last Pipeline Calibration"
+          title="Kalibrasi Pipeline Terakhir"
           value="ONNX v2.1"
           change="Calibrated Q4"
           trend="neutral"
@@ -260,7 +260,7 @@ export default function GovernancePage() {
           description="Gradient Boosting weights and decision thresholds stability index."
         />
         <KpiCard
-          title="Secure Replication Status"
+          title="Status Replikasi Aman"
           value="SYNCED"
           change="Replication Lag: 14ms"
           trend="up"
@@ -287,7 +287,7 @@ export default function GovernancePage() {
                   <Search className="absolute left-2.5 top-2 h-3.5 w-3.5 text-slate-400" />
                   <input
                     type="text"
-                    placeholder="Search alert by district/type..."
+                    placeholder="Cari peringatan berdasarkan wilayah/tipe..."
                     value={ewsSearchQuery}
                     onChange={(e) => setEwsSearchQuery(e.target.value)}
                     className="pl-8 pr-3 py-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm text-xs focus:outline-none focus:border-blue-500 w-48 font-semibold text-slate-600 dark:text-slate-300"
@@ -301,10 +301,10 @@ export default function GovernancePage() {
                     onChange={(e) => setSeverityFilter(e.target.value)}
                     className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm text-xs py-1 px-2 focus:outline-none focus:border-blue-500 text-slate-600 dark:text-slate-300 font-semibold"
                   >
-                    <option value="ALL">All Severities</option>
-                    <option value="CRITICAL">Critical</option>
-                    <option value="WARNING">Warning</option>
-                    <option value="INFORMATION">Information</option>
+                    <option value="ALL">Semua Keparahan</option>
+                    <option value="CRITICAL">Kritis</option>
+                    <option value="WARNING">Peringatan</option>
+                    <option value="INFORMATION">Informasi</option>
                   </select>
                 </div>
               </div>
@@ -412,15 +412,15 @@ export default function GovernancePage() {
                 <span className="text-[10px] font-mono text-slate-400 uppercase block font-bold mb-2">Automated Quality Scoring Breakdown</span>
                 <div className="grid grid-cols-3 gap-3 font-mono text-center">
                   <div className="bg-slate-50 dark:bg-slate-900 p-2.5 rounded-sm border border-slate-100 dark:border-slate-900">
-                    <span className="block text-[8px] text-slate-400 font-bold">COMPLETENESS</span>
+                    <span className="block text-[8px] text-slate-400 font-bold">KELENGKAPAN</span>
                     <span className="text-xs font-bold text-emerald-600 mt-1 block">{DATA_QUALITY_METRICS.completeness}%</span>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900 p-2.5 rounded-sm border border-slate-100 dark:border-slate-900">
-                    <span className="block text-[8px] text-slate-400 font-bold">TIMELINESS</span>
+                    <span className="block text-[8px] text-slate-400 font-bold">KETEPATAN WAKTU</span>
                     <span className="text-xs font-bold text-emerald-600 mt-1 block">{DATA_QUALITY_METRICS.timeliness}%</span>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900 p-2.5 rounded-sm border border-slate-100 dark:border-slate-900">
-                    <span className="block text-[8px] text-slate-400 font-bold">CONSISTENCY</span>
+                    <span className="block text-[8px] text-slate-400 font-bold">KONSISTENSI</span>
                     <span className="text-xs font-bold text-emerald-600 mt-1 block">{DATA_QUALITY_METRICS.consistency}%</span>
                   </div>
                 </div>

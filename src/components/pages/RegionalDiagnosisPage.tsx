@@ -848,7 +848,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
               </p>
               <ul className="list-disc pl-4 space-y-1">
                 <li>Membangun akademi kejuruan terarah di pusat-pusat pertanian selatan.</li>
-                <li>Melaksanakan injeksi jaringan air sumur dalam pedesaan.</li>
+                <li>Memperluas jaringan air sumur dalam pedesaan.</li>
                 <li>Meningkatkan pendaftaran sipil lokal di daerah perbatasan terpencil menggunakan mobil satelit keliling untuk mencegah kesalahan eksklusi.</li>
               </ul>
             </section>

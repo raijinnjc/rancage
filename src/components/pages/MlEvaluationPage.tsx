@@ -179,7 +179,7 @@ export default function MlEvaluationPage() {
     {
       name: 'Tahun Bersekolah Kepala Keluarga',
       direction: 'Negatif (-)',
-      magnitude: 'High',
+      magnitude: 'Tinggi',
       interpretation: 'Menyelesaikan pendidikan dasar atau menengah pertama secara dramatis menurunkan probabilitas kemiskinan yang diprediksi.',
       policy: 'Mendukung manfaat uang tunai pendidikan berkelanjutan (KIP) untuk memutus perangkap kemiskinan antargenerasi.'
     },
@@ -193,14 +193,14 @@ export default function MlEvaluationPage() {
     {
       name: 'Akses Sumber Air Minum',
       direction: 'Negatif (-)',
-      magnitude: 'Medium',
+      magnitude: 'Sedang',
       interpretation: 'Mengandalkan sumur yang tidak terlindungi atau air sungai berkontribusi kuat terhadap pengganda perampasan.',
       policy: 'Secara langsung menginformasikan target ekspansi jaringan air bersih pedesaan (Pamsimas).'
     },
     {
       name: 'Aset Produktif Rumah Tangga',
       direction: 'Negatif (-)',
-      magnitude: 'Medium',
+      magnitude: 'Sedang',
       interpretation: 'Kepemilikan kendaraan atau mesin pertanian yang berfungsi berfungsi sebagai proksi tidak miskin yang kuat.',
       policy: 'Memastikan pergeseran dukungan dari uang tunai langsung ke hibah modal mikro produktif seiring bertambahnya aset.'
     }
@@ -806,33 +806,33 @@ export default function MlEvaluationPage() {
           <div className="flex items-center gap-2">
             <Flame className="h-4 w-4 text-rose-500" />
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
-              Model Explainability (SHAP Value Local Approximations)
+              Eksplikabilitas Model (Aproksimasi Lokal Nilai SHAP)
             </h4>
           </div>
-          <span className="text-[10px] font-mono text-slate-400">SHAP SUMMARY COEF_</span>
+          <span className="text-[10px] font-mono text-slate-400">RINGKASAN KOEFISIEN SHAP</span>
         </div>
 
         <p className="text-xs text-slate-500 leading-relaxed max-w-4xl">
-          SHAP (SHapley Additive exPlanations) values decompose how each individual feature pushes a household's prediction score relative to the average baseline. Green indicators represent features lowering predicted poverty likelihood; red bars represent factors increasing poverty probability.
+          Nilai SHAP (SHapley Additive exPlanations) membedah bagaimana setiap fitur individu mendorong skor prediksi rumah tangga relatif terhadap rata-rata garis dasar. Indikator hijau mewakili fitur yang menurunkan kemungkinan kemiskinan yang diprediksi; batang merah mewakili faktor yang meningkatkan probabilitas kemiskinan.
         </p>
 
         {/* Placeholder SHAP Visual Force Diagram */}
         <div className="bg-slate-50 dark:bg-slate-900 p-4 border border-slate-100 dark:border-slate-800 rounded-sm space-y-3">
-          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">SIMULATED CORE SHAP FORCE PLOT</span>
+          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PLOT GAYA SHAP INTI TERSIMULASI</span>
           
           <div className="flex items-center w-full h-8 bg-slate-200 dark:bg-slate-800 rounded-sm overflow-hidden text-[10px] font-bold font-mono text-white select-none">
             <div className="bg-rose-500 h-full flex items-center justify-center transition-opacity" style={{ width: '45%' }}>
-              POOR FORCES (+45%)
+              FAKTOR MISKIN (+45%)
             </div>
             <div className="bg-emerald-500 h-full flex items-center justify-center transition-opacity" style={{ width: '55%' }}>
-              NON-POOR FORCES (-55%)
+              FAKTOR TIDAK MISKIN (-55%)
             </div>
           </div>
           
           <div className="flex justify-between text-[9px] text-slate-400 font-mono">
-            <span>High Poverty Probability (Red)</span>
-            <span>Median Poverty Line Offset</span>
-            <span>Low Poverty Probability (Green)</span>
+            <span>Probabilitas Kemiskinan Tinggi (Merah)</span>
+            <span>Offset Garis Kemiskinan Median</span>
+            <span>Probabilitas Kemiskinan Rendah (Hijau)</span>
           </div>
         </div>
 
@@ -854,23 +854,23 @@ export default function MlEvaluationPage() {
                 <div className="flex justify-between items-start">
                   <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 block">{feat.name}</span>
                   <span className={`text-[9px] font-bold px-1.5 rounded-sm uppercase font-mono ${
-                    feat.direction.includes('Negative') ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950' : 'bg-rose-100 text-rose-700 dark:bg-rose-950'
+                    feat.direction.includes('Negatif') ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950' : 'bg-rose-100 text-rose-700 dark:bg-rose-950'
                   }`}>
                     {feat.direction}
                   </span>
                 </div>
                 <div className="mt-3 space-y-2 text-[11px]">
                   <div>
-                    <span className="text-slate-400 block text-[9px] uppercase font-mono">Magnitude</span>
-                    <span className="font-semibold text-slate-700 dark:text-slate-300">{feat.magnitude} Impact</span>
+                    <span className="text-slate-400 block text-[9px] uppercase font-mono">Besaran</span>
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">{feat.magnitude} (Dampak)</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-[9px] uppercase font-mono">SHAP Interpretation</span>
+                    <span className="text-slate-400 block text-[9px] uppercase font-mono">Interpretasi SHAP</span>
                     <p className="text-slate-500 leading-snug mt-0.5">{feat.interpretation}</p>
                   </div>
                   {isHovered && (
                     <div className="pt-2 border-t border-blue-100 dark:border-slate-800 text-[10px] text-blue-700 dark:text-blue-400 animate-in fade-in duration-200">
-                      <strong>Policy Action:</strong> {feat.policy}
+                      <strong>Aksi Kebijakan:</strong> {feat.policy}
                     </div>
                   )}
                 </div>
@@ -954,10 +954,10 @@ export default function MlEvaluationPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 uppercase font-mono text-[9px] font-bold">
-                  <th className="py-2.5 px-3">Welfare Segment</th>
+                  <th className="py-2.5 px-3">Segmen Kesejahteraan</th>
                   <th className="py-2.5 px-3">Kesalahan Inklusi (Kebocoran)</th>
                   <th className="py-2.5 px-3">Kesalahan Eksklusi (Penduduk Miskin Terlewat)</th>
-                  <th className="py-2.5 px-3">Policy Assessment impact</th>
+                  <th className="py-2.5 px-3">Dampak Penilaian Kebijakan</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50 dark:divide-slate-900/40">

@@ -1085,11 +1085,11 @@ export default function HouseholdTargetingPage() {
           <div className="md:col-span-7 space-y-4">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               <div className="p-3 border border-slate-100 dark:border-slate-800 rounded-sm">
-                <span className="text-[10px] text-slate-400 block font-semibold">Precision</span>
+                <span className="text-[10px] text-slate-400 block font-semibold">Presisi</span>
                 <span className="text-lg font-bold font-mono text-slate-800 dark:text-slate-100">96.5%</span>
               </div>
               <div className="p-3 border border-slate-100 dark:border-slate-800 rounded-sm">
-                <span className="text-[10px] text-slate-400 block font-semibold">Recall</span>
+                <span className="text-[10px] text-slate-400 block font-semibold">Sensitivitas (Recall)</span>
                 <span className="text-lg font-bold font-mono text-slate-800 dark:text-slate-100">97.1%</span>
               </div>
               <div className="p-3 border border-slate-100 dark:border-slate-800 rounded-sm">
@@ -1097,7 +1097,7 @@ export default function HouseholdTargetingPage() {
                 <span className="text-lg font-bold font-mono text-slate-800 dark:text-slate-100">96.8%</span>
               </div>
               <div className="p-3 border border-slate-100 dark:border-slate-800 rounded-sm">
-                <span className="text-[10px] text-slate-400 block font-semibold">Accuracy</span>
+                <span className="text-[10px] text-slate-400 block font-semibold">Akurasi</span>
                 <span className="text-lg font-bold font-mono text-emerald-500">96.8%</span>
               </div>
             </div>
