@@ -9,6 +9,7 @@ export type ScreenId =
   | 'typology'
   | 'regional-profile'
   | 'methodology'
+  | 'about'
   | 'login'
   | 'dashboard'
   | 'household'

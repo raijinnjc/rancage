@@ -8,6 +8,7 @@ import { LandingPage } from './components/pages/LandingPage.tsx';
 import { LoginPage } from './components/pages/LoginPage.tsx';
 import { ExplorationPage } from './components/pages/ExplorationPage.tsx';
 import { MethodologyPage } from './components/pages/MethodologyPage.tsx';
+import { AboutPage } from './components/pages/AboutPage.tsx';
 import GovernancePage from './components/pages/GovernancePage.tsx';
 import HouseholdTargetingPage from './components/pages/HouseholdTargetingPage.tsx';
 import MlEvaluationPage from './components/pages/MlEvaluationPage.tsx';
@@ -30,6 +31,7 @@ export default function App() {
           {currentScreen === 'typology' && <ExplorationPage defaultTab="typology" />}
           {currentScreen === 'regional-profile' && <RegionalProfilePage />}
           {currentScreen === 'methodology' && <MethodologyPage />}
+          {currentScreen === 'about' && <AboutPage />}
           {currentScreen === 'login' && <LoginPage />}
           
           {/* Private / Government Routes */}

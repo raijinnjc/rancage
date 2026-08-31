@@ -858,9 +858,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
       </div>
 
       {/* 11. Export Section */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-slate-950 text-white p-6 relative overflow-hidden" id="export-actions-panel">
-        <div className="absolute top-0 right-0 h-48 w-48 bg-blue-500/5 rounded-full filter blur-2xl pointer-events-none"></div>
-        
+      <div className="border border-slate-800 rounded-sm bg-slate-950 text-white p-6 relative overflow-hidden shadow-xs" id="export-actions-panel">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <h4 className="text-sm font-bold uppercase tracking-wider">

@@ -5,7 +5,6 @@ import {
   Users,
   ArrowLeft,
   CheckCircle2,
-  Sparkles,
   AlertTriangle,
   FileText,
   Layers,

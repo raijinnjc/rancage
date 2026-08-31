@@ -15,6 +15,8 @@ export function Breadcrumb() {
         return 'Eksplorasi Wilayah';
       case 'methodology':
         return 'Metodologi Sistem';
+      case 'about':
+        return 'Tentang RANCAGE';
       case 'dashboard':
         return 'Dasbor Instansi Eksekutif';
       case 'diagnosis':

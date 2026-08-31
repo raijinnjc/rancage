@@ -88,11 +88,17 @@ export function PublicLayout({ children }: PublicLayoutProps) {
             )}></span>
           </button>
           <button
-            onClick={() => navigateTo('methodology')}
-            className="transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer"
+            onClick={() => navigateTo('about')}
+            className={cn(
+              "transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer",
+              currentScreen === 'about' && "text-rancage-secondary font-bold dark:text-blue-400"
+            )}
           >
             Tentang RANCAGE
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+            <span className={cn(
+              "absolute bottom-0 left-0 h-0.5 bg-rancage-secondary transition-all rounded-full",
+              currentScreen === 'about' ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </button>
         </div>
 

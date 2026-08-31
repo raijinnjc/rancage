@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Brain, CheckCircle2, RotateCw, RefreshCw, AlertTriangle } from 'lucide-react';
+import { Scale, FileText, CheckCircle2, RotateCw, RefreshCw, AlertTriangle, BarChart3 } from 'lucide-react';
 import { cn } from '../../utils/cn.ts';
 
 interface AiPolicyInsightProps {
@@ -147,22 +147,18 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
   };
 
   return (
-    <div className="border border-blue-100/80 bg-blue-50/10 dark:border-blue-900/30 dark:bg-blue-950/5 rounded-sm p-5 shadow-xs relative overflow-hidden" id="ai-policy-insight-panel">
-      {/* Visual background sparkles for modern professional feel */}
-      <div className="absolute top-0 right-0 h-40 w-40 bg-blue-500/5 rounded-full filter blur-xl pointer-events-none"></div>
-
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-blue-100/30 dark:border-blue-900/20 pb-4 mb-4">
+    <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-5 shadow-xs relative overflow-hidden" id="ai-policy-insight-panel">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-900 pb-4 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-sm bg-blue-600 text-white flex items-center justify-center">
-            <Brain className="h-4.5 w-4.5" />
+            <Scale className="h-4.5 w-4.5" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
-              <span>RANCAGE AI Policy Decision Intelligence Co-Pilot</span>
-              <Sparkles className="h-3.5 w-3.5 text-blue-500 shrink-0" />
+              <span>Sintesis Rekomendasi Kebijakan Terarah RANCAGE</span>
             </h4>
             <p className="text-[11px] text-slate-400 mt-0.5">
-              Narasi analitik terotomatisasi yang diturunkan secara dinamis dari indikator dan algoritma dekomposisi {evaluationYear} yang dipilih.
+              Narasi analitik terstruktur yang diturunkan dari matriks dekomposisi spasial dan indikator kesejahteraan {evaluationYear}.
             </p>
           </div>
         </div>
@@ -170,10 +166,10 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
         <button
           onClick={handleRegenerate}
           disabled={isGenerating}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500/70 text-white text-xs font-semibold transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500/70 text-white text-xs font-semibold transition-colors cursor-pointer"
         >
           <RefreshCw className={cn('h-3.5 w-3.5', isGenerating && 'animate-spin')} />
-          <span>{isGenerating ? 'Menghasilkan dengan AI...' : '✨ Buat Ulang dengan AI'}</span>
+          <span>{isGenerating ? 'Menyintesis Analisis...' : 'Perbarui Sintesis Kebijakan'}</span>
         </button>
       </div>
 
@@ -188,10 +184,10 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
                 key={axisKey}
                 onClick={() => handleAxisChange(axisKey)}
                 className={cn(
-                  'px-3.5 py-2.5 text-left text-xs font-bold uppercase tracking-wider rounded-sm border transition-all whitespace-nowrap lg:whitespace-normal w-full',
+                  'px-3.5 py-2.5 text-left text-xs font-bold uppercase tracking-wider rounded-sm border transition-all whitespace-nowrap lg:whitespace-normal w-full cursor-pointer',
                   isActive
                     ? 'bg-blue-600 border-blue-600 text-white shadow-3xs'
-                    : 'bg-white hover:bg-slate-50 border-slate-100 text-slate-500 hover:text-slate-700 dark:bg-slate-950 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                    : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-500 hover:text-slate-700 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
                 )}
               >
                 {axis.label}
@@ -201,20 +197,20 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
         </div>
 
         {/* Narrative Box on right */}
-        <div className="lg:col-span-8 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-sm flex flex-col justify-between min-h-[160px] relative shadow-2xs">
+        <div className="lg:col-span-8 bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-5 rounded-sm flex flex-col justify-between min-h-[160px] relative shadow-2xs">
           {isGenerating ? (
             <div className="flex flex-col items-center justify-center py-8 space-y-2">
               <RotateCw className="h-6 w-6 text-blue-500 animate-spin" />
-              <span className="text-xs font-mono text-slate-400 font-bold uppercase tracking-widest">Memproses Model AI Gemini...</span>
-              <span className="text-[10px] text-slate-300 dark:text-slate-600">Menyintesis narasi kebijakan dari indikator wilayah</span>
+              <span className="text-xs font-mono text-slate-400 font-bold uppercase tracking-widest">Menyintesis Analisis Kebijakan...</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500">Mengkalkulasi implikasi dekomposisi indikator wilayah</span>
             </div>
           ) : (
             <div className="space-y-4 animate-in fade-in duration-200">
               {/* AI Source Badge */}
               {isAiGenerated && (
-                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 w-fit">
-                  <Sparkles className="h-3 w-3 text-emerald-500" />
-                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Dihasilkan oleh AI Gemini</span>
+                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 w-fit">
+                  <CheckCircle2 className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
+                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-mono">Sintesis Komputasi Tervalidasi</span>
                 </div>
               )}
 

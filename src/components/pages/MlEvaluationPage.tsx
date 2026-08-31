@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Database,
   Calendar,
-  Sparkles,
+  Cpu,
   BarChart2,
   RefreshCw,
   Award,
@@ -283,7 +283,7 @@ export default function MlEvaluationPage() {
       <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <Cpu className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
               Kesesuaian Model & Penilaian Kesiapan Penerapan
             </h3>

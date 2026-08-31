@@ -8,7 +8,7 @@ import {
   Minimize2, 
   Eye, 
   EyeOff, 
-  Sparkles, 
+  Target, 
   CheckCircle2, 
   HelpCircle, 
   AlertCircle,
@@ -142,8 +142,8 @@ export function DemoControlCenter() {
       {!isDemoActive && (
         <div className="bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white rounded-sm p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md border border-blue-800/40">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-400/30 animate-pulse">
-              <Sparkles className="h-5 w-5 text-blue-400" />
+            <div className="h-10 w-10 rounded-sm bg-blue-500/20 flex items-center justify-center border border-blue-400/30">
+              <Compass className="h-5 w-5 text-blue-400" />
             </div>
             <div>
               <h3 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
@@ -161,7 +161,7 @@ export function DemoControlCenter() {
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={() => setShowChecklist(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-bold text-slate-300 hover:text-white bg-slate-900/60 hover:bg-slate-900 border border-slate-700/50 rounded-sm transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-bold text-slate-300 hover:text-white bg-slate-900/60 hover:bg-slate-900 border border-slate-700/50 rounded-sm transition-all cursor-pointer"
             >
               <FileCheck className="h-3.5 w-3.5 text-emerald-400" />
               <span>Daftar Kesiapan</span>
@@ -169,7 +169,7 @@ export function DemoControlCenter() {
             
             <button
               onClick={handleStartDemo}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-sm shadow-lg hover:shadow-blue-500/10 transition-all uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-sm shadow-lg hover:shadow-blue-500/10 transition-all uppercase tracking-wider cursor-pointer"
             >
               <Play className="h-3.5 w-3.5 fill-current" />
               <span>Mulai Demo Interaktif</span>
@@ -181,14 +181,11 @@ export function DemoControlCenter() {
       {/* 2. LIVE GUIDED TOUR DASHBOARD PANEL */}
       {isDemoActive && (
         <div className="bg-slate-950 border border-slate-900 text-slate-100 rounded-sm p-4 md:p-5 shadow-xl space-y-4 transition-all duration-300 relative overflow-hidden">
-          {/* Subtle glowing ambient ring */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 border-b border-slate-900 pb-4">
             <div className="space-y-1.5 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1 bg-blue-950/80 text-blue-400 border border-blue-900/50 px-2.5 py-0.5 rounded-sm text-[10px] font-mono font-extrabold uppercase tracking-widest">
-                  <Compass className="h-3 w-3 animate-spin" style={{ animationDuration: '6s' }} />
+                  <Compass className="h-3 w-3" />
                   Panduan Demo Interaktif
                 </span>
                 
@@ -218,7 +215,7 @@ export function DemoControlCenter() {
 
               {/* Highlight card */}
               <div className="bg-blue-950/20 border border-blue-900/30 rounded-xs p-2.5 flex items-start gap-2 max-w-4xl">
-                <Sparkles className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                <Target className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <div className="text-xs">
                   <span className="font-bold text-amber-400">Sorotan Utama Demo:</span>{' '}
                   <span className="text-slate-200">{currentTourStep?.highlight}</span>

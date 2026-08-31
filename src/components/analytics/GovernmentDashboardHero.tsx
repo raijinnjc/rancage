@@ -66,34 +66,30 @@ export function GovernmentDashboardHero() {
   };
 
   return (
-    <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-linear-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-6 md:p-8 relative overflow-hidden" id="dashboard-hero-panel">
-      {/* Dynamic background element for premium feel */}
-      <div className="absolute top-0 right-0 h-96 w-96 bg-blue-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 h-96 w-96 bg-purple-500/5 rounded-full filter blur-3xl pointer-events-none"></div>
-
+    <div className="border border-slate-800 rounded-sm bg-gradient-to-r from-slate-900 via-[#0B1E3B] to-slate-900 text-white p-6 md:p-8 relative overflow-hidden shadow-md" id="dashboard-hero-panel">
       <div className="relative z-10 space-y-6">
         {/* Top Badging row */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-black text-sm">
-              RNC
+            <div className="h-9 w-9 rounded-sm bg-blue-600/30 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold text-xs">
+              DSS
             </div>
             <div>
-              <span className="text-[10px] font-bold font-mono tracking-widest text-blue-400 uppercase">
+              <span className="text-[10px] font-bold font-mono tracking-widest text-blue-300 uppercase">
                 Pemerintah Provinsi Jawa Barat • Bappeda
               </span>
-              <h3 className="text-base font-black tracking-tight text-white uppercase mt-0.5">
-                RANCAGE Decision Intelligence Platform
+              <h3 className="text-base font-bold tracking-tight text-white uppercase mt-0.5">
+                RANCAGE Decision Support System
               </h3>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[9px] font-mono bg-blue-950 text-blue-400 border border-blue-900 px-2.5 py-1 rounded font-bold uppercase tracking-widest">
-              TINGKAT SISTEM: CO-PILOT OTORITATIF
+            <span className="text-[9px] font-mono bg-blue-950 text-blue-300 border border-blue-800/80 px-2.5 py-1 rounded-sm font-bold uppercase tracking-widest">
+              SISTEM PENDUKUNG KEPUTUSAN RESMI
             </span>
-            <span className="text-[9px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-2.5 py-1 rounded font-bold uppercase tracking-widest">
-              SINKRONISASI DATA: STABIL (Q4 2026)
+            <span className="text-[9px] font-mono bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2.5 py-1 rounded-sm font-bold uppercase tracking-widest">
+              SINKRONISASI DATA: TERVERIFIKASI
             </span>
           </div>
         </div>

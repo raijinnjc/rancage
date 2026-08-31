@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ArrowUp, Percent, TrendingDown, TrendingUp, Sparkles, Scale, Cpu } from 'lucide-react';
+import { ArrowDown, ArrowUp, Percent, TrendingDown, TrendingUp, Scale, Cpu } from 'lucide-react';
 import { cn } from '../../utils/cn.ts';
 
 interface KpiData {
@@ -55,7 +55,7 @@ const KPIS_LIST: KpiData[] = [
     trend: 'up',
     trendDirection: 'positive',
     sparkline: [85.2, 86.8, 88.1, 89.4, 90.2, 91.0, 91.3],
-    interpretation: 'Pengklasifikasi Uji Sarana Pengganti mencapai kinerja klasifikasi premium, secara drastis mengurangi kebocoran ke desil kaya.',
+    interpretation: 'Model Proxy Means Test (PMT) berbasis Gradient Boosting mencapai kinerja klasifikasi presisi, secara drastis mengurangi kebocoran target.',
     policyImplication: 'Kodifikasikan secara formal bobot model Gradient Boosting untuk siklus sinkronisasi daftar DTKS provinsi tahun 2026-2027.',
     icon: Cpu,
   },

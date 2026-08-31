@@ -18,7 +18,7 @@ import {
   Filter,
   RotateCcw,
   Search,
-  Sparkles,
+  Scale,
   MapPin,
   TrendingDown,
   Users,
@@ -470,17 +470,14 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
 
       {/* SECTION 1: Executive Insight */}
       <div className="bg-slate-950 text-white rounded-sm border border-slate-800 p-6 shadow-md relative overflow-hidden" id="executive-narrative-summary">
-        {/* Ambient top light */}
-        <div className="absolute top-0 right-1/4 h-20 w-80 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
-        
         <div className="flex items-start gap-4">
-          <div className="p-2.5 bg-blue-950/60 rounded border border-blue-800 shrink-0 text-blue-400">
-            <Sparkles className="h-5 w-5 animate-pulse" />
+          <div className="p-2.5 bg-blue-950/60 rounded-sm border border-blue-800 shrink-0 text-blue-400">
+            <Scale className="h-5 w-5" />
           </div>
           <div className="space-y-4 w-full">
             <div>
               <span className="text-[9px] font-bold text-blue-400 uppercase tracking-widest font-mono">
-                Narasi Intelijen Keputusan AI
+                Sintesis Eksekutif Tipologi Wilayah
               </span>
               <h2 className="text-base font-bold tracking-tight text-white mt-1 uppercase">
                 Wawasan Tipologi Eksekutif • Survei {selectedYear}

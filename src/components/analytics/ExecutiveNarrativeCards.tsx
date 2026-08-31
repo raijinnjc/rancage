@@ -7,7 +7,7 @@ import {
   Compass, 
   Percent, 
   MapPin, 
-  Sparkles,
+  FileText,
   ArrowRight
 } from 'lucide-react';
 import { cn } from '../../utils/cn.ts';
@@ -75,7 +75,7 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
     summary: 'Ketimpangan Dalam Kabupaten (Intra-Kabupaten) telah meningkat menjadi 89.4%. Hal ini menegaskan bahwa disparitas lokal di dalam perbatasan kotamadya adalah pendorong utama ketimpangan provinsi, menyerukan intervensi tingkat kecamatan yang terlokalisasi.',
     metricLabel: 'Theil Dalam',
     metricValue: '89.4%',
-    badgeText: 'Mengkalibrasi Ulang',
+    badgeText: 'Perlu Atensi Khusus',
     badgeType: 'warning',
     icon: Compass,
     actionText: 'Dekomposisi',
@@ -96,8 +96,8 @@ export function ExecutiveNarrativeCards() {
   return (
     <div className="space-y-3" id="executive-narrative-panel">
       <div className="border-b border-slate-50 dark:border-slate-900 pb-2">
-        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
-          <Sparkles className="h-3.5 w-3.5 text-blue-500" />
+        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 font-mono">
+          <FileText className="h-3.5 w-3.5 text-blue-500" />
           Ringkasan Laporan Situasional Eksekutif
         </h4>
       </div>

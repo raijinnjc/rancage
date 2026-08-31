@@ -76,50 +76,49 @@ export function LandingPage() {
     <div className="space-y-24 w-full page-transition stagger-children">
       
       {/* Hero Section */}
-      <section className="relative text-center py-20 px-4 flex flex-col items-center justify-center min-h-[60vh] rounded-[20px] overflow-hidden border border-rancage-border dark:border-slate-800 bg-white dark:bg-slate-950">
+      <section className="relative text-center py-16 px-6 flex flex-col items-center justify-center min-h-[55vh] rounded-[20px] overflow-hidden border border-slate-200 dark:border-slate-800 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 shadow-sm">
         
-        {/* Background Network Illustration */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] dark:opacity-[0.05] flex items-center justify-center text-rancage-primary dark:text-blue-400">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="network-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <circle cx="50" cy="50" r="2" fill="currentColor" />
-                <path d="M50 50 L100 100 M50 50 L0 100 M50 50 L100 0 M50 50 L0 0" stroke="currentColor" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#network-pattern)" />
-          </svg>
-        </div>
+        {/* Authentic West Java Cultural Pattern */}
+        <MegaMendungPattern className="opacity-[0.035] dark:opacity-[0.03] text-mega-blue dark:text-blue-300" />
 
-        <div className="relative z-10 max-w-[720px] mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="space-y-4">
-            <h1 className="text-[64px] leading-tight font-extrabold tracking-tight text-rancage-primary dark:text-white">
+        <div className="relative z-10 max-w-[780px] mx-auto space-y-7 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          
+          {/* Institutional Gov Header Badge */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-900/60 text-blue-900 dark:text-blue-300 text-xs font-semibold">
+            <KujangLogo size={16} className="text-[#C5962A]" />
+            <span className="font-mono text-[10px] tracking-wider uppercase">PEMERINTAH PROVINSI JAWA BARAT</span>
+            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <span className="text-[10px] font-mono text-blue-700 dark:text-blue-400">SATU DATA JAWA BARAT</span>
+          </div>
+
+          <div className="space-y-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
               RANCAGE DSS
             </h1>
-            <h2 className="text-[32px] leading-tight font-semibold text-slate-800 dark:text-slate-200">
-              Decision Support System for Targeted Poverty Reduction
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700 dark:text-slate-300">
+              Sistem Pendukung Keputusan Penanggulangan Kemiskinan & Ketimpangan
             </h2>
           </div>
           
-          <p className="text-[18px] text-rancage-text-muted dark:text-slate-400 leading-relaxed text-center">
-            RANCAGE (<span className="font-semibold text-rancage-text dark:text-slate-300">Ruang Analisis Navigasi Celah Agregat dan Gini Empiris</span>) bukanlah sistem rival yang berupaya menggantikan P3KE atau DTKS, melainkan platform intelijen kebijakan lapisan pelengkap (<em>complementary intelligence layer</em>) yang bertugas mengintegrasikan data antar-lembaga secara komprehensif serta menyesuaikan strategi intervensi bantuan sosial agar lebih responsif terhadap anomali meningkatnya kedalaman kemiskinan (P1) di tengah tingginya Gini Ratio Jawa Barat.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed text-center max-w-2xl mx-auto">
+            RANCAGE (<span className="font-semibold text-slate-800 dark:text-slate-200">Ruang Analisis Navigasi Celah Agregat dan Gini Empiris</span>) adalah platform intelijen kebijakan lapisan pelengkap (<em>complementary intelligence layer</em>) yang mengintegrasikan data sosial-ekonomi lintas instansi untuk memitigasi anomali kedalaman kemiskinan (P1) dan ketimpangan spasial di 27 Kabupaten/Kota Jawa Barat.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <button
               onClick={() => navigateTo('exploration')}
-              className="inline-flex items-center gap-2 rounded-[12px] bg-white dark:bg-slate-900 border border-rancage-border dark:border-slate-700 hover:border-rancage-secondary text-rancage-text dark:text-white px-8 py-4 text-base font-semibold tracking-wide transition-all hover:scale-[1.02] hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-sm bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-blue-500 text-slate-800 dark:text-slate-200 px-6 py-3 text-xs font-bold tracking-wide transition-all shadow-xs hover:shadow-md cursor-pointer"
             >
-              <Eye className="h-5 w-5 text-rancage-secondary" />
-              Eksplorasi Indikator Publik
+              <Eye className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <span>Eksplorasi Wilayah Publik</span>
             </button>
             
             <button
               onClick={() => navigateTo('login')}
-              className="inline-flex items-center gap-2 rounded-[12px] bg-rancage-secondary hover:bg-blue-600 text-white px-8 py-4 text-base font-semibold tracking-wide transition-all hover:scale-[1.02] shadow-lg shadow-rancage-secondary/20"
+              className="inline-flex items-center gap-2 rounded-sm bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-xs font-bold tracking-wide transition-all shadow-md shadow-blue-600/20 cursor-pointer"
             >
-              <Lock className="h-5 w-5" />
-              Akses Aman Gov-ID
+              <Lock className="h-4 w-4" />
+              <span>Akses Aman Gov-ID</span>
             </button>
           </div>
         </div>
