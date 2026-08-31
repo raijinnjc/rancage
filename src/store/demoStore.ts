@@ -42,7 +42,7 @@ export const TOUR_STEPS: TourStep[] = [
     screenId: 'ml-evaluation',
     title: '6. Evaluasi Model Machine Learning',
     description: 'Menjamin transparansi algoritmik. Menampilkan metrik performa model AI, matriks konfusi (confusion matrix), dan nilai kepentingan fitur SHAP.',
-    highlight: 'Mendemonstrasikan performa model yang kuat dengan akurasi 92%, didukung plot penjelasan model yang lengkap.',
+    highlight: 'Mendemonstrasikan performa model yang kuat dengan akurasi 91,3%, didukung plot penjelasan model yang lengkap.',
   },
   {
     screenId: 'recommendation',
