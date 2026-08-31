@@ -62,22 +62,22 @@ const getDistrictSocioeconomicMetrics = (districtId: string) => {
   const manufacturingShare = Math.min(60, Math.max(2, ((hash * 7) % 40) + 5));
   const servicesShare = 100 - agriShare - manufacturingShare;
   
-  const unemploymentRate = Math.min(12.5, Math.max(3.2, ((hash * 3) % 8) + 4.1));
+  const pengangguranRate = Math.min(12.5, Math.max(3.2, ((hash * 3) % 8) + 4.1));
   const schoolingYears = Math.min(12.4, Math.max(6.2, 11.8 - ((hash % 15) * 0.35)));
-  const waterDeficit = Math.min(55, Math.max(4, ((hash * 11) % 45) + 8));
-  const sanitationDeficit = Math.min(60, Math.max(5, (waterDeficit + (hash % 10) - 3)));
-  const internetDeficit = Math.min(75, Math.max(8, 90 - (schoolingYears * 7) - (hash % 8)));
-  const healthDeficit = Math.min(45, Math.max(6, ((hash * 13) % 30) + 10));
-  const wallDeficit = Math.min(40, Math.max(2, ((hash * 17) % 25) + 5));
-  const assetDeficit = Math.min(50, Math.max(5, ((hash * 19) % 35) + 8));
+  const waterDefisit = Math.min(55, Math.max(4, ((hash * 11) % 45) + 8));
+  const sanitationDefisit = Math.min(60, Math.max(5, (waterDefisit + (hash % 10) - 3)));
+  const internetDefisit = Math.min(75, Math.max(8, 90 - (schoolingYears * 7) - (hash % 8)));
+  const healthDefisit = Math.min(45, Math.max(6, ((hash * 13) % 30) + 10));
+  const wallDefisit = Math.min(40, Math.max(2, ((hash * 17) % 25) + 5));
+  const assetDefisit = Math.min(50, Math.max(5, ((hash * 19) % 35) + 8));
 
   // Determine Kuadran Tipologi
   let typology: 'I' | 'II' | 'III' | 'IV' = 'IV';
-  if (schoolingYears > 9.5 && unemploymentRate < 7) {
+  if (schoolingYears > 9.5 && pengangguranRate < 7) {
     typology = 'I'; // Maju Cepat
   } else if (manufacturingShare > 35 && schoolingYears < 9.0) {
     typology = 'II'; // Potensial
-  } else if (schoolingYears > 9.0 && unemploymentRate > 8) {
+  } else if (schoolingYears > 9.0 && pengangguranRate > 8) {
     typology = 'III'; // Tertekan
   } else {
     typology = 'IV'; // Tertinggal
@@ -87,14 +87,14 @@ const getDistrictSocioeconomicMetrics = (districtId: string) => {
     agriShare,
     manufacturingShare,
     servicesShare,
-    unemploymentRate,
+    pengangguranRate,
     schoolingYears,
-    waterDeficit,
-    sanitationDeficit,
-    internetDeficit,
-    healthDeficit,
-    wallDeficit,
-    assetDeficit,
+    waterDefisit,
+    sanitationDefisit,
+    internetDefisit,
+    healthDefisit,
+    wallDefisit,
+    assetDefisit,
     typology
   };
 };
@@ -242,12 +242,12 @@ export default function RegionalProfilePage() {
   // Multidimensional Deprivation radar dataset (local vs province baseline average)
   const radarData = useMemo(() => {
     return [
-      { subject: 'Health Center Access', local: socMetrics.healthDeficit, average: 22 },
-      { subject: 'Clean Water Deficit', local: socMetrics.waterDeficit, average: 28 },
-      { subject: 'Education Gaps', local: 100 - (socMetrics.schoolingYears * 8), average: 32 },
-      { subject: 'Asset Deprivation', local: socMetrics.assetDeficit, average: 18 },
-      { subject: 'Substandard Housing', local: socMetrics.wallDeficit, average: 15 },
-      { subject: 'Sanitation Gaps', local: socMetrics.sanitationDeficit, average: 25 },
+      { subject: 'Akses Pusat Kesehatan', local: socMetrics.healthDefisit, average: 22 },
+      { subject: 'Clean Water Defisit', local: socMetrics.waterDefisit, average: 28 },
+      { subject: 'Kesenjangan Pendidikan', local: 100 - (socMetrics.schoolingYears * 8), average: 32 },
+      { subject: 'Deprivasi Aset', local: socMetrics.assetDefisit, average: 18 },
+      { subject: 'Perumahan di Bawah Standar', local: socMetrics.wallDefisit, average: 15 },
+      { subject: 'Kesenjangan Sanitasi', local: socMetrics.sanitationDefisit, average: 25 },
     ];
   }, [socMetrics]);
 
@@ -286,7 +286,7 @@ export default function RegionalProfilePage() {
       return {
         name: p.name.replace('Kabupaten', 'Kab.').replace('Kota', 'Kota'),
         P0: diagnosisMatch ? diagnosisMatch.p0 : p.p0,
-        unemployment: getDistrictSocioeconomicMetrics(p.id).unemploymentRate,
+        pengangguran: getDistrictSocioeconomicMetrics(p.id).pengangguranRate,
         isFocus: p.id === activeDistrictId
       };
     });
@@ -305,25 +305,25 @@ Date: ${new Date().toLocaleDateString('id-ID')}
    - District ID: ${districtMeta.id}
    - Regional BPS Block: ${districtMeta.region}
    - Development Priority Score: ${activeYearStats.priorityScore}/100
-   - Kuadran Tipologi: Quadrant ${socMetrics.typology === 'I' ? 'I (Sejahtera-Merata)' : socMetrics.typology === 'II' ? 'II (Sejahtera-Timpang)' : socMetrics.typology === 'III' ? 'III (Miskin-Merata)' : 'IV (Miskin-Timpang)'}
+   - Kuadran Tipologi: Kuadran ${socMetrics.typology === 'I' ? 'I (Sejahtera-Merata)' : socMetrics.typology === 'II' ? 'II (Sejahtera-Timpang)' : socMetrics.typology === 'III' ? 'III (Miskin-Merata)' : 'IV (Miskin-Timpang)'}
 
 2. CORE STATISTICAL INDICATORS
-   - Poverty Headcount (P0): ${activeYearStats.p0}%
+   - Tingkat Kemiskinan (P0): ${activeYearStats.p0}%
    - Poverty Depth (P1): ${activeYearStats.p1}
    - Poverty Severity (P2): ${activeYearStats.p2}
    - Total Estimated Poor Souls: ${poorSoulsCount.toLocaleString('id-ID')} people
    - Allocated Welfare Budget matching: IDR ${welfareBudget.toLocaleString('id-ID')}
 
 3. MULTIDIMENSIONAL RISK AXES (DEFICIT RATIOS)
-   - Clean Water Deficit: ${socMetrics.waterDeficit}%
-   - Sanitation Deficit: ${socMetrics.sanitationDeficit}%
+   - Clean Water Defisit: ${socMetrics.waterDefisit}%
+   - Sanitation Defisit: ${socMetrics.sanitationDefisit}%
    - Educational Attainment Gap (Avg Schooling): ${socMetrics.schoolingYears} years
    - Informal Employment / Agricultural share: ${socMetrics.agriShare}%
 
 4. ACTIONABLE INTERVENTION PRIORITIES
-   - High Priority Program: ${socMetrics.waterDeficit > 35 ? 'communal deepwell infrastructure pipeline matching' : 'Targeted PKH/BLT Welfare Calibrations'}
+   - High Priority Program: ${socMetrics.waterDefisit > 35 ? 'communal deepwell infrastructure pipeline matching' : 'Kalibrasi Kesejahteraan PKH/BLT Tepat Sasaran'}
    - Budget Match Allocation: IDR ${(welfareBudget * 0.45).toLocaleString('id-ID')} (45% share of total)
-   - Accountable Lead Agency: Dinas Sosial and Dinas PUPR Provinsi Jawa Barat
+   - Accountable Instansi Terkemuka: Dinas Sosial and Dinas PUPR Provinsi Jawa Barat
     `.trim();
 
     navigator.clipboard.writeText(memoText).then(() => {
@@ -336,8 +336,8 @@ Date: ${new Date().toLocaleDateString('id-ID')}
     <div className="space-y-6">
       {/* 1. Page Header (PageHeader automatically renders title & breadcrumb) */}
       <PageHeader
-        title="Regional Profile Intelligence"
-        description="Dynamic socioeconomic diagnostic and policy formulation workplace for selected BPS districts."
+        title="Kecerdasan Profil Regional"
+        description="Diagnosis sosial-ekonomi dinamis dan ruang kerja formulasi kebijakan untuk kabupaten/kota BPS yang dipilih."
         actions={
           <div className="flex flex-wrap items-center gap-2">
             <button
@@ -345,12 +345,12 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               className="inline-flex items-center gap-1 px-3 py-1.5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-sm text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors"
             >
               <ArrowLeft className="h-3 w-3" />
-              Back to Typology
+              Kembali ke Tipologi
             </button>
 
             {/* Selector dropdown inside actions to dynamically trigger selection */}
             <div className="flex items-center gap-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-2.5 h-8">
-              <span className="text-[10px] font-bold text-slate-400 font-mono">FOCUS:</span>
+              <span className="text-[10px] font-bold text-slate-400 font-mono">FOKUS:</span>
               <select
                 value={activeDistrictId}
                 onChange={(e) => setSelectedDistrictId(e.target.value)}
@@ -366,16 +366,16 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
             {/* Year Selector */}
             <div className="flex items-center gap-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-2.5 h-8">
-              <span className="text-[10px] font-bold text-slate-400 font-mono">YEAR:</span>
+              <span className="text-[10px] font-bold text-slate-400 font-mono">TAHUN:</span>
               <select
                 value={activeYear}
                 onChange={(e) => setActiveYear(e.target.value)}
                 className="bg-transparent text-xs font-bold text-slate-700 dark:text-slate-200 outline-none focus:ring-0"
               >
-                <option value="2025">2025 Actual</option>
-                <option value="2024">2024 Baseline</option>
-                <option value="2023">2023 Baseline</option>
-                <option value="2022">2022 Baseline</option>
+                <option value="2025">Aktual 2025</option>
+                <option value="2024">Dasar 2024</option>
+                <option value="2023">Dasar 2023</option>
+                <option value="2022">Dasar 2022</option>
               </select>
             </div>
           </div>
@@ -410,12 +410,12 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 mt-0.5 font-medium">
-                Administrative Region: {districtMeta.region} Timur Corridor • Security Policy Clearance Level 1
+                Wilayah Administratif: {districtMeta.region} Koridor Timur • Izin Kebijakan Keamanan Level 1
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0">
-            <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Priority Index:</span>
+            <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Indeks Prioritas:</span>
             <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xs">
               <Award className="h-3.5 w-3.5 text-blue-500" />
               <span className="text-sm font-bold font-mono tracking-tight">{activeYearStats.priorityScore}/100</span>
@@ -425,42 +425,42 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs">
           <div className="lg:col-span-2 space-y-3 leading-relaxed text-slate-600 dark:text-slate-300">
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">System Narrative Intelligence</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">Kecerdasan Naratif Sistem</span>
             <p>
-              {districtMeta.name} is currently classified under{' '}
+              {districtMeta.name} saat ini diklasifikasikan di bawah{' '}
               <strong className="text-slate-900 dark:text-white font-semibold">
-                Quadrant {socMetrics.typology === 'IV' ? 'IV (Lagging / Tertinggal)' : socMetrics.typology === 'III' ? 'III (Stressed / Tertekan)' : socMetrics.typology === 'II' ? 'II (Potential / Potensial)' : 'I (Established / Maju Cepat)'}
+                Kuadran {socMetrics.typology === 'IV' ? 'IV (Lagging / Tertinggal)' : socMetrics.typology === 'III' ? 'III (Stressed / Tertekan)' : socMetrics.typology === 'II' ? 'II (Potential / Potensial)' : 'I (Established / Maju Cepat)'}
               </strong>{' '}
               dari Matriks Tipologi Kemiskinan-Ketimpangan. Klasifikasi ini mengindikasikan bahwa kabupaten/kota menunjukkan{' '}
               {socMetrics.typology === 'IV' 
-                ? 'lower per capita income accompanied by subpar economic growth velocities relative to the provincial averages of West Java.' 
+                ? 'pendapatan per kapita yang lebih rendah disertai dengan kecepatan pertumbuhan ekonomi di bawah rata-rata relatif terhadap rata-rata provinsi Jawa Barat.' 
                 : socMetrics.typology === 'III'
-                ? 'high relative average incomes but experiencing structural growth deceleration, putting vulnerable workers at risk.'
+                ? 'pendapatan rata-rata relatif tinggi namun mengalami perlambatan pertumbuhan struktural, menempatkan pekerja rentan pada risiko.'
                 : socMetrics.typology === 'II'
-                ? 'high expansion rates but has not yet converted that growth into broad-based household wealth.'
-                : 'both robust macroeconomic growth dynamics and strong established per-capita expenditures.'}
+                ? 'tingkat ekspansi tinggi namun belum mengonversi pertumbuhan tersebut menjadi kekayaan rumah tangga berbasis luas.'
+                : 'dinamika pertumbuhan makroekonomi yang kuat dan pengeluaran per kapita yang mapan dan kuat.'}
             </p>
             <p>
-              With an estimated headcount poverty rate of{' '}
-              <span className="font-bold font-mono text-slate-900 dark:text-white">{activeYearStats.p0}%</span>, the region holds{' '}
-              <span className="font-bold text-slate-900 dark:text-white font-medium">{poorSoulsCount.toLocaleString('id-ID')} poor souls</span> who require targeted social assistance or structural capital interventions. The primary vulnerability driving this district's priority score is concentrated around{' '}
+              Dengan perkiraan tingkat kemiskinan (headcount) sebesar{' '}
+              <span className="font-bold font-mono text-slate-900 dark:text-white">{activeYearStats.p0}%</span>, wilayah ini memiliki{' '}
+              <span className="font-bold text-slate-900 dark:text-white font-medium">{poorSoulsCount.toLocaleString('id-ID')} poor souls</span> who require targeted social assistance or structural capital interventions. Kerentanan utama yang mendorong skor prioritas kabupaten/kota ini terkonsentrasi di sekitar{' '}
               <span className="font-bold text-slate-900 dark:text-white font-medium">
-                {socMetrics.waterDeficit > 35 ? 'Communal basic clean water sanitation deficits' : 'Educational attainment gaps in farming communities'}
+                {socMetrics.waterDefisit > 35 ? 'Defisit sanitasi air bersih dasar komunal' : 'Kesenjangan pencapaian pendidikan di komunitas petani'}
               </span>.
             </p>
           </div>
           <div className="bg-slate-50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-900 rounded-sm p-4 flex flex-col justify-between">
             <div className="space-y-2">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">Targeting Diagnosis Brief</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">Ringkasan Diagnosis Penargetan</span>
               <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
-                A Within-district disparity contribution ratio of{' '}
-                <span className="font-bold text-slate-700 dark:text-slate-300 font-mono">82%</span> indicates that regional poverty is heavily pocketed within specific sub-districts rather than evenly spread. Therefore, policymakers must bypass generic budget increments and deploy local{' '}
-                <span className="font-bold text-slate-700 dark:text-slate-300">Proxy Means Testing (PMT) targeting models</span> to secure targeting accuracy.
+                Rasio kontribusi disparitas dalam kabupaten/kota sebesar{' '}
+                <span className="font-bold text-slate-700 dark:text-slate-300 font-mono">82%</span> menunjukkan bahwa kemiskinan regional sangat terkonsentrasi di kecamatan tertentu daripada tersebar merata. Oleh karena itu, pembuat kebijakan harus mengabaikan peningkatan anggaran generik dan menyebarkan{' '}
+                <span className="font-bold text-slate-700 dark:text-slate-300">model penargetan Proxy Means Testing (PMT)</span> untuk memastikan akurasi penargetan.
               </p>
             </div>
             <div className="pt-3 border-t border-slate-100 dark:border-slate-900/80 mt-2 flex items-center gap-1 text-[10px] text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider font-mono">
               <CheckCircle2 className="h-3 w-3 shrink-0" />
-              <span>Complies with West Java RPJMD Trajectories</span>
+              <span>Mematuhi Trajektori RPJMD Jawa Barat</span>
             </div>
           </div>
         </div>
@@ -469,36 +469,36 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       {/* Section 2: District Overview KPIs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="section-district-kpis">
         <KpiCard
-          title="Poverty Headcount (P0)"
+          title="Tingkat Kemiskinan (P0)"
           value={`${activeYearStats.p0}%`}
-          change={`${(activeYearStats.p0 - 7.62).toFixed(2)}% vs Prov Average`}
+          change={`${(activeYearStats.p0 - 7.62).toFixed(2)}% vs Rata-rata Prov`}
           trend={activeYearStats.p0 > 7.62 ? 'up' : 'down'}
           trendDirection={activeYearStats.p0 > 7.62 ? 'negative' : 'positive'}
-          description="Percentage of the regional population whose consumption expenditure falls beneath BPS poverty thresholds."
+          description="Persentase populasi regional yang pengeluaran konsumsinya berada di bawah ambang batas kemiskinan BPS."
         />
         <KpiCard
-          title="Poor Population Volume"
+          title="Volume Populasi Miskin"
           value={poorSoulsCount.toLocaleString('id-ID')}
-          change={`Out of ${activeYearStats.population.toLocaleString('id-ID')} total souls`}
+          change={`Dari ${activeYearStats.population.toLocaleString('id-ID')} total penduduk`}
           trend="neutral"
           trendDirection="neutral"
-          description="BPS population headcount index translated to total estimated individuals requiring target validations."
+          description="Indeks jumlah penduduk BPS diterjemahkan menjadi perkiraan total individu yang memerlukan validasi target."
         />
         <KpiCard
-          title="Severity Indices (P1 / P2)"
+          title="Indeks Keparahan (P1 / P2)"
           value={`${activeYearStats.p1} / ${activeYearStats.p2}`}
-          change={`${activeYearStats.p2 > 0.35 ? 'Critical vulnerability' : 'Stable depth indexes'}`}
+          change={`${activeYearStats.p2 > 0.35 ? 'Kerentanan kritis' : 'Indeks kedalaman stabil'}`}
           trend={activeYearStats.p2 > 0.35 ? 'up' : 'down'}
           trendDirection={activeYearStats.p2 > 0.35 ? 'negative' : 'positive'}
-          description="P1 (Poverty depth gap index) alongside P2 (Poverty severity consumption inequalities among the poor)."
+          description="P1 (Indeks kedalaman kemiskinan) bersama dengan P2 (Keparahan kemiskinan dan ketidaksetaraan konsumsi di antara penduduk miskin)."
         />
         <KpiCard
-          title="Welfare Budget Aligned"
+          title="Kesesuaian Anggaran Kesejahteraan"
           value={`Rp ${(welfareBudget / 1000000000).toFixed(2)} Billion`}
-          change={`${(welfareBudget / poorSoulsCount).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 })} per soul`}
+          change={`${(welfareBudget / poorSoulsCount).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 })} per jiwa`}
           trend="up"
           trendDirection="positive"
-          description="Total estimated aligned welfare budget matching computed as a function of the headcount and gap indices."
+          description="Perkiraan total kesesuaian anggaran kesejahteraan yang dihitung sebagai fungsi dari jumlah penduduk miskin dan indeks kesenjangan."
         />
       </div>
 
@@ -508,9 +508,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-socioeconomic-profile">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
             <div>
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Structural Diagnostics</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Diagnostik Struktural</span>
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                Socioeconomic Profile Gaps & Employment Mix
+                Kesenjangan Profil Sosial-Ekonomi & Bauran Pekerjaan
               </h3>
             </div>
             <Activity className="h-4 w-4 text-slate-400" />
@@ -518,41 +518,41 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
           <div className="grid grid-cols-3 gap-4 mb-5">
             <div className="p-3 border border-slate-50 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs text-center">
-              <span className="text-[10px] text-slate-400 uppercase block font-semibold">schooling years</span>
+              <span className="text-[10px] text-slate-400 uppercase block font-semibold">lama sekolah</span>
               <span className="text-lg font-bold font-mono text-slate-800 dark:text-slate-100 mt-1 block">
-                {socMetrics.schoolingYears} yrs
+                {socMetrics.schoolingYears} thn
               </span>
               <span className="text-[9px] text-slate-400 mt-0.5 block">
-                Prov Avg: 8.4 years
+                Rata-rata Prov: 8.4 years
               </span>
             </div>
             <div className="p-3 border border-slate-50 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs text-center">
-              <span className="text-[10px] text-slate-400 uppercase block font-semibold">unemployment</span>
+              <span className="text-[10px] text-slate-400 uppercase block font-semibold">pengangguran</span>
               <span className="text-lg font-bold font-mono text-rose-500 mt-1 block">
-                {socMetrics.unemploymentRate}%
+                {socMetrics.pengangguranRate}%
               </span>
               <span className="text-[9px] text-slate-400 mt-0.5 block">
-                Prov Avg: 7.2%
+                Rata-rata Prov: 7.2%
               </span>
             </div>
             <div className="p-3 border border-slate-50 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs text-center">
-              <span className="text-[10px] text-slate-400 uppercase block font-semibold">gini ratio</span>
+              <span className="text-[10px] text-slate-400 uppercase block font-semibold">rasio gini</span>
               <span className="text-lg font-bold font-mono text-slate-800 dark:text-slate-100 mt-1 block">
                 {activeYearStats.gini}
               </span>
               <span className="text-[9px] text-slate-400 mt-0.5 block">
-                Prov Avg: 0.373
+                Rata-rata Prov: 0.373
               </span>
             </div>
           </div>
 
           {/* Sector employment breakdown */}
           <div className="space-y-3 text-xs">
-            <span className="text-[10px] font-bold text-slate-400 uppercase block tracking-wider font-mono">Active Labor Force Sector Distribution</span>
+            <span className="text-[10px] font-bold text-slate-400 uppercase block tracking-wider font-mono">Distribusi Sektor Angkatan Kerja Aktif</span>
             <div className="space-y-2">
               <div>
                 <div className="flex justify-between text-[11px] mb-1 font-medium">
-                  <span className="text-slate-500">Agriculture, Forestry & Fishery</span>
+                  <span className="text-slate-500">Pertanian, Kehutanan & Perikanan</span>
                   <span className="font-bold font-mono text-slate-700 dark:text-slate-300">{socMetrics.agriShare}%</span>
                 </div>
                 <div className="w-full bg-slate-100 dark:bg-slate-900 rounded-full h-2 overflow-hidden">
@@ -561,7 +561,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               </div>
               <div>
                 <div className="flex justify-between text-[11px] mb-1 font-medium">
-                  <span className="text-slate-500">Manufacturing & Processing Industries</span>
+                  <span className="text-slate-500">Industri Manufaktur & Pengolahan</span>
                   <span className="font-bold font-mono text-slate-700 dark:text-slate-300">{socMetrics.manufacturingShare}%</span>
                 </div>
                 <div className="w-full bg-slate-100 dark:bg-slate-900 rounded-full h-2 overflow-hidden">
@@ -570,7 +570,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               </div>
               <div>
                 <div className="flex justify-between text-[11px] mb-1 font-medium">
-                  <span className="text-slate-500">Trade, Services & Public Utilities</span>
+                  <span className="text-slate-500">Perdagangan, Jasa & Utilitas Publik</span>
                   <span className="font-bold font-mono text-slate-700 dark:text-slate-300">{socMetrics.servicesShare}%</span>
                 </div>
                 <div className="w-full bg-slate-100 dark:bg-slate-900 rounded-full h-2 overflow-hidden">
@@ -580,8 +580,8 @@ Date: ${new Date().toLocaleDateString('id-ID')}
             </div>
             <p className="text-[11px] leading-relaxed text-slate-400 pt-2 border-t border-slate-50 dark:border-slate-900">
               {socMetrics.agriShare > 40 
-                ? 'High agricultural workforce concentration exposes the district to severe climatic, crop failure, and temporal wage volatility shocks.' 
-                : 'High industrial manufacturing integration shields wages but creates localized rural-urban migration disparities.'}
+                ? 'Konsentrasi tenaga kerja pertanian yang tinggi mengekspos kabupaten/kota pada guncangan iklim yang parah, gagal panen, dan volatilitas upah temporal.' 
+                : 'Integrasi manufaktur industri yang tinggi melindungi upah namun menciptakan disparitas migrasi pedesaan-perkotaan yang terlokalisasi.'}
             </p>
           </div>
         </div>
@@ -589,9 +589,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         {/* Section 7: Risk Drivers Radar Chart */}
         <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-risk-drivers">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Multidimensional Gaps</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Kesenjangan Multidimensional</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-              Risk Drivers & Access Deprivation Radar
+              Radar Pendorong Risiko & Deprivasi Akses
             </h3>
           </div>
 
@@ -609,14 +609,14 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                   tick={{ fill: '#94a3b8', fontSize: 8 }}
                 />
                 <Radar
-                  name={`${districtMeta.name} Deficit`}
+                  name={`${districtMeta.name} Defisit`}
                   dataKey="local"
                   stroke="#ef4444"
                   fill="#ef4444"
                   fillOpacity={0.25}
                 />
                 <Radar
-                  name="Provincial Benchmark Avg"
+                  name="Rata-rata Tolok Ukur Provinsi"
                   dataKey="average"
                   stroke="#64748b"
                   fill="#64748b"
@@ -643,9 +643,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         {/* Section 4: Trend Analysis Chart */}
         <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-trend-analysis">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Temporal Trajectories</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Trajektori Temporal</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-              Historical Employment & Structural Transformation (2022 - 2025)
+              Riwayat Ketenagakerjaan & Transformasi Struktural (2022 - 2025)
             </h3>
           </div>
 
@@ -682,9 +682,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         {/* Section 5: Regional Comparison Card */}
         <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-regional-comparison">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">BPS Corridor Context</span>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Konteks Koridor BPS</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-              Regional Comparison: {districtMeta.region} Peers Baseline ({activeYear})
+              Perbandingan Regional: {districtMeta.region} Tolok Ukur Rekan ({activeYear})
             </h3>
           </div>
 
@@ -696,7 +696,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                 <YAxis unit="%" tick={{ fill: '#94a3b8', fontSize: 10 }} />
                 <RechartsTooltip />
                 <RechartsLegend wrapperStyle={{ fontSize: '10px', fontWeight: 'bold' }} />
-                <Bar name="Poverty Headcount (P0)" dataKey="P0" radius={[4, 4, 0, 0]}>
+                <Bar name="Tingkat Kemiskinan (P0)" dataKey="P0" radius={[4, 4, 0, 0]}>
                   {regionalPeersComparison.map((entry, index) => (
                     <Cell 
                       key={`cell-${index}`} 
@@ -705,7 +705,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                     />
                   ))}
                 </Bar>
-                <Bar name="Unemployment Rate" dataKey="unemployment" fill="#e2e8f0" radius={[4, 4, 0, 0]}>
+                <Bar name="Tingkat Pengangguran" dataKey="pengangguran" fill="#e2e8f0" radius={[4, 4, 0, 0]}>
                   {regionalPeersComparison.map((entry, index) => (
                     <Cell 
                       key={`cell-un-${index}`} 
@@ -726,9 +726,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         <div className="lg:col-span-4 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between" id="section-spatial-context">
           <div className="space-y-4">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">spatial coordinates</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">koordinat spasial</span>
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                Regional Corridor Mapping
+                Pemetaan Koridor Regional
               </h3>
             </div>
 
@@ -740,23 +740,23 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               <div className="text-center space-y-2 z-10 px-4">
                 <MapPin className="h-8 w-8 text-rose-500 mx-auto animate-bounce" />
                 <span className="text-xs font-bold tracking-tight block text-slate-800 dark:text-slate-200 uppercase font-mono">
-                  {districtMeta.region} corridor zone
+                  {districtMeta.region} zona koridor
                 </span>
                 <span className="text-[10px] text-slate-400 block font-mono leading-none">
-                  Lat: -6.9812°S | Long: 107.0194°E
+                  Lintang: -6.9812°S | Bujur: 107.0194°E
                 </span>
               </div>
 
               {/* Shaded geographic boundaries simulation */}
               <div className="absolute bottom-2 right-2 flex items-center gap-1.5 bg-slate-900/80 backdrop-blur-xs px-2 py-0.5 rounded-sm text-[9px] font-mono text-slate-300">
                 <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                <span>P0 Core Cluster</span>
+                <span>Klaster Inti P0</span>
               </div>
             </div>
           </div>
 
           <div className="text-[11px] leading-relaxed text-slate-400 pt-3 border-t border-slate-50 dark:border-slate-900 mt-2">
-            This administrative segment forms a contiguous basin. High geographical isolation index correlates directly with clean water piping costs in remote sub-districts.
+            Segmen administratif ini membentuk cekungan yang berdekatan. Indeks isolasi geografis yang tinggi berkorelasi langsung dengan biaya pemipaan air bersih di kecamatan terpencil.
           </div>
         </div>
 
@@ -764,9 +764,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         <div className="lg:col-span-8 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-policy-recommendation">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
             <div>
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Algorithmic Formulation</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Formulasi Algoritmik</span>
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                Local Policy Intervention Options & Cost Projections
+                Opsi Intervensi Kebijakan Lokal & Proyeksi Biaya
               </h3>
             </div>
             <Briefcase className="h-4 w-4 text-slate-400" />
@@ -778,29 +778,29 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="text-[9px] font-bold font-mono bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 px-2 py-0.5 rounded-xs uppercase">
-                    urgent priority
+                    prioritas mendesak
                   </span>
                   <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
-                    {socMetrics.waterDeficit > 35 ? 'Communal Deepwell & Sanitation matching funds' : 'Targeted PKH/BLT Welfare Calibrations'}
+                    {socMetrics.waterDefisit > 35 ? 'Dana pendamping Sumur Dalam & Sanitasi Komunal' : 'Kalibrasi Kesejahteraan PKH/BLT Tepat Sasaran'}
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 leading-relaxed max-w-xl">
-                  {socMetrics.waterDeficit > 35 
-                    ? 'Deploy communal deepwells and public sanitation grids to mitigate high water deficit ratios which inflate healthcare spending.'
-                    : 'Recalibrate welfare registers using machine-learning PMT vectors to eliminate inclusion leakage and address unregistered families.'}
+                  {socMetrics.waterDefisit > 35 
+                    ? 'Membangun sumur dalam komunal dan jaringan sanitasi publik untuk memitigasi rasio defisit air yang tinggi yang menggelembungkan pengeluaran kesehatan.'
+                    : 'Mengkalibrasi ulang daftar kesejahteraan menggunakan vektor PMT pembelajaran mesin untuk menghilangkan kebocoran inklusi dan mengatasi keluarga yang tidak terdaftar.'}
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1.5 text-[10px] font-mono text-slate-500">
-                  <span>Lead Agency: <strong className="text-slate-700 dark:text-slate-300">{socMetrics.waterDeficit > 35 ? 'Dinas PUPR' : 'Dinas Sosial'}</strong></span>
-                  <span>Timeline: <strong className="text-slate-700 dark:text-slate-300">12 Months</strong></span>
+                  <span>Instansi Terkemuka: <strong className="text-slate-700 dark:text-slate-300">{socMetrics.waterDefisit > 35 ? 'Dinas PUPR' : 'Dinas Sosial'}</strong></span>
+                  <span>Lini Masa: <strong className="text-slate-700 dark:text-slate-300">12 Bulan</strong></span>
                 </div>
               </div>
               <div className="shrink-0 text-right sm:border-l border-slate-100 dark:border-slate-900 pl-0 sm:pl-4 space-y-1">
-                <span className="text-[9px] text-slate-400 font-mono block uppercase">Est Budget Match</span>
+                <span className="text-[9px] text-slate-400 font-mono block uppercase">Perkiraan Kesesuaian Anggaran</span>
                 <span className="text-xs font-bold font-mono text-slate-800 dark:text-slate-100 block">
                   Rp {(welfareBudget * 0.45 / 1000000000).toFixed(2)} Billion
                 </span>
                 <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block font-mono">
-                  -0.85% Est P0 drop
+                  -0.85% Perk. penurunan P0
                 </span>
               </div>
             </div>
@@ -810,29 +810,29 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="text-[9px] font-bold font-mono bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400 px-2 py-0.5 rounded-xs uppercase">
-                    Core Program
+                    Program Inti
                   </span>
                   <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
-                    {socMetrics.agriShare > 35 ? 'Agricultural Risk Mitigation & BPJS Insurance Matching' : 'Technical Vocational Academy Grants'}
+                    {socMetrics.agriShare > 35 ? 'Mitigasi Risiko Pertanian & Kesesuaian Asuransi BPJS' : 'Hibah Akademi Kejuruan Teknis'}
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 leading-relaxed max-w-xl">
                   {socMetrics.agriShare > 35
-                    ? 'Deploy premium subsidies for crop failure crop insurance and match health insurance (BPJS) for informal agricultural laborers.'
-                    : 'Construct short-term vocational academies linked to local processing plants to pivot labor from informal to formal employment.'}
+                    ? 'Memberikan subsidi premi asuransi panen untuk gagal panen dan mencocokkan asuransi kesehatan (BPJS) untuk pekerja pertanian informal.'
+                    : 'Membangun akademi kejuruan jangka pendek yang terhubung dengan pabrik pengolahan lokal untuk mengalihkan tenaga kerja dari pekerjaan informal ke formal.'}
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1.5 text-[10px] font-mono text-slate-500">
-                  <span>Lead Agency: <strong className="text-slate-700 dark:text-slate-300">{socMetrics.agriShare > 35 ? 'Dinas Pertanian' : 'Dinas Tenaga Kerja'}</strong></span>
-                  <span>Timeline: <strong className="text-slate-700 dark:text-slate-300">18 Months</strong></span>
+                  <span>Instansi Terkemuka: <strong className="text-slate-700 dark:text-slate-300">{socMetrics.agriShare > 35 ? 'Dinas Pertanian' : 'Dinas Tenaga Kerja'}</strong></span>
+                  <span>Lini Masa: <strong className="text-slate-700 dark:text-slate-300">18 Bulan</strong></span>
                 </div>
               </div>
               <div className="shrink-0 text-right sm:border-l border-slate-100 dark:border-slate-900 pl-0 sm:pl-4 space-y-1">
-                <span className="text-[9px] text-slate-400 font-mono block uppercase">Est Budget Match</span>
+                <span className="text-[9px] text-slate-400 font-mono block uppercase">Perkiraan Kesesuaian Anggaran</span>
                 <span className="text-xs font-bold font-mono text-slate-800 dark:text-slate-100 block">
                   Rp {(welfareBudget * 0.3 / 1000000000).toFixed(2)} Billion
                 </span>
                 <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block font-mono">
-                  -0.40% Est P0 drop
+                  -0.40% Perk. penurunan P0
                 </span>
               </div>
             </div>
@@ -847,23 +847,23 @@ Date: ${new Date().toLocaleDateString('id-ID')}
           <div className="space-y-3">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
               <div>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono font-bold">Spatial Breakdown</span>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono font-bold">Rincian Spasial</span>
                 <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                  Sub-District Poverty Directory (BPS Kecamatan)
+                  Direktori Kemiskinan Kecamatan (Kecamatan BPS)
                 </h3>
               </div>
-              <span className="text-[10px] font-mono font-bold text-slate-400">{subDistricts.length} Blocks</span>
+              <span className="text-[10px] font-mono font-bold text-slate-400">{subDistricts.length} Blok</span>
             </div>
 
             <DataTable
               columns={[
                 { key: 'name', header: 'Kecamatan', sortable: true },
-                { key: 'p0', header: 'P0 Headcount', sortable: true, render: (row) => `${row.p0.toFixed(2)}%` },
-                { key: 'p1', header: 'P1 Depth', sortable: true, render: (row) => row.p1.toFixed(2) },
-                { key: 'd1Pop', header: 'D1 Souls', sortable: true, render: (row) => row.d1Pop.toLocaleString('id-ID') },
+                { key: 'p0', header: 'Tingkat Kemiskinan P0', sortable: true, render: (row) => `${row.p0.toFixed(2)}%` },
+                { key: 'p1', header: 'Kedalaman P1', sortable: true, render: (row) => row.p1.toFixed(2) },
+                { key: 'd1Pop', header: 'Jiwa D1', sortable: true, render: (row) => row.d1Pop.toLocaleString('id-ID') },
                 { 
                   key: 'priority', 
-                  header: 'Alert Level', 
+                  header: 'Tingkat Peringatan', 
                   render: (row) => (
                     <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded-sm uppercase tracking-wider ${
                       row.priority === 'CRITICAL' 
@@ -886,7 +886,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
           <div className="text-[10px] font-mono leading-relaxed text-slate-400 mt-3 pt-3 border-t border-slate-50 dark:border-slate-900 flex items-start gap-2">
             <Info className="h-3.5 w-3.5 text-blue-500 shrink-0 mt-0.5" />
-            <span>Click any sub-district row above to trigger spatial inspector overlays and filter target households.</span>
+            <span>Klik sembarang baris kecamatan di atas untuk memicu overlay inspektur spasial dan memfilter rumah tangga sasaran.</span>
           </div>
         </div>
 
@@ -895,9 +895,9 @@ Date: ${new Date().toLocaleDateString('id-ID')}
           <div className="space-y-4">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Micro-Targeting Preview</span>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Pratinjau Penargetan Mikro</span>
                 <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                  Anonymized Household Registry (PDP Compliant)
+                  Daftar Rumah Tangga Teranonimisasi (Mematuhi PDP)
                 </h3>
               </div>
               {/* Micro search bar */}
@@ -905,7 +905,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                 <Search className="absolute left-2.5 top-2 h-3.5 w-3.5 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search masked roster..."
+                  placeholder="Cari daftar tersembunyi..."
                   value={householdSearchQuery}
                   onChange={(e) => setHouseholdSearchQuery(e.target.value)}
                   className="rounded-sm border border-slate-150 dark:border-slate-800 bg-white dark:bg-slate-950 pl-8 pr-3 py-1 text-xs outline-none focus:border-blue-500 h-7 w-44"
@@ -923,7 +923,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
                       <span className="text-[9px] font-mono text-slate-400">{maskNIK(hh.nik)}</span>
                     </div>
                     <div className="text-[11px] text-slate-400 leading-relaxed font-medium">
-                      <strong className="text-slate-500 block uppercase text-[9px] font-mono tracking-wider">Observed Vulnerabilities:</strong>
+                      <strong className="text-slate-500 block uppercase text-[9px] font-mono tracking-wider">Kerentanan yang Teramati:</strong>
                       {hh.vulnerabilities}
                     </div>
                   </div>
@@ -938,7 +938,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
               
               {filteredHouseholds.length === 0 && (
                 <div className="text-center py-10 text-slate-400">
-                  No matching households found under active filters.
+                  Tidak ditemukan rumah tangga yang cocok dengan filter aktif.
                 </div>
               )}
             </div>
@@ -947,7 +947,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
           <div className="p-3 bg-amber-50/30 dark:bg-amber-950/10 border border-amber-100/30 rounded-xs text-[10px] leading-relaxed text-amber-600 dark:text-amber-400 flex items-start gap-2 mt-4">
             <ShieldAlert className="h-4 w-4 shrink-0 mt-0.5" />
             <span>
-              <strong>PDP UU No. 27/2022 Security Lock:</strong> Household heads names and national IDs (NIK) are cryptographically masked to prevent unauthorized disclosure. Dinas Sosial personnel must authenticate via official Gov-ID to view decrypted registries.
+              <strong>PDP UU No. 27/2022 Kunci Keamanan:</strong> Nama kepala rumah tangga dan Nomor Induk Kependudukan (NIK) disamarkan secara kriptografis untuk mencegah pengungkapan yang tidak sah. Personel Dinas Sosial harus mengautentikasi melalui Gov-ID resmi untuk melihat daftar yang didekripsi.
             </span>
           </div>
         </div>
@@ -959,8 +959,8 @@ Date: ${new Date().toLocaleDateString('id-ID')}
           <div className="flex items-center gap-2.5">
             <FileText className="h-5 w-5 text-blue-400" />
             <div>
-              <h3 className="text-xs font-bold text-slate-50 uppercase tracking-widest font-mono">EXECUTIVE BRIEF FOR LOCAL REGENT</h3>
-              <p className="text-[11px] text-slate-400 mt-0.5">Official Bappeda West Java Decision Support Briefing Paper • Audited Memo Format</p>
+              <h3 className="text-xs font-bold text-slate-50 uppercase tracking-widest font-mono">RINGKASAN EKSEKUTIF UNTUK BUPATI/WALIKOTA</h3>
+              <p className="text-[11px] text-slate-400 mt-0.5">Dokumen Arahan Dukungan Keputusan Bappeda Jawa Barat Resmi • Format Memo Diaudit</p>
             </div>
           </div>
           <button
@@ -968,16 +968,16 @@ Date: ${new Date().toLocaleDateString('id-ID')}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-sm text-xs font-semibold tracking-wide uppercase transition-colors"
           >
             <Download className="h-3.5 w-3.5" />
-            {memoCopySuccess ? 'Brief Copied!' : 'Export Brief Memo'}
+            {memoCopySuccess ? 'Ringkasan Disalin!' : 'Ekspor Memo Ringkasan'}
           </button>
         </div>
 
         <div className="space-y-4 font-mono text-xs leading-relaxed max-w-4xl text-slate-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 border-b border-slate-800 pb-3 text-slate-400 uppercase">
-            <div>TO: REGIONAL RECOGNITION OFFICERS & REGENT ({districtMeta.name})</div>
-            <div>FROM: BAPPEDA WEST JAVA INTEL SYSTEM</div>
-            <div>DATE: {new Date().toLocaleDateString('id-ID')}</div>
-            <div>STATUS: SECURE DISCLOSURE • UU 27/2022 COMPLIANT</div>
+            <div>KEPADA: PEJABAT PENGAKUAN REGIONAL & BUPATI/WALIKOTA ({districtMeta.name})</div>
+            <div>DARI: SISTEM INTEL BAPPEDA JAWA BARAT</div>
+            <div>TANGGAL: {new Date().toLocaleDateString('id-ID')}</div>
+            <div>STATUS: PENGUNGKAPAN AMAN • MEMATUHI UU 27/2022</div>
           </div>
 
           <div className="space-y-3 font-sans">
@@ -1001,7 +1001,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
             </div>
             
             <p className="text-[11px] text-slate-400 leading-relaxed italic pt-2">
-              Note: This briefing memo was formulated automatically by the RANCAGE Decision Support Engine utilizing Foster-Greer-Thorbecke statistical indices. Security access log session audited under Gov-ID.
+              Catatan: Memo arahan ini diformulasikan secara otomatis oleh Mesin Dukungan Keputusan RANCAGE menggunakan indeks statistik Foster-Greer-Thorbecke. Sesi log akses keamanan diaudit di bawah Gov-ID.
             </p>
           </div>
         </div>

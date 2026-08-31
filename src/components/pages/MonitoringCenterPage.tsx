@@ -145,7 +145,7 @@ export default function MonitoringCenterPage() {
     setIsExporting(format);
     setTimeout(() => {
       setIsExporting(null);
-      alert(`Monitoring Package downloaded successfully in ${format} format!`);
+      alert(`Paket Pemantauan berhasil diunduh dalam format ${format}!`);
     }, 1200);
   };
 
@@ -153,8 +153,8 @@ export default function MonitoringCenterPage() {
     <div className="space-y-6">
       {/* HEADER */}
       <PageHeader
-        title="Policy & Trajectory Monitoring"
-        description="Continuous oversight of program execution velocities, budget realizations, and multidimensional welfare achievements."
+        title="Pemantauan Kebijakan & Trajektori"
+        description="Pengawasan berkelanjutan terhadap kecepatan pelaksanaan program, realisasi anggaran, dan pencapaian kesejahteraan multidimensional."
         actions={
           <div className="flex flex-wrap items-center gap-2">
             <button
@@ -162,7 +162,7 @@ export default function MonitoringCenterPage() {
               className="px-3 py-1.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-sm text-xs font-semibold flex items-center gap-1.5"
             >
               <Globe className="h-3.5 w-3.5 text-blue-500" />
-              <span>Switch to {activeCenterTab === 'GOV' ? 'Public Dashboard' : 'Internal Monitoring'}</span>
+              <span>Switch to {activeCenterTab === 'GOV' ? 'Public Dashboard' : 'Pemantauan Internal'}</span>
             </button>
             <div className="flex rounded-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
               <button
@@ -185,36 +185,36 @@ export default function MonitoringCenterPage() {
       {/* EXECUTIVE KPIS */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <KpiCard
-          title="Avg Program Completion Rate"
+          title="Rata-rata Tingkat Penyelesaian Program"
           value={`${aggregateProgress}%`}
-          change="+3.4% this quarter"
+          change="+3.4% kuartal ini"
           trend="up"
           trendDirection="positive"
-          description="Average milestone checklist logs completed across active initiatives."
+          description="Rata-rata catatan daftar periksa tonggak pencapaian yang diselesaikan di seluruh inisiatif aktif."
         />
         <KpiCard
-          title="Disbursed Fiscal Allocation"
+          title="Alokasi Fiskal yang Disalurkan"
           value={`Rp ${(totalSpentBudget).toFixed(1)}T`}
-          change={`of Rp ${totalAllocatedBudget.toFixed(1)}T budget`}
+          change={`dari anggaran Rp ${totalAllocatedBudget.toFixed(1)}T`}
           trend="up"
           trendDirection="positive"
-          description="Current year real-time cash realization and allocation transfers."
+          description="Realisasi uang tunai waktu nyata dan transfer alokasi tahun berjalan."
         />
         <KpiCard
-          title="Aggregate Active Beneficiaries"
+          title="Agregat Penerima Manfaat Aktif"
           value="580,550 Households"
-          change="88.2% targeted cohort coverage"
+          change="88.2% cakupan kohort target"
           trend="up"
           trendDirection="positive"
-          description="Total validated Decile 1-3 individuals actively matched."
+          description="Total individu Desil 1-3 tervalidasi yang dicocokkan secara aktif."
         />
         <KpiCard
-          title="Outcome Gap (P0 Change)"
+          title="Kesenjangan Hasil (Perubahan P0)"
           value="-0.94% Headcount"
-          change="Trailing targeted trajectory"
+          change="Mengikuti trajektori target"
           trend="down"
           trendDirection="positive"
-          description="Cumulative poverty drop since Q1 policy execution cycle."
+          description="Penurunan kemiskinan kumulatif sejak siklus pelaksanaan kebijakan Q1."
         />
       </div>
 
@@ -227,27 +227,27 @@ export default function MonitoringCenterPage() {
             <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">REGIONAL SPATIAL MONITOR</span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PEMANTAUAN SPASIAL REGIONAL</span>
                   <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                    District Program Completion & Benefit Realization map
+                    Peta Penyelesaian Program Kabupaten & Realisasi Manfaat
                   </h4>
                 </div>
 
                 <div className="relative border border-slate-100 dark:border-slate-900 rounded-sm bg-slate-50/50 dark:bg-slate-900/20 h-[300px] flex items-center justify-center overflow-hidden">
                   {/* Legend */}
                   <div className="absolute top-3 left-3 bg-white/95 dark:bg-slate-950/95 border border-slate-100 dark:border-slate-800 p-2.5 rounded-sm shadow-xs text-[10px] space-y-1.5 z-10 font-mono">
-                    <span className="font-bold text-slate-400 block uppercase tracking-wider text-[9px] mb-1">Beneficiary Completion Rate</span>
+                    <span className="font-bold text-slate-400 block uppercase tracking-wider text-[9px] mb-1">Tingkat Penyelesaian Penerima Manfaat</span>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 bg-blue-600 rounded-full inline-block"></span>
-                      <span>High Velocity (&gt; 85% complete)</span>
+                      <span>Kecepatan Tinggi (&gt; 85% selesai)</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 bg-indigo-400 rounded-full inline-block"></span>
-                      <span>Steady Velocity (70% - 85%)</span>
+                      <span>Kecepatan Stabil (70% - 85%)</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span>
-                      <span>Lagging/At-Risk (50% - 70%)</span>
+                      <span>Tertinggal/Berisiko (50% - 70%)</span>
                     </div>
                   </div>
 
@@ -295,8 +295,8 @@ export default function MonitoringCenterPage() {
               </div>
 
               <div className="flex items-center justify-between text-xs pt-3 border-t border-slate-100 dark:border-slate-900 mt-3 text-slate-400 font-mono">
-                <span>Selected District: <strong className="text-slate-800 dark:text-slate-200">{selectedDistrictName}</strong></span>
-                <span>Active Program Coverage: 86.4%</span>
+                <span>Kabupaten/Kota Terpilih: <strong className="text-slate-800 dark:text-slate-200">{selectedDistrictName}</strong></span>
+                <span>Cakupan Program Aktif: 86.4%</span>
               </div>
             </div>
 
@@ -304,9 +304,9 @@ export default function MonitoringCenterPage() {
             <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">KPI TRAJECTORY OUTCOMES</span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">HASIL TRAJEKTORI KPI</span>
                   <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                    Historical Headcount Reduction & Coverage Trends
+                    Tren Historis Pengurangan Jumlah Penduduk Miskin & Cakupan
                   </h4>
                 </div>
 
@@ -318,8 +318,8 @@ export default function MonitoringCenterPage() {
                       <YAxis tick={{ fontSize: 10, fontFamily: 'monospace' }} />
                       <Tooltip contentStyle={{ fontSize: '11px', borderRadius: '4px' }} />
                       <Legend wrapperStyle={{ fontSize: '10px', marginTop: '10px' }} />
-                      <Line name="Poverty Headcount (P0 %)" type="monotone" dataKey="p0" stroke="#3b82f6" strokeWidth={2.5} activeDot={{ r: 6 }} />
-                      <Line name="Welfare Target Coverage (%)" type="monotone" dataKey="coverage" stroke="#10b981" strokeWidth={2} />
+                      <Line name="Jumlah Penduduk Miskin (P0 %)" type="monotone" dataKey="p0" stroke="#3b82f6" strokeWidth={2.5} activeDot={{ r: 6 }} />
+                      <Line name="Cakupan Target Kesejahteraan (%)" type="monotone" dataKey="coverage" stroke="#10b981" strokeWidth={2} />
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
@@ -327,7 +327,7 @@ export default function MonitoringCenterPage() {
 
               <div className="text-[11px] text-slate-400 leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-900 mt-3 flex items-center gap-1 font-mono">
                 <Info className="h-4 w-4 text-blue-500 shrink-0" />
-                <span>Poverty Headcount drops consistently aligned with increased target verification.</span>
+                <span>Jumlah Penduduk Miskin turun secara konsisten sejalan dengan peningkatan verifikasi target.</span>
               </div>
             </div>
           </div>
@@ -336,9 +336,9 @@ export default function MonitoringCenterPage() {
           <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-900 pb-4">
               <div>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">EVALUATION METRIC SUITE</span>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">RANGKAIAN METRIK EVALUASI</span>
                 <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                  Recommendation Target Evaluation & Verification Matrix
+                  Matriks Evaluasi & Verifikasi Target Rekomendasi
                 </h4>
               </div>
 
@@ -348,7 +348,7 @@ export default function MonitoringCenterPage() {
                   <Search className="absolute left-2.5 top-2 h-3.5 w-3.5 text-slate-400" />
                   <input
                     type="text"
-                    placeholder="Filter program / agency..."
+                    placeholder="Filter program / instansi..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-8 pr-3 py-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm text-xs focus:outline-none focus:border-blue-500 w-44 font-semibold"
@@ -362,10 +362,10 @@ export default function MonitoringCenterPage() {
                     onChange={(e) => setRiskFilter(e.target.value)}
                     className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm text-xs py-1 px-2 focus:outline-none focus:border-blue-500 text-slate-600 dark:text-slate-300 font-semibold"
                   >
-                    <option value="ALL">All Risks</option>
-                    <option value="LOW">Low Risk</option>
-                    <option value="MEDIUM">Medium Risk</option>
-                    <option value="HIGH">High Risk</option>
+                    <option value="ALL">Semua Risiko</option>
+                    <option value="LOW">Risiko Rendah</option>
+                    <option value="MEDIUM">Risiko Menengah</option>
+                    <option value="HIGH">Risiko Tinggi</option>
                   </select>
                 </div>
               </div>
@@ -375,15 +375,15 @@ export default function MonitoringCenterPage() {
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="border-b border-slate-100 dark:border-slate-900 text-slate-400 font-mono font-bold">
-                    <th className="py-2.5 px-3 uppercase text-[9px]">Intervention Program</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Target Pop</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Current Achievement</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Poverty Target</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Welfare Gap</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px]">Execution Risk</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px]">Exp Completion</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px]">Responsible Institution</th>
-                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Confidence</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px]">Program Intervensi</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Populasi Target</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Pencapaian Saat Ini</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Target Kemiskinan</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Kesenjangan Kesejahteraan</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px]">Risiko Pelaksanaan</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px]">Perkiraan Selesai</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px]">Institusi Penanggung Jawab</th>
+                    <th className="py-2.5 px-3 uppercase text-[9px] text-right">Keyakinan</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-900 font-medium text-slate-600 dark:text-slate-300">
@@ -412,7 +412,7 @@ export default function MonitoringCenterPage() {
                   ) : (
                     <tr>
                       <td colSpan={9} className="text-center py-6 text-slate-400">
-                        No active monitoring logs matching criteria.
+                        Tidak ada catatan pemantauan aktif yang memenuhi kriteria.
                       </td>
                     </tr>
                   )}
@@ -431,42 +431,42 @@ export default function MonitoringCenterPage() {
                 <div className="flex items-center gap-2">
                   <Globe className="h-4.5 w-4.5 text-blue-500" />
                   <h3 className="text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider font-mono">
-                    West Java Open Data Transparency Portal
+                    Portal Transparansi Data Terbuka Jawa Barat
                   </h3>
                 </div>
                 <span className="text-[10px] font-mono bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-sm font-bold">
-                  CITIZEN READ-ONLY
+                  AKSES BACA WARGA
                 </span>
               </div>
 
               <div className="space-y-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                 <p>
-                  In compliance with Jabar Smart Province transparency acts, the <strong>RANCAGE Policy Monitor</strong> provides public-facing transparency statistics. All algorithmic models, poverty targets, and allocation timelines are public property, ensuring complete bureaucratic auditability.
+                  Sesuai dengan undang-undang transparansi Jabar Smart Province, <strong>RANCAGE Policy Monitor</strong> menyediakan statistik transparansi yang berhadapan dengan publik. Semua model algoritmik, target kemiskinan, dan jadwal alokasi adalah milik publik, memastikan auditabilitas birokrasi secara menyeluruh.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-900 rounded-sm space-y-2">
-                    <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase font-mono block">Latest Achievement Highlights</span>
+                    <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase font-mono block">Sorotan Pencapaian Terbaru</span>
                     <ul className="space-y-1.5 text-slate-500 text-[11px]">
                       <li className="flex items-center gap-1.5">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                        <span>Rehabilitated 24,400 sub-standard houses in core regions.</span>
+                        <span>Merehabilitasi 24.400 rumah tidak layak huni di daerah inti.</span>
                       </li>
                       <li className="flex items-center gap-1.5">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                        <span>Connected 100,800 rural residents to standard water grids.</span>
+                        <span>Menghubungkan 100.800 penduduk perdesaan ke jaringan air standar.</span>
                       </li>
                       <li className="flex items-center gap-1.5">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                        <span>Granted Rp 11.8 Billion in MSME productive capital.</span>
+                        <span>Memberikan modal produktif UMKM sebesar Rp 11,8 Miliar.</span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-900 rounded-sm space-y-2">
-                    <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase font-mono block">Open Dataset Archives</span>
+                    <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase font-mono block">Arsip Kumpulan Data Terbuka</span>
                     <p className="text-[11px] text-slate-500 leading-normal">
-                      Download verified microdata registries (completely masked NIK/Names), historical survey logs, and shapefiles.
+                      Unduh registri data mikro terverifikasi (NIK/Nama disembunyikan sepenuhnya), catatan survei historis, dan shapefile.
                     </p>
                     <div className="pt-1 flex flex-wrap gap-2">
                       <button onClick={() => triggerExport('ZIP')} className="px-2 py-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 rounded-xs text-[10px] font-bold flex items-center gap-1">
@@ -480,9 +480,9 @@ export default function MonitoringCenterPage() {
                 </div>
 
                 <div className="border-t border-slate-100 dark:border-slate-900 pt-3">
-                  <span className="text-[10px] font-bold text-slate-400 font-mono block uppercase">Scientific Methodology Summary</span>
+                  <span className="text-[10px] font-bold text-slate-400 font-mono block uppercase">Ringkasan Metodologi Ilmiah</span>
                   <p className="text-[11px] text-slate-500 leading-relaxed mt-1">
-                    Welfare classifications are computed using a hybrid model of <strong>Multidimensional Deprivation Indices (MDI)</strong> paired with <strong>Proxy Means Testing (PMT)</strong>. This mitigates targeting error margins and ensures aid flows exclusively to households with verified, concrete structural deficits (mud floors, un-protected water sources, no immunization records).
+                    Klasifikasi kesejahteraan dihitung menggunakan model hibrida dari <strong>Multidimensional Deprivation Indices (MDI)</strong> yang dipasangkan dengan <strong>Proxy Means Testing (PMT)</strong>. Hal ini mengurangi margin kesalahan penargetan dan memastikan bantuan mengalir secara eksklusif ke rumah tangga dengan defisit struktural yang konkret dan terverifikasi (lantai tanah, sumber air yang tidak terlindungi, tidak ada catatan imunisasi).
                   </p>
                 </div>
               </div>
@@ -491,36 +491,36 @@ export default function MonitoringCenterPage() {
             <div className="lg:col-span-4 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">CITIZEN FEEDBACK HUB</span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PUSAT UMPAN BALIK WARGA</span>
                   <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
-                    Social Accountability Rating
+                    Peringkat Akuntabilitas Sosial
                   </h4>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-sm border border-slate-100 dark:border-slate-900 text-center space-y-1">
-                  <span className="text-[10px] font-mono text-slate-400 uppercase block font-bold">Citizen Satisfaction Index</span>
+                  <span className="text-[10px] font-mono text-slate-400 uppercase block font-bold">Indeks Kepuasan Warga</span>
                   <span className="text-2xl font-bold font-mono text-blue-600 dark:text-blue-400">92.4%</span>
-                  <span className="text-[10px] text-slate-400 block">Based on 14,200 SMS-based survey responses post-disbursement.</span>
+                  <span className="text-[10px] text-slate-400 block">Berdasarkan 14.200 tanggapan survei berbasis SMS pasca-pencairan.</span>
                 </div>
 
                 <div className="space-y-2.5 text-xs text-slate-500">
                   <div className="flex justify-between border-b border-slate-50 dark:border-slate-900 pb-1.5">
-                    <span>Program Timeliness:</span>
+                    <span>Ketepatan Waktu Program:</span>
                     <span className="font-bold font-mono text-slate-800 dark:text-slate-200">89.2%</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-50 dark:border-slate-900 pb-1.5">
-                    <span>Target Inclusion Accuracy:</span>
+                    <span>Akurasi Inklusi Target:</span>
                     <span className="font-bold font-mono text-slate-800 dark:text-slate-200">94.1%</span>
                   </div>
                   <div className="flex justify-between pb-0.5">
-                    <span>Disbursement Transparency:</span>
+                    <span>Transparansi Pencairan:</span>
                     <span className="font-bold font-mono text-slate-800 dark:text-slate-200">96.8%</span>
                   </div>
                 </div>
               </div>
 
               <div className="text-[10px] text-slate-400 font-mono pt-3 border-t border-slate-100 dark:border-slate-900">
-                Latest audit: 2026-07-10 by Jabar Social Core team.
+                Audit terbaru: 2026-07-10 oleh tim Jabar Social Core.
               </div>
             </div>
           </div>
