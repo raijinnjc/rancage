@@ -173,11 +173,55 @@ export function LoginPage() {
 
         <button
           type="submit"
-          className="w-full h-10 flex items-center justify-center gap-2 bg-[#C5962A] hover:bg-[#8B6508] text-white text-xs font-bold rounded-sm transition-colors mt-6 shadow-sm uppercase tracking-wide"
+          className="w-full h-10 flex items-center justify-center gap-2 bg-[#C5962A] hover:bg-[#8B6508] text-white text-xs font-bold rounded-sm transition-colors mt-6 shadow-sm uppercase tracking-wide cursor-pointer"
         >
           <Shield className="h-4 w-4" />
           Ajukan Masuk Gov-ID Aman
         </button>
+
+        {/* 1-Click Fast Demo Login Section for Presentations / Competitions */}
+        <div className="pt-5 border-t border-slate-100 dark:border-slate-900 space-y-3">
+          <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 font-mono uppercase tracking-wider">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Akses Cepat Demo Pengujian Juri (1-Klik)</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={async () => {
+                await login('bappeda_officer@jabarprov.go.id', 'GOVERNMENT', 'Tim Ahli Bappeda Jabar');
+                navigateTo('dashboard');
+              }}
+              className="p-2.5 rounded-sm border border-blue-200 dark:border-blue-900/50 bg-blue-50/60 dark:bg-blue-950/30 hover:bg-blue-100/80 dark:hover:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-left transition-all cursor-pointer group"
+            >
+              <div className="text-[11px] font-bold flex items-center justify-between">
+                <span>Perencana Bappeda</span>
+                <span className="text-[9px] font-mono bg-blue-200 dark:bg-blue-800 text-blue-900 dark:text-blue-100 px-1 rounded-xs">GOV</span>
+              </div>
+              <p className="text-[10px] text-blue-600 dark:text-blue-400 mt-0.5 font-mono">
+                Akses Penuh Dasbor & BNBA
+              </p>
+            </button>
+
+            <button
+              type="button"
+              onClick={async () => {
+                await login('admin_sec@jabarprov.go.id', 'ADMIN', 'Administrator Sistem RANCAGE');
+                navigateTo('dashboard');
+              }}
+              className="p-2.5 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-left transition-all cursor-pointer group"
+            >
+              <div className="text-[11px] font-bold flex items-center justify-between">
+                <span>Administrator Sistem</span>
+                <span className="text-[9px] font-mono bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 px-1 rounded-xs">ADMIN</span>
+              </div>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
+                Akses Audit Log & Pipeline ML
+              </p>
+            </button>
+          </div>
+        </div>
       </form>
       </div>
 

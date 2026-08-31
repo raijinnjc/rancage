@@ -29,10 +29,10 @@ export function PovertyTrendCard() {
     <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="poverty-trend-standalone-card">
       <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
         <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-          Socioeconomic Disparity & Poverty Headcount Trajectory
+          Trajektori Ketimpangan Sosial-Ekonomi & Kemiskinan (P0)
         </h4>
         <p className="text-[11px] text-slate-400 mt-0.5">
-          Macro-level tracking of average headcount indices (P0) paired with the aggregate Theil T index.
+          Pemantauan tingkat makro dari rata-rata indeks kemiskinan (P0) yang disandingkan dengan agregat indeks Theil T.
         </p>
       </div>
       <div className="h-72 w-full">
@@ -83,7 +83,7 @@ export function PovertyTrendCard() {
               yAxisId="left"
               type="monotone"
               dataKey="p0Average"
-              name="Average P0 Headcount Rate"
+              name="Rata-rata Tingkat Kemiskinan (P0)"
               fill="url(#p0Grad)"
               stroke="#3b82f6"
               strokeWidth={2}
@@ -92,7 +92,7 @@ export function PovertyTrendCard() {
               yAxisId="right"
               type="monotone"
               dataKey="theilIndex"
-              name="Disparity (Theil Index)"
+              name="Ketimpangan (Indeks Theil)"
               stroke="#10b981"
               strokeWidth={2}
               dot={{ r: 3 }}
@@ -109,10 +109,10 @@ export function TheilDecompositionCard() {
     <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="theil-decomposition-standalone-card">
       <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
         <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-          Theil Disparity Decomposition (Between vs Within)
+          Dekomposisi Ketimpangan Indeks Theil (Antar vs Dalam Wilayah)
         </h4>
         <p className="text-[11px] text-slate-400 mt-0.5">
-          Inter-district (between) versus intra-district (within) inequality contributions to the overall disparity index.
+          Kontribusi ketimpangan antar-wilayah (between) vs dalam-wilayah (within) terhadap indeks disparitas total.
         </p>
       </div>
       <div className="h-72 w-full">
@@ -145,14 +145,14 @@ export function TheilDecompositionCard() {
             <Legend verticalAlign="top" height={36} iconType="rect" wrapperStyle={{ fontSize: '11px' }} />
             <Bar
               dataKey="betweenDisparity"
-              name="Between-District Inequality"
+              name="Ketimpangan Antar-Wilayah (Between)"
               stackId="theil"
               fill="#f59e0b"
               radius={[0, 0, 0, 0]}
             />
             <Bar
               dataKey="withinDisparity"
-              name="Within-District Inequality"
+              name="Ketimpangan Dalam-Wilayah (Within)"
               stackId="theil"
               fill="#8b5cf6"
               radius={[3, 3, 0, 0]}

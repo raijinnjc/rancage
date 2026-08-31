@@ -9,26 +9,32 @@ export function Breadcrumb() {
 
   const getScreenLabel = (id: ScreenId) => {
     switch (id) {
+      case 'landing':
+        return 'Beranda';
+      case 'exploration':
+        return 'Eksplorasi Wilayah';
+      case 'methodology':
+        return 'Metodologi Sistem';
       case 'dashboard':
-        return 'Executive Overview';
+        return 'Dasbor Instansi Eksekutif';
       case 'diagnosis':
-        return 'Regional Diagnosis';
+        return 'Diagnosis Wilayah (Theil/P0)';
       case 'typology':
-        return 'Regional Typology';
+        return 'Peta Tipologi Wilayah';
       case 'regional-profile':
-        return 'Regional Profile';
+        return 'Profil Wilayah Kabupaten/Kota';
       case 'household':
-        return 'Household Targeting';
+        return 'Skor Kesejahteraan Rumah Tangga';
+      case 'ml-evaluation':
+        return 'Evaluasi Model PMT-ML';
       case 'recommendation':
-        return 'Policy Recommendations';
+        return 'Simulasi Skenario Kebijakan';
       case 'monitoring':
-        return 'Program Monitor';
-      case 'administration':
-        return 'Administration';
+        return 'Pemantauan Kebijakan & Trajektori';
       case 'settings':
-        return 'System Settings';
+        return 'Pengaturan & Audit Sistem';
       case 'login':
-        return 'Secure Portal Sign-In';
+        return 'Masuk Akses Aman Pemerintah';
       default:
         return id;
     }

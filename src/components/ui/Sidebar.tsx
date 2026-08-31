@@ -112,7 +112,7 @@ export function Sidebar() {
                   <span>{item.label}</span>
                   {item.minRole !== 'PUBLIC' && (
                     <span className="ml-1.5 inline-flex items-center text-[8px] bg-slate-800 text-slate-300 px-1 rounded-xs uppercase">
-                      SECURE
+                      PRIVAT
                     </span>
                   )}
                 </div>
@@ -143,11 +143,11 @@ export function Sidebar() {
                 </span>
                 <span className="text-[9px] font-mono text-slate-500 flex items-center gap-1 mt-0.5 uppercase truncate">
                   {user.role === 'PUBLIC' ? (
-                    'Public Guest'
+                    'Tamu Publik'
                   ) : (
                     <>
                       <Building2 className="h-2.5 w-2.5 shrink-0 text-blue-400" />
-                      {user.agency || 'GOVERNMENT'}
+                      {user.agency || 'PEMERINTAH'}
                     </>
                   )}
                 </span>
@@ -157,18 +157,18 @@ export function Sidebar() {
             {user.isAuthenticated ? (
               <button
                 onClick={logout}
-                className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-rose-400 hover:bg-rose-950/10 hover:text-rose-300 rounded-sm transition-colors text-left"
+                className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-rose-400 hover:bg-rose-950/10 hover:text-rose-300 rounded-sm transition-colors text-left cursor-pointer"
               >
                 <LogOut className="h-3.5 w-3.5 shrink-0" />
-                <span>Secure Sign Out</span>
+                <span>Keluar Akses Aman</span>
               </button>
             ) : (
               <button
                 onClick={() => navigateTo('login')}
-                className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors"
+                className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors cursor-pointer"
               >
                 <Lock className="h-3.5 w-3.5" />
-                <span>Gov Secure Login</span>
+                <span>Masuk Akses Pemerintah</span>
               </button>
             )}
 
@@ -180,24 +180,24 @@ export function Sidebar() {
           <div className="flex flex-col items-center gap-4">
             <button
               onClick={toggleSidebar}
-              className="text-slate-500 hover:text-white p-1 rounded-sm"
-              title="Expand Sidebar"
+              className="text-slate-500 hover:text-white p-1 rounded-sm cursor-pointer"
+              title="Buka Bilah Samping"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
             {user.isAuthenticated ? (
               <button
                 onClick={logout}
-                className="text-rose-400 hover:text-rose-300 p-1 rounded-sm"
-                title="Secure Sign Out"
+                className="text-rose-400 hover:text-rose-300 p-1 rounded-sm cursor-pointer"
+                title="Keluar Akses Aman"
               >
                 <LogOut className="h-4 w-4" />
               </button>
             ) : (
               <button
                 onClick={() => navigateTo('login')}
-                className="text-blue-400 hover:text-blue-300 p-1 rounded-sm"
-                title="Gov Secure Login"
+                className="text-blue-400 hover:text-blue-300 p-1 rounded-sm cursor-pointer"
+                title="Masuk Akses Pemerintah"
               >
                 <Lock className="h-4 w-4" />
               </button>

@@ -5,6 +5,9 @@
 export type ScreenId =
   | 'landing'
   | 'exploration'
+  | 'diagnosis'
+  | 'typology'
+  | 'regional-profile'
   | 'methodology'
   | 'login'
   | 'dashboard'

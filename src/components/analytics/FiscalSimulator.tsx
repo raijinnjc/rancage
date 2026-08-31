@@ -64,19 +64,19 @@ export function FiscalSimulator() {
           <div className="flex items-center gap-2 border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <Landmark className="h-4 w-4 text-blue-500" />
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-              Discretionary Budget Policy Simulator
+              Simulator Alokasi Anggaran Diskresioner
             </h4>
           </div>
 
           <div className="mb-4 bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xs border border-slate-100 dark:border-slate-900/60 grid grid-cols-2 gap-4">
             <div>
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Discretionary Budget Cap</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Plafon Anggaran Diskresioner</span>
               <span className="text-sm font-bold font-mono text-slate-800 dark:text-slate-100 mt-1 block">
                 {formatRupiah(TOTAL_BUDGET)}
               </span>
             </div>
             <div>
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Unallocated Reserve</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Cadangan Belum Dialokasikan</span>
               <span className={`text-sm font-bold font-mono mt-1 block ${unallocated > 0 ? 'text-amber-500' : 'text-slate-400'}`}>
                 {formatRupiah(unallocated)}
               </span>
@@ -87,7 +87,7 @@ export function FiscalSimulator() {
             {/* BLT Optimization slider */}
             <div className="space-y-1.5">
               <div className="flex justify-between items-center text-xs font-semibold">
-                <span className="text-slate-700 dark:text-slate-300">BLT Target Optimization</span>
+                <span className="text-slate-700 dark:text-slate-300">Optimalisasi Penargetan Bantuan Tunai</span>
                 <span className="font-mono text-slate-500">{formatRupiah(blt)}</span>
               </div>
               <input
@@ -99,13 +99,13 @@ export function FiscalSimulator() {
                 onChange={(e) => handleSliderChange('blt', parseInt(e.target.value))}
                 className="w-full accent-blue-600 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg cursor-pointer"
               />
-              <p className="text-[10px] text-slate-400">Gradient Boosting optimized targeting models for cash allocation rosters.</p>
+              <p className="text-[10px] text-slate-400">Model penargetan presisi Gradient Boosting untuk daftar penerima bantuan tunai.</p>
             </div>
 
             {/* Sanitation grid slider */}
             <div className="space-y-1.5">
               <div className="flex justify-between items-center text-xs font-semibold">
-                <span className="text-slate-700 dark:text-slate-300">Village Sanitation Infrastructure</span>
+                <span className="text-slate-700 dark:text-slate-300">Infrastruktur Sanitasi Pedesaan</span>
                 <span className="font-mono text-slate-500">{formatRupiah(sanitation)}</span>
               </div>
               <input
@@ -117,13 +117,13 @@ export function FiscalSimulator() {
                 onChange={(e) => handleSliderChange('sanitation', parseInt(e.target.value))}
                 className="w-full accent-blue-600 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg cursor-pointer"
               />
-              <p className="text-[10px] text-slate-400">Targeted infrastructure investments to address sanitation deficits in Quadrant IV.</p>
+              <p className="text-[10px] text-slate-400">Investasi infrastruktur terarah untuk mengatasi defisit sanitasi di wilayah Kuadran IV.</p>
             </div>
 
             {/* Rural Water system slider */}
             <div className="space-y-1.5">
               <div className="flex justify-between items-center text-xs font-semibold">
-                <span className="text-slate-700 dark:text-slate-300">Rural Clean Water Pipes</span>
+                <span className="text-slate-700 dark:text-slate-300">Jaringan Air Bersih Pedesaan</span>
                 <span className="font-mono text-slate-500">{formatRupiah(waterBudget)}</span>
               </div>
               <input
@@ -135,13 +135,13 @@ export function FiscalSimulator() {
                 onChange={(e) => handleSliderChange('water', parseInt(e.target.value))}
                 className="w-full accent-blue-600 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg cursor-pointer"
               />
-              <p className="text-[10px] text-slate-400">Drilling deep wells and piping access for deprived extreme poverty enclaves.</p>
+              <p className="text-[10px] text-slate-400">Pengeboran sumur dalam dan perpipaan air bersih bagi kantong kemiskinan ekstrem.</p>
             </div>
 
             {/* Micro Credit slider */}
             <div className="space-y-1.5">
               <div className="flex justify-between items-center text-xs font-semibold">
-                <span className="text-slate-700 dark:text-slate-300">Micro-Credit grants</span>
+                <span className="text-slate-700 dark:text-slate-300">Hibah Kredit Usaha Mikro</span>
                 <span className="font-mono text-slate-500">{formatRupiah(microCredit)}</span>
               </div>
               <input
@@ -153,14 +153,14 @@ export function FiscalSimulator() {
                 onChange={(e) => handleSliderChange('microCredit', parseInt(e.target.value))}
                 className="w-full accent-blue-600 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg cursor-pointer"
               />
-              <p className="text-[10px] text-slate-400">Low-interest micro grants to boost rural informal businesses in classes profile.</p>
+              <p className="text-[10px] text-slate-400">Pembiayaan mikro berbunga rendah untuk mendorong usaha informal pedesaan di Kuadran II/III.</p>
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/40 p-2 rounded-xs mt-4">
           <Sliders className="h-3.5 w-3.5 text-blue-500" />
-          <span>Adjust slider handles to reallocate funds. The machine learning model recalculates outcomes instantly.</span>
+          <span>Geser slider untuk merealokasi dana. Model komputasi akan mengestimasi dampak secara instan.</span>
         </div>
       </div>
 
@@ -169,33 +169,33 @@ export function FiscalSimulator() {
         <div className="space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-              expected policy impact
+              ESTIMASI DAMPAK KEBIJAKAN
             </span>
             <h4 className="text-sm font-bold text-slate-900 dark:text-slate-50 mt-0.5">
-              Simulated Poverty Headcount Reduction
+              Simulasi Penurunan Angka Kemiskinan (P0)
             </h4>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="p-3 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs border border-slate-100/40 dark:border-slate-900 flex flex-col justify-between">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">P0 Rate</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Target Rasio P0</span>
               <div>
                 <span className="text-base font-bold font-mono tracking-tight text-emerald-600 dark:text-emerald-400 block mt-1">
                   {simulatedP0.toFixed(2)}%
                 </span>
                 <span className="text-[10px] text-slate-400 font-mono mt-0.5 block">
-                  -{totalReduction.toFixed(2)}% reduction
+                  Penurunan -{totalReduction.toFixed(2)}%
                 </span>
               </div>
             </div>
             <div className="p-3 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs border border-slate-100/40 dark:border-slate-900 flex flex-col justify-between">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Welfare Exit</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Graduasi Mandiri</span>
               <div>
                 <span className="text-base font-bold font-mono tracking-tight text-emerald-600 dark:text-emerald-400 block mt-1">
                   ~{estimatedHouseholdsLifted.toLocaleString('id-ID')}
                 </span>
                 <span className="text-[10px] text-slate-400 font-mono mt-0.5 block">
-                  households lifted
+                  Keluarga terangkat dari miskin
                 </span>
               </div>
             </div>
@@ -228,7 +228,7 @@ export function FiscalSimulator() {
                     fontSize: '11px',
                   }}
                 />
-                <Bar dataKey="p0" name="P0 Poverty Rate" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="p0" name="Tingkat Kemiskinan P0" radius={[4, 4, 0, 0]}>
                   {chartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.fill} />
                   ))}
@@ -240,11 +240,11 @@ export function FiscalSimulator() {
 
         <div className="pt-3 border-t border-slate-50 dark:border-slate-900 mt-4">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-            Fiscal Efficiency Index
+            Indeks Efisiensi Fiskal
           </p>
           <div className="flex justify-between items-center font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-            <span>Budget Utilization: {((currentTotal / TOTAL_BUDGET) * 100).toFixed(0)}%</span>
-            <span>Est. Social ROI: 1.48x</span>
+            <span>Realisasi Penyerapan: {((currentTotal / TOTAL_BUDGET) * 100).toFixed(0)}%</span>
+            <span>Est. Social ROI: 1,48x</span>
           </div>
         </div>
       </div>

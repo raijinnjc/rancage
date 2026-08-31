@@ -13,7 +13,7 @@ interface PublicLayoutProps {
 }
 
 export function PublicLayout({ children }: PublicLayoutProps) {
-  const { navigateTo } = useNavigationStore();
+  const { currentScreen, navigateTo } = useNavigationStore();
   const { mode, highContrast, toggleTheme, toggleHighContrast } = useThemeStore();
   const { user } = useAuth();
 
@@ -29,7 +29,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       <header className="h-20 border-b border-rancage-border flex items-center justify-between px-8 sticky top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-50 transition-all duration-300">
         
         {/* Brand Logo and Title */}
-        <button onClick={() => navigateTo('landing')} className="flex items-center hover:opacity-90 transition-opacity">
+        <button onClick={() => navigateTo('landing')} className="flex items-center hover:opacity-90 transition-opacity cursor-pointer">
           <img src="/logo1.png" alt="RANCAGE Logo" className="h-10 object-contain" />
         </button>
 
@@ -38,44 +38,60 @@ export function PublicLayout({ children }: PublicLayoutProps) {
           <button
             onClick={() => navigateTo('landing')}
             className={cn(
-              "transition-colors hover:text-rancage-secondary relative group py-2"
+              "transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer",
+              currentScreen === 'landing' && "text-rancage-secondary font-bold dark:text-blue-400"
             )}
           >
             Beranda
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+            <span className={cn(
+              "absolute bottom-0 left-0 h-0.5 bg-rancage-secondary transition-all rounded-full",
+              currentScreen === 'landing' ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </button>
           <button
             onClick={() => navigateTo('methodology')}
             className={cn(
-              "transition-colors hover:text-rancage-secondary relative group py-2"
+              "transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer",
+              currentScreen === 'methodology' && "text-rancage-secondary font-bold dark:text-blue-400"
             )}
           >
             Metodologi
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+            <span className={cn(
+              "absolute bottom-0 left-0 h-0.5 bg-rancage-secondary transition-all rounded-full",
+              currentScreen === 'methodology' ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </button>
           <button
             onClick={() => navigateTo('exploration')}
             className={cn(
-              "transition-colors hover:text-rancage-secondary relative group py-2"
+              "transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer",
+              ['exploration', 'diagnosis', 'typology', 'regional-profile'].includes(currentScreen) && "text-rancage-secondary font-bold dark:text-blue-400"
             )}
           >
-            Wilayah
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+            Eksplorasi Wilayah
+            <span className={cn(
+              "absolute bottom-0 left-0 h-0.5 bg-rancage-secondary transition-all rounded-full",
+              ['exploration', 'diagnosis', 'typology', 'regional-profile'].includes(currentScreen) ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </button>
           <button
+            onClick={() => user.isAuthenticated ? navigateTo('recommendation') : navigateTo('login')}
             className={cn(
-              "transition-colors hover:text-rancage-secondary relative group py-2"
+              "transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer",
+              currentScreen === 'recommendation' && "text-rancage-secondary font-bold dark:text-blue-400"
             )}
           >
             Simulasi Kebijakan
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
+            <span className={cn(
+              "absolute bottom-0 left-0 h-0.5 bg-rancage-secondary transition-all rounded-full",
+              currentScreen === 'recommendation' ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </button>
           <button
-            className={cn(
-              "transition-colors hover:text-rancage-secondary relative group py-2"
-            )}
+            onClick={() => navigateTo('methodology')}
+            className="transition-colors hover:text-rancage-secondary relative group py-2 cursor-pointer"
           >
-            Tentang
+            Tentang RANCAGE
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-rancage-secondary transition-all group-hover:w-full rounded-full"></span>
           </button>
         </div>

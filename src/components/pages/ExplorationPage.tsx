@@ -4,8 +4,18 @@ import { Compass, Map, Activity } from 'lucide-react';
 import { RegionalDiagnosisPage } from './RegionalDiagnosisPage.tsx';
 import { RegionalTypologyPage } from './RegionalTypologyPage.tsx';
 
-export function ExplorationPage() {
-  const [activeTab, setActiveTab] = useState<'diagnosis' | 'typology'>('diagnosis');
+interface ExplorationPageProps {
+  defaultTab?: 'diagnosis' | 'typology';
+}
+
+export function ExplorationPage({ defaultTab = 'diagnosis' }: ExplorationPageProps) {
+  const [activeTab, setActiveTab] = useState<'diagnosis' | 'typology'>(defaultTab);
+
+  React.useEffect(() => {
+    if (defaultTab) {
+      setActiveTab(defaultTab);
+    }
+  }, [defaultTab]);
 
   return (
     <div className="space-y-6 pb-20 page-transition stagger-children">

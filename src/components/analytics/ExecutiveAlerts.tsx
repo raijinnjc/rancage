@@ -52,7 +52,7 @@ const DEFAULT_ALERTS: AlertItem[] = [
   {
     id: 'alt_05',
     title: 'Rutinitas Rekalibrasi Model Tercatat',
-    message: 'Bobot pembelajaran mesin Uji Sarana Pengganti (PMT) memerlukan rekalibrasi Kuartal 4.',
+    message: 'Bobot model Proxy Means Test (PMT) memerlukan rekalibrasi Kuartal 4.',
     timestamp: 'Kemarin, 16:30',
     severity: 'info',
     explanation: 'Log pemeliharaan sistem rutin menyatakan bahwa koefisien Gradient Boosting PMT memerlukan sinkronisasi terhadap agregat konsumsi BPS yang baru dipublikasikan.',
@@ -60,7 +60,7 @@ const DEFAULT_ALERTS: AlertItem[] = [
   },
   {
     id: 'alt_06',
-    title: 'Log Infiltrasi Survei Terverifikasi',
+    title: 'Log Integrasi Data Survei Terverifikasi',
     message: 'Sinkronisasi pengumpulan data Indramayu berhasil dicatat.',
     timestamp: 'Kemarin, 13:15',
     severity: 'info',

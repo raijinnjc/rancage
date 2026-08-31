@@ -14,6 +14,8 @@ import MlEvaluationPage from './components/pages/MlEvaluationPage.tsx';
 import PolicyRecommendationPage from './components/pages/PolicyRecommendationPage.tsx';
 import MonitoringCenterPage from './components/pages/MonitoringCenterPage.tsx';
 
+import RegionalProfilePage from './components/pages/RegionalProfile.tsx';
+
 export default function App() {
   const { currentScreen } = useNavigationStore();
 
@@ -21,9 +23,12 @@ export default function App() {
     <GlobalProvider>
       <LayoutWrapper>
         <PageTransition pageKey={currentScreen}>
-          {/* Public Routes */}
+          {/* Public & Exploration Routes */}
           {currentScreen === 'landing' && <LandingPage />}
           {currentScreen === 'exploration' && <ExplorationPage />}
+          {currentScreen === 'diagnosis' && <ExplorationPage defaultTab="diagnosis" />}
+          {currentScreen === 'typology' && <ExplorationPage defaultTab="typology" />}
+          {currentScreen === 'regional-profile' && <RegionalProfilePage />}
           {currentScreen === 'methodology' && <MethodologyPage />}
           {currentScreen === 'login' && <LoginPage />}
           
@@ -33,6 +38,7 @@ export default function App() {
           {currentScreen === 'ml-evaluation' && <MlEvaluationPage />}
           {currentScreen === 'recommendation' && <PolicyRecommendationPage />}
           {currentScreen === 'monitoring' && <MonitoringCenterPage />}
+          {currentScreen === 'settings' && <GovernancePage />}
         </PageTransition>
       </LayoutWrapper>
     </GlobalProvider>

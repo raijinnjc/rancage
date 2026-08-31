@@ -14,8 +14,13 @@ export function LayoutWrapper({ children }: LayoutWrapperProps) {
 
   switch (currentScreen) {
     case 'landing':
-    case 'exploration':
     case 'methodology':
+      return <PublicLayout>{children}</PublicLayout>;
+
+    case 'exploration':
+    case 'diagnosis':
+    case 'typology':
+    case 'regional-profile':
       return <PublicLayout>{children}</PublicLayout>;
 
     case 'login':
