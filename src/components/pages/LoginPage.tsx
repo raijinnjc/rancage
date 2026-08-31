@@ -78,7 +78,7 @@ export function LoginPage() {
   };
 
   return (
-    <div className="space-y-6 relative rounded-md p-6 sm:p-8 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+    <div className="space-y-6 relative rounded-sm p-6 sm:p-8 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs overflow-hidden">
       <MegaMendungPattern className="text-blue-500 opacity-[0.03] dark:opacity-[0.02]" />
       <div className="relative z-10 space-y-6">
         <div className="space-y-2 flex flex-col items-center text-center pb-4 border-b border-slate-100 dark:border-slate-900">

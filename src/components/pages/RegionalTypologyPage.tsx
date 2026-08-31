@@ -386,7 +386,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             <select
               value={selectedRegion}
               onChange={(e) => setSelectedRegion(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
+              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
             >
               <option value="All">Semua Wilayah (Jawa Barat)</option>
               <option value="BOGOR">BOGOR-DEPOK-BEKASI</option>
@@ -405,7 +405,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             <select
               value={selectedUrbanRural}
               onChange={(e) => setSelectedUrbanRural(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
+              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
             >
               <option value="All">Semua Klasifikasi</option>
               <option value="Urban">Perkotaan (Kota)</option>
@@ -421,7 +421,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             <select
               value={selectedPriorityLevel}
               onChange={(e) => setSelectedPriorityLevel(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
+              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
             >
               <option value="All">Semua Kelas Prioritas</option>
               <option value="Priority I">Prioritas I (Risiko Kantong Ekstrem)</option>
@@ -439,7 +439,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             <select
               value={selectedTypology}
               onChange={(e) => setSelectedTypology(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
+              className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400"
             >
               <option value="All">Semua Kelas</option>
               <option value="I">Kuadran I (Kemiskinan Rendah, Ketimpangan Rendah)</option>
@@ -459,7 +459,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
               placeholder="Cari nama kabupaten/kota atau Kode BPS..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-sm text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400 placeholder:text-slate-400"
+              className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-slate-400 placeholder:text-slate-400"
             />
           </div>
           <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
@@ -537,7 +537,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="interactive-visualizations-layout">
         
         {/* Section 2: Interactive Typology Matrix */}
-        <div className="lg:col-span-6 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-sm shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 rounded-sm shadow-xs flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-3">
               <div>
@@ -655,7 +655,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
         </div>
 
         {/* Section 4: Interactive Choropleth Map */}
-        <div className="lg:col-span-6 bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-5 rounded-sm shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 rounded-sm shadow-xs flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-3">
               <div>
@@ -932,7 +932,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
-            className="bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-sm p-6 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-start md:items-center"
+            className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm p-6 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-start md:items-center"
             id="district-profile-drawer"
           >
             <div className="space-y-3.5 flex-1">
@@ -1113,9 +1113,9 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
           </p>
         </div>
 
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 overflow-hidden">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 overflow-hidden">
           {/* Tabs */}
-          <div className="flex border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+          <div className="flex border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
             {(['Priority I', 'Priority II', 'Priority III', 'Priority IV'] as const).map((q) => (
               <button
                 key={q}
@@ -1507,7 +1507,7 @@ export function RegionalTypologyPage({ hideHeader = false }: RegionalTypologyPag
       </div>
 
       {/* SECTION 8: Analytical Narrative (Government Executive Summary) */}
-      <div className="bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 p-6 rounded-sm shadow-xs space-y-5" id="analytical-narrative-section">
+      <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-6 rounded-sm shadow-xs space-y-5" id="analytical-narrative-section">
         <div className="flex items-center gap-2 border-b border-slate-50 dark:border-slate-900 pb-3">
           <FileText className="h-4.5 w-4.5 text-blue-500" />
           <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">

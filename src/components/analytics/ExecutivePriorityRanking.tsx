@@ -23,9 +23,9 @@ const PRIORITY_DATA: PriorityDistrict[] = [
   { rank: 5, id: '3205', name: 'Kabupaten Garut', priorityScore: 87.4, typology: 'Kuadran IV (Miskin-Timpang)', p0: 11.45, within: 89.1, trend: -0.34, status: 'TINGGI' },
   { rank: 6, id: '3278', name: 'Kota Tasikmalaya', priorityScore: 85.1, typology: 'Kuadran IV (Miskin-Timpang)', p0: 11.52, within: 85.5, trend: -0.08, status: 'TINGGI' },
   { rank: 7, id: '3209', name: 'Kabupaten Cirebon', priorityScore: 84.3, typology: 'Kuadran IV (Miskin-Timpang)', p0: 11.24, within: 86.2, trend: -0.18, status: 'TINGGI' },
-  { rank: 8, id: '3217', name: 'Kabupaten Bandung Barat', priorityScore: 81.9, typology: 'Kuadran III (Mulai Berkembang)', p0: 10.52, within: 85.0, trend: -0.28, status: 'TINGGI' },
-  { rank: 9, id: '3203', name: 'Kabupaten Cianjur', priorityScore: 80.5, typology: 'Kuadran III (Mulai Berkembang)', p0: 10.22, within: 87.2, trend: -0.41, status: 'STABIL' },
-  { rank: 10, id: '3202', name: 'Kabupaten Sukabumi', priorityScore: 77.2, typology: 'Kuadran III (Mulai Berkembang)', p0: 9.42, within: 86.5, trend: -0.32, status: 'STABIL' },
+  { rank: 8, id: '3217', name: 'Kabupaten Bandung Barat', priorityScore: 81.9, typology: 'Kuadran III (Miskin-Merata)', p0: 10.52, within: 85.0, trend: -0.28, status: 'TINGGI' },
+  { rank: 9, id: '3203', name: 'Kabupaten Cianjur', priorityScore: 80.5, typology: 'Kuadran III (Miskin-Merata)', p0: 10.22, within: 87.2, trend: -0.41, status: 'STABIL' },
+  { rank: 10, id: '3202', name: 'Kabupaten Sukabumi', priorityScore: 77.2, typology: 'Kuadran III (Miskin-Merata)', p0: 9.42, within: 86.5, trend: -0.32, status: 'STABIL' },
 ];
 
 type SortKey = 'rank' | 'name' | 'priorityScore' | 'p0' | 'within' | 'trend';
@@ -74,8 +74,8 @@ export function ExecutivePriorityRanking() {
   };
 
   return (
-    <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 shadow-2xs overflow-hidden" id="regional-priority-ranking-card">
-      <div className="border-b border-slate-50 dark:border-slate-900 px-5 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 shadow-xs overflow-hidden" id="regional-priority-ranking-card">
+      <div className="border-b border-slate-100 dark:border-slate-900 px-5 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
             Peringkat Intervensi Prioritas Provinsi (10 Kabupaten/Kota Teratas)

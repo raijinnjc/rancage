@@ -280,7 +280,7 @@ export default function MlEvaluationPage() {
       />
 
       {/* SECTION 1: EXECUTIVE MODEL SUMMARY */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Cpu className="h-4 w-4 text-blue-600 dark:text-blue-400" />
@@ -478,7 +478,7 @@ export default function MlEvaluationPage() {
       {/* SECTION 3: CONFUSION MATRIX & THRESHOLD SIMULATION BLOCK */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Dynamic Confusion Matrix */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-900 pb-3">
             <div className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-blue-600" />
@@ -589,7 +589,7 @@ export default function MlEvaluationPage() {
         </div>
 
         {/* SECTION 6: THRESHOLD SIMULATION */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sliders className="h-4 w-4 text-blue-600" />
@@ -717,7 +717,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* METRICS INTERPRETATIONS (Under Section 4 & 5) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-900/30 p-4 border border-slate-100 dark:border-slate-800 rounded-sm text-xs">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-900/30 p-4 border border-slate-200 dark:border-slate-800 rounded-sm text-xs">
         <div className="space-y-1">
           <h5 className="font-bold text-slate-800 dark:text-slate-200 uppercase font-mono tracking-wider">
             Dampak Kebijakan Presisi
@@ -745,7 +745,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* SECTION 7: FEATURE IMPORTANCE CHART */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">ATRIBUSI ESTIMASI VARIABEL</span>
@@ -801,7 +801,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* SECTION 8: MODEL EXPLAINABILITY & SHAP REVELATIONS */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Flame className="h-4 w-4 text-rose-500" />
@@ -817,7 +817,7 @@ export default function MlEvaluationPage() {
         </p>
 
         {/* Placeholder SHAP Visual Force Diagram */}
-        <div className="bg-slate-50 dark:bg-slate-900 p-4 border border-slate-100 dark:border-slate-800 rounded-sm space-y-3">
+        <div className="bg-slate-50 dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800 rounded-sm space-y-3">
           <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PLOT GAYA SHAP INTI TERSIMULASI</span>
           
           <div className="flex items-center w-full h-8 bg-slate-200 dark:bg-slate-800 rounded-sm overflow-hidden text-[10px] font-bold font-mono text-white select-none">
@@ -848,7 +848,7 @@ export default function MlEvaluationPage() {
                 className={`p-4 rounded-sm border transition-all cursor-default ${
                   isHovered
                     ? 'border-blue-500 bg-blue-50/20 dark:bg-slate-900 shadow-xs'
-                    : 'border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950'
                 }`}
               >
                 <div className="flex justify-between items-start">
@@ -881,7 +881,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* SECTION 9: ERROR ANALYSIS & HEATMAP BREAKDOWN */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">RINCIAN PRESISI PENARGETAN</span>
@@ -990,7 +990,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* SECTION 10: FAIRNESS & BIAS MONITORING */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
         <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <UserCheck className="h-4 w-4 text-emerald-600" />
@@ -1040,7 +1040,7 @@ export default function MlEvaluationPage() {
       {/* SECTION 11 & SECTION 12: MODEL COMPARISON & GOVERNANCE */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* SECTION 11: Model Comparisons */}
-        <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+        <div className="lg:col-span-7 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
               Registri Tolok Ukur Model
@@ -1077,7 +1077,7 @@ export default function MlEvaluationPage() {
         </div>
 
         {/* SECTION 12: Model Governance & Parameters */}
-        <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+        <div className="lg:col-span-5 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider font-mono">
               Riwayat & Tata Kelola Versi Model
@@ -1101,7 +1101,7 @@ export default function MlEvaluationPage() {
       </div>
 
       {/* SECTION 13: TECHNICAL NOTES / POLICY GLOSSARY */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-slate-900 text-slate-200 p-6 shadow-2xs space-y-4">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-slate-900 text-slate-200 p-6 shadow-2xs space-y-4">
         <div className="flex items-center gap-2 border-b border-slate-800 pb-2.5">
           <Shield className="h-4 w-4 text-amber-500" />
           <h4 className="text-xs font-bold text-amber-500 uppercase tracking-wider font-mono">

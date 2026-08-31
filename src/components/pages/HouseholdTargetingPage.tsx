@@ -293,8 +293,8 @@ export default function HouseholdTargetingPage() {
       else ineligible++;
     });
     return [
-      { name: 'Eligible (Social Welfare)', value: eligible },
-      { name: 'Ineligible', value: ineligible }
+      { name: 'Layak Bantuan (Eligible)', value: eligible },
+      { name: 'Tidak Layak (Ineligible)', value: ineligible }
     ];
   }, [filteredHouseholds]);
 

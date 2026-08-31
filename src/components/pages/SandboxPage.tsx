@@ -561,7 +561,7 @@ export function SandboxPage() {
               <div className="space-y-4">
                 <div className="space-y-1">
                   <label className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">Bahasa Antarmuka Visual</label>
-                  <select className="w-full h-9 rounded-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs">
+                  <select className="w-full h-9 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs">
                     <option>Bahasa Indonesia (ID) - Standar</option>
                     <option>English (US)</option>
                   </select>

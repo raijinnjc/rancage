@@ -30,9 +30,9 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'situation',
     title: 'Situasi Terkini',
-    summary: 'Tingkat kemiskinan provinsi (P0) stabil di 7.62% (-0.34% vs K3). Namun, ketimpangan konsumsi sedikit naik ke 0.412, menunjukkan tingginya konsentrasi sumber daya di sepanjang koridor industri utara.',
+    summary: 'Tingkat kemiskinan provinsi (P0) berada di angka 7,02% (-0,39% vs Sep 2024). Namun, Indeks Gini berada di angka 0,416 (peringkat ke-3 tertinggi nasional), menunjukkan konsentrasi ekonomi di wilayah perkotaan.',
     metricLabel: 'Rata-rata P0',
-    metricValue: '7.62%',
+    metricValue: '7,02%',
     badgeText: 'Stabil',
     badgeType: 'info',
     icon: Activity,
@@ -40,9 +40,9 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'risk',
     title: 'Risiko Utama',
-    summary: 'Lonjakan kesalahan eksklusi telah tercatat di Kabupaten Sukabumi, menyebabkan 11.8% rumah tangga miskin berada di luar cakupan kesejahteraan PKH. Jika tidak diatasi pada K3-K4, hal ini dapat memicu peringatan keamanan pangan sekunder yang parah.',
+    summary: 'Lonjakan kesalahan eksklusi (Exclusion Error) tercatat di wilayah perdesaan pegunungan, menyebabkan keluarga miskin ekstrem rentan terlewat dari bantuan sosial reguler.',
     metricLabel: 'Tingkat eksklusi',
-    metricValue: '8.7% rata-rata',
+    metricValue: '8,7% rata-rata',
     badgeText: 'Peringatan Parah',
     badgeType: 'critical',
     icon: ShieldAlert,
@@ -52,9 +52,9 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'priority',
     title: 'Wilayah Prioritas Tertinggi',
-    summary: 'Kabupaten Tasikmalaya menempati peringkat tertinggi pada indeks prioritas komposit (94.2/100). Wilayah ini menunjukkan tingkat kemiskinan tinggi sebesar 12.11% dan kontribusi ketimpangan dalam kabupaten yang intens (89.4%), membutuhkan target langsung di tingkat rumah tangga.',
+    summary: 'Kabupaten Tasikmalaya menempati peringkat tertinggi pada indeks prioritas komposit (94,2/100). Wilayah ini menunjukkan tingkat kemiskinan tinggi (12,11%) dan kontribusi ketimpangan dalam kabupaten intens (89,44%).',
     metricLabel: 'Skor prioritas',
-    metricValue: '94.2 / 100',
+    metricValue: '94,2 / 100',
     badgeText: 'Tindakan Segera',
     badgeType: 'critical',
     icon: MapPin,
@@ -62,9 +62,9 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'improvement',
     title: 'Peningkatan Terbesar',
-    summary: 'Kota Bandung terus menunjukkan tingkat kemiskinan terendah (3.96%) dan kebenaran model penargetan rumah tangga tertinggi (93.1%), menunjukkan dampak positif integrasi catatan sipil digital yang diselesaikan pada tahun 2025.',
+    summary: 'Kota Bandung konsisten menunjukkan tingkat kemiskinan terendah (3,96%) dan akurasi model penargetan Gradient Boosting tertinggi (93,1%), berkat integrasi data registrasi sosial yang komprehensif.',
     metricLabel: 'Akurasi',
-    metricValue: '93.1%',
+    metricValue: '93,1%',
     badgeText: 'Tolok Ukur Tercapai',
     badgeType: 'success',
     icon: TrendingDown,
@@ -72,9 +72,9 @@ const NARRATIVE_CARDS: NarrativeCard[] = [
   {
     id: 'indicator',
     title: 'Indikator Paling Kritis',
-    summary: 'Ketimpangan Dalam Kabupaten (Intra-Kabupaten) telah meningkat menjadi 89.4%. Hal ini menegaskan bahwa disparitas lokal di dalam perbatasan kotamadya adalah pendorong utama ketimpangan provinsi, menyerukan intervensi tingkat kecamatan yang terlokalisasi.',
+    summary: 'Dekomposisi Indeks Theil membuktikan ketimpangan dalam wilayah (Within-Region) mendominasi hingga 89,44%, menegaskan bahwa intervensi harus menyasar tingkat desa dan mikro rumah tangga.',
     metricLabel: 'Theil Dalam',
-    metricValue: '89.4%',
+    metricValue: '89,44%',
     badgeText: 'Perlu Atensi Khusus',
     badgeType: 'warning',
     icon: Compass,
@@ -108,7 +108,7 @@ export function ExecutiveNarrativeCards() {
           return (
             <div 
               key={card.id}
-              className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-4.5 shadow-xs flex flex-col justify-between hover:shadow-md transition-all duration-200"
+              className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-4.5 shadow-xs flex flex-col justify-between hover:shadow-md transition-all duration-200"
             >
               <div className="space-y-2.5">
                 {/* Header Row */}

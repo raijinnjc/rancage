@@ -34,8 +34,8 @@ export function AiPolicyInsight({ evaluationYear = '2026' }: AiPolicyInsightProp
       disparity: {
         id: 'disparity',
         label: 'Dekomposisi Disparitas Theil',
-        narrative: 'Ketimpangan dalam kelompok (Within-district) menyumbang 89,4% dari total disparitas provinsi. Hal ini menunjukkan bahwa ketimpangan semakin didorong oleh disparitas di dalam kabupaten/kota alih-alih antar wilayah. Zonasi administratif yang luas tidak lagi memadai.',
-        focus: 'Penargetan tingkat rumah tangga & aset mikro dasar (sanitasi, jaringan air).',
+        narrative: 'Ketimpangan dalam kelompok (Within-district) menyumbang 89,44% dari total disparitas provinsi. Hal ini membuktikan bahwa disparitas didominasi oleh kesenjangan di dalam batas satu kabupaten/kota alih-alih disparitas antar wilayah. Intervensi harus bersifat mikro-spasial.',
+        focus: 'Penargetan tingkat rumah tangga & infrastruktur mikro dasar (sanitasi, jaringan air bersih).',
         actionableStep: 'Realokasi 14,5% dari dana dukungan umum kabupaten seluruh wilayah langsung ke penyediaan infrastruktur air bersih tingkat rumah tangga untuk desil D1-D2 di Priangan Timur.'
       },
       spatial: {

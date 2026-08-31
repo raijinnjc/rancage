@@ -224,7 +224,7 @@ export default function MonitoringCenterPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             {/* GEOSPATIAL REGIONAL COMPLETION MAP */}
-            <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
+            <div className="lg:col-span-7 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PEMANTAUAN SPASIAL REGIONAL</span>
@@ -235,7 +235,7 @@ export default function MonitoringCenterPage() {
 
                 <div className="relative border border-slate-100 dark:border-slate-900 rounded-sm bg-slate-50/50 dark:bg-slate-900/20 h-[300px] flex items-center justify-center overflow-hidden">
                   {/* Legend */}
-                  <div className="absolute top-3 left-3 bg-white/95 dark:bg-slate-950/95 border border-slate-100 dark:border-slate-800 p-2.5 rounded-sm shadow-xs text-[10px] space-y-1.5 z-10 font-mono">
+                  <div className="absolute top-3 left-3 bg-white/95 dark:bg-slate-950/95 border border-slate-200 dark:border-slate-800 p-2.5 rounded-sm shadow-xs text-[10px] space-y-1.5 z-10 font-mono">
                     <span className="font-bold text-slate-400 block uppercase tracking-wider text-[9px] mb-1">Tingkat Penyelesaian Penerima Manfaat</span>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 bg-blue-600 rounded-full inline-block"></span>
@@ -301,7 +301,7 @@ export default function MonitoringCenterPage() {
             </div>
 
             {/* TRAJECTORY LINE & MONITOR CHART */}
-            <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
+            <div className="lg:col-span-5 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">HASIL TRAJEKTORI KPI</span>
@@ -333,7 +333,7 @@ export default function MonitoringCenterPage() {
           </div>
 
           {/* POLICY INTERVENTION PERFORMANCE TABLE (Target vs Achievement vs Gap vs Risk) */}
-          <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+          <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-900 pb-4">
               <div>
                 <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">RANGKAIAN METRIK EVALUASI</span>
@@ -426,7 +426,7 @@ export default function MonitoringCenterPage() {
           {/* PUBLIC TRANSPARENCY PANEL (CITIZEN ACCESS PANEL) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            <div className="lg:col-span-8 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-5">
+            <div className="lg:col-span-8 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-5">
               <div className="border-b border-slate-100 dark:border-slate-900 pb-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Globe className="h-4.5 w-4.5 text-blue-500" />
@@ -488,7 +488,7 @@ export default function MonitoringCenterPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
+            <div className="lg:col-span-4 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">PUSAT UMPAN BALIK WARGA</span>

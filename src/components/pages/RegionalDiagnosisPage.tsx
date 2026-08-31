@@ -370,7 +370,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
       </div>
 
       {/* 3. Executive Insight HUD */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-slate-50 dark:bg-slate-900/50 p-6 space-y-4">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-slate-50 dark:bg-slate-900/50 p-6 space-y-4">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <BookOpen className="h-4.5 w-4.5 text-blue-500" />
@@ -481,7 +481,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
 
         {/* 5. Contribution Analysis Donut Charts */}
         <div className="lg:col-span-4">
-          <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs h-full flex flex-col justify-between">
+          <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs h-full flex flex-col justify-between">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
               <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                 Rincian Kontribusi Ketimpangan
@@ -568,7 +568,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
 
       {/* 6. Poverty Indicator Trends (Synchronized Line Charts) */}
       <div className="space-y-4">
-        <div className="border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center justify-between">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2 flex items-center justify-between">
           <div>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">
               Indeks Lintasan Sosial Ekonomi (Sinkronisasi Kursor)
@@ -585,7 +585,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* P0 */}
-          <div className="border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-2">
               <div>
                 <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wide">HEADCOUNT P0</span>
@@ -609,7 +609,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
           </div>
 
           {/* P1 */}
-          <div className="border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-2">
               <div>
                 <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wide">KESENJANGAN KEMISKINAN P1</span>
@@ -633,7 +633,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
           </div>
 
           {/* P2 */}
-          <div className="border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-2">
               <div>
                 <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wide">INDEKS KEPARAHAN P2</span>
@@ -657,7 +657,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
           </div>
 
           {/* Gini */}
-          <div className="border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-4 space-y-2 shadow-2xs">
             <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-2">
               <div>
                 <span className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wide">RASIO GINI</span>
@@ -685,7 +685,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
 
       {/* 8. Spatial Diagnosis (Choropleth Map) */}
       <div className="space-y-4">
-        <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">
             Diagnosis Disparitas Spasial & Sasaran
           </h4>
@@ -699,7 +699,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
 
       {/* 7. District Comparison DataTable */}
       <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-3">
           <div>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">
               Indeks Perbandingan & Tolok Ukur Kabupaten/Kota
@@ -731,7 +731,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
 
       {/* 9. Priority Drivers (Feature Cards) */}
       <div className="space-y-4">
-        <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">
             Faktor Pendorong Utama Disparitas & Hambatan Spasial
           </h4>
@@ -744,7 +744,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
           {PRIORITY_DRIVERS_DATA.map((driver) => (
             <div 
               key={driver.id} 
-              className="border border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-950 p-5 rounded-sm flex flex-col justify-between space-y-3.5 shadow-2xs hover:border-blue-500/30 transition-all duration-200"
+              className="border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-950 p-5 rounded-sm flex flex-col justify-between space-y-3.5 shadow-2xs hover:border-blue-500/30 transition-all duration-200"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -788,8 +788,8 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
       </div>
 
       {/* 10. Analytical Written Narrative */}
-      <div className="border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-6 space-y-6">
-        <div className="border-b border-slate-100 dark:border-slate-800 pb-3.5 flex items-center justify-between">
+      <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-6 space-y-6">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-3.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <BookOpen className="h-4.5 w-4.5 text-blue-500" />
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest">

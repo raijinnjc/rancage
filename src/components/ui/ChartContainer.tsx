@@ -21,13 +21,13 @@ export function ChartContainer({
   return (
     <div
       className={cn(
-        'rounded-sm border border-slate-100 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-950 flex flex-col',
+        'rounded-sm border border-slate-200 dark:border-slate-800 bg-white p-6 shadow-xs dark:bg-slate-950 flex flex-col',
         className
       )}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-50 dark:border-slate-900 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-100 dark:border-slate-900 pb-4">
         <div className="space-y-1">
-          <h3 className="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+          <h3 className="text-sm font-bold tracking-tight text-slate-900 dark:text-slate-50 uppercase">
             {title}
           </h3>
           {subtitle && (

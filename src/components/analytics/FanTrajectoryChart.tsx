@@ -14,31 +14,31 @@ import {
 
 const TRAJECTORY_DATA = [
   // Historis
-  { year: '2020', historical: 8.42, target: null, lowerBound: null, upperBound: null },
-  { year: '2021', historical: 8.61, target: null, lowerBound: null, upperBound: null },
-  { year: '2022', historical: 8.24, target: null, lowerBound: null, upperBound: null },
-  { year: '2023', historical: 7.98, target: null, lowerBound: null, upperBound: null },
-  { year: '2024', historical: 7.89, target: null, lowerBound: null, upperBound: null },
-  { year: '2025', historical: 7.68, target: null, lowerBound: null, upperBound: null },
-  { year: '2026', historical: 7.62, target: 7.62, lowerBound: 7.62, upperBound: 7.62 }, // Anchor node
+  { year: '2020', historical: 8.43, target: null, lowerBound: null, upperBound: null },
+  { year: '2021', historical: 8.40, target: null, lowerBound: null, upperBound: null },
+  { year: '2022', historical: 8.06, target: null, lowerBound: null, upperBound: null },
+  { year: '2023', historical: 7.62, target: null, lowerBound: null, upperBound: null },
+  { year: '2024', historical: 7.41, target: null, lowerBound: null, upperBound: null },
+  { year: '2025', historical: 7.02, target: 7.02, lowerBound: 7.02, upperBound: 7.02 }, // Anchor node BPS 2025
 
   // Proyeksi
-  { year: '2027 Proyeksi', historical: null, target: 7.20, lowerBound: 6.90, upperBound: 7.50 },
-  { year: '2028 Proyeksi', historical: null, target: 6.80, lowerBound: 6.30, upperBound: 7.20 },
-  { year: '2029 Proyeksi', historical: null, target: 6.40, lowerBound: 5.70, upperBound: 7.00 },
-  { year: '2030 Proyeksi', historical: null, target: 6.00, lowerBound: 5.20, upperBound: 6.80 },
+  { year: '2026 Proyeksi', historical: null, target: 6.70, lowerBound: 6.30, upperBound: 7.10 },
+  { year: '2027 Proyeksi', historical: null, target: 6.30, lowerBound: 5.80, upperBound: 6.80 },
+  { year: '2028 Proyeksi', historical: null, target: 5.90, lowerBound: 5.30, upperBound: 6.50 },
+  { year: '2029 Proyeksi', historical: null, target: 5.50, lowerBound: 4.80, upperBound: 6.20 },
+  { year: '2030 Proyeksi', historical: null, target: 5.00, lowerBound: 4.20, upperBound: 5.80 },
 ];
 
 export function FanTrajectoryChart() {
   return (
-    <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs" id="fan-trajectory-root">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-50 dark:border-slate-900 pb-4 mb-6">
+    <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-xs" id="fan-trajectory-root">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-900 pb-4 mb-6">
         <div>
           <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
             Grafik Kipas Lintasan Kemiskinan RPJMD (2020-2030)
           </h4>
-          <p className="text-[11px] text-slate-400 mt-0.5">
-            Memantau penurunan kemiskinan historis nyata terhadap koridor target jangka menengah dan batas kepercayaan.
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+            Memantau penurunan kemiskinan historis nyata (BPS 2025) terhadap koridor target jangka menengah dan batas kepercayaan.
           </p>
         </div>
         <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase">
@@ -129,10 +129,10 @@ export function FanTrajectoryChart() {
               activeDot={{ r: 6 }}
             />
 
-            {/* Highlighted Anchor Point (2026 Transition) */}
+            {/* Highlighted Anchor Point (2025 Transition) */}
             <ReferenceDot
-              x="2026"
-              y={7.62}
+              x="2025"
+              y={7.02}
               r={5}
               fill="#3b82f6"
               stroke="#fff"
@@ -143,21 +143,21 @@ export function FanTrajectoryChart() {
       </div>
 
       {/* Trajectory Status Bar */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5 border-t border-slate-50 dark:border-slate-900 mt-5">
-        <div className="p-3 bg-emerald-50/40 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-950/50 rounded flex flex-col justify-between">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5 border-t border-slate-100 dark:border-slate-900 mt-5">
+        <div className="p-3 bg-emerald-50/40 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 rounded-sm flex flex-col justify-between">
           <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">Penyelarasan RPJMD</span>
           <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">SESUAI JALUR</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Tingkat kemiskinan saat ini (7.62%) sejajar sempurna dalam toleransi target inti.</p>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Tingkat kemiskinan saat ini (7,02%) berada dalam koridor toleransi target inti RPJMD.</p>
         </div>
-        <div className="p-3 bg-blue-50/40 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-950/50 rounded flex flex-col justify-between">
+        <div className="p-3 bg-blue-50/40 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 rounded-sm flex flex-col justify-between">
           <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider block">Tingkat Penurunan Diperlukan</span>
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">-0.41% / Tahun</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Rata-rata pengurangan tahunan tingkat kemiskinan yang diperlukan untuk mencapai 6.00% pada tahun 2030.</p>
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">-0,40% / Tahun</span>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Rata-rata pengurangan tahunan tingkat kemiskinan yang ditargetkan menuju 5,00% pada 2030.</p>
         </div>
-        <div className="p-3 bg-amber-50/40 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-950/50 rounded flex flex-col justify-between">
+        <div className="p-3 bg-amber-50/40 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/50 rounded-sm flex flex-col justify-between">
           <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider block">Risiko Gangguan</span>
-          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">RENDAH (12.4%)</span>
-          <p className="text-[10px] text-slate-400 mt-0.5">Probabilitas kalkulasi menembus batas toleransi atas pada tahun 2027.</p>
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-1 block">RENDAH (12,4%)</span>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Probabilitas komputasi deviasi dari batas target pada periode 2026-2027.</p>
         </div>
       </div>
     </div>

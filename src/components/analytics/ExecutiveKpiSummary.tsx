@@ -17,35 +17,35 @@ interface KpiData {
 const KPIS_LIST: KpiData[] = [
   {
     title: 'Tingkat Kemiskinan P0',
-    value: '7.62%',
-    change: '-0.34% vs Q3',
+    value: '7,02%',
+    change: '-0,39% vs Sep 2024',
     trend: 'down',
     trendDirection: 'positive',
-    sparkline: [8.42, 8.61, 8.24, 7.98, 7.89, 7.68, 7.62],
-    interpretation: 'Tingkat kemiskinan melanjutkan lintasan penurunan bertahap, menunjukkan keberhasilan cakupan intervensi makro di berbagai wilayah pedesaan.',
-    policyImplication: 'Pertahankan subsidi BLT inti di kabupaten/kota Kategori IV; kalibrasi ulang kriteria penargetan untuk mencegah kebocoran inklusi.',
+    sparkline: [8.43, 8.40, 8.06, 7.62, 7.41, 7.15, 7.02],
+    interpretation: 'Tingkat kemiskinan melanjutkan lintasan penurunan bertahap, menunjukkan efektivitas intervensi makro di perdesaan (BPS Maret 2025).',
+    policyImplication: 'Pertahankan subsidi BLT inti di kabupaten/kota Kuadran IV; kalibrasi ulang kriteria penargetan untuk mencegah kebocoran inklusi.',
     icon: Percent,
   },
   {
     title: 'Kedalaman Kemiskinan P1',
-    value: '1.24',
-    change: '-0.08',
-    trend: 'down',
-    trendDirection: 'positive',
-    sparkline: [1.48, 1.42, 1.35, 1.31, 1.28, 1.25, 1.24],
-    interpretation: 'Kedalaman kemiskinan menyusut, menunjukkan bahwa rumah tangga termiskin bergerak mendekati batas konsumsi kemiskinan yang ditetapkan.',
-    policyImplication: 'Beri insentif pada integrasi padat karya lokal di samping program bantuan sosial dasar yang ada.',
+    value: '1,21',
+    change: '+0,05 vs 2023',
+    trend: 'up',
+    trendDirection: 'negative',
+    sparkline: [1.48, 1.42, 1.35, 1.28, 1.20, 1.16, 1.21],
+    interpretation: 'Indeks kedalaman kemiskinan menunjukkan jarak rata-rata pengeluaran penduduk miskin terhadap garis kemiskinan masih membutuhkan atensi.',
+    policyImplication: 'Beri insentif pada integrasi padat karya tunai dan sanitasi di samping bantuan sosial bersyarat reguler.',
     icon: Scale,
   },
   {
     title: 'Ketimpangan (Indeks Gini)',
-    value: '0.412',
-    change: '+0.003',
+    value: '0,416',
+    change: 'Peringkat ke-3',
     trend: 'up',
     trendDirection: 'negative',
-    sparkline: [0.395, 0.401, 0.403, 0.408, 0.410, 0.411, 0.412],
-    interpretation: 'Ketimpangan sedikit meningkat, menandakan bahwa meskipun kemiskinan ekstrem menurun, manfaat pertumbuhan tetap terkonsentrasi di koridor industri.',
-    policyImplication: 'Pindahkan fokus fiskal dari sekadar bantuan universal ke pembentukan aset rumah tangga yang sangat tepat sasaran dan jaringan sanitasi dasar.',
+    sparkline: [0.398, 0.402, 0.406, 0.412, 0.414, 0.415, 0.416],
+    interpretation: 'Indeks Gini Jawa Barat (0,416) menempati peringkat tertinggi ke-3 nasional setelah DIY dan DKI Jakarta, menegaskan disparitas struktural.',
+    policyImplication: 'Alihkan intervensi ke pembangunan aset produktif, infrastruktur air bersih perdesaan, dan penargetan berbasis machine learning.',
     icon: TrendingUp,
   },
   {
@@ -111,7 +111,7 @@ export function ExecutiveKpiSummary() {
         return (
           <div 
             key={i}
-            className="rounded-sm border border-slate-100 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950 hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4"
+            className="rounded-sm border border-slate-200 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-950 hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4"
           >
             {/* Title & Icon Header */}
             <div className="flex items-center justify-between">

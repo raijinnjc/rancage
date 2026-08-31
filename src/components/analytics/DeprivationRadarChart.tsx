@@ -87,7 +87,7 @@ export function DeprivationRadarChart() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="deprivation-radar-root">
       {/* Recharts Radar Chart */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
           <div>
             <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
@@ -154,7 +154,7 @@ export function DeprivationRadarChart() {
       </div>
 
       {/* Benchmark Diagnostics details */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
         <div className="space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">
@@ -172,10 +172,10 @@ export function DeprivationRadarChart() {
                 {formatPercentage(selectedDistrict.p0)}
               </span>
             </div>
-            <div className="p-3.5 border border-slate-50 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Kesenjangan Provinsi</span>
+            <div className="p-3.5 border border-slate-100 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-900/30 rounded-xs">
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Kesenjangan vs Rata-rata Jabar</span>
               <span className="text-lg font-bold font-mono tracking-tight text-rose-500 mt-1 block">
-                kesenjangan +{(selectedDistrict.p0 - 7.62).toFixed(2)}%
+                {(selectedDistrict.p0 - 7.02) >= 0 ? `+${(selectedDistrict.p0 - 7.02).toFixed(2)}%` : `${(selectedDistrict.p0 - 7.02).toFixed(2)}%`}
               </span>
             </div>
           </div>

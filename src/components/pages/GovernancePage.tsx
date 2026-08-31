@@ -272,7 +272,7 @@ export default function GovernancePage() {
       {activeTab === 'EWS' ? (
         <>
           {/* EARLY WARNING CENTER */}
-          <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
+          <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-900 pb-4">
               <div>
                 <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">RADAR INTELIJEN KEBIJAKAN</span>
@@ -348,7 +348,7 @@ export default function GovernancePage() {
                         </div>
                       </div>
 
-                      <div className="bg-slate-50 dark:bg-slate-900 p-2.5 rounded-xs border border-slate-100 dark:border-slate-800 mt-2 text-[11px]">
+                      <div className="bg-slate-50 dark:bg-slate-900 p-2.5 rounded-xs border border-slate-200 dark:border-slate-800 mt-2 text-[11px]">
                         <span className="font-bold text-blue-600 dark:text-blue-400 font-mono uppercase block text-[9px]">REKOMENDASI TINDAKAN KOREKTIF</span>
                         <p className="text-slate-600 dark:text-slate-300 font-semibold mt-0.5">{alertItem.suggestedAction}</p>
                       </div>
@@ -379,7 +379,7 @@ export default function GovernancePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             {/* AUDIT COCKPIT & DATA SOURCES */}
-            <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4 flex flex-col justify-between">
+            <div className="lg:col-span-7 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs space-y-4 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-mono">TRANSPARANSI REGULASI & DATA</span>
@@ -428,7 +428,7 @@ export default function GovernancePage() {
             </div>
 
             {/* LIVE SYSTEM AUDIT LOGS & ACCESS HISTORY */}
-            <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
+            <div className="lg:col-span-5 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-6 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="border-b border-slate-100 dark:border-slate-900 pb-3 flex items-center justify-between">
                   <div>
