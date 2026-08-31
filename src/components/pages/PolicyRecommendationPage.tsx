@@ -210,7 +210,7 @@ export default function PolicyRecommendationPage() {
         
         {/* PANEL KIRI: INPUT PARAMETER */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-[12px] p-6 shadow-sm space-y-6">
+          <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm p-6 shadow-sm space-y-6">
             
             <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-900 pb-3">
               <Calculator className="h-5 w-5 text-blue-600" />
@@ -371,7 +371,7 @@ export default function PolicyRecommendationPage() {
 
         {/* PANEL KANAN: HASIL SIMULASI */}
         <div className="lg:col-span-8">
-          <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-[12px] p-6 shadow-sm min-h-[500px] flex flex-col">
+          <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm p-6 shadow-sm min-h-[500px] flex flex-col">
             
             <div className="border-b border-slate-100 dark:border-slate-900 pb-3 mb-6 flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">Hasil Proyeksi Dampak Statis</h3>
@@ -519,7 +519,7 @@ export default function PolicyRecommendationPage() {
       </div>
 
       {/* SECTION BAWAH: TABEL PERINGKAT EFEKTIVITAS BIAYA */}
-      <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-[12px] p-6 shadow-sm space-y-4">
+      <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm p-6 shadow-sm space-y-4">
         
         <div className="border-b border-slate-100 dark:border-slate-900 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>

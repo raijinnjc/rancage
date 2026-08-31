@@ -74,12 +74,12 @@ export function AboutPage() {
   return (
     <div className="space-y-12 pb-20 page-transition stagger-children max-w-6xl mx-auto">
       {/* 1. HERO HEADER */}
-      <section className="relative rounded-[20px] bg-gradient-to-br from-slate-900 via-[#0F2D5C] to-slate-950 text-white p-8 md:p-12 border border-slate-800 shadow-xl overflow-hidden">
+      <section className="relative rounded-sm bg-gradient-to-br from-slate-900 via-[#0F2D5C] to-slate-950 text-white p-8 md:p-12 border border-slate-800 shadow-xs overflow-hidden">
         <MegaMendungPattern className="opacity-5 text-blue-200" />
         
         <div className="relative z-10 space-y-6 max-w-3xl">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-blue-600/30 border border-kujang-gold/40 flex items-center justify-center text-kujang-gold">
+            <div className="h-10 w-10 rounded-sm bg-blue-600/30 border border-kujang-gold/40 flex items-center justify-center text-kujang-gold">
               <KujangLogo size={24} className="text-[#C5962A]" />
             </div>
             <div>
@@ -117,7 +117,7 @@ export function AboutPage() {
 
       {/* 2. LATAR BELAKANG & VISI UTAMA */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <div className="lg:col-span-7 p-8 rounded-[16px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5 flex flex-col justify-between">
+        <div className="lg:col-span-7 p-6 sm:p-8 rounded-sm bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 text-xs font-bold font-mono uppercase">
               <Compass className="h-3.5 w-3.5" />
@@ -148,7 +148,7 @@ export function AboutPage() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 p-8 rounded-[16px] bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+        <div className="lg:col-span-5 p-6 sm:p-8 rounded-sm bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold font-mono uppercase">
             <Scale className="h-3.5 w-3.5" />
             Prinsip Positioning
@@ -188,8 +188,8 @@ export function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-[14px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-            <div className="h-10 w-10 rounded-md bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold font-mono">
+          <div className="p-6 rounded-sm bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+            <div className="h-10 w-10 rounded-sm bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold font-mono">
               01
             </div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -200,8 +200,8 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 rounded-[14px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-            <div className="h-10 w-10 rounded-md bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold font-mono">
+          <div className="p-6 rounded-sm bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+            <div className="h-10 w-10 rounded-sm bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold font-mono">
               02
             </div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -212,8 +212,8 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 rounded-[14px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-            <div className="h-10 w-10 rounded-md bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold font-mono">
+          <div className="p-6 rounded-sm bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+            <div className="h-10 w-10 rounded-sm bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold font-mono">
               03
             </div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -239,7 +239,7 @@ export function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {institutionalPartners.map((partner, idx) => (
-            <div key={idx} className="p-6 rounded-[14px] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+            <div key={idx} className="p-6 rounded-sm bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[9px] font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-xs uppercase">
                   {partner.badge}
@@ -257,7 +257,7 @@ export function AboutPage() {
       </section>
 
       {/* 5. LANDASAN HUKUM & REGULASI */}
-      <section className="p-8 rounded-[16px] bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 space-y-6">
+      <section className="p-6 sm:p-8 rounded-sm bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 space-y-6">
         <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
           <ShieldCheck className="h-6 w-6 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <div>

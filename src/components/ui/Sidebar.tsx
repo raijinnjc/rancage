@@ -73,7 +73,7 @@ export function Sidebar() {
           {isSidebarExpanded ? (
             <img src="/logo1.png" alt="RANCAGE Logo" className="h-12 object-contain ml-2" />
           ) : (
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-blue-600/20 text-kujang-gold border border-kujang-gold/30 shadow-[0_0_10px_rgba(197,150,42,0.2)]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-blue-600/20 text-kujang-gold border border-kujang-gold/40 shadow-xs">
               <KujangLogo size={20} className="text-[#C5962A]" />
             </div>
           )}

@@ -82,7 +82,7 @@ export function LoginPage() {
       <MegaMendungPattern className="text-blue-500 opacity-[0.03] dark:opacity-[0.02]" />
       <div className="relative z-10 space-y-6">
         <div className="space-y-2 flex flex-col items-center text-center pb-4 border-b border-slate-100 dark:border-slate-900">
-          <div className="h-12 w-12 rounded-sm bg-blue-600/10 border border-kujang-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(197,150,42,0.15)]">
+          <div className="h-12 w-12 rounded-sm bg-blue-600/10 border border-kujang-gold/40 flex items-center justify-center mb-2 shadow-xs">
             <KujangLogo size={28} className="text-[#C5962A]" />
           </div>
           <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 uppercase">
