@@ -200,7 +200,7 @@ export default function GovernancePage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-transition stagger-children">
       {/* HEADER */}
       <PageHeader
         title="Pusat Tata Kelola, Risiko & Intelijen"

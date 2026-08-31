@@ -150,7 +150,7 @@ export default function MonitoringCenterPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-transition stagger-children">
       {/* HEADER */}
       <PageHeader
         title="Pemantauan Kebijakan & Trajektori"

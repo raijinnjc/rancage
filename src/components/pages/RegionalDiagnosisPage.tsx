@@ -333,7 +333,7 @@ export function RegionalDiagnosisPage({ hideHeader = false }: RegionalDiagnosisP
   ], []);
 
   return (
-    <div className="space-y-6 pb-20 animate-in fade-in duration-500">
+    <div className="space-y-6 pb-20 page-transition stagger-children">
       {!hideHeader && (
         <PageHeader 
           title="Diagnosa Wilayah" 

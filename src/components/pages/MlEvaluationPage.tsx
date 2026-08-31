@@ -258,7 +258,7 @@ export default function MlEvaluationPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-transition stagger-children">
       {/* PAGE HEADER */}
       <PageHeader
         title="Pusat Evaluasi Machine Learning"

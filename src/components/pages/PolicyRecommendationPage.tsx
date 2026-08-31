@@ -190,7 +190,7 @@ export default function PolicyRecommendationPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-transition stagger-children">
       <PageHeader
         title="Simulasi Skenario Kebijakan"
         description="Pengujian estimasi dampak statis berbasis Tipologi Kemiskinan-Ketimpangan (Kuadran I-IV)."

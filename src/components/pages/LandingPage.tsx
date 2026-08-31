@@ -73,7 +73,7 @@ export function LandingPage() {
   const { user } = useAuth();
 
   return (
-    <div className="space-y-24 w-full">
+    <div className="space-y-24 w-full page-transition stagger-children">
       
       {/* Hero Section */}
       <section className="relative text-center py-20 px-4 flex flex-col items-center justify-center min-h-[60vh] rounded-[20px] overflow-hidden border border-rancage-border dark:border-slate-800 bg-white dark:bg-slate-950">

@@ -8,7 +8,7 @@ export function ExplorationPage() {
   const [activeTab, setActiveTab] = useState<'diagnosis' | 'typology'>('diagnosis');
 
   return (
-    <div className="space-y-6 pb-20 animate-in fade-in duration-500">
+    <div className="space-y-6 pb-20 page-transition stagger-children">
       <PageHeader
         title="Eksplorasi Wilayah"
         description="Jelajahi matriks dekomposisi ketimpangan dan peta kuadran tipologi wilayah di Jawa Barat."

@@ -63,3 +63,151 @@ input[type="checkbox"] {
 
 /* Remove outline on Leaflet interactive paths */
 path.leaflet-interactive:focus { outline: none; }
+
+/* ═══════════════════════════════════════════════════════
+   RANCAGE — Global Smooth Transitions & Animations
+   ═══════════════════════════════════════════════════════ */
+
+/* Page transition wrapper */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Page transition class */
+.page-transition {
+  animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.04s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.16s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.20s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.24s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.28s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.32s; }
+
+/* Card hover lift effect */
+.card-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.08),
+              0 4px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth global transitions for interactive elements */
+button, a, input, select, textarea {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth scrollbar */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tooltip fade */
+.leaflet-tooltip {
+  transition: opacity 0.2s ease !important;
+}
+
+/* Chart container smooth reveal */
+.recharts-wrapper {
+  animation: pageFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Table row hover */
+table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+/* Badge & chip subtle animation */
+.badge-pulse {
+  animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Modal / Drawer backdrop blur transition */
+.backdrop-transition {
+  transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Range slider thumb smoothing */
+input[type="range"] {
+  transition: accent-color 0.2s ease;
+}
+input[type="range"]::-webkit-slider-thumb {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+

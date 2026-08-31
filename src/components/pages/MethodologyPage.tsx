@@ -4,7 +4,7 @@ import { BookOpen, GitBranch, Shield, Zap } from 'lucide-react';
 
 export function MethodologyPage() {
   return (
-    <div className="space-y-6 pb-20 animate-in fade-in duration-500">
+    <div className="space-y-6 pb-20 page-transition stagger-children">
       <PageHeader
         title="Metodologi RANCAGE"
         description="Penjelasan Dekomposisi Indeks Theil, Proxy Means Testing berbasis Machine Learning, dan Integrasi P3KE."

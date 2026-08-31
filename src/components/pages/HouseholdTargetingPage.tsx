@@ -393,7 +393,7 @@ export default function HouseholdTargetingPage() {
   const PIE_COLORS = ['#3b82f6', '#e2e8f0', '#fb7185', '#34d399'];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-transition stagger-children">
       {/* ACCESS PRIVACY BANNER (Section 11) */}
       <div className="bg-slate-900 border border-slate-800 text-slate-100 p-4 rounded-sm shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-start gap-3">
