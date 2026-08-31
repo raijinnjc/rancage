@@ -11,6 +11,7 @@ import {
   AlertOctagon,
   TrendingDown,
   Coins,
+  Layers,
   Settings as SettingsIcon,
 } from 'lucide-react';
 
@@ -546,7 +547,7 @@ export function SandboxPage() {
             <MonitoringCenterPage />
           )}
 
-          {currentScreen === 'administration' && (
+          {currentScreen === 'dashboard' && (
             <GovernancePage />
           )}
 

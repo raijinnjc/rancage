@@ -1,8 +1,9 @@
 import React from 'react';
 import { cn } from '../../utils/cn.ts';
 
-interface KujangLogoProps extends React.SVGProps<SVGSVGElement> {
+export interface KujangLogoProps extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
+  className?: string;
 }
 
 export function KujangLogo({ size = 32, className, ...props }: KujangLogoProps) {

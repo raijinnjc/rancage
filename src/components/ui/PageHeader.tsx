@@ -6,6 +6,7 @@ interface PageHeaderProps {
   title: string;
   description?: string;
   actions?: React.ReactNode;
+  icon?: any;
   className?: string;
 }
 

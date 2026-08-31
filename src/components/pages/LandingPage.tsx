@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { useNavigationStore } from '../../store/navigationStore.ts';
 import { useAuth } from '../../hooks/useAuth.ts';
+import { KujangLogo } from '../ui/KujangLogo.tsx';
+import { MegaMendungPattern } from '../ui/MegaMendungPattern.tsx';
 
 // Premium KPI Card Component
 interface PremiumKpiCardProps {
