@@ -20,8 +20,7 @@ export function FiscalSimulator() {
   const unallocated = Math.max(0, TOTAL_BUDGET - currentTotal);
 
   // Dynamic Simulators logic based on research coefficient models
-  // e.g. BLT has 0.12% drop per billion, sanitation has 0.08%, water has 0.05%, micro has 0.04%
-  const baselineP0 = 7.62;
+  const baselineP0 = 7.02;
   const bltEffect = (blt / 1000000000) * 0.042;
   const sanitationEffect = (sanitation / 1000000000) * 0.028;
   const waterEffect = (waterBudget / 1000000000) * 0.021;
@@ -35,8 +34,8 @@ export function FiscalSimulator() {
 
   // Chart data comparing Baseline vs Simulated
   const chartData = [
-    { name: 'Baseline 2026', p0: baselineP0, fill: '#64748b' },
-    { name: 'Simulated Target', p0: parseFloat(simulatedP0.toFixed(2)), fill: '#10b981' },
+    { name: 'Basis Awal (BPS 2025)', p0: baselineP0, fill: '#64748b' },
+    { name: 'Hasil Simulasi Kebijakan', p0: parseFloat(simulatedP0.toFixed(2)), fill: '#10b981' },
   ];
 
   const handleSliderChange = (category: string, value: number) => {

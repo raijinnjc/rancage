@@ -973,10 +973,10 @@ Date: ${new Date().toLocaleDateString('id-ID')}
 
         <div className="space-y-4 font-mono text-xs leading-relaxed max-w-4xl text-slate-300">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 border-b border-slate-800 pb-3 text-slate-400 uppercase">
-            <div>KEPADA: PEJABAT PENGAKUAN REGIONAL & BUPATI/WALIKOTA ({districtMeta.name})</div>
-            <div>DARI: SISTEM INTEL BAPPEDA JAWA BARAT</div>
+            <div>KEPADA: BUPATI/WALIKOTA & KEPALA BAPPEDA ({districtMeta.name})</div>
+            <div>DARI: SISTEM PENDUKUNG KEPUTUSAN RANCAGE (BAPPEDA JAWA BARAT)</div>
             <div>TANGGAL: {new Date().toLocaleDateString('id-ID')}</div>
-            <div>STATUS: PENGUNGKAPAN AMAN • MEMATUHI UU 27/2022</div>
+            <div>STATUS: DOKUMEN RESMI TERBATAS • KEPATUHAN UU NO. 27/2022 (UU PDP)</div>
           </div>
 
           <div className="space-y-3 font-sans">

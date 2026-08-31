@@ -94,22 +94,22 @@ export function Navbar() {
           {/* Security Indicator */}
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono border border-slate-100 bg-slate-50 text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
             <div className={cn(
-              'h-1.5 w-1.5 rounded-full animate-pulse',
+              'h-1.5 w-1.5 rounded-full',
               user.isAuthenticated ? 'bg-emerald-500' : 'bg-slate-400'
             )} />
             <span className="hidden sm:inline">
-              {user.isAuthenticated ? `AUDITED: ${user.role}` : 'PUBLIC_ACCESS'}
+              {user.isAuthenticated ? `TERVERIFIKASI: ${user.role}` : 'AKSES_PUBLIK'}
             </span>
             <span className="sm:hidden">
-              {user.isAuthenticated ? 'SECURE' : 'PUBLIC'}
+              {user.isAuthenticated ? 'AMAN' : 'PUBLIK'}
             </span>
           </div>
 
           {/* Theme Toggler */}
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-sm border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-400"
-            title={mode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+            className="p-1.5 rounded-sm border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-400 cursor-pointer"
+            title={mode === 'light' ? 'Mode Gelap' : 'Mode Terang'}
           >
             {mode === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
           </button>
@@ -118,12 +118,12 @@ export function Navbar() {
           <button
             onClick={toggleHighContrast}
             className={cn(
-              'p-1.5 rounded-sm border hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-400',
+              'p-1.5 rounded-sm border hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-500 dark:text-slate-400 cursor-pointer',
               highContrast
                 ? 'border-blue-500 text-blue-600 dark:text-blue-400'
                 : 'border-slate-100 dark:border-slate-800'
             )}
-            title="Toggle High Contrast Option"
+            title="Mode Kontras Tinggi"
           >
             <Eye className="h-4 w-4" />
           </button>
@@ -132,7 +132,7 @@ export function Navbar() {
           <div className="relative">
             <button
               onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-              className="flex items-center gap-1.5 pl-2.5 py-1 pr-1 border border-slate-100 dark:border-slate-800 rounded-sm hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300"
+              className="flex items-center gap-1.5 pl-2.5 py-1 pr-1 border border-slate-100 dark:border-slate-800 rounded-sm hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 cursor-pointer"
             >
               <div className="h-6 w-6 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-xs font-bold uppercase text-blue-700 dark:text-blue-300">
                 {user.name.substring(0, 2)}
@@ -149,7 +149,7 @@ export function Navbar() {
                 />
                 <div className="absolute right-0 mt-2 w-48 rounded-sm border border-slate-100 bg-white shadow-lg dark:border-slate-800 dark:bg-slate-950 z-50 py-1 text-xs">
                   <div className="px-3.5 py-2.5 border-b border-slate-50 dark:border-slate-900 font-mono text-[10px]">
-                    <div className="text-slate-400">Authenticated:</div>
+                    <div className="text-slate-400">Pengguna Terautentikasi:</div>
                     <div className="font-bold text-slate-800 dark:text-slate-200 uppercase truncate">
                       {user.name}
                     </div>
@@ -160,10 +160,10 @@ export function Navbar() {
                       setProfileDropdownOpen(false);
                       navigateTo('settings');
                     }}
-                    className="w-full flex items-center gap-2 px-3.5 py-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 text-left"
+                    className="w-full flex items-center gap-2 px-3.5 py-2.5 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 text-left cursor-pointer"
                   >
                     <User className="h-3.5 w-3.5 text-slate-400" />
-                    <span>User Settings</span>
+                    <span>Pengaturan Akun</span>
                   </button>
 
                   {user.isAuthenticated ? (
@@ -173,10 +173,10 @@ export function Navbar() {
                         logout();
                         navigateTo('landing');
                       }}
-                      className="w-full flex items-center gap-2 px-3.5 py-2.5 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/20 text-left"
+                      className="w-full flex items-center gap-2 px-3.5 py-2.5 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/20 text-left cursor-pointer"
                     >
                       <LogOut className="h-3.5 w-3.5" />
-                      <span>Secure Log Out</span>
+                      <span>Keluar Akses Aman</span>
                     </button>
                   ) : (
                     <button
@@ -184,10 +184,10 @@ export function Navbar() {
                         setProfileDropdownOpen(false);
                         navigateTo('login');
                       }}
-                      className="w-full flex items-center gap-2 px-3.5 py-2.5 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/40 text-left"
+                      className="w-full flex items-center gap-2 px-3.5 py-2.5 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/40 text-left cursor-pointer"
                     >
                       <Shield className="h-3.5 w-3.5" />
-                      <span>Gov Sign In</span>
+                      <span>Masuk Akses Gov-ID</span>
                     </button>
                   )}
                 </div>
@@ -219,7 +219,7 @@ export function Navbar() {
               </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-slate-500 hover:text-white"
+                className="text-slate-500 hover:text-white cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -237,7 +237,7 @@ export function Navbar() {
                       setMobileMenuOpen(false);
                     }}
                     className={cn(
-                      'w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-xs font-medium text-left',
+                      'w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-xs font-medium text-left cursor-pointer',
                       isActive ? 'bg-slate-900 text-white' : 'text-slate-400 hover:text-white'
                     )}
                   >
@@ -249,7 +249,7 @@ export function Navbar() {
 
             {/* Bottom info panel on mobile drawer */}
             <div className="pt-4 border-t border-slate-900 text-center text-[10px] font-mono text-slate-500">
-              Session role: <strong className="text-white uppercase">{user.role}</strong>
+              Hak Akses Sesi: <strong className="text-white uppercase">{user.role}</strong>
             </div>
           </div>
         </div>

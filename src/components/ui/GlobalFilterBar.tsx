@@ -36,15 +36,15 @@ export function GlobalFilterBar() {
     selectedYear !== '2026' || selectedDistrictId !== '3206' || selectedTypology !== 'ALL';
 
   return (
-    <div className="w-full bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-900 rounded-sm p-4 space-y-3.5 shadow-2xs">
+    <div className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm p-4 space-y-3.5 shadow-xs">
       {/* Filters Select Area */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <Filter className="h-4 w-4 text-blue-500" />
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+          <Filter className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
             Ruang Kendali Eksekutif Global
           </h3>
-          <span className="text-[9px] font-mono bg-blue-50 dark:bg-blue-950/40 text-blue-600 px-1.5 py-0.5 rounded-sm font-bold uppercase">
+          <span className="text-[9px] font-mono bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-900/60 px-1.5 py-0.5 rounded-xs font-bold uppercase">
             Tersinkronisasi
           </span>
         </div>
@@ -52,14 +52,14 @@ export function GlobalFilterBar() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 flex-1 lg:max-w-4xl">
           {/* Year Filter */}
           <div className="space-y-1">
-            <label className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1">
+            <label className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-1">
               <Calendar className="h-3 w-3 text-slate-400" />
               Tahun Sasaran
             </label>
             <select
               value={selectedYear}
               onChange={(e) => setSelectedYear(e.target.value)}
-              className="w-full h-9 rounded-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-300 focus:outline-hidden focus:ring-1 focus:ring-blue-500 font-medium"
+              className="w-full h-9 rounded-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500 font-medium cursor-pointer"
             >
               {yearOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -71,14 +71,14 @@ export function GlobalFilterBar() {
 
           {/* District Filter */}
           <div className="space-y-1">
-            <label className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1">
+            <label className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-1">
               <MapPin className="h-3 w-3 text-slate-400" />
               Fokus Kabupaten/Kota
             </label>
             <select
               value={selectedDistrictId || '3206'}
               onChange={(e) => setSelectedDistrictId(e.target.value)}
-              className="w-full h-9 rounded-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-300 focus:outline-hidden focus:ring-1 focus:ring-blue-500 font-medium"
+              className="w-full h-9 rounded-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500 font-medium cursor-pointer"
             >
               {WEST_JAVA_DISTRICTS.map((d) => (
                 <option key={d.id} value={d.id}>
@@ -90,14 +90,14 @@ export function GlobalFilterBar() {
 
           {/* Region / Typology Filter */}
           <div className="space-y-1">
-            <label className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1">
+            <label className="text-[9px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-1">
               <Layers className="h-3 w-3 text-slate-400" />
               Cakupan Geografis Tipologi
             </label>
             <select
               value={selectedTypology}
               onChange={(e) => setSelectedTypology(e.target.value)}
-              className="w-full h-9 rounded-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-300 focus:outline-hidden focus:ring-1 focus:ring-blue-500 font-medium"
+              className="w-full h-9 rounded-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500 font-medium cursor-pointer"
             >
               {regionOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -110,19 +110,19 @@ export function GlobalFilterBar() {
       </div>
 
       {/* Chips and Reset Row */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-50 dark:border-slate-900/60">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-100 dark:border-slate-900">
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
             Parameter Aktif:
           </span>
 
           {/* Year Chip */}
-          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-100 dark:border-slate-800 text-[10px] font-mono">
+          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-200 dark:border-slate-800 text-[10px] font-mono">
             <span>Tahun: {selectedYear}</span>
             {selectedYear !== '2026' && (
               <button
                 onClick={() => setSelectedYear('2026')}
-                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
+                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors cursor-pointer"
                 title="Reset Tahun"
               >
                 <X className="h-3 w-3" />
@@ -131,12 +131,12 @@ export function GlobalFilterBar() {
           </span>
 
           {/* District Chip */}
-          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-100 dark:border-slate-800 text-[10px] font-mono">
+          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-200 dark:border-slate-800 text-[10px] font-mono">
             <span>Kabupaten/Kota: {activeDistrict?.name || selectedDistrictId}</span>
             {selectedDistrictId !== '3206' && (
               <button
                 onClick={() => setSelectedDistrictId('3206')}
-                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
+                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors cursor-pointer"
                 title="Reset Kabupaten/Kota"
               >
                 <X className="h-3 w-3" />
@@ -145,12 +145,12 @@ export function GlobalFilterBar() {
           </span>
 
           {/* Typology Region Chip */}
-          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-100 dark:border-slate-800 text-[10px] font-mono">
+          <span className="inline-flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-xs border border-slate-200 dark:border-slate-800 text-[10px] font-mono">
             <span>Cakupan: {regionOptions.find((r) => r.value === selectedTypology)?.label}</span>
             {selectedTypology !== 'ALL' && (
               <button
                 onClick={() => setSelectedTypology('ALL')}
-                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
+                className="text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors cursor-pointer"
                 title="Reset Cakupan Wilayah"
               >
                 <X className="h-3 w-3" />
@@ -162,7 +162,7 @@ export function GlobalFilterBar() {
         {hasActiveFilters && (
           <button
             onClick={resetFilters}
-            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors bg-slate-50 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-950/20 px-2.5 py-1.5 rounded-xs border border-slate-200/60 dark:border-slate-800"
+            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-950/20 px-2.5 py-1.5 rounded-xs border border-slate-200 dark:border-slate-800 cursor-pointer"
           >
             <RotateCcw className="h-3 w-3" />
             <span>Reset ke Standar</span>
