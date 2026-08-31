@@ -382,7 +382,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       />
 
       {/* Section 1: Executive Summary Context Card */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-executive-summary">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-executive-summary">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-50 dark:border-slate-900 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 rounded-xs">
@@ -415,7 +415,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Indeks Prioritas:</span>
-            <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xs">
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xs">
               <Award className="h-3.5 w-3.5 text-blue-500" />
               <span className="text-sm font-bold font-mono tracking-tight">{activeYearStats.priorityScore}/100</span>
             </div>
@@ -504,7 +504,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       {/* Middle Grid - Section 3: Socioeconomic Profile & Section 7: Risk Drivers Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Section 3: Socioeconomic Profile Details */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-socioeconomic-profile">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-socioeconomic-profile">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
             <div>
               <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Diagnostik Struktural</span>
@@ -586,7 +586,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         </div>
 
         {/* Section 7: Risk Drivers Radar Chart */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-risk-drivers">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-risk-drivers">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Kesenjangan Multidimensional</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
@@ -640,7 +640,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       {/* Grid Row - Section 4: Trend Analysis & Section 5: Regional Comparison */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Section 4: Trend Analysis Chart */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-trend-analysis">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-trend-analysis">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Trajektori Temporal</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
@@ -679,7 +679,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         </div>
 
         {/* Section 5: Regional Comparison Card */}
-        <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-regional-comparison">
+        <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-regional-comparison">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Konteks Koridor BPS</span>
             <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mt-0.5">
@@ -722,7 +722,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       {/* Grid Row - Section 6: Spatial Context & Section 9: Local Policy Options */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Section 6: Spatial Context Mini-Map */}
-        <div className="lg:col-span-4 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between" id="section-spatial-context">
+        <div className="lg:col-span-4 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between" id="section-spatial-context">
           <div className="space-y-4">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
               <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">koordinat spasial</span>
@@ -732,7 +732,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
             </div>
 
             {/* Simulated Geographic Spatial Visual block */}
-            <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 h-40 rounded-xs flex items-center justify-center relative overflow-hidden">
+            <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 h-40 rounded-xs flex items-center justify-center relative overflow-hidden">
               {/* Simple stylized SVG grid representing coordinates of district */}
               <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]"></div>
               
@@ -760,7 +760,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         </div>
 
         {/* Section 9: Local Policy Options */}
-        <div className="lg:col-span-8 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-policy-recommendation">
+        <div className="lg:col-span-8 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs" id="section-policy-recommendation">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3 mb-4 flex items-center justify-between">
             <div>
               <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">Formulasi Algoritmik</span>
@@ -842,7 +842,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       {/* Grid Row - Section 8: Sub-district Directory & Households Preview */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="section-household-directory">
         {/* Sub-district Poverty Directory */}
-        <div className="lg:col-span-6 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-6 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
           <div className="space-y-3">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex items-center justify-between">
               <div>
@@ -890,7 +890,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
         </div>
 
         {/* Household Distribution Preview (PDP Compliant) */}
-        <div className="lg:col-span-6 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-6 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
           <div className="space-y-4">
             <div className="border-b border-slate-50 dark:border-slate-900 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
@@ -953,7 +953,7 @@ Date: ${new Date().toLocaleDateString('id-ID')}
       </div>
 
       {/* Section 10: Executive Brief Printable Memo */}
-      <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-slate-950 dark:bg-slate-950 p-6 text-slate-300 shadow-sm" id="section-executive-brief">
+      <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-slate-950 dark:bg-slate-950 p-6 text-slate-300 shadow-sm" id="section-executive-brief">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800 mb-5">
           <div className="flex items-center gap-2.5">
             <FileText className="h-5 w-5 text-blue-400" />

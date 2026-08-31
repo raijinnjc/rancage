@@ -112,7 +112,7 @@ export function ExecutiveAlerts() {
   };
 
   return (
-    <div className="border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 shadow-2xs overflow-hidden" id="executive-alerts-card">
+    <div className="border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 shadow-2xs overflow-hidden" id="executive-alerts-card">
       
       {/* Title Header */}
       <div className="border-b border-slate-50 dark:border-slate-900 px-5 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">

@@ -47,7 +47,7 @@ interface SimulationHistory {
 
 const getDistrictQuadrant = (p0: number) => {
   if (p0 >= 10.0) return 4; // Kuadran IV: Miskin-Timpang
-  if (p0 >= 7.62) return 3; // Kuadran III: Miskin-Merata
+  if (p0 >= 7.02) return 3; // Kuadran III: Miskin-Merata
   if (p0 >= 5.0) return 2;  // Kuadran II: Sejahtera-Timpang
   return 1;                 // Kuadran I: Sejahtera-Merata
 };
@@ -173,7 +173,7 @@ export default function PolicyRecommendationPage() {
       setActiveSimulation(newSim);
       setHistory(prev => [newSim, ...prev]);
       setIsSimulating(false);
-    }, 1500);
+    }, 800);
   };
 
   const getSortedHistory = () => {
@@ -186,7 +186,31 @@ export default function PolicyRecommendationPage() {
   };
 
   const triggerExport = (format: string) => {
-    alert(`Ekspor ${format} berhasil! Dokumen ringkasan simulasi sedang diunduh.`);
+    if (history.length === 0) return;
+    const headers = ['ID Simulasi', 'Skenario', 'Kabupaten/Kota', 'Anggaran (Miliar Rp)', 'P0 Awal (%)', 'P0 Baru (%)', 'Penurunan P0 (%)', 'P1 Awal', 'P1 Baru', 'Penurunan P1', 'Kecocokan', 'Biaya per 1% Penurunan (Miliar Rp)'];
+    const rows = history.map(h => [
+      h.id,
+      `"${h.scenarioName}"`,
+      `"${h.districtName}"`,
+      h.budget,
+      h.baselineP0,
+      h.newP0,
+      h.deltaP0,
+      h.baselineP1,
+      h.newP1,
+      h.deltaP1,
+      `"${h.matchStatus}"`,
+      h.costEffectivenessRatio
+    ]);
+    const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `RANCAGE_simulasi_kebijakan_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -223,7 +247,7 @@ export default function PolicyRecommendationPage() {
               <div className="space-y-2">
                 <button
                   onClick={() => setSelectedScenario('SCENARIO_1')}
-                  className={`w-full text-left p-3 rounded-md border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_1' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
+                  className={`w-full text-left p-3 rounded-sm border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_1' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
                 >
                   <div className="flex items-center justify-between">
                     <span>Skenario 1: Bantuan Tunai & Padat Karya</span>
@@ -233,7 +257,7 @@ export default function PolicyRecommendationPage() {
                 </button>
                 <button
                   onClick={() => setSelectedScenario('SCENARIO_2')}
-                  className={`w-full text-left p-3 rounded-md border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_2' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
+                  className={`w-full text-left p-3 rounded-sm border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_2' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
                 >
                   <div className="flex items-center justify-between">
                     <span>Skenario 2: Infrastruktur Dasar (Air/Sanitasi)</span>
@@ -243,7 +267,7 @@ export default function PolicyRecommendationPage() {
                 </button>
                 <button
                   onClick={() => setSelectedScenario('SCENARIO_3')}
-                  className={`w-full text-left p-3 rounded-md border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_3' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
+                  className={`w-full text-left p-3 rounded-sm border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_3' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
                 >
                   <div className="flex items-center justify-between">
                     <span>Skenario 3: Pelatihan Vokasi & Kredit Mikro</span>
@@ -253,7 +277,7 @@ export default function PolicyRecommendationPage() {
                 </button>
                 <button
                   onClick={() => setSelectedScenario('SCENARIO_4')}
-                  className={`w-full text-left p-3 rounded-md border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_4' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
+                  className={`w-full text-left p-3 rounded-sm border text-sm font-semibold transition-all ${selectedScenario === 'SCENARIO_4' ? 'bg-blue-50 border-blue-500 text-blue-700 dark:bg-blue-900/20 dark:border-blue-400 dark:text-blue-300 shadow-sm' : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400'}`}
                 >
                   <div className="flex items-center justify-between">
                     <span>Skenario 4: Jaring Pengaman Sosial Reguler</span>
@@ -272,7 +296,7 @@ export default function PolicyRecommendationPage() {
                 <select
                   value={selectedDistrict}
                   onChange={(e) => setSelectedDistrict(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-blue-500 font-medium"
+                  className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-sm text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-blue-500 font-medium"
                 >
                   <optgroup label="Kuadran IV (Miskin-Timpang)">
                     {DISTRICTS_ENRICHED.filter(d => d.quadrant === 4).map(d => (
@@ -352,7 +376,7 @@ export default function PolicyRecommendationPage() {
             <button
               onClick={handleRunSimulation}
               disabled={isSimulating}
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-md transition-all shadow-md active:scale-[0.98]"
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-sm transition-all shadow-md active:scale-[0.98]"
             >
               {isSimulating ? (
                 <>
@@ -385,7 +409,7 @@ export default function PolicyRecommendationPage() {
 
             {!activeSimulation && !isSimulating && (
               <div className="flex-1 flex flex-col items-center justify-center text-center p-8 opacity-60">
-                <div className="h-24 w-24 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center justify-center mb-4">
+                <div className="h-24 w-24 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mb-4">
                   <Activity className="h-10 w-10 text-slate-300 dark:text-slate-600" />
                 </div>
                 <h4 className="text-base font-bold text-slate-600 dark:text-slate-300">Belum Ada Skenario Dijalankan</h4>
@@ -407,7 +431,7 @@ export default function PolicyRecommendationPage() {
                 
                 {/* Kartu Perbandingan Dampak */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-lg p-5">
+                  <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <TrendingDown className="h-5 w-5 text-blue-500" />
                       <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tingkat Kemiskinan (P0)</span>
@@ -433,7 +457,7 @@ export default function PolicyRecommendationPage() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-lg p-5">
+                  <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <TrendingDown className="h-5 w-5 text-indigo-500" />
                       <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Kedalaman Kemiskinan (P1)</span>
@@ -461,7 +485,7 @@ export default function PolicyRecommendationPage() {
                 </div>
 
                 {/* Grafik Komparatif Recharts */}
-                <div className="h-64 border border-slate-100 dark:border-slate-800 rounded-lg p-4 bg-white dark:bg-slate-950">
+                <div className="h-64 border border-slate-200 dark:border-slate-800 rounded-sm p-4 bg-white dark:bg-slate-950">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                       data={[
@@ -489,7 +513,7 @@ export default function PolicyRecommendationPage() {
                 </div>
 
                 {/* Interpretasi Otomatis & Peringatan Efisiensi */}
-                <div className={`border p-4 rounded-lg flex items-start gap-3 ${
+                <div className={`border p-4 rounded-sm flex items-start gap-3 ${
                   activeSimulation.matchStatus === 'Sangat Cocok' ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' :
                   activeSimulation.matchStatus === 'Kurang Cocok (Inefisien)' ? 'bg-red-50/50 border-red-100 dark:bg-red-900/20 dark:border-red-800' :
                   'bg-blue-50/50 border-blue-100 dark:bg-slate-900/40 dark:border-slate-800'
@@ -543,9 +567,9 @@ export default function PolicyRecommendationPage() {
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-lg border border-slate-100 dark:border-slate-800">
+        <div className="overflow-x-auto rounded-sm border border-slate-200 dark:border-slate-800">
           <table className="w-full text-left text-xs whitespace-nowrap">
-            <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
               <tr className="text-[10px] font-bold font-mono text-slate-500 uppercase">
                 <th className="py-3 px-4">Peringkat</th>
                 <th className="py-3 px-4">Skenario Intervensi</th>
@@ -595,7 +619,7 @@ export default function PolicyRecommendationPage() {
           <button 
             onClick={() => triggerExport('Dataset Excel')}
             disabled={history.length === 0}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-md text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-sm text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Download className="h-4 w-4" />
             Ekspor Dataset Excel
@@ -603,7 +627,7 @@ export default function PolicyRecommendationPage() {
           <button 
             onClick={() => triggerExport('Ringkasan PDF')}
             disabled={history.length === 0}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-md text-xs font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-sm text-xs font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <FileText className="h-4 w-4" />
             Ekspor Ringkasan PDF

@@ -92,7 +92,7 @@ export function KlassenScatterPlot() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="klassen-scatter-plot-root">
       {/* Recharts Scatter Plot */}
-      <div className="lg:col-span-8 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+      <div className="lg:col-span-8 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
         <div>
           <div className="flex justify-between items-start border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <div>
@@ -190,7 +190,7 @@ export function KlassenScatterPlot() {
       </div>
 
       {/* Selected District Quadrant Info Panel */}
-      <div className="lg:col-span-4 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+      <div className="lg:col-span-4 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
         <div className="space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">

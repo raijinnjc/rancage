@@ -58,7 +58,7 @@ export function FiscalSimulator() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="fiscal-simulator-root">
       {/* Simulation Controls on left */}
-      <div className="lg:col-span-7 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+      <div className="lg:col-span-7 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-2 border-b border-slate-50 dark:border-slate-900 pb-3 mb-4">
             <Landmark className="h-4 w-4 text-blue-500" />
@@ -164,7 +164,7 @@ export function FiscalSimulator() {
       </div>
 
       {/* Simulated Outcomes on right */}
-      <div className="lg:col-span-5 border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
+      <div className="lg:col-span-5 border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs flex flex-col justify-between">
         <div className="space-y-4">
           <div className="border-b border-slate-50 dark:border-slate-900 pb-3">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono">

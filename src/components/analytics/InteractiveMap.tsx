@@ -97,7 +97,7 @@ export function InteractiveMap() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6" id="interactive-map-root">
       {/* Map visualization on the left */}
-      <div className="lg:col-span-8 flex flex-col h-full min-h-[460px] border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 relative shadow-2xs overflow-hidden">
+      <div className="lg:col-span-8 flex flex-col h-full min-h-[460px] border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 relative shadow-2xs overflow-hidden">
         
         {/* Header HUD */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-50 dark:border-slate-900 pb-3.5 mb-4">
@@ -195,7 +195,7 @@ export function InteractiveMap() {
       </div>
 
       {/* Profile summary on the right */}
-      <div className="lg:col-span-4 flex flex-col justify-between border border-slate-100 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs">
+      <div className="lg:col-span-4 flex flex-col justify-between border border-slate-200 dark:border-slate-800 rounded-sm bg-white dark:bg-slate-950 p-5 shadow-2xs">
         <div className="space-y-4">
           <div className="flex items-start justify-between gap-2 border-b border-slate-50 dark:border-slate-900 pb-3.5">
             <div>

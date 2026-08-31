@@ -261,7 +261,7 @@ export function SpatialDiagnosisMap({
       </div>
 
       {/* Selected Node Details HUD Card on the right */}
-      <div className="lg:col-span-4 flex flex-col justify-between border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-5 shadow-2xs">
+      <div className="lg:col-span-4 flex flex-col justify-between border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-sm p-5 shadow-2xs">
         <div className="space-y-4">
           <div className="flex items-center gap-2.5 border-b border-slate-50 dark:border-slate-900 pb-3">
             <div className="p-2 rounded bg-blue-500/10 text-blue-500">
